@@ -1,5 +1,0 @@
-# Heading
-
-## Subheading
-
-Some content.
