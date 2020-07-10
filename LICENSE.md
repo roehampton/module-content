@@ -1,2 +1,2 @@
 
-Copyright (C) 2020 Kevin Chalmers
+Copyright (C) 2020 The University of Roehampton and the authors.
