@@ -25,7 +25,7 @@ The first thing you should always do is change the password of the lab.
 
 1. Click the **three dots** at the bottom right of a lab.
 
-![Three Dots](change-password.png)]
+    ![Three Dots](change-password.png)]
 
 2. Select **Reset password**.
 3. Enter your new password.
@@ -37,7 +37,7 @@ Before you can access a lab, you must start the remote virtual machine.
 
 1. Click the **Stopped Toggle** to start the machine.
 
-![Starting a Lab](starting-lab.png)
+    ![Starting a Lab](starting-lab.png)
 
 2. The machine will take a few minutes to start-up, depending on the current demand for Azure. Once started, it can be connected to.
 
@@ -48,11 +48,11 @@ Before you can access a lab, you must start the remote virtual machine.
 1. At the bottom right of the lab, next to the three dots, you will see a **Remote Desktop Icon**. Click on the icon.
 2. The following window will be opened.
 
-![Remote Desktop Icon](connect.png)
+    ![Remote Desktop Icon](connect.png)
 
 3. Copy the information to the clipboard. This is a Secure Shell (ssh) connection string, allowing you to access the command line o the remote machine
 
-![SSH Connection String](ssh.png)
+    ![SSH Connection String](ssh.png)
 
 4. Depending on your operating system, open the command line terminal:
     - Windows 10 - Command Prompt, PowerShell, or Terminal.
