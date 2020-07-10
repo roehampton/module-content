@@ -8,6 +8,8 @@ When we add you to a lab, you will receive an email from Microsoft titled "Regis
 
 Click on the **Register for the lab** button in the email. The link will take you to the labs' dashboard. You log in using your usual University username and password.
 
+![Azure Labs Dashboard](labs-dashboard.png)
+
 ## Your Labs' Dashboard
 
 You can access your labs' dashboard using the following URL [https://labs.azure.com/virtualmachines](https://labs.azure.com/virtualmachines). The dashboard is quite simple. It displays the current labs you have access to and their state.:
@@ -22,6 +24,9 @@ You can access your labs' dashboard using the following URL [https://labs.azure.
 The first thing you should always do is change the password of the lab.
 
 1. Click the **three dots** at the bottom right of a lab.
+
+![Three Dots](change-password.png)]
+
 2. Select **Reset password**.
 3. Enter your new password.
 4. You can always change your lab password from here, so even if you forget it, you can change it.
@@ -31,6 +36,9 @@ The first thing you should always do is change the password of the lab.
 Before you can access a lab, you must start the remote virtual machine.
 
 1. Click the **Stopped Toggle** to start the machine.
+
+![Starting a Lab](starting-lab.png)
+
 2. The machine will take a few minutes to start-up, depending on the current demand for Azure. Once started, it can be connected to.
 
 ## Logging into Your Linux Lab Machine
@@ -39,7 +47,13 @@ Before you can access a lab, you must start the remote virtual machine.
 
 1. At the bottom right of the lab, next to the three dots, you will see a **Remote Desktop Icon**. Click on the icon.
 2. The following window will be opened.
-3. Copy the information to the clipboard. This is a Secure Shell (ssh) connection string, allowing you to access the command line o the remote machine.
+
+![Remote Desktop Icon](connect.png)
+
+3. Copy the information to the clipboard. This is a Secure Shell (ssh) connection string, allowing you to access the command line o the remote machine
+
+![SSH Connection String](ssh.png)
+
 4. Depending on your operating system, open the command line terminal:
     - Windows 10 - Command Prompt, PowerShell, or Terminal.
     - Mac OS X - Terminal.
