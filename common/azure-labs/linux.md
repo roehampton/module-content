@@ -25,7 +25,7 @@ The first thing you should always do is change the password of the lab.
 
 1. Click the **three dots** at the bottom right of a lab.
 
-    ![Three Dots](change-password.png)]
+    ![Three Dots](change-password.png)
 
 2. Select **Reset password**.
 3. Enter your new password.
