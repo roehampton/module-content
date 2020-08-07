@@ -1,5 +1,8 @@
 # Computer Systems Lab 2 - Logic Design
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+
 This lab aims to implement simple logic circuits. The software used is Logic Friday. The focus is to learn how to design the circuits, find the truth table for the gates, and simulate the combination of gates.
 
 ## Work Environment
