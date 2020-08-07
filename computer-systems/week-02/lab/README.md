@@ -81,9 +81,13 @@ Your diagram should be:
 ## Working with Multiple Gates
 
 Let us draw the logic circuit for the following:
+
+
 $$
-f = A \or C \or ¬B
+f = A \lor C \lor ¬B
 $$
+
+
 We will need two 2-in OR gates and one NOT gate (Invertor).
 
 1. **Create a new Gate Diagram.**
@@ -117,7 +121,7 @@ Your diagram should look something like this:
 
 Implement the following logical expressions and derive their truth tables.
 
-1. $¬(A \and B) \or ¬B$
-2. $(A \and B) \or ¬(B \and C)$
-3. $(A \oplus C) \and ¬B$
-4. $(A \and B \and (C \or D)) \or (C \and D)$
+1. $$¬(A \land B) \lor ¬B$$
+2. $$(A \land B) \lor ¬(B \land C)$$
+3. $$(A \oplus C) \land ¬B$$
+4. $$(A \land B \land (C \lor D)) \lor (C \land D)$$
