@@ -40,8 +40,8 @@ Your diagram should be similar to the following:
 ### Defining the Initial and Final States
 
 1. **Select the attribute editor tool from the toolbar.**
-2. **Right-click on the state $q0$ and in the pop-up menu displayed select Initial.**
-3. **Right-click on the state $q1$ and in the pop-up menu displayed select Final.**
+2. **Right-click on the state `q0` and in the pop-up menu displayed select Initial.**
+3. **Right-click on the state `q1` and in the pop-up menu displayed select Final.**
 
 Your diagram should now look as follows:
 
@@ -50,11 +50,11 @@ Your diagram should now look as follows:
 ### Creating Transitions
 
 1. **Select the transition creator tool from the toolbar.**
-2. **Click on $q0$ and drag to $q1$. In the text box type 1. We’ve now created the transition of $q0$ to $q1$ as 1.**
+2. **Click on `q0` and drag to `q1`. In the text box type 1. We’ve now created the transition of `q0` to `q1` as 1.**
 3. **Repeat the state transition creation process and create the following transitions:**
-   - **$q1$ to $q0$ is 0.**
-   - **$q0$ to $q0$ is 0.**
-   - **$q1$ to $q1$ is 1.**
+   - **`q1` to `q0` is 0.**
+   - **`q0` to `q0` is 0.**
+   - **`q1` to `q1` is 1.**
 
 Your diagram should look as follows:
 
@@ -86,13 +86,13 @@ Can you define the general rule for this state machine? That is, can you state c
 
 Now create a new state machine with the following state transitions:
 
-- $q0 \to q1$ is 0 and 1.
-- $q1 \to q2$ is 0 and 1.
-- $q2 \to q3$ is 0.
-- $q2 \to q4$ is 1.
-- $q3 \to q5$ is 0 and 1.
-- $q4 \to q4$ is 0 and 1.
-- $q5 \to q5$ is 0 and 1.
+- `q0` to `q1​` is 0 and 1.
+- `q1 to q2​` is 0 and 1.
+- `q2` to `q3​` is 0.
+- `q2` to `q4​` is 1.
+- `q3` to `q5​` is 0 and 1.
+- `q4` to `q4​` is 0 and 1.
+- `q5` to `q5​` is 0 and 1.
 
 Set $q0$ as the initial state and $q3$ and $q5$ as final states. Your diagram should be the same as follows:
 
@@ -121,17 +121,17 @@ We need a state machine that does the following:
 
 From these rules we can define the following transitions:
 
-- $q0 \to q1$ is 0.
-- $q0 \to q0$ is 1.
-- $q1 \to q2$ is 0.
-- $q1 \to q0$ is 1.
-- $q2 \to q3$ is 1.
-- $q2 \to q1$ is 0.
-- $q3 \to q4$ is 1.
-- $q3 \to q1$ is 0.
-- $q4 \to q4$ is 0 and 1.
+- `q0` to `q1​` is 0.
+- `q0` to `q0​` is 1.
+- `q1` to `q2​` is 0.
+- `q1` to `q0​` is 1.
+- `q2` to `q3​` is 1.
+- `q2` to `q1​` is 0.
+- `q3` to `q4​` is 1.
+- `q3` to `q1​` is 0.
+- `q4` to `q4​` is 0 and 1.
 
-$q0$ is the initial state and $q4$ is the final state. Your diagram should look similar to the following:
+`q0` is the initial state and  `q4​` is the final state. Your diagram should look similar to the following:
 
 ![Pattern matching state machine](pattern-matcher.png)
 
@@ -149,7 +149,7 @@ Create the following state machine:
 
 ![Highlighting nondeterminism](nondeterminism-view.png)
 
-$q2$, $q4$, and $q8$ each have multiple choices for transition with 1.
+`q2​`, `q4`, and `q8` each have multiple choices for transition with 1.
 
 ### Exercise
 

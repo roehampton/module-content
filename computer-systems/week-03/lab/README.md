@@ -1,5 +1,7 @@
 # Computer Systems Lab 3 - Building Complex Logic Circuits
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 This lab aims to implement complex logic circuits. The implementations include the Half Adder, Full Adder, Four Bit Parallel Adder, and Carry Look Ahead Adder. At the end of the lesson, you will be able to design complex multiple output circuits. We are again using Logic Friday.
 
 ## Derive Equation from Logic Circuit
@@ -26,9 +28,11 @@ Your diagram should look something like this:
 ![Logic Friday logic diagram](logic-friday-diagram.png)
 
 The equation for this diagram is:
+
 $$
 F0 = (\neg A \land C) \lor (A \land \neg B) \lor (A \land B \land \neg C)
 $$
+
 For practice, you should try simplifying this diagram using the Karnaugh Map method.
 
 ## Implementing the Half-Adder

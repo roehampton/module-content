@@ -1,5 +1,7 @@
 # Computer Systems Lab 5 - Little Man Computer
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 This lab focuses on using the *Little Man Computer (LC-3)* computer simulator to understand the workings of the von Neumann architecture. The simulator was design by Peter Higginson. To access the simulator, visit [here](https://peterhigginson.co.uk/lmc).
 
 ## Interface Overview
