@@ -17,10 +17,8 @@
 
 ![Logic circuit](diagram.png)
 
-6. Using BCD, add the following binary numbers:
-   - 0001 and 0100
-   - 0010 and 0101
-7. Using Parallel Adder, add the following:
-   - 0011 and 0001
-   - 0100 and 0001
+6. Using Parallel Adder, add the following:
+
+- 0011 and 0001
+- 0100 and 0001
 
