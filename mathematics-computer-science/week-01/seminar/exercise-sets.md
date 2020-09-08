@@ -2,11 +2,11 @@
 
 <script>
 MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  loader: {
+    load: ['input/tex-base', 'output/svg', 'ui/menu', '[tex]/require']
   },
-  svg: {
-    fontCache: 'global'
+  tex: {
+    packages: ['base', 'require']
   }
 };
 </script>
@@ -29,7 +29,7 @@ MathJax = {
 3. Consider the set $$S = {100, 200, 201, 300}$$. How many subsets are does $$S$$ have?
 4. Compute the cardinality of each of the sets below:
    1. {1, -13, 4, -13, 1}
-   2. {3, {1, 2, 3, 4}, $$\empty$$}
+   2. {3, {1, 2, 3, 4}, $$\emptyset$$}
    3. { }
    4. { { }, { { } }, { { { } } } }
    5. The set of all letters in the English alphabet.
@@ -38,10 +38,10 @@ MathJax = {
 5. Identify which of the statements mentioned below are FALSE and explain why.
    1. $$\{1, 2, 3\} \subseteq \{1, 2, 3, 4, 5\}$$
    2. $$\{1, 2, 3\} \subset \{1, 2, 3, 4, 5\}$$
-   3. $$\empty \subseteq {1, 2, 3}$$
-   4. $$\empty \in {1, 2, 3}$$
-   5. $$\empty \subseteq \{\empty, 1, 2, 3\}$$
-   6. $$\empty \in \{\empty, 1, 2, 3\}$$
+   3. $$\emptyset \subseteq {1, 2, 3}$$
+   4. $$\emptyset \in {1, 2, 3}$$
+   5. $$\emptyset \subseteq \{\emptyset, 1, 2, 3\}$$
+   6. $$\emptyset \in \{\emptyset, 1, 2, 3\}$$
    7. $$\{x\} \subseteq \{x\}$$
    8. $$\{x\} \in \{x, \{x\}\}$$
    9. $$\{x\} \subseteq \{x, \{x\}\}$$
