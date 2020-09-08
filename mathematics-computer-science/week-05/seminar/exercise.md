@@ -36,3 +36,4 @@ MathJax = {
    2. 00 0111 0001, 10 0100 1000 (Bi-conditional)
    3. 11 1111 1111, 00 0000 0000 (AND)
 
+Answers are available [here](exercise-answers).
