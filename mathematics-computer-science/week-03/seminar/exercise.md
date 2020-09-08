@@ -41,3 +41,5 @@ MathJax = {
    10. $\lceil 2.0 \rceil$
 7. Let $g$ be the function from the set $\{a, b, c\}$ to itself such that $g(a) = b$, $g(b) = c$, and $g(c) = a$. Let $f$ be the function from the set $\{a, b, c\}$ to the set $\{1, 2, 3\}$ such that $f(a) = 3$, $f(b) = 2$, and $f(c) = 1$. What is the composition of $f$ and $g$, and what is the composition of $g$ and $f$?
 8. Find $(f - h)(x)$ if $f(x) = 5x^2 + 2x - 5$ and $h(x) = 4x^2 - 10$.
+
+Answers are available [here](exercise-answers).
