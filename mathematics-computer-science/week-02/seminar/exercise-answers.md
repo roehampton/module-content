@@ -4,7 +4,7 @@
 
 ## Answers
 
-1. $R$ = {(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 6), (3, 6), (2, 4)}.
+1. $$R$$ = {(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 6), (3, 6), (2, 4)}.
 2. Relation types
    1. Not reflexive, not symmetric, not antisymmetric, not transitive.
    2. Reflexive, symmetric, not antisymmetric, transitive.
@@ -13,12 +13,12 @@
    5. Reflexive, not symmetric, not antisymmetric, not transitive.
    6. Not reflexive, not symmetric, not antisymmetric, not transitive.
 3. {(1, 1), (1, 2), (2, 1), (2, 2)}
-4. $2^{n^2} = 2^{4^2} = 65536$
+4. $$2^{n^2} = 2^{4^2} = 65536$$
 5. Relations
-   1. $R_1 \cup R_2$ = {(a, a), (b, b), (c, c), (a, b), (a, c), (a, d)}
-   2. $R_1 \cap R_2$ = {(a, a)}
-   3. $R_2 - R_1$ = {(a, b), (a, c), (a, d)}
-   4. $R_1 \oplus R_2$ = {(a, b), (a, c), (a, d), (b, b), (b, c)}
+   1. $$R_1 \cup R_2$$ = {(a, a), (b, b), (c, c), (a, b), (a, c), (a, d)}
+   2. $$R_1 \cap R_2$$ = {(a, a)}
+   3. $$R_2 - R_1$$ = {(a, b), (a, c), (a, d)}
+   4. $$R_1 \oplus R_2$$ = {(a, b), (a, c), (a, d), (b, b), (b, c)}
 6. Matrices.
 
 $$

@@ -14,7 +14,7 @@
    3. TRUE.
    4. FALSE. The set of positive integers does not include 0.
    5. FALSE. A square number is always positive.
-3. $2^{|S|} = 2^4 = 16$
+3. $$2^{|S|} = 2^4 = 16$$
 4. Set cardinality.
    1. 3
    2. 3
@@ -27,13 +27,13 @@
    1. TRUE
    2. TRUE
    3. TRUE
-   4. FALSE. $\empty$ is not a member of the set.
+   4. FALSE. $$\empty$$ is not a member of the set.
    5. TRUE
    6. TRUE
    7. TRUE
    8. TRUE
    9. TRUE
-   10. FALSE. $x$ Is the only element of the set.
+   10. FALSE. $$x$$ Is the only element of the set.
 6. Product sets.
    1. {(1, 3), (1, 4), (1, 5)}
    2. {(1, 2, 3), (1, 2, 4), (1, 2, 5), (1, 3, 3), (1, 3, 4), (1, 3, 5)}
