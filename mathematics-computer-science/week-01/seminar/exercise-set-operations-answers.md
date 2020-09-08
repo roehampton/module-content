@@ -2,11 +2,11 @@
 
 <script>
 MathJax = {
-  loader: {
-    load: ['input/tex-base', 'output/svg', 'ui/menu', '[tex]/require']
-  },
   tex: {
-    packages: ['base', 'require']
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+  svg: {
+    fontCache: 'global'
   }
 };
 </script>
