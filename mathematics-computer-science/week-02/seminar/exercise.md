@@ -1,10 +1,22 @@
 # Mathematics for Computer Science -- Relations
 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script>
+MathJax = {
+  loader: {
+    load: ['input/tex-base', 'output/svg', 'ui/menu', '[tex]/require']
+  },
+  tex: {
+    packages: ['base', 'require']
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
 
 **Solve the following mathematical problems.**
 
-1. List all the ordered pairs in the relation $$R = \{(a, b) | a \text{ divides } b \}$$ on the set {1, 2, 3, 4, 5, 6}.
+1. List all the ordered pairs in the relation $$R = \{(a, b) \mid a \text{ divides } b \}$$ on the set {1, 2, 3, 4, 5, 6}.
 2. For each of these relations on the set {1, 2, 3, 4}, decide whether it is reflexive, symmetric, antisymmetric, and/or transitive.
    1. {(2, 2), (2, 3), (2, 4), (3, 2), (3, 3), (3, 4)}
    2. {(1, 1), (1, 2), (2, 1), (2, 2), (3, 3), (4, 4)}

@@ -1,12 +1,24 @@
 # Mathematics for Computer Science -- Sets
 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script>
+MathJax = {
+  loader: {
+    load: ['input/tex-base', 'output/svg', 'ui/menu', '[tex]/require']
+  },
+  tex: {
+    packages: ['base', 'require']
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
 
 ## Answers
 
 1. Represent the sets.
-   1. S = {1, 3, 5, 7, 9} or {s | s positive integer and s is odd and s less than 10}
-   2. V = {a, e, i, o} or {v | v is a vowel and v is not "u"}
+   1. S = {1, 3, 5, 7, 9} or {s \| s positive integer and s is odd and s less than 10}
+   2. V = {a, e, i, o} or {v \| v is a vowel and v is not "u"}
    3. {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47}
 2. TRUE statements
    1. TRUE
@@ -27,7 +39,7 @@
    1. TRUE
    2. TRUE
    3. TRUE
-   4. FALSE. $$\empty$$ is not a member of the set.
+   4. FALSE. $$\emptyset$$ is not a member of the set.
    5. TRUE
    6. TRUE
    7. TRUE
