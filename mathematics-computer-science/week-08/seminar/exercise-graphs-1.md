@@ -25,3 +25,5 @@ MathJax = {
 7. What will be the graph representation of the given matrix?
 
 ![Matrix](matrix.png)
+
+Answers are available [here](exercise-graphs-1-answers).
