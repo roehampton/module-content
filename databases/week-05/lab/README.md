@@ -173,7 +173,7 @@ SQL> SELECT name||' '||'is a'||' '||job AS "Employee Details" FROM  Employee;
 
 ## Lab Task
 
-1. Before starting with the lab task today, check the file which contains sample tables of `EmployeeInfo` database and keep them ready in your MySQL server. You can copy and paste the SQL statements step by step to define the tables and populate them with values as it is provided to you in the file. This task SHOULD NOT take you more than 15 minutes.
+1. Before starting with the lab task today, check the file which contains sample tables of `EmployeeInfo` database and keep them ready in your MySQL server. You can copy and paste the SQL statements step by step to define the tables and populate them with values as it is provided to you in the file. This task SHOULD NOT take you more than 15 minutes. Data [here](sql).
 2. In `EmployeeInfo` Database, continue executing the following SQL:
    1. Find the employee’s name, hiredate and salary for those, whose salary is no more than 2450.
    2. Find the highest salary range for salary grade 4 and 5.

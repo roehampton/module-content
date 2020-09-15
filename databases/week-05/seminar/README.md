@@ -1,4 +1,4 @@
-# Databases Week 2 -- Normalization
+# Databases Week 5 -- Normalization
 
 **Answer the following multiple-choice questions.**
 
