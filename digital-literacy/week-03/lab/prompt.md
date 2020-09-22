@@ -14,4 +14,4 @@ Note the tilde (~) character which is a common shorthand for the home directory 
 
 Next: [File system commands][1cf2bfed]
 
-  [1cf2bfed]: navigating-file-tree.md "File system commands"
+  [1cf2bfed]: navigating-file-tree.html "File system commands"

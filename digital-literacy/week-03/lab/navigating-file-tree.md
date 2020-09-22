@@ -104,4 +104,4 @@ Using the up and down arrow keys, you can scroll to a previous command, edit it 
 
 Next: [Copying and moving files and directories][eaf289c9]
 
-  [eaf289c9]: moving-copying.md "copying and moving files"
+  [eaf289c9]: moving-copying.html "copying and moving files"

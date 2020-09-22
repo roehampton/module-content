@@ -18,4 +18,4 @@ This will take you immediately into the environment where you will work and you 
 
 NEXT: [Prompt][902e906d]
 
-  [902e906d]: prompt.md "About the prompt"
+  [902e906d]: prompt.html "About the prompt"
