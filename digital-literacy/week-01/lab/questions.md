@@ -1,9 +1,9 @@
 # Computer organisation
 
-Answer the following questions about the computing device nearest to you right now.  It may be a computer or a phone, but could also be anything from a watch, to a wifi router to a washing machine.
+Answer the following questions about the computing device nearest to you right now OR a computing device that interests you.  It may be a computer or a phone, but could also be anything from a watch, to a wifi router to a washing machine.
 
 Try and answer either via observation or by online research, or by combining the two.  
-If relevant, embed a photo into your worksheet.
+If you can, embed a photo into the padlet.
 
 
 
