@@ -134,14 +134,17 @@ Finally, we use Variables to store things
 
     mystringis = (assign or bind to this name the value of this expression)
     
+We’ll continue exploring variables in the next session.
+    
 
 ## Syle Tips
 ### Naming
 Variables, functions, methods, packages, modules
+
 *lower_case_with_underscores*
 
-
-We’ll continue exploring variables in the next session. Now we'll explore and expand on some of these concepts in Python via your open Jupyter Notebook. 
+## Exercises
+ Now we'll explore and expand on some of these concepts in Python via your open Jupyter Notebook. 
 
 
 
