@@ -5,7 +5,7 @@
 To create our Jupyter notebooks we will use Anaconda: a free and open-source distribution of the Python. Roehampton's computers should have this installed. You can download a copy for your personal computer at:
 https://www.anaconda.com/products/individual
 
-If intalling, follow the prompts from the intaller. Once installed, head to the "Anaconda Navigator" shortcut. 
+If installing, follow the prompts from the intaller. Once installed, head to the "Anaconda Navigator" shortcut. 
 In the Anaconda Navigator, we will have access to Jupyter Notebooks. As you launch the application, a new window in your browser will open. This is your Jupyter Notebook. Once opened, make sure to save it somewhere you can easily access. Roehampton University provides you with a Microsoft One Drive folder. Create a folder for this class (Software Development 1) and save the Jupyeter Notebook as "Lecture_1.ipynb". Each .ipynb file is one notebook, so each time you create a new notebook, a new .ipynb file will be created.  
 
 Jupyter Notebooks are an interactive comptuing environemnt for Python. Jupyter is an acronym for the programming languages Julia, Python and R. A Jupyter notebook integrates code and its output into a single document that combines visualizations, narrative text, mathematical equations, and other rich media. Jupyter Notebooks are now a major part of the data science workflow. 
