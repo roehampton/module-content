@@ -137,7 +137,7 @@ Finally, we use Variables to store things
 We’ll continue exploring variables in the next session.
     
 
-## Syle Tips
+## Style Tips
 ### Naming
 Variables, functions, methods, packages, modules
 
