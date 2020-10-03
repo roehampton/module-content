@@ -2,6 +2,14 @@
 
 ## The contents of this lab will be carried out on a Jupiter Notebook. Information on using Jupiter notebooks can be found at: https://jupyter.org/
 
+To create our Jupyter notebooks we will use Anaconda: a free and open-source distribution of the Python. Roehampton's computers should have this installed. You can download a copy for your personal computer at:
+https://www.anaconda.com/products/individual
+
+If intalling, follow the prompts from the intaller. Once installed, head to the "Anaconda Navigator" shortcut. 
+In the Anaconda Navigator, we will have access to Jupyter Notebooks. As you launch the application, a new window in your browser will open. This is your Jupyter Notebook. Once opened, make sure to save it somewhere you can easily access. Roehampton University provides you with a Microsoft One Drive folder. Create a folder for this class (Software Development 1) and save the Jupyeter Notebook as "Lecture_1.ipynb". Each .ipynb file is one notebook, so each time you create a new notebook, a new .ipynb file will be created.  
+
+Jupyter Notebooks are an interactive comptuing environemnt for Python. Jupyter is an acronym for the programming languages Julia, Python and R. A Jupyter notebook integrates code and its output into a single document that combines visualizations, narrative text, mathematical equations, and other rich media. Jupyter Notebooks are now a major part of the data science workflow. 
+
 In this lab, we’ll explore 
 1.  What is Programming (video)
 2.  Programming Languages (video)
@@ -11,7 +19,7 @@ By the end of this lab and its accompanying seminar, you’ll be able to run Pyt
 
 > "How am I going to write a piece of code to help me tackle this?"
 
-A few tips: Practice, practice, practice. You can’t passively absorb programming as a skill. Please view the videos before lecture so that you can maximise our time together. Remember that your instructor is not a mind reader, please tell them when you are struggling. When it comes to programming questions, Google and StackOverflow are your friends. Finally, don’t be afraid to try your code, you won’t break your computer!
+A few tips: Practice, practice, practice. You can’t passively absorb programming as a skill. Please view the videos before lecture so that you can maximise our time together. Remember that your instructor is not a mind reader, please tell them when you are struggling. Finally, don’t be afraid to try your code, you won’t break your computer!
 
 Let’s get started.
 
@@ -47,8 +55,6 @@ To describe recipes we need a language. So far we have been using English to des
 
 We’ll explore some of these modern primitives, how we make them and understand how the affect the flow of control. Like human languages, there are 100s of programming languages including Visual Basic, C, Mathematica, Matlab, C++, Java, Processing and Python. 
 
-> PROVISIONAL Python inventor [Picture, etc]
-
 We’ll use **Python** for this class, but this course is not about **python**. We need to know how to use it, but it’s not about where do the semicolons go in Python. It’s about using Python as a tool to think. We are interested here in learning how to learn, how to design recipe, how to structure recipes, how to do things in ways that can be translated to other languages. Once you know how to think like this, you can then learn another language in a few weeks.
 
 We refer to the *“dimension of language”* when we are asking how close are we to the guts of the machine?
@@ -73,7 +79,6 @@ Python Syntax vs Semantics
 
 *Static Semantics* in Python determine which programs are meaningful; which expressions make sense. Consider for instance: 
     My desk is Susan
-    Noun phrase verb
 
 Does it make sense?
 
@@ -88,13 +93,14 @@ But the problem is that if the program is complex enough you might not be able t
 
 The goal for this lab session is to have a set of primitives that we combine into complex expressions that we can then abstract and treat as *higher primitives*. For this, we will use a sequence of instructions in this flow of control in order to deduce new information. 
 
-> Python offers two kinds of values we can use: Numbers, strings
 
 Python has different Types of values: 
 
 > Strings are **strings**
 
-> Numbers can be **integer, floats, etc **
+> Numbers can be **integer, floats**
+
+> Logical (true or false) are **boolean**
 
 Higher programming languages have a set of operators that expect a certain type of input to give a certain type of output. Let’s explore the typical set of arithmetic operations:
 >   5*5
@@ -126,7 +132,16 @@ Commands (statements) take a value and ask the computer to do something with it.
 
 Finally, we use Variables to store things
 
-    mystringis=(assign or bind to this name the value of this expression)
+    mystringis = (assign or bind to this name the value of this expression)
+    
 
-We’ll continue exploring variables in the next session.
+## Syle Tips
+### Naming
+Variables, functions, methods, packages, modules
+*lower_case_with_underscores*
+
+
+We’ll continue exploring variables in the next session. Now we'll explore and expand on some of these concepts in Python via your open Jupyter Notebook. 
+
+
 
