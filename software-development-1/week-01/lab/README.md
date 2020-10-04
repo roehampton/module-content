@@ -110,8 +110,9 @@ Let's use Python to form a recipe to calculate for the following:
     5. Suppose the cover price of a book is $24.95, but bookstores get a 40% discount. 
     Shipping costs $3 in the US for the first copy and 75 cents for each additional copy.
     What is the total wholesale cost for 40 and 60 copies in the US? 
-    In the UK shipping costs £4.50 and £1.90 for each aditional copy. 
-    What's the toalt for 40 and 60 copies in the UK? 
+    In the UK shipping costs £4.50 and £1.90 for each aditional copy.
+    Today, 1 US dollar = 0.77 british pounds.
+    What's the total for 40 and 60 copies in the UK? 
     
     6. I leave my house at 6:52am. I run:
        1 mile at an easy pace (8:15 per mile) 
@@ -203,20 +204,21 @@ We'll explore and expand on some of these concepts in Python via your open Jupyt
     
     counter + 1 
     
-    8. Identify what kind of operators/values each one is with type()
-       * 
+    8. Identify what kind of values each one is with type()
+       3 * 4
        ‘hi’ 
        -99.1
-        -
-       /
-       +
-       2
+       False
+       4 - 6.0
+       3.0 / 6
+       0 + 0
+       "2.0"
        0.00
-       **
+       2**3
        “My dog ate my homework"
+       7 == 3 + 4
     
-    9. Why does this expression cause an error? How can you fix it?
+    9. Search online for the Python documentation for the len() function. It will be on a web page titled “Built-in Functions.” Skim the list of other functions Python has, look up what the round() function does, and experiment with it.
 
-    'I have eaten ' + 99 + ' burritos.’
 
 FIN 
