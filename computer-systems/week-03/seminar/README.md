@@ -1,5 +1,19 @@
 # Computer Systems Seminar 3 - Further Logic Design
 
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
 1. Derive the equation for the following Boolean function and design the logic circuit.
    - $F(A,B,C)=(0,2,6,7)$
    - $F(A,B,C)=(1,3,4,5)$
