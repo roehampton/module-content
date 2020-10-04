@@ -25,6 +25,12 @@ By the end of this lab and its accompanying seminar, you’ll be able to run Pyt
 A few tips: Practice, practice, practice. You can’t passively absorb programming as a skill. Please view the videos before lecture so that you can maximise our time together. Remember that your instructor is not a mind reader, please tell them when you are struggling. Finally, don’t be afraid to try your code, you won’t break your computer!
 
 Let’s get started.
+### Exercise
+    # Our first Python program, print out "Hello, world"
+    
+    print("Hello, world")
+
+fun fact: Brian Kernighan wrote the first "hello, world" program as part of the documentation for the BCPL programming language developed by Martin Richards. BCPL was used while C was being developed at Bell Labs a few years before the publication of Kernighan and Ritchie's C book in 1972.
 
 ## Lesson 1:  What is Programming?
 
@@ -212,3 +218,5 @@ We'll explore and expand on some of these concepts in Python via your open Jupyt
     9. Why does this expression cause an error? How can you fix it?
 
     'I have eaten ' + 99 + ' burritos.’
+
+FIN 
