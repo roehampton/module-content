@@ -6,7 +6,10 @@ To create our Jupyter notebooks we will use Anaconda: a free and open-source dis
 https://www.anaconda.com/products/individual
 
 If installing, follow the prompts from the intaller. Once installed, head to the "Anaconda Navigator" shortcut. 
-In the Anaconda Navigator, we will have access to Jupyter Notebooks. As you launch the application, a new window in your browser will open. This is your Jupyter Notebook. Once opened, make sure to save it somewhere you can easily access. Roehampton University provides you with a Microsoft One Drive folder. Create a folder for this class (Software Development 1) and save the Jupyeter Notebook as "Lecture_1.ipynb". Each .ipynb file is one notebook, so each time you create a new notebook, a new .ipynb file will be created.  
+In the Anaconda Navigator, we will have access to Jupyter Notebooks. As you launch the application, a new window in your browser will open. This is your Jupyter Notebook. Once opened, make sure to save it somewhere you can easily access. Roehampton University provides you with a Microsoft One Drive folder. Create a folder for this class (Software Development 1) and save the Jupyeter Notebook as "Lecture_1.ipynb". Each .ipynb file is one notebook, so each time you create a new notebook, a new .ipynb file will be created. 
+
+![Alt text](img_conda2.png?raw=false "Anaconda")
+
 
 Jupyter Notebooks are an interactive comptuing environemnt for Python. Jupyter is an acronym for the programming languages Julia, Python and R. A Jupyter notebook integrates code and its output into a single document that combines visualizations, narrative text, mathematical equations, and other rich media. Jupyter Notebooks are now a major part of the data science workflow. 
 
@@ -39,7 +42,10 @@ Some of the earliest computers, known as fixed program computers, were designed 
 
 This is the idea behind Stored Program Computers, the multipurpose device we will be working with. These computers usually have the following elements:
 
-    PROVISIONAL Memory-> Control Unit-> ALU-> Programme Counter
+    Memory-> Control Unit-> ALU-> Programme Counter
+    
+![Alt text](img_stored_program.png?raw=false "Stored Program Computer")
+
 
 Back in the olden days, computers had physical cards that need punching, etc. 
 
@@ -179,13 +185,13 @@ Variables, functions, methods, packages, modules
 We'll explore and expand on some of these concepts in Python via your open Jupyter Notebook. 
 
 
-    1.What does the variable counter contain after the following code runs? 
+    7.What does the variable counter contain after the following code runs? 
 
     counter = 20
     
     counter + 1 
     
-    2. Identify what kind of operators/values each one is with type()
+    8. Identify what kind of operators/values each one is with type()
        * 
        ‘hi’ 
        -99.1
@@ -197,6 +203,6 @@ We'll explore and expand on some of these concepts in Python via your open Jupyt
        **
        “My dog ate my homework"
     
-    3. Why does this expression cause an error? How can you fix it?
+    9. Why does this expression cause an error? How can you fix it?
 
     'I have eaten ' + 99 + ' burritos.’
