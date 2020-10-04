@@ -1,11 +1,14 @@
-ATBS
+The Seminar is about cementiong what we have learned in our Lab. In this session we'll discuss the following questions and exercies: 
+
+
+
 1. Can you think of examples of fixed program computers?
 
 
 2. What’s the difference between variable x, and string “x"?
 
 
-3. Name three data types and what can they be used for (examples)
+3. Name three data types and what can they be used for (examples).
 
 
 4. What is an expression made up of? What do expressions do?
@@ -14,19 +17,20 @@ ATBS
 5. What is the difference between an expression and a statement?
 
 
-6. What should the following two expressions evaluate to?
+6. What should the following expression evaluate to?
 
     "hi" + 'hihi' "hello " * 3
-
+    
 7. Is *socks* a valid variable name? How about *9000*? What’s the difference
 
 8. What functions can be used to get the integer, floating-point
 number, or string version of a value?
 
-9. Search online for the Python documentation for the len() function. It will be on a web page titled “Built-in Functions.” Skim the list of other functions Python has, look up what the round() function does, and experiment with it in the interactive shell.
+9. Why does this expression cause an error? How can you fix it?
 
-TP
-10. In a print statement, what happens if you leave out one of the parentheses, or both?
+    'I have eaten ' + 99 + ' burritos.’
+    
+10. In Jupyter, wat happens if you leave out one of the parentheses, or both?
 
 11. If you are trying to print a string, what happens if you leave out one of the quotation marks, or both?
 
@@ -46,4 +50,9 @@ TP
 * What if you put a period at the end of a statement?
 
 17. In math notation you can multiply *x* and *y* like this: *xy*. What happens if you try that in Python?
+
+18. What is the result of the following calculation:
+
+        3 + 2 * 9 / 10 -1
+
 
