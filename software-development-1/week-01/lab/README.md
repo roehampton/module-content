@@ -27,7 +27,7 @@ Let’s get started.
 
 To understand this, we need to separate computer from computation. Computation is independent of the way is it is implemented in a computer. Think of the difference between knowing something vs knowing how to do something. For instance, knowing what is your favourite food vs how to make your favourite food. 
 
-    Exercise: What is your favourite food? Write down a recipe for how to make it.
+    Exercise: Do you know how to make you favourite food? Can you write down a recipe for how to make it?
 
 A recipe is a description of a set of steps; a sequence of specific instructions in order for you to accomplish an objective. 
 We define computation as the techniques of capturing this process in a mechanical fashion.
@@ -44,6 +44,20 @@ This is the idea behind Stored Program Computers, the multipurpose device we wil
 Back in the olden days, computers had physical cards that need punching, etc. 
 
     Do you know of any of these old physical computing mechanisms? 
+    
+    
+### Exercises
+Let's use Python as a Fixed Program Computer such as a Calculator
+
+    1. How many seconds are there in 42 minutes 42 seconds?
+    
+    2. How many miles are there in 10 kilometers? 
+    Hint: there are 1.61 kilometers in a mile.
+    
+    3. If you run a 10 kilometer race in 42 minutes 42 seconds, 
+    what is your average pace (time per mile in minutes and seconds)? 
+    What is your average speed in miles per hour?
+    
 
 ## Lesson 2: Programming Languages
 
@@ -70,6 +84,25 @@ Finally, when we ask whether a language is *Interpreted* vs *Compiled*, we are a
 
 > Therefore Python is a high level, general purpose, interpreted language.
 
+### Exercises
+Let's use Python to form a recipe to calculate for the following:
+
+    4. The volume of a sphere with radius r is 3 πr . 
+    What is the volume of a sphere with radius 5? 
+    How about radius 3.5? 
+    
+    5. Suppose the cover price of a book is $24.95, but bookstores get a 40% discount. 
+    Shipping costs $3 in the US for the first copy and 75 cents for each additional copy.
+    What is the total wholesale cost for 40 and 60 copies in the US? 
+    In the UK shipping costs £4.50 and £1.90 for each aditional copy. 
+    What's the toalt for 40 and 60 copies in the UK? 
+    
+    6. I leave my house at 6:52am. I run:
+       1 mile at an easy pace (8:15 per mile) 
+       3 miles at tempo (7:12 per mile) 
+       1 mile at an easy pace again. 
+       At what time do I get home for breakfast?
+    
 
 ## Lesson 3:  Introduction to Python
 
@@ -103,7 +136,7 @@ Python has different Types of values:
 > Logical (true or false) are **boolean**
 
 Higher programming languages have a set of operators that expect a certain type of input to give a certain type of output. Let’s explore the typical set of arithmetic operations:
->   5*5
+>    5*5
 
 >    3+2
 
@@ -117,7 +150,6 @@ What do these have in common?
 What happens if we do something like “cat”/“tree"?
 
     Error
-
 
 Commands (statements) take a value and ask the computer to do something with it. 
 
@@ -143,8 +175,28 @@ Variables, functions, methods, packages, modules
 
 *lower_case_with_underscores*
 
-## Exercises
- Now we'll explore and expand on some of these concepts in Python via your open Jupyter Notebook. 
+### Exercises
+We'll explore and expand on some of these concepts in Python via your open Jupyter Notebook. 
 
 
+    1.What does the variable counter contain after the following code runs? 
 
+    counter = 20
+    
+    counter + 1 
+    
+    2. Identify what kind of operators/values each one is with type()
+       * 
+       ‘hi’ 
+       -99.1
+        -
+       /
+       +
+       2
+       0.00
+       **
+       “My dog ate my homework"
+    
+    3. Why does this expression cause an error? How can you fix it?
+
+    'I have eaten ' + 99 + ' burritos.’
