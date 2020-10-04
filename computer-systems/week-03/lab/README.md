@@ -1,6 +1,18 @@
 # Computer Systems Lab 3 - Building Complex Logic Circuits
 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
 
 This lab aims to implement complex logic circuits. The implementations include the Half Adder, Full Adder, Four Bit Parallel Adder, and Carry Look Ahead Adder. At the end of the lesson, you will be able to design complex multiple output circuits. We are again using Logic Friday.
 
