@@ -55,4 +55,4 @@ number, or string version of a value?
 
         3 + 2 * 9 / 10 -1
 
-Can you identify the order of precendence of the mathematical operations?
+Can you identify the order of precedence of the mathematical operations?
