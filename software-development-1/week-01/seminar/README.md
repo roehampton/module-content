@@ -51,7 +51,7 @@ number, or string version of a value?
 
 17. In math notation you can multiply *x* and *y* like this: *xy*. What happens if you try that in Python?
 
-18. What is the result of the following calculation:
+18. What is the result of the following calculation in Python:
 
         3 + 2 * 9 / 10 -1
 
