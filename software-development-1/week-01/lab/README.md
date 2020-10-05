@@ -218,7 +218,10 @@ We'll explore and expand on some of these concepts in Python via your open Jupyt
        “My dog ate my homework"
        7 == 3 + 4
     
-    9. Search online for the Python documentation for the len() function. It will be on a web page titled “Built-in Functions.” Skim the list of other functions Python has, look up what the round() function does, and experiment with it.
+    9. Search online for the Python documentation for the len() function. 
+    It will be on a web page titled “Built-in Functions.” 
+    Skim the list of other functions Python has. 
+    Look up what the round() function does, and experiment with it.
 
 
 FIN 
