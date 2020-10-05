@@ -21,7 +21,7 @@ The Seminar is about cementing what we have learned in our Lab. Please go throug
 
     "hi" + 'hihi' "hello " * 3
     
-7. Is *socks* a valid variable name? How about *9000*? What’s the difference
+7. Is *socks* a valid variable name? How about *9000*? What’s the difference?
 
 8. What functions can be used to get the integer, floating-point
 number, or string version of a value?
