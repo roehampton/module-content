@@ -1,4 +1,4 @@
-The Seminar is about cementing what we have learned in our Lab. Please go through the following questions and exercices: 
+The Seminar is about cementing what we have learned in our Lab. Please go through the following questions and exercises: 
 
 
 
