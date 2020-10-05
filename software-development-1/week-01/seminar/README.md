@@ -1,4 +1,4 @@
-The Seminar is about cementiong what we have learned in our Lab. In this session we'll discuss the following questions and exercies: 
+The Seminar is about cementing what we have learned in our Lab. Please go through the follwoing questions and exercies: 
 
 
 
@@ -55,4 +55,4 @@ number, or string version of a value?
 
         3 + 2 * 9 / 10 -1
 
-
+Can you identify the order of precendence of the mathematical operations?
