@@ -103,7 +103,7 @@ Finally, when we ask whether a language is *Interpreted* vs *Compiled*, we are a
 ### Exercises
 Let's use Python to form a recipe to calculate for the following:
 
-    4. The volume of a sphere with radius r is 4/3 πr <sup>3</sup> . 
+    4. The volume of a sphere with radius r is 4/3 π r^3 . 
     What is the volume of a sphere with radius 5? 
     How about radius 3.5? 
     
