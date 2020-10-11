@@ -102,6 +102,8 @@ In the case **var\_3 = 4 \* 5** we create a **binding** for (var\_3) to the valu
 
 Imagine that we have inside the machine **a virtual space that contains all possible values**. All the numbers, words and logic results there can be, including 2, 20 and even the name &quot;Arturo&quot;. When we create a set of variables (var\_1, var\_2, var\_3, ), we then create a list with the names that we want to use to hold our data. By assigning, we create a pointer, a link, from that name in our variable list to the value in our virtual space (which remember, contains all possible values).
 
+![Alt text](img_variables.png?raw=false "Values in Memory are binded to by variables")
+
 So if we do the following assignment:
 
 **var\_4 = var\_1**
