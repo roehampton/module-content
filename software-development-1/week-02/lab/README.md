@@ -1,4 +1,5 @@
-# Software Development 1 Lab 2 -- Basic syntax and semantics of a higher-level language 
+# Software Development 1 
+# Lab 2 -- Basic syntax and semantics of a higher-level language 
 
 Basic syntax and semantics of a higher-level language
 
