@@ -147,11 +147,6 @@ Example: Let's try to capture data from the user and store it in variables that 
     # Display the result 
     print(both) 
 
-    # Concatenate the strings
-    both = last + &quot;, &quot; + first
-
-    # Display the result
-    print(both)
 
 
 
@@ -182,6 +177,29 @@ Example: Remember the len function from last lesson? Let's use it by computing t
     # Display the result 
     print("Your first name contains", num_chars, "characters") 
 
+
+Exercise: Sort 3 integers values entered by the user into increasing order.
+
+    # Read the numbers from the user, naming them a, b and c 
+    a = int(input("Enter the first number: ")) 
+    b = int(input("Enter the second number: ")) 
+    c = int(input("Enter the third number: ")) 
+
+
+Since min and max are the names of functions in Python we should not use those names for variables. Instead, we use variables named **mn** and **mx** to hold the minimum and maximum values respectively. 
+    # the minimum value
+    mn = min(a, b, c)
+    # the maximum value
+    mx = max(a, b, c)
+    # the middle value 
+    md = a + b + c - mn - mx 
+    
+    
+    # Display the result 
+    print("The numbers in sorted order are:")
+    print(" ", mn)
+    print(" ", md)
+    print(" ", mx)
 
 
 
@@ -223,7 +241,7 @@ Example: Identify wheter a user-given number is 0 or not using *if* statements.
 
 
     # Read a number from the user
-    num = float(input(&quot;Enter a number: &quot;))
+    num = float(input("Enter a number: ";))
 
     # Store the appropriate message in result
     if num == 0:
@@ -259,7 +277,7 @@ Example: Let's write a piece of code that identifies whether a number is even or
     x = 3
 
     # our branching program
-    if (x/2)\*2 == x
+    if (x/2)*2 == x
       print ("even");
     else: print ("odd");
     
