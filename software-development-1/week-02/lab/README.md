@@ -226,6 +226,7 @@ Is this thing equal to in value to this other thing?
 Exercise: Compare a string with a number? Does this work?
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
 Example: Identify wheter a user-given number is 0 or not using *if* statements.
 
     # Read a number from the user
@@ -291,6 +292,7 @@ A triangle can be classified based on the lengths of its sides as equilateral, i
 length. If all of the sides have different lengths, then the triangle is scalene.
 Write a program that reads the lengths of the three sides of a triangle from the 
 user. Then display a message that states the triangle’s type. 
+
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 
