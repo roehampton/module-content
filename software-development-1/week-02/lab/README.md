@@ -247,19 +247,31 @@ These are key to understand the syntax and the flow of control inside of a progr
       instruction f
 
 
-Colon is important. It defines the beginning of a block of instructions. The carriage return identifies the end. &quot; **if&quot;** indicates I&#39;ve got an expression. If it is **true** , I&#39;m going to evaluate whatever is following the colon and is indented. If it is **false** , I&#39;m going to skip it. We can use a second keyword, &quot; **else&quot;** , to specify what to do if it is false
+Colon is important. It defines the beginning of a block of instructions. The carriage return identifies the end. &quot; **if&quot;** indicates I&#39;ve got an expression. If it is **true** , I&#39;m going to evaluate whatever is following the colon and is indented. If it is **false** , I&#39;m going to skip it. We can use a second keyword, &quot; **else&quot;** , to specify what to do if it is false.
+
+If this thing has some particular value, then do one thing. Otherwise, do something different. Let&#39;s explore its syntax.
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 Example: Let's write a piece of code that identifies whether a number is even or odd. Tip: we need it to get an input and identify and print out whether it is even or odd.
 
-If this thing has some particular value, then do one thing. Otherwise, do something different. Let&#39;s explore its syntax: Conditional IF
-
+    # Initialize our variable
     x = 3
 
+    # our branching program
     if (x/2)\*2 == x
       print ("even");
     else: print ("odd");
+    
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+Exercise: Classifying Triangles 
+A triangle can be classified based on the lengths of its sides as equilateral, isosceles or scalene. All three sides of an equilateral triangle have the same length. An isosceles triangle has two sides that are the same length, and a third side that is a different 
+length. If all of the sides have different lengths, then the triangle is scalene.
+Write a program that reads the lengths of the three sides of a triangle from the 
+user. Then display a message that states the triangle’s type. 
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
 
 We’ll continue this journey in the next Lesson! Happy coding!
 
