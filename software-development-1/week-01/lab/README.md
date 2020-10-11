@@ -1,4 +1,5 @@
-# Software Development 1 Lab 1 -- Introduction to Programming
+# Software Development 1 
+# Lab 1 -- Introduction to Programming
 
 ## The contents of this lab will be carried out on a Jupiter Notebook. Information on using Jupiter notebooks can be found at: https://jupyter.org/
 
