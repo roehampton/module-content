@@ -1,7 +1,6 @@
 # Software Development 1 
 # Lab 2 -- Basic syntax and semantics of a higher-level language 
 
-Basic syntax and semantics of a higher-level language
 
 In this lab, we’ll explore 
 1. What are the syntax and semantics of a programming language?
