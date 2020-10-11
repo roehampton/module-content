@@ -187,10 +187,13 @@ Exercise: Sort 3 integers values entered by the user into increasing order.
 
 
 Since min and max are the names of functions in Python we should not use those names for variables. Instead, we use variables named **mn** and **mx** to hold the minimum and maximum values respectively. 
+
     # the minimum value
     mn = min(a, b, c)
+    
     # the maximum value
     mx = max(a, b, c)
+    
     # the middle value 
     md = a + b + c - mn - mx 
     
