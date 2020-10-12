@@ -3,11 +3,11 @@ In this seminar we will go in more depth into the Syntax and Semantics of Python
 1. A variable can be assigned many times. It always retains the value of the most recent assignment. Here is an interactive Python session that demonstrates the point: 
 
          # We initialize our variable
-           myVar = 0 
+           myVar = 10 
            myVar
     
-         # We can manipulate the variable 
-          myVar - 7 
+         # We can use the variable without modifying it 
+          print(myVar - 7)
           myVar 
     
          # We can update the variable itself
@@ -30,7 +30,7 @@ Executing the input statement caused Python to print out the prompt **Enter your
 
        <variable> = srt(input(<prompt>)) 
 
-Here, we have used casting from an integer number into a string. That way, we ensure that whatever we are given by the user can be stored in our variable as a string type. We can then write a program that takes the first, middle and last names and displays the initials. By adding the extra casting into string, we ensure that any name, even the controversial X Æ A-12 (Grime's kid).
+Here, we have used casting from an integer number into a string. That way, we ensure that whatever we are given by the user can be stored in our variable as a string type. We can then write a program that takes the first, middle and last names and displays the initials. By adding the extra casting into string, we ensure that any name, even the controversial X Æ A-12 (the name of Grimes's kid), can be read.
 
     # Read the user’s name 
     first = str(input("Enter your first name: "))
