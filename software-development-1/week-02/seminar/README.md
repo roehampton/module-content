@@ -18,22 +18,24 @@ In this seminar we will go in more depth into the Syntax and Semantics of Python
 
 
 2. When Python encounters a call to input, it prints the prompt on the screen. Python then pauses and waits for the user to type some text and press the <Enter> key. Whatever the user types is then stored as a string. Consider: 
-    #Lets try creating a variable for storing our name
-    name = input ( "Enter your name: ")
-    name 
+
+       # Lets try creating a variable for storing our name
+       name = input ( "Enter your name: ")
+       name
 
 Executing the input statement caused Python to print out the prompt **Enter your name:** and then the interpreter paused waiting for user input. The string that the user put in is remembered in the variable name. Evaluating **name** gives back the string of characters that were typed by the user.
  
 
 3. When the user input is a number, we need a slightly more complicated form of input statement: 
-    <variable> = eval(input(<prompt>)) 
 
-The built-in Python function **eval** that is wrapped around the input function eval, **evaluates** whatever in in the input. In this form, the text typed by the user is evaluated as an expression to produce the value that is stored into the variable. Let’s consider a program that reads the user’s name:
+       <variable> = srt(input(<prompt>)) 
+
+Here, we have used casting from an integer number into a string. That way, we ensure that whatever we are given by the user can be stored in our variable as a string type. We can then write a program that takes the first, middle and last names and displays the initials. By adding the extra casting into string, we ensure that any name, even the controversial X Æ A-12 (Grime's kid).
 
     # Read the user’s name 
-    first = input("Enter your first name: ") 
-    middle = input("Enter your middle name: ") 
-    last = input("Enter your last name: ") 
+    first = str(input("Enter your first name: "))
+    middle = str(input("Enter your middle name: "))
+    last = str(input("Enter your last name: "))
 
     # Extract the first character from each string and concatenate them 
     initials = first[0] + middle[0] + last[0] 
