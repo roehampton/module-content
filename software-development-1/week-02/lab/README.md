@@ -178,7 +178,7 @@ Example: Remember the len function from last lesson? Let's use it by computing t
     print("Your first name contains", num_chars, "characters") 
 
 
-Exercise: Sort 3 integers values entered by the user into increasing order.
+### Exercise 2: Sort 3 integers values entered by the user into increasing order.
 
     # Read the numbers from the user, naming them a, b and c 
     a = int(input("Enter the first number: ")) 
@@ -223,7 +223,7 @@ Is this thing equal to in value to this other thing?
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-Exercise: Compare a string with a number? Does this work?
+### Exercise 3: Compare a string with a number? Does this work?
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
@@ -287,7 +287,7 @@ Example: Let's write a piece of code that identifies whether a number is even or
     
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-Exercise: Classifying Triangles 
+### Exercise 4: Classifying Triangles 
 A triangle can be classified based on the lengths of its sides as equilateral, isosceles or scalene. All three sides of an equilateral triangle have the same length. An isosceles triangle has two sides that are the same length, and a third side that is a different 
 length. If all of the sides have different lengths, then the triangle is scalene.
 Write a program that reads the lengths of the three sides of a triangle from the 
