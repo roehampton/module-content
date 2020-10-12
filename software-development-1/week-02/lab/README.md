@@ -230,7 +230,7 @@ Exercise: Compare a string with a number? Does this work?
 Example: Identify wheter a user-given number is 0 or not using *if* statements.
 
     # Read a number from the user
-    num = float(input(&quot;Enter a number: &quot;))
+    num = float(input("Enter a number: "))
 
     # Store the appropriate message in result
       if num == 0:
