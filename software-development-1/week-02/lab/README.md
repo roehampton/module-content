@@ -235,8 +235,8 @@ Example: Identify wheter a user-given number is 0 or not using *if* statements.
     num = float(input("Enter a number: "))
 
     # Store the appropriate message in result
-      if num == 0:
-    result = "The number was zero" ;
+    if num == 0:
+      result = "The number was zero" ;
     if num != 0:
       result = "The number was not zero" ;
 
