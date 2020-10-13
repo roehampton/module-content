@@ -30,7 +30,7 @@ MathJax = {
    1. $$R_1 \cup R_2$$ = {(a, a), (b, b), (c, c), (a, b), (a, c), (a, d)}
    2. $$R_1 \cap R_2$$ = {(a, a)}
    3. $$R_2 - R_1$$ = {(a, b), (a, c), (a, d)}
-   4. $$R_1 \oplus R_2$$ = {(a, b), (a, c), (a, d), (b, b), (b, c)}
+   4. $$R_1 \oplus R_2$$ = {(a, b), (a, c), (a, d), (b, b), (c, c)}
 6. Matrices.
 
 $$
