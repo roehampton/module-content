@@ -39,7 +39,7 @@ M_{R_1 \cup R_2} &= M_{R_1} \lor M_{R_2} &=
 \begin{bmatrix}
 1 & 0 & 1 \\
 1 & 1 & 1 \\
-1 & 1 & 1
+1 & 1 & 0
 \end{bmatrix} \\
 M_{R_1 \cap R_2} &= M_{R_1} \land M_{R_2} &=
 \begin{bmatrix}
