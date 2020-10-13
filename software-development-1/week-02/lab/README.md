@@ -137,6 +137,8 @@ A big part of the structure of programs are **comments.** The **# sign or &quot;
 **A good choice of variable name** is actually a great way to help commenting your code: **use variable names that make sense**. What are you trying to capture in this variable?
 
 Example: Let's try to capture data from the user and store it in variables that make sense.
+
+```python    
     # Read the names from the user 
     first = input("Enter the first name: ")
     last = input("Enter the last name: ") 
@@ -146,7 +148,7 @@ Example: Let's try to capture data from the user and store it in variables that 
 
     # Display the result 
     print(both) 
-
+```
 
 
 
