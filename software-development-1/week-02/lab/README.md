@@ -49,7 +49,7 @@ We can do things like add 2 numbers, concatenate two strings, but not add one nu
 
 It does not work in python. To tackle this, we can convert one type to another:
 
-    Str (2) + “ is my favourite number”
+    str (2) + “ is my favourite number”
 
 Python does basic type checking, but we need to learn to be disciplined with our type usage.
 
