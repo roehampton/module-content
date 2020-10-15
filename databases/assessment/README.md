@@ -89,7 +89,7 @@ A logically well represented report containing Part One and Part Two with approp
 
 ### Part Two
 
-| **Criteria **                                                | **Excellent**                                                | **Satisfactory**                                             | **Not satisfactory**                                         | **Not attempted**                                            |
+| **Criteria**                                                 | **Excellent**                                                | **Satisfactory**                                             | **Not satisfactory**                                         | **Not attempted**                                            |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **SQL comments** code is commented correctly.                | SQL is sufficiently commented with comments on every query, code segment, and special case. | SQL is commented in most cases.                              | SQL is commented but not sufficiently.                       | Code is not commented at all or has very few comments.       |
 | **SQL correctness** how correct is the output of the SQL.    | All queries work correctly.                                  | Almost all of the queries work correctly, or output is correct almost all the time. | Some queries do not work correctly, or output is incorrect.  | No output provided from SQL, or output is incorrect.         |
