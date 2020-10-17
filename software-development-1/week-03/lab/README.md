@@ -41,7 +41,7 @@ Example: Type this simple loop that prints the numbers from 1 to 5 in your Jupyt
 
 To write these kinds of recipe structures, we use a visualization tool called a flow chart:
 
-![Alt text](img_flowchart.png?raw=false "Flowchart Example")
+![Alt text](flowchart.png?raw=false "Flowchart Example")
 
 Start is represented by a rounded rectangle, variables are in a square box, tests are in a diamond, print in trapezoid and ends with a box that says stop
 
