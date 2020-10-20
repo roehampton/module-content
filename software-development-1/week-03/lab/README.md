@@ -27,7 +27,7 @@ Let&#39;s use the idea of needing salt in a recipe: _If necessary, add salt_.
 
 Let&#39;s identify here the variable inside the loop, the one that will keep changing and will tell us when to end: _the level of saltiness_. Our loop would look something like:
 
-    While (needs more salt)
+    while (needs more salt)
       Add salt
       Does it need more salt?
 
