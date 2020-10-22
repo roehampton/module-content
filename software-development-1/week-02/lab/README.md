@@ -7,7 +7,7 @@ In this lab, we’ll explore
 2. Syntax of Phyton
 3. Syntax & Semantics of Python
 
-By the end of this lab, know what is the basic syntax and semantics of a higher-level language, you will have familiarized yourself with variables and have learned the difference between a straight line and a branching program. 
+By the end of this lab, you will know what is the basic syntax and semantics of a higher-level language, you will have familiarized yourself with variables and have learned the difference between a straight line and a branching program. 
 
 
 ## Lesson 1: What are the syntax and semantics of a programming language?
