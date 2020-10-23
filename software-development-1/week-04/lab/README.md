@@ -7,7 +7,8 @@ In this lab, we’ll explore
 2. Function Creation
 3. Syntax & Semantics of Functions
 
-By the end of this lab, you will
+By the end of this lab, you will learn how to construct and access different kinds of functions, decompose and abstract problems and the difference betwen local and global variables.
+
 
 ## Lesson 1: Introduction to functions
 Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=6c64ff9d-d96c-4d79-897f-ac5d0092a77d
