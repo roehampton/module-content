@@ -4,8 +4,8 @@
 
 In this lab, we’ll explore 
 1. Introduction to Functions
-2. Function Creation
-3. Syntax & Semantics of Functions
+2. Function Creation : decomposition and abstraction
+3. Syntax & Semantics of Functions: specification
 
 By the end of this lab, you will learn how to construct and access different kinds of functions, decompose and abstract problems and the difference betwen local and global variables.
 
@@ -142,6 +142,19 @@ or simply import the whole library
 
 Takeaway: If we rely on the fact or &quot;contract&quot; that we wrote the code well and that we trust it to give us the right answer then all we need to worry about is giving it the right input.
 
+Example: a more general logarithm program, for any base b including clock (base 12) or binary (base 2) can be written as:
+
+
+    def log(x, base):
+    log_b = 2
+    while x != int(round(base ** log_b)):
+        log_b += 0.01
+        print log_b
+        return int(round(log_b))
+
+
+compare the results against the the built-in log function. Which one is better?
+
 
 ## Lesson 3: Specification
 Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=77d7a7b3-57fc-4195-904c-ac5d0092a7eb
@@ -183,15 +196,38 @@ A variable **x** inside our function _increase_ can only be seen by whatever is 
 
 Takeaway: instead of copying and pasting code over and over again, we can re-use it by writing it as a function and invoking it thought our program by its name.
 
-a more general logarithm program, for any base b including clock (base 12) or binary (base 2) can be written as:
 
+Example: Remember tha magic 8 balls that tell you your fate? Let's code one! The following program defines a function that returns a different string depending on what number it is passed as an argument:
 
-    def log(x, base):
-    log_b = 2
-    while x != int(round(base ** log_b)):
-        log_b += 0.01
-        print log_b
-        return int(round(log_b))
+    import random
+    
+    
+    def getAnswer(answerNumber): 
+        if answerNumber == 1:
+            return 'It is certain' 
+        elif answerNumber == 2:
+            return 'It is decidedly so' 
+        elif answerNumber == 3:
+            return 'Yes'
+        elif answerNumber == 4:
+            return 'Reply hazy try again' 
+        elif answerNumber == 5:
+            return 'Ask again later' 
+        elif answerNumber == 6:
+            return 'Concentrate and ask again' 
+        elif answerNumber == 7:
+            return 'My reply is no' 
+        elif answerNumber == 8:
+            return 'Outlook not so good' 
+        elif answerNumber == 9:
+            return 'Very doubtful'
+    
+    # calling the function
+    r = random.randint(1, 9) 
+    fortune = getAnswer(r) 
+    print(fortune)
+    
+    
+When this program starts, Python first imports the random module. Then the getAnswer() function is defined. Because the function is only being defined (and not called), the execution skips over the code in it. Next, the random.randint() function is called with two arguments, 1 and 9 x. It evaluates to a random integer between 1 and 9 (including 1 and 9 themselves), and this value is stored in a variable named r.
 
-
-compare the results against the the built-in log function. Which one is better?
+The getAnswer() function is called with r as the argument. The program execution moves to the top of the getAnswer() function, and the value r is stored in a parameter named answerNumber. Then, depending on this value in answerNumber, the function returns one of many possible string values. The program execution returns to the line at the bottom of the pro- gram that originally called getAnswer(). The returned string is assigned to a variable named fortune, which then gets passed to a print() call and is printed to the screen.
