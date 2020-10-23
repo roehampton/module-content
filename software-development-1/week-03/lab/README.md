@@ -110,11 +110,12 @@ Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=68dbbff2
 Imagine you have a collection of numbers, and you want to go through every single one of these numbers. If you want to go through each element of data at a time, luckily there is a very useful construct to help us called the &quot;for&quot; loop.
 
 Exercise: It&#39;s legal Python to step through a sequence like this:
+        
     rabbits = ['Flopsy', 'Mopsy', 'Cottontail', 'Peter'] 
     current = 0
     while current < len(rabbits):
-      print(rabbits[current]) 
-      current += 1
+         print(rabbits[current]) 
+         current += 1
 
 
 But a better, more **Pythonic** way is:
@@ -143,20 +144,22 @@ Example: Let&#39;s make the range 0, 1, 2:
       print(x)
 
 Example: Let&#39;s make a list of numbers with range():
+    
     list( range(0, 3) )
 
 Example: to make a range from 2 down to 0:
+   
     for x in range(2, -1, -1): 
-      print(x)
+       print(x)
 
 
 Example: String iteration produces a character at a time :
+     
      word = 'cat'
      for letter in word:
         print(letter) ...
 
 
-Exercise:
 
 **Create a list with [] or list()**
 
@@ -176,6 +179,7 @@ You can also make an empty list with the list() function:
 
 
 Python&#39;s list() function converts other data types to lists. The following example converts a string to a list of one-character strings:
+    
     list('cat')
 
 Lists can contain elements of different types, including other lists, as illustrated here:
