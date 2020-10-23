@@ -73,6 +73,7 @@ Our normal 12-hour time uses modulo 12 (14 o&#39;clock becomes 2 o&#39;clock), s
 But how about the things that are not &quot;built into&quot; Python?
 
 For instance, **logarithm**  is the inverse function to exponentiation. That means the logarithm of a given number x is the exponent to which another fixed number, the base b, must be raised, to produce that number x. **Logarithm** is defined as the exponent or power to which a base must be raised to yield a given number. A useful approximation for the logarithm is:
+
 ![Alt text](img_logarithm.png?raw=false "Approximation of Logarithm")
 
 if I want to know the logarithm of 0.5, I can approximate it with:
