@@ -10,7 +10,7 @@ In this lab, we’ll explore
 By the end of this lab, you will
 
 ## Lesson 1: Introduction to functions
-Video:
+Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=6c64ff9d-d96c-4d79-897f-ac5d0092a77d
 
 We&#39;ve learned the basics data structures and loops, which are the basic forms of recipes.
 
@@ -38,7 +38,7 @@ There are more things we should know to let us problem-solve well. You could tec
 
 For instance, if you are asked to make a program that calculates AM or PM from a 24-hour clock, you would have to do something like:
 
-input(time)
+    input(time)
 
     if time > 12 :
     	 time_pm = time-12
@@ -103,7 +103,7 @@ If we wanted to write this program and re-use it somewhere else in the code, I&#
 
 
 ## Lesson 2: Functions
-Video:
+Video:https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7b9880ba-c0e3-40ce-bb6b-ac5d0092a7b2
 
 If I wanted to write a program, we write this in one file. We start at the beginning, walk through all the way to the end. For the early coursework, it&#39;s not a bid deal. 10-20 lines of code is perfectly tractable. Professionally, however, code is usually hundreds or thousands of lines of code. It&#39;s really hard to keep track of things!
 
@@ -143,7 +143,7 @@ Takeaway: If we rely on the fact or &quot;contract&quot; that we wrote the code 
 
 
 ## Lesson 3: Specification
-Video: 
+Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=77d7a7b3-57fc-4195-904c-ac5d0092a7eb
 
 We need a contract that need a contract that says, here&#39;s what I want in terms of things that you&#39;re going to take as input, here&#39;s what you&#39;re going to produce at the
 
