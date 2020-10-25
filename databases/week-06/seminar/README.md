@@ -1,4 +1,4 @@
-# Databases Week 6 -- Transations
+# Databases Week 6 -- Transactions
 
 **Answer the following multiple-choice questions.**
 
