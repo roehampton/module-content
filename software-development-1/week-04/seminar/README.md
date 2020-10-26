@@ -24,16 +24,5 @@ b.	If the length of s is less than the width of the window then a string contain
   Write a main program that demonstrates your function by displaying multiple strings centred in the window. 
 
 
-5.	Many people do not use capital letters correctly, especially when typing on small devices like smart phones. To help address this situation, you will create a function that takes a string as its only parameter and returns a new copy of the string that has 
-been correctly capitalized. In particular, your function must: 
 
-a. Capitalize the first non-space character in the string
-
-b. Capitalize the first non-space character after a period, exclamation mark or question mark
-
-c. Capitalize a lowercase “i” if it is preceded by a space and followed by a space, period, exclamation mark, question mark or apostrophe. 
-
-  Implementing these transformations will correct most capitalization errors. For example, if the function is provided with the string “what time do i have to be there? what’s the address? this time i’ll try to be on time!” then it should return the string “What time do I have to be there? What’s the address? This time I’ll try to be on time!”. Include a main program that reads a string from the user, capitalizes it using your function, and displays the result.  
-
-
-6.	Write a function that generates a random password. The password should have a random length of between 7 and 10 characters. Each character should be randomly selected from positions 33 to 126 in the ASCII table. Your function will not take any parameters. It will return the randomly generated password as its only result. Display the randomly generated password in your file’s main program. Tip: You will probably find the *chr* function helpful when completing this exercise. Detailed information about this function is available online.
+5.	Write a function that generates a random password. The password should have a random length of between 7 and 10 characters. Each character should be randomly selected from positions 33 to 126 in the ASCII table. Your function will not take any parameters. It will return the randomly generated password as its only result. Display the randomly generated password by calling the program. Tip: You will probably find the *chr* function helpful when completing this exercise. Detailed information about this function is available online.
