@@ -25,7 +25,7 @@ By now we should know that our programming language, Python, has:
 
     input/output (print, input to communicate with the outside world)
 
-    Loop structures (the basic recipes while, for)
+    loop structures (the basic recipes while, for)
 
 
 
@@ -53,11 +53,11 @@ However, if you know there is a built-in mathematical operation that can do this
     
     Example: 100 mod 9 equals 1
 
-    Because 100/9 = 11 with a remainder of 1
+        Because 100/9 = 11 with a remainder of 1
 
     Another example: 14 mod 12 equals 2
-
-    Because 14/12 = 1 with a remainder of 2
+    
+        Because 14/12 = 1 with a remainder of 2
     
 
 It is like we aren&#39;t interested in how many times we go around, just where we end up.
@@ -100,8 +100,8 @@ Compare this with importing a function that gives you access to a program someon
 If we wanted to write this program and re-use it somewhere else in the code, I&#39;d have to write it again as many times I need it. Or, I could transform it into a function. I can write it once, give it a name and then use it a s many times I want:
     
     def my_ln(x):
-    n = 10000.0 
-    return n * ((x ** (1/n)) - 1)
+        n = 10000.0 
+        return n * ((x ** (1/n)) - 1)
 
 
 ## Lesson 2: Functions
