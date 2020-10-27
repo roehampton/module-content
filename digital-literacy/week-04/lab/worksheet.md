@@ -1,5 +1,33 @@
 # Internet operation worksheet
 
+### Checkout your own IP address
+
+On linux:
+```bash
+ifconfig
+```
+
+(you may have to install the net-tools package )
+
+On windows and mac, use the graphical tools.
+
+Is your private IP address the same as your 'public' one?
+
+Try visiting https://whatsmyip.org
+
+Do you know why they are probably different?
+
+What nameserver are you using?
+
+```bash
+cat /etc/resolv.conf
+```
+
+(The cat command displays the text contained in the file onto the screen)
+
+
+
+
 ### HELP! my website is down!!!
 
 Lets tackle this by using the most commonly used commands for investigating and troubleshooting network issues.
@@ -70,8 +98,10 @@ dig www.bbc.co.uk
 4. Can you work out what seems to be happening if you go to www.bbc.co.uk?
 
 
-### Additional task
+### Additional tasks
 
-Please draw a single diagram that shows how an email is sent and received.  
+1. Please draw a single diagram that shows how an email is sent and received.  
 Please represent the process for when the mail is composed and read on a users local computer.
 Please represent the protocols used in the communcations if you can.
+
+2. Research some maps of internet infrastructure and post the results on Moodle.
