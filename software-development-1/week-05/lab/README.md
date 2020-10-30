@@ -8,7 +8,7 @@ In this lab we will explore:
 3. Importing Functions
 
 ## Lesson 1: Lists
-Video:
+Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=632a1366-d6ca-4ba6-a24d-ac6301617611
 
 We have seen the basic recipe structures:
 
@@ -146,7 +146,7 @@ Example: Let&#39;s tackle odd numbers. Odd numbers are whole numbers that cannot
 
 ## Lesson 2: Blocks in Python
 
-Video:
+Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b9ba9f64-0c2a-4b74-9d9c-ac6400a13435
 
 
 We have seen the basic data and recipe structures. These are things common to all programming languages. However there are things we need to remember that are python specific. Python code is easy to read: the language was designed with that specific goal in mind. Guido van Rossum, the language&#39;s creator, wanted to create a powerful programming tool that produced code that was easy to maintain, which meant code created in Python has to be easy to read, too. For this he implemented **indentation** to demarcate a block of code, which Python programmers prefer to call **suite**. If you come from a &quot;curly- braced language&quot; like java or c++ you might struggle with indentation _at first_, but you&#39;ll get used to it in no time.
@@ -199,7 +199,7 @@ So now you know about indentation and how this delineates block in python. In th
 
 ## Lesson 3: Importing functions
 
-Video:
+Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=dc971706-4055-4e83-b105-ac6400a13460
 
 The **standard library** supplies reusable modules that help you with everything from, working with data, through manipulating ZIP archives, to sending emails, to working with HTML. You can import a specific function from a module. For example, the random module has a very useful function called **randint** that generates a **random integer** within a specified range. From **time** import **sleep,** we can invoke the **sleep function** , letting you delay the code response.
 
