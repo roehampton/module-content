@@ -47,12 +47,12 @@ All submissions will be processed through a code plagarism tool. If signs of mis
 Reading input from the keyboard in assembly can be done in a number of different ways. We will look at the most basic -- accessing the raw input stream from standard input. The following code demonstrates how to store input into a variable `num`.
 
 ```assembly
-	  ; Read and store the user input
+; Read and store the user input
     mov eax, 3		; set system call to perform a read (SYS_READ)
     mov ebx, 0		; set input stream to standard input (STDIN)
     mov ecx, num	; set the location to read into
     mov edx, 2		; set the number of bytes to read, 2
-    int 0x80			; call the operating system
+    int 0x80		; call the operating system
 ```
 
 **Note that to get one character from the user you need to read in two bytes -- one for the character and one for the carriage return.**
@@ -60,7 +60,7 @@ Reading input from the keyboard in assembly can be done in a number of different
 To check the input, we have to place it in an 8-bit register and use `cmp`. We have to use an 8-bit register as we have only read a byte. For example:
 
 ```assembly
-		; Check input
+; Check input
     mov al, [num]	; move num read into al register
     cmp al, 'x'		; compare al to character x
 ```
