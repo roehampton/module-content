@@ -2,12 +2,17 @@
 
 ## Part 1: Beginning your data project
 
+### What we will do today:
+
 - Choose a theme  
 - Plan your project
 - Search for information and data
 - Use RADAR to evaluate at least four sources
 - Consider format and copyright
 - Record your decision making process based on the information - use your OneNote class notebook to record your work.
+- Start to consider how this work will feed into your assessment
+
+### Lets get started!
 
 #### 1. Planning
 
