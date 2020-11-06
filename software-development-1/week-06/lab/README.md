@@ -22,7 +22,7 @@ If you are familiar with Cloud-based storage, you can deduce that my file is not
 Folders can contain files and other folders. For example, _CW1\_solution.ipynb_ is in the _SD1\_Specifiction_ folder, which is inside the _Soft\_Dev\_1_ folder, which is inside the _Roehampton_ folder, all inside my _Dropbox_. The  **/** part of the path is the _root folder_, which contains all other folders
 
 
-![Alt text](img\_folders.png?raw=false &quot;Folder Organization&quot;)
+![Alt text](img_folders.png?raw=false "Folder Organization")
 
 
 In Mac and Linux, the root folder is  **/** . In Windows, the root folder is named   C: \  and is also referred to as the   C: drive  .
