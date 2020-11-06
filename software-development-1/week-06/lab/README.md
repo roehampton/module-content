@@ -11,7 +11,7 @@ You can store data in variables while your program is running, but if you want t
 
 
 ## Lesson 1: Files and File Paths
-Video: 
+Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9b232aa6-653e-4795-914c-ac6a016addff
 
 Every file in your computer has two key properties: a _filename_ (usually written as one word) and a _path_. The path specifies the location of the file inside the computer. If you right click on a file in Mac, Windows or Linux you can ask for info. It will usually tell you where the file is located at. For example, I have stored the solution to the Coursework in my Mac as:
 
@@ -63,7 +63,7 @@ Exercise: Your programs can create new directories (folders) with the **os.maked
 
 
 ## Lesson 2: Opening Files
-Video:
+Video:https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9165561b-730f-4fb5-b210-ac6a016ade3c
 
 Now that we know how to work with with folders and paths, we can now specify the location of files to read and write. You probably have an intuitive knowledge of how this works. You can open a text file by double clicking on its icon (if you have a text handling program associated with that extension). You can use a text handling program (like Microsoft Word) to alter its contents and you can save the changes in the file. However, for our Jupyter notebooks, the process is not as straight forward. Let&#39;s start by understanding one of the most basic types of files: _ **Plaintext files** __._
 
@@ -99,7 +99,7 @@ The _open()_ function will open the file in &quot;reading plaintext&quot; mode, 
 
 
 ## Lesson 3: File Reading &amp; Writing
-Video:
+Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=befbdce7-9eab-4beb-9c49-ac6a016adde2
 
 Now that we have a File object, you can start reading from it. If you want to read the entire contents of a file as a string value, use the File object&#39;s read() method.
 
