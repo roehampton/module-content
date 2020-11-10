@@ -157,7 +157,7 @@ Example: String iteration produces a character at a time :
      
      word = 'cat'
      for letter in word:
-        print(letter) ...
+        print(letter) 
 
 
 
@@ -199,10 +199,10 @@ The list collecting here could be anything, really. We&#39;ll see more examples 
 
 Positions in lists start being enumerated as zero (this is because it is an index). I can access each of the elements in my collection by asking for the position of each element such as the zeroeth element on the list:
 
-    salt_spoon_list [0] 
+    salt_spoons_list [0] 
      1
     
-    salt_spoon_tuple [4] 
+    salt_spoons_tuple [4] 
     5
 
 
@@ -213,7 +213,7 @@ List has **mutable** nature i.e., list can be changed or modified after its crea
     salt_spoons_list 
     [ 4, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-    salt_spoon_tuple[4] = 8
+    salt_spoons_tuple[4] = 8
     Error
 
     salt_spoons_tuple
@@ -226,7 +226,7 @@ Example:
       print (“add more salt”)
 
 
-Exercise: Transform the list we have crates to Tuples by Using ( ) instead of []. Be sure to check their type.
+Exercise: Transform the list we have crated to Tuples by Using ( ) instead of []. Be sure to check their type.
 
     empty_tuple = ( )
     weekdays_tuple = ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday')
