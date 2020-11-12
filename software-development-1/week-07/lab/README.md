@@ -31,7 +31,7 @@ _**Style Tip**: Deduplicating your_ code (getting rid of duplicated or copy-and-
 
 
 ## Lesson 1: Passing parameters and arguments
-Video:
+Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=dbffa9e7-2099-4e59-a64e-ac710143375b
 
 Knowing when to encapsulate code that gets executed multiple times into functions is a skill that you will learn with practice. We can pass arguments (values that the function needs) by typing them in the parenthesis when calling a function. To store the kinds of values we need, when defining our functions, we define a **parameter** in which an argument is stored as a variable. Remember that any symbolic name used for a memory space is a **variable**. Any variable that is passed to a function call, is called a **parameter**. Consider the following program:
 
@@ -86,7 +86,7 @@ You can add _keyword arguments to the functions_ you write as well, but first yo
 
 
 ## Lesson 2: Dictionaries
-Video:
+Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=6522ce00-69f3-43ab-8214-ac7101433704
 
 
 The **dictionary data type** provides a flexible way to access and organize data. In code, a dictionary is typed with braces, **{}**. Like a list, a _dictionary_ is a collection of many values. But unlike indexes for lists, indexes for dictionaries can use many different data types (not just integers like lists). Indexes for dictionaries are called _keys_, and a key with its associated value is called a _key-value pair_.
@@ -242,7 +242,7 @@ Takeaway: Dictionaries are useful because you can map one item (the key) to anot
 
 ## Lesson 3: Local and Global variables
 
-Video:
+Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e8cc33d8-49cd-49ff-9f6f-ac7101433732
 
 Parameters and variables that are assigned in a called function are said
  to exist in that function&#39;s _**local scope**_. Variables that are assigned outside all functions are said to exist in the _**global scope**_. A variable that exists in a local scope is called **a** _**local variable**_, while a variable that exists in the global scope is called a _**global variable**_. A variable must be one or the other; it cannot be both local and global.
