@@ -252,7 +252,7 @@ Think of a **scope** as a container for variables. When a scope is destroyed, al
 A local scope is created whenever a function is called. Any variables assigned in this function exist within the local scope. When the function returns, the local scope is destroyed, and these variables are forgotten. The next time you call this function, the local variables will not remember the values stored in them from the last time the function was called.
 
 
-![Alt text](img_scope.png?raw=false "scope")
+![Alt text](img_scopes.png?raw=false "Local and Global scopes and variables")
 
 
 Key things to remember:
