@@ -70,7 +70,7 @@ A logically well represented report containing Part One and Part Two with approp
 
 **Part One of the coursework must be uploaded to Moodle by 17.00 on Friday 30th of October (end of Week 4).**
 
-**Part Two of the coursework must be uploaded to Moodle by 17.00 on Friday 27th of November (end of Week 8).**
+**Part Two of the coursework must be uploaded to Moodle by 17.00 on Friday 4th of December (end of Week 9).**
 
 **Part Three of the coursework must be uploaded to Moodle by 17.00 on Friday 18th of December (before Winter Break).** 
 
