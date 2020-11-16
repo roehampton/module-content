@@ -37,7 +37,7 @@ Knowing when to encapsulate code that gets executed multiple times into function
 
 
     def hello(name):
-    print(“Hello “ + name)
+        print(“Hello “ + name)
 
     hello(“Arturo”) 
     hello(“Kevin”)
@@ -118,7 +118,7 @@ Exercise: compare the following dictionaries:
 
 
     eggs = {“name”: Zara, “species”: “cat”, “age”: “8”} 
-    ham = {“species”: “cat”, “age”: “8”, “name”: Zara} 
+    ham = {“species”: “cat”, “age”: “8”, “name”: "Zara"} 
     eggs == ham
 
 
@@ -161,13 +161,13 @@ can be used in for loops.
 
     test = {“colour”: “red”, “age”: 42}
     for j in test.values():
-    print(j)
+        print(j)
 
     for k in test.keys():
-    print(k)
+        print(k)
 
     for l in test.items():
-    print(l)
+        print(l)
 
 
 
