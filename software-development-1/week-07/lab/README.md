@@ -301,9 +301,9 @@ Exercise: Identify the global and local variables
 
     def dinner(): 
         eggs = “bacon local 2” 
-            print(eggs)
-             	snack()
-           	print(eggs)
+        print(eggs)
+        snack()
+        print(eggs)
 
     eggs = “eggs global” 
     dinner()
