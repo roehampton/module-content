@@ -247,7 +247,7 @@ Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e8cc33d8
 Parameters and variables that are assigned in a called function are said
  to exist in that function&#39;s _**local scope**_. Variables that are assigned outside all functions are said to exist in the _**global scope**_. A variable that exists in a local scope is called **a** _**local variable**_, while a variable that exists in the global scope is called a _**global variable**_. A variable must be one or the other; it cannot be both local and global.
 
-Think of a **scope** as a container for variables. When a scope is destroyed, all the values stored in the scope&#39;s variables are forgotten. There is only one global scope, and it is created when your program begins. When your pro- gram terminates, the global scope is destroyed, and all its variables are forgotten. Otherwise, the next time you ran your program, the variables would remember their values from the last time you ran it.
+Think of a **scope** as a container for variables. When a scope is destroyed, all the values stored in the scope&#39;s variables are forgotten. There is only one global scope, and it is created when your program begins. When your program terminates, the global scope is destroyed, and all its variables are forgotten. Otherwise, the next time you ran your program, the variables would remember their values from the last time you ran it.
 
 A local scope is created whenever a function is called. Any variables assigned in this function exist within the local scope. When the function returns, the local scope is destroyed, and these variables are forgotten. The next time you call this function, the local variables will not remember the values stored in them from the last time the function was called.
 
@@ -288,7 +288,7 @@ Multiple local scopes are the norm in Python programs. Consider:
 
 When the program starts, the _breakfast ()_ function is called, and a local scope is created. The local variable eggs is set to 99. Then the _lunch()_ function is called, and a second local scope is created. Multiple local scopes can exist at the same time. In this new local scope, the local variable ham is set to 101, and a local variable _eggs_, which is different from the one in _breakfast ()_&#39;s local scope, is also created and set to 0.
 
-When _lunch()_ returns, the local scope for that call is destroyed. The pro- gram execution continues in the _breakfast()_ function to print the value of eggs , and since the local scope for the call to _breakfast()_ still exists here, **the eggs variable is set to 99**. This is what the program prints.
+When _lunch()_ returns, the local scope for that call is destroyed. The program execution continues in the _breakfast()_ function to print the value of eggs , and since the local scope for the call to _breakfast()_ still exists here, **the eggs variable is set to 99**. This is what the program prints.
 
 Takeaway: local variables in one function are completely separate from the local variables in another function.
 
