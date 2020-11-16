@@ -129,18 +129,18 @@ However, they can&#39;t be manipulated as easily as lists. For instance, trying 
     birthdays = {“Rachel”: “Apr 18”, “Charles”: “Dec 2”, “Anakin”: “May 4”} 
     while True:
         print(“Enter a name: (blank to quit)”) 
-            name = input()
-            if name == ““: 
-                    break 
+        name = input()
+        if name == ““: 
+           break 
     
-    if name in birthdays:
-        print(birthdays[name] + “ is the birthday of “ + name) 
-    else:
-            print(“I do not have birthday information for “ + name) 
-            print(“What is their birthday?”)
-            bday = input()
-            birthdays[name] = bday
-            print(“Birthday database updated.”) 
+        if name in birthdays:
+            print(birthdays[name] + “ is the birthday of “ + name) 
+        else:
+                print(“I do not have birthday information for “ + name) 
+                print(“What is their birthday?”)
+                bday = input()
+                birthdays[name] = bday
+                print(“Birthday database updated.”) 
 
     
 
@@ -215,7 +215,7 @@ Which produces an error vs
 
 
     picnicItems = {“apples”: 5, “cups”: 2}
-    “I am bringing “ + str(picnicItems.get[“eggs”]) + “ eggs.”
+    “I am bringing “ + str(picnicItems.get(“eggs”)) + “ eggs.”
 
 
 
