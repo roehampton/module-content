@@ -37,7 +37,7 @@ Knowing when to encapsulate code that gets executed multiple times into function
 
 
     def hello(name):
-    print(“Hello “ + name)
+        print(“Hello “ + name)
 
     hello(“Arturo”) 
     hello(“Kevin”)
@@ -118,7 +118,7 @@ Exercise: compare the following dictionaries:
 
 
     eggs = {“name”: Zara, “species”: “cat”, “age”: “8”} 
-    ham = {“species”: “cat”, “age”: “8”, “name”: Zara} 
+    ham = {“species”: “cat”, “age”: “8”, “name”: "Zara"} 
     eggs == ham
 
 
@@ -129,18 +129,18 @@ However, they can&#39;t be manipulated as easily as lists. For instance, trying 
     birthdays = {“Rachel”: “Apr 18”, “Charles”: “Dec 2”, “Anakin”: “May 4”} 
     while True:
         print(“Enter a name: (blank to quit)”) 
-            name = input()
-            if name == ““: 
-                    break 
+        name = input()
+        if name == ““: 
+           break 
     
-    if name in birthdays:
-        print(birthdays[name] + “ is the birthday of “ + name) 
-    else:
-            print(“I do not have birthday information for “ + name) 
-            print(“What is their birthday?”)
-            bday = input()
-            birthdays[name] = bday
-            print(“Birthday database updated.”) 
+        if name in birthdays:
+            print(birthdays[name] + “ is the birthday of “ + name) 
+        else:
+                print(“I do not have birthday information for “ + name) 
+                print(“What is their birthday?”)
+                bday = input()
+                birthdays[name] = bday
+                print(“Birthday database updated.”) 
 
     
 
@@ -161,13 +161,13 @@ can be used in for loops.
 
     test = {“colour”: “red”, “age”: 42}
     for j in test.values():
-    print(j)
+        print(j)
 
     for k in test.keys():
-    print(k)
+        print(k)
 
     for l in test.items():
-    print(l)
+        print(l)
 
 
 
@@ -215,7 +215,7 @@ Which produces an error vs
 
 
     picnicItems = {“apples”: 5, “cups”: 2}
-    “I am bringing “ + str(picnicItems.get[“eggs”]) + “ eggs.”
+    “I am bringing “ + str(picnicItems.get(“eggs”)) + “ eggs.”
 
 
 
@@ -247,7 +247,7 @@ Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e8cc33d8
 Parameters and variables that are assigned in a called function are said
  to exist in that function&#39;s _**local scope**_. Variables that are assigned outside all functions are said to exist in the _**global scope**_. A variable that exists in a local scope is called **a** _**local variable**_, while a variable that exists in the global scope is called a _**global variable**_. A variable must be one or the other; it cannot be both local and global.
 
-Think of a **scope** as a container for variables. When a scope is destroyed, all the values stored in the scope&#39;s variables are forgotten. There is only one global scope, and it is created when your program begins. When your pro- gram terminates, the global scope is destroyed, and all its variables are forgotten. Otherwise, the next time you ran your program, the variables would remember their values from the last time you ran it.
+Think of a **scope** as a container for variables. When a scope is destroyed, all the values stored in the scope&#39;s variables are forgotten. There is only one global scope, and it is created when your program begins. When your program terminates, the global scope is destroyed, and all its variables are forgotten. Otherwise, the next time you ran your program, the variables would remember their values from the last time you ran it.
 
 A local scope is created whenever a function is called. Any variables assigned in this function exist within the local scope. When the function returns, the local scope is destroyed, and these variables are forgotten. The next time you call this function, the local variables will not remember the values stored in them from the last time the function was called.
 
@@ -288,7 +288,7 @@ Multiple local scopes are the norm in Python programs. Consider:
 
 When the program starts, the _breakfast ()_ function is called, and a local scope is created. The local variable eggs is set to 99. Then the _lunch()_ function is called, and a second local scope is created. Multiple local scopes can exist at the same time. In this new local scope, the local variable ham is set to 101, and a local variable _eggs_, which is different from the one in _breakfast ()_&#39;s local scope, is also created and set to 0.
 
-When _lunch()_ returns, the local scope for that call is destroyed. The pro- gram execution continues in the _breakfast()_ function to print the value of eggs , and since the local scope for the call to _breakfast()_ still exists here, **the eggs variable is set to 99**. This is what the program prints.
+When _lunch()_ returns, the local scope for that call is destroyed. The program execution continues in the _breakfast()_ function to print the value of eggs , and since the local scope for the call to _breakfast()_ still exists here, **the eggs variable is set to 99**. This is what the program prints.
 
 Takeaway: local variables in one function are completely separate from the local variables in another function.
 
@@ -301,9 +301,9 @@ Exercise: Identify the global and local variables
 
     def dinner(): 
         eggs = “bacon local 2” 
-            print(eggs)
-             	snack()
-           	print(eggs)
+        print(eggs)
+        snack()
+        print(eggs)
 
     eggs = “eggs global” 
     dinner()
