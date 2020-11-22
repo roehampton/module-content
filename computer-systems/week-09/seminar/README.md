@@ -17,16 +17,5 @@
 
 6. What is the Speedup value required for a system to run 40 times faster when the percentage of the parallelised task is 42% of the time.
 
-7. Calculate the overall Power benchmark when the sum of performance 5, 763, 200 and the overall power is 2132.
-8. Using the table below, calculate the:
-   1. SPECratio for each task.
-   2. Geometric Mean for the entire tasks
-
-| Name  | Description                    | Execution  Time (seconds) | Reference  Time (seconds) |
-| ----- | ------------------------------ | ------------------------- | ------------------------- |
-| Java  | Interpreted  string processing | 432                       | 8543                      |
-| gcc   | GNU  C compiler                | 689                       | 9876                      |
-| astar | Games/path  finding            | 289                       | 8967                      |
-| HTML  | Hyperlink                      | 112                       | 3421                      |
 
  
