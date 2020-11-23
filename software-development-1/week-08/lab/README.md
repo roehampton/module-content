@@ -77,10 +77,10 @@ We have a couple of different range commands that produce an appropriate list of
 
 
     def factorial (n):
-    fact = 1
-    for factor in range(n,1,-1): 
-        fact = fact * factor
-    print("The factorial of", n, "is", fact) 
+        fact = 1
+        for factor in range(n,1,-1): 
+            fact = fact * factor
+        print("The factorial of", n, "is", fact) 
 
 Is there a way to capture the essence of this calculation we are constantly repeating?
 
