@@ -137,7 +137,7 @@ Linear Search: suppose that I gave you a page full of numbers in no particular o
     def lin_search(x, nums):
     for i in range(len(nums)):
          if nums[i] == x: #item found, return the index value .
-            return 1
+            return i
     return -1 #loop finished, item was not in list
     
     
