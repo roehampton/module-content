@@ -2,7 +2,7 @@
 
 The aim of this laboratory session is for you to be able to monitor the performance of a computer system. The laboratory requires a computer system with Windows 10. The operating system has a *Performance Monitor* tool. The Performance Monitor tool can analyse data of processor, memory, hard drive and network usage.
 
-## Open performance Monitor
+## Open Performance Monitor
 
 The performance monitor tool can be opened in three ways:
 
