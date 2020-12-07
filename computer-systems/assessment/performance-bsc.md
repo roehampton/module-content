@@ -37,7 +37,7 @@ The EPL also want to ensure their fans have the best experience when watching vi
 - Google Chrome
 - Mozilla Firefox
 
-To test the performance, they have provided a test video [here](https://youtu.be/LXb3EKWsInQ). They require testing of all resolutions (720p, 1080p, 2160p).
+To test the performance, they have provided a test video (https://youtu.be/LXb3EKWsInQ). They require testing of all resolutions (720p, 1080p, 2160p).
 
 The EPL has 100,000 hours of content to encode. They require 50% of the content to be available in twelve weeks, and the following 75% in 24 weeks, and the full 100% in one year.
 
