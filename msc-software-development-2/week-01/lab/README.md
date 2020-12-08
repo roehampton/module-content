@@ -336,21 +336,156 @@ function myfunction(parameters) {
 }
 ```
 
-Apart from using `function` to declare a function, and using curly brackets to define the start and end of the function, everything is the same.
+Apart from using `function` to declare a function, and using curly brackets to define the start and end of the function, everything is the same in JavaScript and Python.
 
 #### Comments
 
+Comments in JavaScript start with `//`. As comments can contain anything we won't go into any further details. 
+
 > **EXERCISE** You now know enough to translate many of your previous programs written in Python into JavaScript. Select one such program of sufficient complexity and convert it to run in the browser. **NOTE** You don't know how to do input yet, so either select a program that does not require user input, or modify one that does to use hard-coded values.
+
+### Your Second JavaScript Enabled Web Page -- Using Buttons
+
+HTML can define user interfaces to suit our needs. In this example we will add a button to our page. Save the following HTML code as `second.html`.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buttons!</title>
+    <script src="script2.js"></script>
+  </head>
+  <body>
+    <h1>
+      Click the button!
+    </h1>
+    <input type="button" value="Click Me!" onclick="msg()">
+  </body>
+</html>
+```
+
+The new HTML element we've introduced here is `<input>`. We have defined three attributes:
+
+- `type` is the type of input element. We are using a button, so we set this to `button`. There are other input types we can also define.
+- `value` is the text on the button. We've set this to `Click Me!`.
+- `onclick` is the code that will be run when we click the button. This is an *event* that our JavaScript will respond to. It will execute the `msg` function.
+
+All we need to do is write our JavaScript code in `script2.js`. We need to implement the `msg` function.
+
+```javascript
+function msg() {
+    document.write("You clicked the button!");
+}
+```
+
+**Save everything and then open the HTML document in your browser.** When you click the button the web page will be replaced with `You clicked the button!`
+
+> **EXERCISE** add a second button to the HTML page. When this button is clicked, it should display the message `Not that button!`
+
+### Manipulating HTML Elements
+
+OK, so far we've done the following:
+
+* Displayed a message in the window.
+* Reacted to a button press.
+
+Let's complete the basic use of interacting with HTML from JavaScript by manipulating an HTML element that exists on the web page. Our new web page is defined as follows:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Changing Web Page!</title>
+    <script src="script3.js"></script>
+  </head>
+  <body>
+    <h1>
+      Click the button!
+    </h1>
+    <input type="button" value="Click me!" onclick="change()">
+    <p id="my_text">
+      Hello, world!
+    </p>
+  </body>
+</html>
+```
+
+Notice our `<p>` element has the attribute `id` set to `my_text`. This gives this HTML element a unique name (just like a variable) that means our JavaScript can get the element from the web page. `script3.js` shows how we do this:
+
+```javascript
+function change() {
+    var element = document.getElementById("my_text");
+    element.innerText = "You clicked me!";
+}
+```
+
+Our two lines of code do the following:
+
+- `document.getElementById("my_text")` gets the HTML element with the `id` `my_text` -- our `<p>` element we set earlier. We set this to a `var` named `element`.
+- We set `innerText` of the element to `You clicked me!`. `innerText` is the text within the HTML. To start with, this is `Hello, world!`.
+
+**Save all the files and open the HTML document in your browser.** You can click the button and the text of the `<p>` element will change.
+
+Well done! You've actually covered a good amount of how we can program web pages:
+
+- Setting events.
+- Getting elements by their `id`.
+- Changing elements.
 
 ### Now you try
 
-Changing colour of text with buttons.
+This exercise combines the parts we've learned so far. Create a web page with some text in a paragraph element and with a button. When the user clicks the button, it should change the colour of the text in the paragraph to red. As some help, once you have got the HTML element, you can use this code to change the *style* of an HTML element to set its colour to `red`.
+
+```javascript
+element.style['color'] = "red";
+```
+
+Then add a second button that will change the text colour to blue.
 
 ### So you want to know more
 
-
+This module focuses on JavaScript, so we will cover much more code. But if you want to do more, [Tutorialspoint](https://www.tutorialspoint.com/javascript/index.htm) also has a JavaScript tutorial.
 
 ## Serving web pages with Node.js
+
+------------
+
+**INSTALLING NODE**
+
+-------
+
+Once Node.js is installed, you can open the command prompt and type `node` to test it. You will be presented with the following:
+
+```shell
+~ node
+Welcome to Node.js v14.7.0.
+Type ".help" for more information.
+>
+```
+
+Much like Python's interactive console, you can enter JavaScript commands here:
+
+```shell
+> console.log("Hello, world!");
+Hello, world!
+undefined
+```
+
+We aren't going to use Node.js in this manner. Type `.exit` into the command prompt to exit Node.js.
+
+### Your First Node.js Application
+
+
+
+### Your Second Node.js Application
+
+
+
+### A Node.js Server
+
+
+
+### Serving Static Web Pages
 
 
 
