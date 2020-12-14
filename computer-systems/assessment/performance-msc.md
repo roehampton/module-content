@@ -1,6 +1,6 @@
 # Computer Systems Coursework 2 -- System Performance
 
-Part 2 of the coursework is worth 60% of the total coursework mark. The submission deadline is **Friday 18th December online via Moodle by 23.59.**
+Part 2 of the coursework is worth 60% of the total coursework mark. The submission deadline is **Tuesday 5th January online via Moodle by 23.59.**
 
 Part 2 of the coursework focuses on system performance. This covers the module learning outcomes:
 
