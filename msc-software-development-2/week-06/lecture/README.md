@@ -1,265 +1,205 @@
-# Lecture 15: Continuous Integration
+# Software Development 2 Lecture 6 -- Modern Software Architecture
 
-In this lecture we will examine Continuous Integration (CI), how it allows us to automate our build processes, and how it can provide feedback.  The aim is to explore why CI is useful, and the process of undertaking CI.
+In this lecture we will examine the history of software architecture and delivery, ending with current modern software approaches.  Understanding these concepts are important to working in a modern development environment, and considering the relationship now formed between *developers* and *operations* (DevOps).
 
-## What is Continuous Integration?
+## Hardware Eras
 
-> Build Software at Every Change.
->
-> -Continuous Integration.
+Software runs on hardware.  We can broadly divide hardware developments into three eras:
 
-Martin Fowler has defined **Continuous Integration** as *a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily -- leading to multiple integrations per day.  Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible.*  This allows teams to reduce integration problems and develop cohesive software faster.
+1. Mainframe.
+2. PC.
+3. Mobile.
 
-CI is therefore the practice of performing integration upon every commit.  So that raises the question, what is integration?
+A lot has happened within these eras, and we could divide further into the Internet era, simple mobile, etc.  However, these three broad eras allow us to discuss the core issues of software development.
 
-### What Does Integration Mean?
+### Mainframes
 
-Integration is the process of combining the software components of a system together: *integrating them*.  The combination of these components results in an integration build.  We perform such a build for two purposes:
+In the beginning, computers were single machines with jobs processed in order.  Jobs were either added from a single terminal, or from a collection of dumb terminals connected via a primitive connection.
 
-1. To perform **integration tests**.
-2. To deploy the software.
+![Mainframe Architecture](mainframe.png)
 
-### What is an Integration Test?
+All software and data resided on the mainframe.  A list of tasks were scheduled and executed in batches.  The real problem with software during the mainframe era was the general difficulty in programming from the lack of good tools.
 
-This is one of the key ideas of this lecture.  An integration test is one that is performed when the system is integrated.  From [Wikipedia](https://en.wikipedia.org/wiki/Integration_testing):
+### PCs
 
-> Integration testing (sometimes called integration and testing, abbreviated I&T) is the phase in software testing in which **individual software modules are combined and tested as a group**. It occurs **after unit testing** and before validation testing.
+In the mid-to-late 1970s the PC era emerged with affordable small computers being available for home and business use.  This changed how software was delivered to users.  In particular, desktop applications became big business, leading to the rise of companies like Microsoft with operating systems and office software, and Adobe with creative tools such as Photoshop.
 
-So integration tests are tests performed on combined software modules rather than unit tests which target single methods and classes.
+The PC era saw the transition from disconnected computers with physical install media to the Internet.  Client-server architectures delivering applications to the home became big business, as did the software to connect to the Internet -- the web browser.
 
-### Why Continuous Integration?
+### Mobile
 
-CI provides feedback:
+Today we live in a mobile era.  Most software is delivered via interfaces on mobile devices.  Physical media is all but dead, and most applications exist on the web or have cloud-based interfaces.
 
-> Continuous Integration increases your opportunities for feedback.
->
-> -Continuous Integration
+Having such dynamic software delivered on-demand changes expectations on the management of software platforms.  The rise of agile to manage this complexity, and more recently the rise of DevOps to manage operational scalability, are signs of where the software industry is heading.
 
-CI provides the following value:
+## Software Platforms
 
-- It reduces risk.
-- It reduces the number of repetitive manual processes.
-- It allows us to create deployable software at any point - or be potentially shippable.
-- It makes the project output more visible.
-- It creates greater confidence in the product being developed.
+As hardware has changed, so has the software platforms and architecture to support them.  As software has moved online, the methods to design, implement, and deploy software have changed to suit the new demands placed on software.
 
-A key addition is automating processes.  It is often the case that software engineers create software to automate other users' processes, but not their own.  CI is about automating some of our processes.  In particular, we want the delivery of software to be as simple as possible:
+Below we will cover some broad types of software which have emerged over the decades.  These architectures are still in use today, although they have evolved with technology.
 
-> The development of software may be complex, but the delivery of software must be a push-button affair.
->
-> -Continuous Integration.
+### Desktop Applications
 
-Automated build scripts reduce the manual, repetitive and error-prone processes development and operations have to perform.  We have mainly been using Maven and Travis for this.  We also want our builds to be fast: we want to builds to fail fast so we get the rapid feedback to resolve problems.
+Software development has gone through many different approaches, and many of these development approaches have impacted desktop software development.  During the 1980s structured programming was key, although the late 1980s and 1990s saw the rise of object-orientation.
 
-And finally, we enable information sharing.  Our CI system can provide metrics that we visualise or share with the necessary team members to better understand the complexity of our work.  However, we must remember to not spam information everywhere.  If everyone gets all the feedback it just means everyone will ignore it.
+The advantage (and disadvantage) of desktop software originally was that once it was sold to the consumer no updates and maintenance was required.  People bought a physical copy of the software and that was it - bugs and all.  This meant software had to be of high-quality on release: no day-one patches!  Software was simpler though.
 
-### Continuous Integration Principles and Practice
+If the software was developed for a commercial client, then updates and maintenance were required as part of a contract.  Software could still be deployed to a server somewhere, data was often centralised.  We will cover this in the client-server section below.
 
-The practice of CI is more than just a tool.  It requires dedication from the development team to undertake certain practices such as frequent commits, immediately fixing broken builds, and having an integration system.  All of this is automated as far as possible.  The general principles of CI are:
+### Client-server
 
-- Developers commit their code to a centralised version control at least once per day.
-- A separate build machine performs integration builds several times per day.
-- 100% of tests must pass for every build.
-- A deployable product is created for functional testing.
-- If the build breaks then the highest priority is to fix it.
-- Developers review reports generated by the build system such as coding standards and dependency analysis looking for improvement.
+Client-server is a core method of designing distributed software.  A server acts as the main host for part or all of the software, and the client resides on the user's machine.  The client interacts with the server, updating system state accordingly.
 
-The point is as developers you have to live these practices.  Saying that CI is good and undertaking the practice of CI are different.  However, although developers agree that CI and other practices (such as code reviews and testing) are good, they do not practice these principles often.
+![Client-server Architecture](client-server.png)
 
-So as a software engineer your role is to practice CI.  There are seven general practices that work well:
+Client-server is essentially the mainframe model we discussed earlier.  However, client machines are full computers in their own right.  The software residing on the server is normally either expensive or requires centralisation due to shared data or similar.
 
-- Commit code frequently.
-- Don’t commit broken code.
-- Fix broken builds immediately.
-- Write automated developer tests.
-- All tests and inspections must pass.
-- Run private builds.
-- Avoid getting broken code.
+Client-server is still a common architecture today.  Although concepts such as service-orientation and microservices have moved from the single-server model, the Internet still works on the concept of a client machine requesting communication from a server machine.
 
-## Continuous Integration Workflow
+### Multitiered Architecture and the Three-tier Architecture
 
-> Get everything you need into source control and get it so that you can build the whole system with a single command.
->
-> -Martin Fowler
+As applications developed, common patterns emerged for designing applications.  Multitiered architectures divides software into different communication levels.  The aims were to:
 
-Continuous Integration starts when a developer commits code to the repository.  A general workflow is:
+- divide an application into separate levels of logic to promote reuse.
+- simplify communication by having levels only communicate to one sub-layer.
 
-![Continuous Integration Workflow](ci-workflow.png)
+Tiered thinking is applied to a number of domains in computing, including:
 
-Source: [www.pepgotesting.com](http://www.pepgotesting.com/continuous-integration/).
+- operating system design.
+- hardware and infrastructure design.
+- network communication design.
+- client-server software design.
 
-The steps in a CI scenario will typically go something like this:
+The common pattern in software engineering is known as the three-tier model:
 
-1. The developer commits changes to source control.
-2. The CI server polls for and receives the changes.
-3. The CI server builds the software.
-4. The CI server runs automated tests on the build.
-5. The build and tests either succeed or fail.
-6. The team are notified about the status of the build and tests.
+![Tiered Architecture](tiered-architecture.png)
 
-We have already built this workflow via Travis CI with very little effort.  The key aspect of CI is again the practice: developers **must** commit their code frequently.
+The three tiers are:
 
-### Feedback from Continuous Integration
+- **presentation/UI layer** - is responsible for presenting information to the user and processing user events.
+- **logic layer (e.g., business, application)** - controls application functionality.  Takes user events to determine the data to get from the data layer.
+- **data layer** - manages the data in the system.  Is not the database itself, but provides access to the database.
 
-Remember that our CI system provides feedback on the status of our builds and tests.  We want to know as soon as possible if there is a problem with our build and prioritise fixing the build if there is a problem.  By running our automated build and test whenever we commit a change we can answer the following questions (taken from *Continuous Integration: Improving Software Quality and Reducing Risk*):
+Splitting the application into these layers allows us to separate concerns.  Interfaces are exposed that allow communication to be simplified at the appropriate level.  The three-tiered architecture is still fundamental in modern software architecture.
 
-- Do all the software components work together?
-- What is my code complexity?
-- Is the team adhering to the established coding standards?
-- How much code is covered by automated tests?
-- Were all the tests successful after the latest change?
-- Does my application still meet the performance requirements?
-- Were there any problems with the last deployment?
+### Internet
 
-This is beyond a test for the software being successfully built.  From our CI system we can know how well our software was built.  We can spot defects early.  Continuous building ensures our feedback is quick and happens at every change of the system.
+As the Internet grew and the requirements for software to be delivered over the Internet also grew.  The three-tiered model was dominant.  Applications were bundled together on servers that clients interacted with.  This led to the **monolith** architecture:
 
-Some CI systems are visualised in the real-world.  For example, a *build-light indicator* might exist to provide clear global signalling of the build status:
+![Monolith Architecture](monolith-architecture.png)
 
-<p><a href="https://commons.wikimedia.org/wiki/File:Series_of_build_lights.jpg#/media/File:Series_of_build_lights.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Series_of_build_lights.jpg" alt="Series of build lights.jpg" height="480" width="358"></a><br>By Dushan Hanuska - <a rel="nofollow" class="external free" href="https://www.flickr.com/photos/hanuska/5931613961/in/photostream/">https://www.flickr.com/photos/hanuska/5931613961/in/photostream/</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=16205076">Link</a></p>
+The problem with the monolith architecture was it had low-tolerance.  It was a single point-of-failure.  It was a single bottleneck.  It was a single application.  It became harder for software engineers to update without bringing down other systems.  It also became difficult to update.  So, a solution for the Internet age was needed.
 
-## Building a Continuous Integration System
+### Service Oriented Architectures
 
-> CI is not just a technical implementation; it is also an organizational and cultural implementation.
->
-> -Continuous Integration.
+To mitigate monolithic issues, **Service Oriented Architectures** (SOA) emerged.  With SOA, application logic is further divided into different services or APIs which can communicate with different or shared databases:
 
-As stated, CI requires developers to change how they work.  Developers must commit code frequently, prioritise broken builds, create automated build scripts with tests that always pass, and not commit or fetch broken code to/from version control.
+![Service Architecture](service-architecture.png)
 
-Incremental development of the CI system is important.  In a large codebase, going from no CI to full CI in one step will fail.  Rather, choose a lower occurrence build, such as a nightly build.  As the team gets comfortable with the practice, we can increase the number of builds until we are fully undertaking CI.
+The different services can communicate with each other, and the UI logic calls relevant services accordingly.
 
-A CI system only requires four features (from *Continuous Integration: Improving Software Quality and Reducing Risk*):
+Consider something like Facebook.  It actually provides a number of services:
 
-- A connection to a version control repository.
-- A build script (e.g., we use Maven and Travis).
-- Some sort of feedback mechanism (such as e-mail).
-- A process for integrating the source code changes (manual or CI server).
+- messaging.
+- images.
+- searching.
+- posting.
 
-Once the team have started to adopt CI practices, and the CI system is setup, the following steps are used to ensure we maintain a good CI workflow:
+Each of these are provided by a different API or service to the user.  These divisions make changes easier internally, as long as interfaces remain the same.
 
-- **Identify** a process that requires automation (e.g., compilation, test, inspection, deployment, database integration, etc.).
-- **Build** a script to support the automation making it repeatable and consistent.
-- **Share** via version control so others can use the scripts.
-- **Make it continuous** by running the script with every change applied.
+### Cloud Computing
 
-We can further improve our CI by asking the following questions:
+The Internet and service-based computing led to cloud based approaches.  Cloud computing relies on providing computing-as-a-service - much like other utilities such as electricity and broadband.
 
-- How much code coverage do you have with your tests?
-- How long does it take to run your builds?
-- What is your average code complexity?
-- How much code duplication do you have?
-- Are you labelling your builds in your version control repository?
-- Where do you store your deployed software?
+One key benefit of cloud computing is that an organisation no longer has to manage its own computer hardware.  Servers are maintained by another organisation, providing infrastructure that can be used as required.  For example, a service can be scaled up or down to meet demand.  There is no need to buy or sell servers based on need.
 
-These questions allow us to continuously improve our CI method.  We are asking the questions about the quality of our software that we are building.
+Cloud computing provides a number of different services:
 
-### Building
+- **Infrastructure-as-a-Service (IaaS)** - provides computer resources to the user normally via virtualised infrastructure such as a machine, network, and data storage.
+- **Platform-as-a-Service (PaaS)** - provides a computing platform to the user.  This differs from IaaS in that fuller resources are typically scaled to suit application needs.  Typically, cloud providers such as Amazon, Google, and Microsoft fit into this category foremost with the other services supporting PaaS.
+- **Software-as-a-Service (SaaS)** - provides applications to the user.  For example, a university providing email from Microsoft is a SaaS mail application from Microsoft.
+- **Serverless Computing or Function-as-a-Service (FaaS)** - provides infrastructure based on service requests.  Resource is scaled up or down as required.  For example, a sales transaction service would scale up and down as required based on number of sales at a given time.
 
-> A build acts as the process for putting source code together and verifying that the software works as a cohesive unit.
->
-> -Continuous Integration
+### Microservices
 
-Building software is the first stage of our CI system after it has fetched changes from version control.  But what is a software build?  Is it just compiling software?  Is compiling and testing?  What other automated processes should be used?  The answer is up to the team.  A key point is that we want builds to be fast so that we can get the feedback.
+Today, the combination of cloud computing and SOA has led to a new architecture: **microservices**.
 
-The aim is to have a build script that contains all of the processes we have decided to automate.  The script also needs to be separate from any IDE.  These steps ensure that:
+![Microservice Architecture](microservice-architecture.png)
 
-1. Developers can use different IDEs.
-2. The CI server can run the script without intervention.
+Our application is divided into a number of small services.  These services are scaled up and down to meet demand.  A gateway is used to call the necessary microservice.  As everything is contained in a small instance, bringing up and down more servers becomes easy.  Also, updates become easy as the software engineer can push a change that only affects a small part of the application.  Modern software architecture is now microservice based.
 
-A basic build script should perform the following steps:
+## Execution Environments
 
-1. Clean.
-2. Compile source code.
-3. Integrate database.
-4. Run tests.
-5. Run inspections.
-6. Deploy software.
+Our final consideration is where our applications execute.
 
-As discussed, developers run separate builds on their own machines before committing their code.  This prevents broken builds being pushed to source control.  The steps for running a private build are:
+### Traditional Applications
 
-1. Check out code from version control.
-2. Make changes to that code.
-3. Get the latest changes from version control.
-4. Build, including unit tests.
-5. Commit changes to version control.
+The overall system architecture for a traditional application looks as follows:
 
-Our GitFlow workflow mimics this idea:
+![Original Architecture](original-architecture.png)
 
-1. Create a new `feature` branch from `develop`.
-2. Implement the feature.
-3. Merge any changes in `develop` into `feature`.
-4. Build, including unit tests.
-5. Merge `feature` into `develop`.
+- **Hardware** was originally a single-core machine, potentially with a hard drive although possibly just a floppy drive.  Today machines are more powerful, but the overall architecture is the same.
+- **Operating System** takes care of the hardware and provides and interface to the runtime and libraries to use said hardware.  Operating systems are complex in their own right and have more layers than shown here.
+- **Runtime, Libraries** are provided with the operating system or other frameworks (e.g., Java).  These allow user-land applications to be executed.
+- **Apps** run on the computer.  Multiple apps can be installed and execute in the system.
 
-#### Integration Build
+There are a number of problems with this architecture:
 
-Once code is pushed to version control and fetched by the CI server, an integration build occurs. This includes all the components in the project, such as other software components, databases, etc.  The aim is to ensure that all the components work together.
+- We need the right operating system to run on the hardware.
+- We need the right operating system for our runtime and libraries.
+- We need the right runtime and libraries for our apps.
 
-#### Release Build
+It was (and still is) common for runtime and libraries to be in conflict for different apps.  This comes from the dependency built in by some programmers between their app and where the app runs.
 
-For deployable software we need to create a release build.  A release build can happen at the end of milestone, can include performance (nonfunctional) tests, and must include any acceptance tests.  The aim is to create installation media and prepare for full QA testing.
+### Virtual Machines
 
-## Risk in Software Development
+To overcome the limitations of the traditional execution model, virtualisation was introduced.  This led to a new architecture:
 
-As stated, CI reduces risk by continuously building and integrating our software.  Risk is **the potential for a problem to occur**.  When a risk occurs it becomes a problem.  We focus on the high-priority risks (most damaging) that are most likely to occur.
+![Virtual Machine Architecture](virtual-architecture.png)
 
-Agile itself reduces risk as we are always delivering value to the customer and receiving feedback.  In traditional approaches, our risk builds over time as we do not know if we are delivering the right product.  Resources have been committed without knowledge if we are delivering what the customer wants.  In Agile, small iterations mean we reduce risk.  The below image illustrates:
+This has resolved some of our problems:
 
-<p><a href="https://commons.wikimedia.org/wiki/File:Agile-vs-iterative-flow.jpg#/media/File:Agile-vs-iterative-flow.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Agile-vs-iterative-flow.jpg" alt="Agile-vs-iterative-flow.jpg" height="319" width="640"></a><br>By <a href="//commons.wikimedia.org/w/index.php?title=User:Christopher_Little&amp;action=edit&amp;redlink=1" class="new" title="User:Christopher Little (page does not exist)">Christopher Little</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by/3.0" title="Creative Commons Attribution 3.0">CC BY 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=11645092">Link</a></p>
+- The hardware is virtualised, so we no longer need to worry about the right operating system for our hardware - hardware will adapt.
+- The operating system can be changed to suit the necessary runtime and libraries.
+- Each application can have its own runtime and libraries.
 
-There are four key risks addressed by Continuous Integration:
+Problem solved?  Well, the issue is that a virtualised operating system is very resource intensive - prohibitively so if each application has its own virtual OS.  Therefore, something lighter-weight was required.
 
-- Lack of deployable software.
-- Late discovery of defects.
-- Lack of project visibility.
-- Low-quality software.
+### Containers
 
-Let us look at each of these risks in turn.
+Containers are a solution to the virtualisation problem.  A container allows an application to run within its own environment which contains its own runtime and libraries.  However, the container is not a full virtualised OS - it calls the main operating system for service:
 
-### Risk: Lack of Deployable Software
+![Container Architecture](container-architecture.png)
 
-Our goal is to always have potentially shippable software.  Therefore, having no deployable software is a risk to our development process.  We do so by:
+A container can run anywhere, and can contain all the features we need.  If we need to run a Linux-based container on a Windows machine (or vice-versa), a virtual OS is required - but only one.  Containers only require storage space.
 
-- Decoupling the IDE from the build process.
-- Placing all database artefacts in version control.
-- Rebuilding the database from the build script.
-- Testing and inspecting the database.
-- Automating the build process to reduce wasted time and effort.
+## Docker: A Quick Overview
 
-### Risk: Late Discovery of Defects
+Docker is a container based software environment.  It provides the following components:
 
-We automate regression testing to find defects quickly.  We do so by:
+- **Docker daemon** which manages Docker images and containers.
+- **Docker containers** are an environment to run an application.
+- **Docker images** defines a Docker container.
+- **Docker registry** stores Docker images.
 
-1. Writing test code for all source code.
-2. Running tests in the build script.
-3. Running tests continuously at any change committed to version control
+So, Docker is a service on your computer that can run images as containers.  Images can be defined locally, or retrieved from a repository.
 
-Once tests are written, we check code coverage to ensure as much code as possible is tested.  Local unit tests and integration tests should cover most, if not all, our code.
+Docker allows us to meet modern software architecture requirements:
 
-### Risk: Lack of Project Visibility
+- they run within cloud computing systems.
+- they provide a microservice architecture.
+- they overcome the *it runs on my machine* problem by standardising the runtime environment.
 
-Remember we want to visualise both the work that is happening and the state of our system.  A CI system can provide useful telemetry about the state of our build.  Charts can be produced by the CI system that provides us with confidence about our software.
+Docker itself is only part of the solution.  Typically, Kubernetes is used to manage scalability.
 
-### Risk: Low-Quality Software
+### Some Light Additional Reading
 
-Complex code, code that does not follow the architectural design, and code duplication all lead to defects in the software.  Rather than writing a report about the quality of the software, we can run a tool as part of the build.  These automated inspection tools can provide vital metrics on our software quality as we perform CI.
-
-### Summary of Risks
-
-To summarise, CI overcomes main software risks as follows:
-
-| **Risk**                    | **Mitigation**                                               |
-| --------------------------- | ------------------------------------------------------------ |
-| Lack of deployable software | CI system builds software at any time via repeatable process from version control. |
-| Late discovery of defects   | Run tests at every change.                                   |
-| Lack of project visibility  | Software health known at all times via continuous builds.    |
-| Low-quality software        | Tests and inspections run at each change to maintain high standards. |
+Google have produced [a small comic](https://cloud.google.com/kubernetes-engine/kubernetes-comic/) on how Kubernetes can support modern software.
 
 ## Summary
 
-In this lecture we have covered the fundamentals of CI.  Specifically, we:
+In this lecture we have covered:
 
-- *Defined Continuous Integration* as the process of performing integration building and testing on each change committed to version control.
-- *Explained why Continuous Integration is useful*, focusing on risk reduction and workflow.
-- *Described the Continuous Integration workflow*, looking at the steps and CI system setup.
-- *Described risk in software development and how this is managed via Continuous Integration*, focusing on lack of deployable software, late discovery of defects, lack of project visibility, and low-quality software.
-
+- The *hardware eras for software deployment* - namely mainframe, PC, and mobile.
+- The *software platforms for software deployment* - namely desktop, distributed, and service-orientated.
+- The *execution environments for running software* - namely traditional, virtualised, and containers.
