@@ -15,18 +15,18 @@
 | [Week 11](week-11) | [Lecture](week-11/lecture) | [Seminar](week-11/seminar) | [Lab](week-11/lab) |
 | [Week 12](week-12) | [Lecture](week-12/lecture) | [Seminar](week-12/seminar) | [Lab](week-12/lab) |
 
-| Week   | Lecture                                                 | Lab                                          | Seminar                                                  | Coursework                       |
-| ------ | ------------------------------------------------------- | -------------------------------------------- | -------------------------------------------------------- | -------------------------------- |
-| 1      | Software development lifecycles                         | JavaScript introduction.                     | Team forming. Scrum                                      |                                  |
-| 2      | Version control                                         | Object-orientation. Git.                     | Task Management and Kanban                               |                                  |
-| 3      | UML                                                     | Class definition. Connect SQLite. Debugging. | OO design.                                               | Coursework 1 (Task board)        |
-| 4      | OO design.                                              | Continuous integration. Docker.              | Inheritance, polymorphism, and encapsulation.            |                                  |
-| 5      | User requirements gathering: use cases and user stories | Design Patterns 1. Angular?                  | User requirements gathering: use cases and user stories. |                                  |
-| 6      | Continuous integration and delivery.                    | Design Patterns 2. Deployment?               | UI design.                                               | Coursework 2 (design)            |
-| 7      | Cloud architecture.                                     | Events and event handlers.                   | UI design.                                               |                                  |
-| 8      | DevOps                                                  | Model view controller                        | Team session                                             |                                  |
-| 9      | Unit testing                                            | Unit testing                                 | Testing                                                  | Coursework 3 (prototype)         |
-| 10     | Test-driven development                                 | Unit testing                                 | Team session.                                            |                                  |
-| Assess |                                                         |                                              |                                                          |                                  |
-| Assess |                                                         |                                              |                                                          | Coursework 4 (final deliverable) |
+| Week   | Lecture                                       | Lab                                          | Seminar                                        | Coursework                       |
+| ------ | --------------------------------------------- | -------------------------------------------- | ---------------------------------------------- | -------------------------------- |
+| 1      | ~~Software development lifecycles~~           | JavaScript introduction.                     | ~~Team forming. Scrum~~                        |                                  |
+| 2      | ~~Version control~~                           | Object-orientation. Git.                     | Task Management and Kanban                     |                                  |
+| 3      | ~~UML~~                                       | Class definition. Connect SQLite. Debugging. | ~~UML workflow.~~                              | Coursework 1 (Task board)        |
+| 4      | OO design.                                    | Continuous integration. Docker.              | OO design.                                     |                                  |
+| 5      | ~~User requirements gathering: user stories~~ | Design Patterns 1. Angular?                  | ~~User requirements gathering: user stories.~~ |                                  |
+| 6      | ~~Continuous integration~~                    | Design Patterns 2. Deployment?               | UI design.                                     | Coursework 2 (design)            |
+| 7      | ~~Modern Software Architecture~~              | Events and event handlers.                   | UI design.                                     |                                  |
+| 8      | ~~DevOps~~                                    | Model view controller                        | Team session                                   |                                  |
+| 9      | ~~Test-driven development~~                   | Unit testing                                 | Testing                                        | Coursework 3 (prototype)         |
+| 10     | ~~Big Tracking~~                              | Unit testing                                 | Team session.                                  |                                  |
+| Assess |                                               |                                              |                                                |                                  |
+| Assess |                                               |                                              |                                                | Coursework 4 (final deliverable) |
 
