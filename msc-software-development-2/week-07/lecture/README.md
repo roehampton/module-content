@@ -49,7 +49,7 @@
   >
   > -Continuous Integration.
 
-  Automated build scripts reduce the manual, repetitive and error-prone processes development and operations have to perform.  We have mainly been using Maven and Travis for this.  We also want our builds to be fast: we want to builds to fail fast so we get the rapid feedback to resolve problems.
+  Automated build scripts reduce the manual, repetitive and error-prone processes development and operations have to perform. We also want our builds to be fast: we want to builds to fail fast so we get the rapid feedback to resolve problems.
 
   And finally, we enable information sharing.  Our CI system can provide metrics that we visualise or share with the necessary team members to better understand the complexity of our work.  However, we must remember to not spam information everywhere.  If everyone gets all the feedback it just means everyone will ignore it.
 
@@ -97,7 +97,7 @@
   5. The build and tests either succeed or fail.
   6. The team are notified about the status of the build and tests.
 
-  We have already built this workflow via Travis CI with very little effort.  The key aspect of CI is again the practice: developers **must** commit their code frequently.
+  The key aspect of CI is again the practice: developers **must** commit their code frequently.
 
   ### Feedback from Continuous Integration
 
@@ -130,7 +130,7 @@
   A CI system only requires four features (from *Continuous Integration: Improving Software Quality and Reducing Risk*):
 
   - A connection to a version control repository.
-  - A build script (e.g., we use Maven and Travis).
+  - A build script.
   - Some sort of feedback mechanism (such as e-mail).
   - A process for integrating the source code changes (manual or CI server).
 
