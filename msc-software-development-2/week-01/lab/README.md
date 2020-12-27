@@ -345,7 +345,7 @@ The second type of `for` loop is `for (var of collection)`. It is the same as Py
 ```javascript
 var names = ["Kevin", "Amitave", "Kimia"];
 for (var name of names) {
-  documents.write(name + "<br>");
+  document.write(name + "<br>");
 }
 ```
 
@@ -651,4 +651,3 @@ The main Node.js documentation is available at https://nodejs.org/en/docs/. Tuto
 1. Update the Node.js server so it prints to the console the URL requested.
 2. Update the Node.js server so that if the URL `/roehampton` is requested, the server returns `Hello from Roehampton!`. **HINT** -- use an `if` statement to test the value of URL. Remember to add `res.end();` to complete the response.
 3. Update the Node.js server so that if the URL `/roehampton` is requested, the server will redirect the browser to Roehampton's website. **HINT** -- the status code for a redirect is 302, and you will need to set the `Location` using `res.setHeader`.
-4. 
