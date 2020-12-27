@@ -146,8 +146,6 @@ By all skills, we mean everything.  DevOps is an intersection:
 
 <p><a href="https://commons.wikimedia.org/wiki/File:Devops.svg#/media/File:Devops.svg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Devops.svg/1200px-Devops.svg.png" alt="Devops.svg"></a><br>By <a href="//commons.wikimedia.org/wiki/File:Devops.png" title="File:Devops.png">Devops.png</a>: <a href="//commons.wikimedia.org/w/index.php?title=User:Rajiv.Pant&amp;action=edit&amp;redlink=1" class="new" title="User:Rajiv.Pant (page does not exist)">Rajiv.Pant</a>
 derivative work: <a href="//commons.wikimedia.org/wiki/User:Wylve" title="User:Wylve">Wylve</a> - This file was derived from:&nbsp;<a href="//commons.wikimedia.org/wiki/File:Devops.png" title="File:Devops.png">Devops.png</a>:&nbsp;<a href="//commons.wikimedia.org/wiki/File:Devops.png" class="image"></a>, <a href="https://creativecommons.org/licenses/by/3.0" title="Creative Commons Attribution 3.0">CC BY 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=20202905">Link</a></p>
-
-
 IT Operations are part of your team.  They help you deliver your product.  Your team might include sales, admin, or other people.  The team needs all the skills for your product/project.
 
 Also, a team member should only be a member of that one team.  No other. If a team member is dividing their attention across multiple projects/products then they aren't committed to either.
@@ -186,7 +184,7 @@ Scrum uses a **Plan, Do, Check, Act (PDCA) Cycle**:
  (https://creativecommons.org/licenses/by-sa/3.0
 )], from Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:PDCA_Process.png"><img width="512" alt="PDCA Process" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/PDCA_Process.png/512px-PDCA_Process.png"></a>
 
-Unlike a Waterfall approach, Scrum refines the plan throughout the project.  Every iteration - *every sprint* - planning is done in just enough detail to deliver the next increment.  We don't set the plan in great detail because we don't know what could happen.
+Unlike a Waterfall approach, Scrum refines the plan throughout the project.  Every iteration - *every Sprint* - planning is done in just enough detail to deliver the next increment.  We don't set the plan in great detail because we don't know what could happen.
 
 ### Product Backlog
 
@@ -283,7 +281,7 @@ Your team should work on everything together.  **Work on the labs together.**  *
 
 To illustrate how Scrum ideals (and agile principles in general) can work, watch the following video by Spotify:
 
-[![Spotify Engineering Culture](https://img.youtube.com/vi/4GK1NDTWbkY/0.jpg)](https://www.youtube.com/watch?v=4GK1NDTWbkY)
+<iframe width="800" height="600" src="https://www.youtube.com/embed/4GK1NDTWbkY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## FAQs - Scrum Usage in the Module
 

@@ -182,14 +182,6 @@
   4. Build, including unit tests.
   5. Commit changes to version control.
 
-  Our GitFlow workflow mimics this idea:
-
-  1. Create a new `feature` branch from `develop`.
-  2. Implement the feature.
-  3. Merge any changes in `develop` into `feature`.
-  4. Build, including unit tests.
-  5. Merge `feature` into `develop`.
-
   #### Integration Build
 
   Once code is pushed to version control and fetched by the CI server, an integration build occurs. This includes all the components in the project, such as other software components, databases, etc.  The aim is to ensure that all the components work together.
