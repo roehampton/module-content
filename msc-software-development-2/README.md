@@ -18,7 +18,7 @@
 | Week   | Lecture                                       | Lab                                         | Seminar                                        | Coursework                             |
 | ------ | --------------------------------------------- | ------------------------------------------- | ---------------------------------------------- | -------------------------------------- |
 | 1      | ~~Software development lifecycles~~           | ~~JavaScript introduction.~~                | ~~Team forming. Scrum~~                        |                                        |
-| 2      | ~~Version control~~                           | ~~Object-orientation. Git.~~                | Task Management and Kanban                     |                                        |
+| 2      | ~~Version control~~                           | ~~Object-orientation. Git.~~                | ~~Task Management and Kanban~~                 |                                        |
 | 3      | ~~UML~~                                       | More on classes. Events and event handlers. | ~~UML workflow.~~                              | Coursework 1 (Task board)              |
 | 4      | OO design.                                    | Connect SQLite. Express.js. Debugging.      | OO design.                                     |                                        |
 | 5      | ~~User requirements gathering: user stories~~ | Design Patterns 1. Angular                  | ~~User requirements gathering: user stories.~~ |                                        |

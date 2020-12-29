@@ -118,7 +118,7 @@ The following video goes into more detail on the Scrumban process:
 
 [![Scrumban: Mixing Agile and Lean](https://img.youtube.com/vi/uaNHFsFz7Yw/0.jpg)](https://www.youtube.com/watch?v=uaNHFsFz7Yw)
 
-- [ ] Watch the video on Scrumban and consider some of the ideas in your teams delivery process.
+- [ ] Watch the video on Scrumban and consider some of the ideas in your team's collaboration process.
 
 ## Personal Kanban
 
@@ -128,7 +128,7 @@ You can find out more about Personal Kanban from:
 
 - The [Personal Kanban wiki](http://personalkanban.com/pk/).
 - The [Lifehacker Page on Personal Kanban](https://lifehacker.com/productivity-101-how-to-use-personal-kanban-to-visuali-1687948640).
-- The book *Personal Kanban: Mapping Work/Navigating Life* by Jim Benson and Tonianne DeMaria Barry (see recommended reading).
+- The book *Personal Kanban: Mapping Work/Navigating Life* by Jim Benson and Tonianne DeMaria Barry.
 
 ## Tools
 

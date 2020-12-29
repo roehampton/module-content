@@ -149,11 +149,6 @@ At this point it is a simple case of adding the code to the methods, which just 
   - Activity diagrams allow flowchart modelling which allows analysis, design, and communication with stakeholders.
   - Class diagrams allow the visualisation of software architecture which is necessary when software becomes too complex.
 
-## Summary
+## Your Task
 
-This has been a short introduction to using UML in analysis and design, and it presents one possible solution to designing a coffee machine in software.  As UML is a standard, we have a common notation for expressing such work, but remember that producing diagrams is not your end goal.
-
-We have also:
-
-- Defined how to use UML in analysis and design, providing a possible five-step process to follow.
-- Described a case study of using UML in analysis and design, examining a coffee machine from use case analysis to class design.
+Your team should now start using UML to help shape some of your software. **This is a key communication tool between the team.** Do any diagrams you think are necessary to help your team understand how your software needs to be constructed.
