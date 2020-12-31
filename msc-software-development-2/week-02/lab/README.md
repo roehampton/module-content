@@ -281,11 +281,33 @@ If your new web page works as expected it is time to commit your updates to GitH
 
 ## Debugging in the Web Browser
 
+If you've hit any problems with your JavaScript code so far you might be wondering how you find this out. Your web page loads but nothing happens -- what has gone wrong. Thankfully, browsers come with tools to support web development.
+
+**What follows is how we can debug applications using Chrome/Chromium based browsers:**
+
+- Google Chrome
+- Chromium
+- Microsoft Edge
+
+If you are using Safari, the same general idea also works. See here for a brief explanation of accessing the development tools: https://developer.apple.com/safari/tools/.
+
+For Mozzila Firefox, see here: https://developer.mozilla.org/en-US/docs/Tools
+
 ### Checking Errors
 
-### Setting Breakpoints
+**To open the Developer Tools press F12.** This will bring up the following window:
 
-### Examining Values
+![image-20201231140253862](image-20201231140253862.png)
+
+This provides a wealth of information about the running webpage. Of particular note is how it shows errors in your code. For example, the following intentional error has been added to `script3.js` of `third.html` from our previous work.
+
+![image-20201231140952898](image-20201231140952898.png)
+
+The JavaScript is trying to find `my_tex` rather than `my_text`. Note that the error says we don't have `innerHTML` defined on the variable `element`. That is because `element` will be `null` as there is no HTML element found. The Developer Tools have provided an error, and tried to highlight where the problem is. This can be very useful.
+
+### So you want to know more
+
+You **should** follow the [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/) guide provided by Google. We are only introducing the idea of how to open these tools. We will leave the Developer Tools here and expect you to learn them to support your development practice based on which browser you are working in.
 
 ## Exercises
 

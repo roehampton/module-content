@@ -134,6 +134,12 @@ Finally, add yourself to the array of `Student`.
 
 ## Private Attributes and Methods
 
+**WARNING -- this feature is not support in Safari web browsers.** If you are a MacOS user who only uses Safari you have two choices:
+
+- Install a Chrome/Chromium based browser (recommended). For example, Google Chrome, Microsoft Edge, or Chromium.
+- Install Mozilla Firefox.
+- Don't implement this section, although we will use private members in our Node.js code later in the module.
+
 JavaScript supports private attributes and methods. These are attributes and methods only accessible from within the object itself. We denote a private member with a `#`:
 
 ```javascript
