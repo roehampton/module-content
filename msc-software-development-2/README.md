@@ -18,11 +18,11 @@
 | Week   | Lecture                                       | Lab                                                | Seminar                                        | Coursework                             |
 | ------ | --------------------------------------------- | -------------------------------------------------- | ---------------------------------------------- | -------------------------------------- |
 | 1      | ~~Software development lifecycles~~           | ~~JavaScript introduction.~~                       | ~~Team forming. Scrum~~                        |                                        |
-| 2      | ~~Version control~~                           | ~~Object-orientation. Git.~~                       | ~~Task Management and Kanban~~                 |                                        |
+| 2      | ~~Version control~~                           | ~~Object-orientation. Git.~~ Debugging.            | ~~Task Management and Kanban~~                 |                                        |
 | 3      | ~~UML~~                                       | ~~More on classes. Events and event handlers.~~    | ~~UML workflow.~~                              | Coursework 1 (Task board)              |
-| 4      | OO design.                                    | Connect SQLite. Express.js. Debugging.             | OO design.                                     |                                        |
-| 5      | ~~User requirements gathering: user stories~~ | Design Patterns 1. Angular                         | ~~User requirements gathering: user stories.~~ |                                        |
-| 6      | ~~Modern Software Architecture~~              | Design Patterns 2. Docker.                         | UI design and CSS.                             | Coursework 2 (user stories and design) |
+| 4      | OO design.                                    | Connect SQLite. Express.js.                        | OO design.                                     |                                        |
+| 5      | ~~User requirements gathering: user stories~~ | New project. Git Hooks. Angular                    | ~~User requirements gathering: user stories.~~ |                                        |
+| 6      | ~~Modern Software Architecture~~              | Design Patterns. Docker.                           | UI design and CSS.                             | Coursework 2 (user stories and design) |
 | 7      | ~~Continuous integration~~                    | Continuous integration. Deployment                 | UI design and CSS.                             |                                        |
 | 8      | ~~DevOps~~                                    | Model view controller                              | Team session                                   |                                        |
 | 9      | ~~Test-driven development~~                   | Unit testing                                       | Testing                                        | Coursework 3 (prototype)               |

@@ -1,17 +1,16 @@
-# Software Development 2 Lab 04 -- Connecting to a Database and Debugging
+# Software Development 2 Lab 04 -- Connecting to a Database
 
-This Lab covers a variety of topics, mainly about connecting your web page to a database. We will also look at debugging. To give an overview so you can refer to this lab later for certain aspects you might find useful elsewhere:
+This Lab covers a variety of topics, mainly about connecting your web page to a database. To give an overview so you can refer to this lab later for certain aspects you might find useful elsewhere:
 
 - Installing and using SQLite on the command line.
 - How to ignore certain files in our Git repository.
 - How to output (dump) the SQL of a SQLite database.
 - How to import SQL into an SQLite database.
-- **Advanced topic** -- how we can ask Git to automate the dumping and importing of SQL using Git Hooks.
 - How to connect to an SQLite database in Node.js.
 - How to create a RESTful interface using Express.js.
 - How to communicate from Node.js to our webpage using JSON.
-- How to serve static web pages in Express.js.
-- How to debug JavaScript in a (Chrome/Chromium based) browser.
+
+**In next week's lab we will start afresh and build a project from scratch.** At this point things might start to feel overwhelming, but we will take a step back next week and repeat many of these steps while building a new project properly.
 
 ## SQLite
 
@@ -73,7 +72,7 @@ sqlite>
 
 > ##### WARNING -- A lot of SQL Incoming
 >
-> This aims to cover SQL for you again, but there is quite a bit of SQL we will enter with little explanation. If you'd prefer to skip this section you can download the SQL here: https://raw.githubusercontent.com/kevin-chalmers/sd2/main/students.sql. **Save this file in the root of your repository.**
+> This section aims to cover SQL for you again, but there is quite a bit of SQL we will enter with little explanation. If you'd prefer to skip this section you can download the SQL here: https://raw.githubusercontent.com/kevin-chalmers/sd2/main/students.sql. **Save this file in the root of your repository.**
 >
 > To import the SQL as a database, run the following command in the root of your repository:
 >
@@ -223,65 +222,6 @@ cat students.sql | sqlite3 students.db
 
 You now know how to version control your SQLite database. However, you might find this difficult to remember to do. Before each commit, you'll have to dump the database, and commit it. Then you'll have to remember to delete the database before recreating it.
 
-#### Git Hooks
-
-**WARNING** -- this is a slightly advanced topic, and isn't necessary to manage your database. You can just do it manually as described above.
-
-We can ask Git to automate the dump, delete, recreate process for us using *Git Hooks.* A Git Hook is just code that is run before or after particular events occur in your repo, such as committing and merging.
-
-When you created a Git repository, Git created some hidden files to manage the repository. These are in a hidden `.git` folder within the root directory of your folder. Within this folder, there is a `hooks` folder which contains any hooks we have defined.
-
-Let us create a pre-commit hook. **In Windows, the easiest thing to do is open Git Bash from the start menu.** Linux and MacOS can do this from the standard terminal. **Change directory in the command prompt to your Git repository folder, and then run the following in the command prompt:**
-
-```shell
-nano .git/hooks/pre-commit
-```
-
-Enter the following into the file:
-
-```shell
-#!/bin/bash
-rm students.sql
-sqlite3 students.db .dump > students.sql
-git add students.sql
-```
-
-**Use CTRL-O to save the file, and then CTRL-X to exit.** We have now created a script that will do the following just before a commit is finalised:
-
-* Deletes any existing `students.sql` file.
-* Dumps `students.db` into `students.sql`.
-* Adds `students.sql` to the Git commit.
-
-As Git checks for differences, this will have no effect if the database has not been updated since the last commit.
-
-**Now run the following command**:
-
-```shell
-nano .git/hooks/post-merge
-```
-
-The contents for this file are:
-
-```shell
-#!/bin/bash
-rm students.db
-cat students.sql | sqlite3 students.db
-```
-
-**Use CTRL-O to save the file, then CTRL-X to exit.** We have created a script that will run after a merge (the end of a pull) that does the following:
-
-* Deletes the existing `students.db` file.
-* Creates a new `students.db` file from `students.sql`.
-
-**If you are on MacOS or Linux you will need to make these files executable.** This is done as follows:
-
-```shell
-chmod +x .git/hooks/pre-commit
-chmod +x .git/hooks/post-merge
-```
-
-**NOTE** -- these scripts are not shared in your repository. You will need to set them up on each machine you are working on for them to work effectively.
-
 ## SQLite with Node.js
 
 Now we have done our work with SQLite, we can use Node.js to talk to our SQLite database. First, we need to install the SQLite package for Node.js.
@@ -317,8 +257,6 @@ You have now learned about setting up appropriate `.gitignore` for a project. Si
 ```shell
 npm install
 ```
-
-**Advanced** -- if you worked on the Git Hook, you can add this line to the `post-merge` script.
 
 ### Opening a SQLite Database in Node.js
 
@@ -606,6 +544,7 @@ app.get("/goodbye", function(req, res) {
 
 // Create a get for /hello/<name> with name provided by user
 app.get("/hello/:name", function(req, res) {
+    // req.params contains any parameters in the request
     res.send("Hello " + req.params.name);
 });
 
@@ -619,30 +558,217 @@ There are now three URLs you can visit:
 - `127.0.0.1:3000/goodbye` will display `Goodbye world!`.
 - `127.0.0.1:3000/hello/<name>` will display `Hello <name>` for any value of `<name>`. Try your own name.
 
+#### Now you try
 
+Add the following end point URLs to the application:
+
+- `/test` will display `Welcome to the test page!`
+- `/student/<id>/<name>` will display a table with the student ID and name. **HINT** -- you will have to construct the string in the response to be HTML.
 
 ### JSON -- JavaScript Object Notation
 
-### Putting it All Together
+So we can now get data information from our Node.js server. How do we send our database information? That is actually quite easy as JavaScript supports easy sending of data using JavaScript Object Notation (JSON). **First, let us create a new JavaScript file -- `db_server.js`:**
 
-#### Static Site
+```javascript
+// Import SQLite library.
+// Use verbose mode to give more detailed error outputs
+const sqlite3 = require("sqlite3").verbose();
 
-Folder restructuring.
+// Connect to the database.
+// Function is callback when connection completed.
+// err is any error message that occurs
+let db = new sqlite3.Database("students.db", function(err) {
+    // If an error, print it out.
+    if (err) {
+        return console.error(err.message);
+    }
+    console.log("Connected to students database.");
+});
 
-## Debugging in the Web Browser
+// Import express.js
+const express = require("express");
 
-### Checking Errors
+// Create express app
+var app = express();
 
-### Setting Breakpoints
+// Add static files location
+app.use(express.static("static"));
 
-### Examining Values
+// Create a get for /student
+app.get("/student/:id", function(req, res) {
+    var sql = `
+        SELECT * FROM Students
+        WHERE id = ${req.params.id}`;
+    db.get(sql, function(err, row) {
+        if (err) {
+            return console.error(err.message);
+        }
+        res.json(row);
+    });
+});
+
+// Create a get for /students
+app.get("/students", function(req, res) {
+    var sql = "SELECT * FROM Students";
+    db.all(sql, function(err, rows) {
+        if (err) {
+            return console.error(err);
+        }
+        res.json(rows);
+    });
+});
+
+// Start server on port 3000
+app.listen(3000);
+```
+
+Note that we are going to server static files again from the `/static` folder. **Create that folder in your repository now.**
+
+Everything else you have seen before, except what we do in `app.get`. Here, we execute the SQL as normal using `get` (as we are getting a single student). The callback function now sets `res.json(row)`. **Now run the program with `node db_server.js` in the Visual Studio Code terminal. Then connect to `127.0.0.1:3000/student/1` to see the JSON returned. It should look like this**:
+
+```json
+{"id":1,"name":"Kevin Chalmers"}
+```
+
+And that is it. It is that easy to send our data back. This will also work for multiple rows of data -- just use `res.json(rows)`. So, to get all students we can add the following endpoint:
+
+```javascript
+// Create a get for /students
+app.get("/students", function(req, res) {
+    var sql = "SELECT * FROM Students";
+    db.all(sql, function(err, rows) {
+        if (err) {
+            return console.error(err);
+        }
+      	res.header("Access-Control-Allow-Origin", "*");
+        res.json(rows);
+    });
+});
+```
+
+#### Now you try
+
+Add the following endpoints to the application with appropriate SQL queries:
+
+- `/programme/<id>` to get a programme of a given id.
+- `/programmes` to get all programmes.
+- `/module/<code>` to get a module of a given code.
+- `/modules` to get all modules.
+
+### Putting it All Together -- Reading JSON
+
+We've come very far in this lab -- we've connected to our database, created a RESTful front end, and returned JSON data to our web page. Now we need to get this JSON data into our client web application so we can display it as a table. There are many ways we can do this, and we will use a particular method later in the module. For the moment, we are going to use another common JavaScript library -- jQuery. We won't explain much about jQuery here as we are only going to use one part of it. jQuery is essentially a library that allows easier manipulation of webpages.
+
+**First, create the following`students.html` file in the `static` folder**:
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student List</title>
+        <script src=https://code.jquery.com/jquery-3.5.1.js></script>
+        <script src="student.js"></script>
+    </head>
+    <body onload="printStudents()">
+        <h2>Students</h2>
+        <div id="main"></div>
+    </body>
+</html>
+```
+
+This is very similar to our last `students.html` file but with the inclusion of jQuery. **Now add `student.js` to the `static` folder with the following content:**
+
+```javascript
+// Tells the browser we want JavaScript to run in strict mode.
+// This means faster code, but JavaScript needs to be cleaner.
+"use strict";
+
+// A definition of a student
+class Student {
+    // Student ID
+    #id;
+    // Student name
+    #name;
+
+    // Creates a new instance (object) of type Student
+    constructor(id, name) {
+        // Set the id and name of the object instance
+        this.#id = id;
+        this.#name = name;
+    }
+
+    tableRow() {
+        return `<tr><td>${this.#id}</td><td>${this.#name}</td></tr>`;
+    }
+}
+
+function printStudents() {
+    $.getJSON("/students", function(result) {
+        // Create array of students
+        var students = [];
+        // Iterate over data returned
+        for (var row of result) {
+            var student = new Student(row.id, row.name);
+            students.push(student);
+        }
+        // Build html for table.
+        var html = `
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        `;
+        // Iterate over all the students
+        for (var student of students) {
+            html += student.tableRow();
+        }
+        // End html table.
+        html += `</table>`
+        // Get the main element
+        var main = document.getElementById("main");
+        // Set the innerHTML to html
+        main.innerHTML = html;
+    });
+}
+```
+
+We've simplified the `Student` class to just work with an ID and name. Then our changes are just to `printStudents()`:
+
+- We use `$.getJSON` to get the JSON document from the server. `$` is how we access jQuery functions. We use the URL `/students` as this is the endpoint we have created.
+- When the data is returned, the function is called filling the `result` parameter. This is our JavaScript.
+- We create an empty array to store the students.
+- We then iterate across every `row` in the `result` parameter. `result` will contain a JSON array of data, so we can use a `for ... of` loop here.
+- We then create a `Student` object from the `row` data -- `id` and `name`.
+- We then add the `Student` to the `students` array.
+- The rest of the function works as before.
+
+**Open your browser and go to `127.0.0.1/students` to see the result. You should get the table of students from the database.**
+
+![image-20201231132828594](image-20201231132828594.png)
 
 ## Summary
 
+We have come far in this lab, going from our SQLite database, through RESTful interfaces with Express.js, and displaying our returned JSON data using jQuery. This is a lot of web technology we have covered, but you are now using close to a full-stack of technology. We are now doing the following:
 
+- Displaying HTML webpages in our browser (user-interface).
+- Reacting to events in our HTML with JavaScript (client controller).
+- Sending data between the server and client using JSON.
+- Providing a RESTful interface to our server using Express.js in Node.js (application/business logic).
+- Accessing data using an SQLite database via Node.js (data layer).
+
+Next lab we will build a new project from scratch to go over these ideas once again.
 
 ## So you want to know more
 
-https://www.sqlitetutorial.net/sqlite-nodejs/
+SQLite provides a tutorial on how to use SQLite with Node.js: https://www.sqlitetutorial.net/sqlite-nodejs/.
+
+TutorialsPoint also provides an Express.js tutorial: https://www.tutorialspoint.com/expressjs/index.htm.
 
 ## Exercises
+
+1. Add the necessary code to display the table of programmes on the webpage.
+2. Add the necessary code to display the table of modules on the webpage.
+3. Create a new webpage -- `module_search.html` -- which has a text box allowing getting a single module based on it's code.
+4. Do the same for a student.
+5. Do the same for a programme.

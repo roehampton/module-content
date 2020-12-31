@@ -1,4 +1,4 @@
-# Software Development 2 Lab 2 -- Version Control and Classes
+# Software Development 2 Lab 2 -- Version Control, Classes and Debugging
 
 ## Creating a GitHub Account
 
@@ -278,6 +278,14 @@ If your new web page works as expected it is time to commit your updates to GitH
 
 1. Close Visual Studio Code.
 2. Delete the folder you were working in. It's OK -- it is stored in GitHub.
+
+## Debugging in the Web Browser
+
+### Checking Errors
+
+### Setting Breakpoints
+
+### Examining Values
 
 ## Exercises
 

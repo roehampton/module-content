@@ -1,4 +1,4 @@
-# Software Development 2 Lab 1 -- Getting Started with Web Development
+# Software Development 2 Lab 01 -- Getting Started with Web Development
 
 ## Setting Up a Development Environment
 
