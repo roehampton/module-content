@@ -1,4 +1,4 @@
-# Software Development 2 Seminar 2 -- Task Management with Kanban
+# Software Development 2 Seminar 02 -- Task Management with Kanban
 
 ## Overview of Kanban
 

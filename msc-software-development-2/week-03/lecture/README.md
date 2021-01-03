@@ -1,4 +1,4 @@
-# Software Development Lecture 3 -- UML
+# Software Development Lecture 03 -- UML
 
 ## What is UML?
 
@@ -169,4 +169,4 @@ Relationships are perhaps the most difficult aspect of object-orientation for ne
 This lecture has mainly been information based without much context.
 
 - *Defined UML and its history*, especially around why it is a unified modelling approach.
-- Described the fourteen UML models*, dividing these into behavioural and structural types.
+- *Described the UML models*, dividing these into behavioural and structural types.

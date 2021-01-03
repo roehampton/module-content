@@ -133,3 +133,16 @@ We've described a number of items in this section, so let us look at how these a
 
 Tasks are not a backlog item as they emerge during a Sprint.  They are created and completed as part of a Sprint.  So they do exist on your Sprint/Kanban board.  They just do not exist as backlog items.
 
+## Your Task
+
+Your team should now reproduce your current set of tasks as a set of user stories. During this process you might find:
+
+- You have tasks which cannot be rewritten as stories. Ask yourself why you are undertaking these tasks? If they are necessary, what do they provide to the user?
+- You have gaps in your tasks to meet user stories. Add these to your plan.
+
+At the end of this process, the Product Owner should do the following:
+
+- Reprioritise the tasks based on your new understanding.
+- Create any necessary conditions of satisfaction.
+
+The team should then examine the task board again and determine their next stages of work.

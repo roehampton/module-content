@@ -1,4 +1,4 @@
-# Software Development 2 Lecture 2 -- Version Control
+# Software Development 2 Lecture 02 -- Version Control
 
 ## What is Version Control
 

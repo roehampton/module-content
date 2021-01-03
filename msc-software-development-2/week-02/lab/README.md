@@ -11,7 +11,7 @@ Once you have an account, you need to create a repository.  In GitHub, you will 
 
 ![GitHub New Repository](github-new-repo.png)
 
-This will open a new window.  You need to enter the name for the repository (for example, `sd2`), make sure the repository is **Public** and then select the **Apache 2.0** license type.  **Ensure that a README is added**.  You have one already.  This details are illustrated below:
+This will open a new window.  You need to enter the name for the repository (for example, `sd2`), make sure the repository is **Public** and then select the **Apache 2.0** license type.  **Ensure that a README is added**.  The details are illustrated below:
 
 ![image-20201227112452665](image-20201227112452665.png)
 

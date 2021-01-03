@@ -1,4 +1,4 @@
-# Software Development 2 Seminar 1 -- Team Forming and Scrum
+# Software Development 2 Seminar 01 -- Team Forming and Scrum
 
 ## What is Scrum?
 
