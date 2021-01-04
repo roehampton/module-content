@@ -47,7 +47,7 @@ As the head of the system engineering department, you have been given the respon
 - The cost of using each system to encode video for each milestone and the overall cost. The EPL require encoding in all resolutions defined. You can buy as many instances of a system as required to meet the contract requirements.
 - A recommendation on which system provider to purchase systems from based on cost to deliver the contract.
 - An analysis of streaming the test video in full-screen in each resolution using Window's Performance Monitor.
-- A recommendation on which browser the EDL should recommend to their fans.
+- A recommendation on which browser the EPL should recommend to their fans.
 
 ## Submission Requirements
 
