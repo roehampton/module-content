@@ -1,4 +1,4 @@
-# Software Development 2 Lab 06 -- Docker and More Angular
+# Software Development 2 Lab 06 -- Docker
 
 ## Getting Started with Docker
 
