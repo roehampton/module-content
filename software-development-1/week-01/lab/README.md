@@ -203,8 +203,8 @@ We'll explore and expand on some of these concepts in Python via your open Jupyt
     7.What does the variable counter contain after the following code runs? 
 
     counter = 20
-    
-    counter + 1 
+    counter += 1 
+    counter
     
     8. Identify what kind of values each one is with type()
        3 * 4
