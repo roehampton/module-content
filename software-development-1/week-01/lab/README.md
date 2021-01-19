@@ -55,6 +55,7 @@ This is the idea behind **Stored Program Computers**, the multipurpose device we
     
 ![Alt text](img_stored_program.png?raw=false "Stored Program Computer")
 
+Programming is the process of creating a set of instructions that tell a computer how to perform a task. Programming can be done using a variety of computer programming languages, such as Matlab, Python, and C++
 
 Back in the olden days, computers had physical cards that need punching, etc. 
 
