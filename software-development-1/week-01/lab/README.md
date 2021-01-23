@@ -55,6 +55,7 @@ This is the idea behind **Stored Program Computers**, the multipurpose device we
     
 ![Alt text](img_stored_program.png?raw=false "Stored Program Computer")
 
+Programming is the process of creating a set of instructions that tell a computer how to perform a task. Programming can be done using a variety of computer programming languages, such as Matlab, Python, and C++
 
 Back in the olden days, computers had physical cards that need punching, etc. 
 
@@ -202,8 +203,8 @@ We'll explore and expand on some of these concepts in Python via your open Jupyt
     7.What does the variable counter contain after the following code runs? 
 
     counter = 20
-    
-    counter + 1 
+    counter += 1 
+    counter
     
     8. Identify what kind of values each one is with type()
        3 * 4
