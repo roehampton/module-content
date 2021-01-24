@@ -22,7 +22,7 @@ Here is a simple example that shows the syntax:
 ```c
 if (5 < 10)
 {
-  printf(“Five is now less than ten, that’s a big surprise”);
+  printf("Five is now less than ten, that's a big surprise");
 }
 ```
 
@@ -33,13 +33,13 @@ Here, we’re just evaluating the statement, “is five less than ten”, to see
 
 int main(int argc, char ** argv) 
 {
-	int x = 20;
+  int x = 20;
   int y = 22;
-	if (x<y)
-	{
-		printf("Variable x is less than y");
-	}
-	return 0;
+  if (x<y)
+  {
+    printf("Variable x is less than y");
+  }
+  return 0;
 }
 ```
 
@@ -54,11 +54,11 @@ It can look like this:
 ```c
 if (TRUE)
 {
-	// Execute these statements if TRUE
+  // Execute these statements if TRUE
 }
 else
 {
-	// Execute these statements if FALSE
+  // Execute these statements if FALSE
 }
 ```
 
@@ -73,20 +73,20 @@ Another use of else is when there are multiple conditional statements that may a
 
 int main(int argc, char ** argv)
 {
-	int age;             /* Need a variable... */
-	printf("Please enter your age: "); /* Asks for age */
-	scanf("%d", &age);   /* The input is put in age */
+  int age;             /* Need a variable... */
+  printf("Please enter your age: "); /* Asks for age */
+  scanf("%d", &age);   /* The input is put in age */
   if (age < 100)       /* If the age is less than 100 */
   {      
-		printf("You are pretty young!\n");
+    printf("You are pretty young!\n");
   }
-	else if (age == 100) /* If the age is equal 100 */
+  else if (age == 100) /* If the age is equal 100 */
   { 
-		printf("You are old\n");
+    printf("You are old\n");
   }
-	else 
+  else 
   {
-		printf("You are really old\n");
+    printf("You are really old\n");
 	}
  return 0;
 }
@@ -112,15 +112,15 @@ The syntax for a switch statement in C programming language is as follows:
 ```c
 switch (expression)
 {
-	case constant-expression:
-		statement(s);
-		break; /* optional */
-	case constant-expression:
-		statement(s);
-		break; /* optional */
-	/* you can have any number of case statements */
-	default: /* Optional */
-		statement(s);
+  case constant-expression:
+    statement(s);
+    break; /* optional */
+  case constant-expression:
+    statement(s);
+    break; /* optional */
+    /* you can have any number of case statements */
+  default: /* Optional */
+    statement(s);
 }
 ```
 
@@ -141,31 +141,31 @@ The following rules apply to a `switch` statement:
 
 int main(int argc, char **argv)
 {
-	char operator;
-	double n1, n2;
-	printf("Enter an operator (+, -, \*, /): ");
-	scanf("%c", &operator);
-	printf("Enter two operands: ");
-	scanf("%lf %lf",&n1, &n2);
-	switch (operator)
-	{
-		case '+':
-			printf("%.1lf + %.1lf = %.1lf",n1, n2, n1+n2);
-			break;
-		case '-':
-			printf("%.1lf - %.1lf = %.1lf",n1, n2, n1-n2);
-			break;
-		case '*':
-			printf("%.1lf * %.1lf = %.1lf",n1, n2, n1*n2);
-			break;
-		case '/':
-			printf("%.1lf / %.1lf = %.1lf",n1, n2, n1/n2);
-			break;
-		// operator doesn’t match any case constant +, -, *, /
-		default:
-			printf("Error! operator is not correct");
-	}
-	return 0;
+  char operator;
+  double n1, n2;
+  printf("Enter an operator (+, -, \*, /): ");
+  scanf("%c", &operator);
+  printf("Enter two operands: ");
+  scanf("%lf %lf",&n1, &n2);
+  switch (operator)
+  {
+    case '+':
+      printf("%.1lf + %.1lf = %.1lf",n1, n2, n1+n2);
+      break;
+    case '-':
+      printf("%.1lf - %.1lf = %.1lf",n1, n2, n1-n2);
+      break;
+    case '*':
+      printf("%.1lf * %.1lf = %.1lf",n1, n2, n1*n2);
+      break;
+    case '/':
+      printf("%.1lf / %.1lf = %.1lf",n1, n2, n1/n2);
+      break;
+      // operator doesn’t match any case constant +, -, *, /
+    default:
+      printf("Error! operator is not correct");
+  }
+  return 0;
 }
 ```
 
@@ -178,41 +178,41 @@ As an example, we are going to write a program which is a Menu-Driven Program to
 
 int main(int argc, char **argv)
 {
-	int num1, num2, opt;
-	printf("Enter the first Integer :");
-	scanf("%d", &num1);
-	printf("Enter the second Integer :");
-	scanf("%d", &num2);
+  int num1, num2, opt;
+  printf("Enter the first Integer :");
+  scanf("%d", &num1);
+  printf("Enter the second Integer :");
+  scanf("%d", &num2);
   printf("\nInput your option :\n");
-	printf("1-Addition.\n2-Substraction.\n3-    Multiplication.\n4-Division.\n5-Exit.\n");
-	scanf("%d", &opt);
-	switch (opt)
+  printf("1-Addition.\n2-Substraction.\n3-    Multiplication.\n4-Division.\n5-Exit.\n");
+  scanf("%d", &opt);
+  switch (opt)
   {
-		case 1:
-			printf("The Addition of %d and %d is: %d\n",num1,num2,num1+num2);
-			break;
-		case 2:
-			printf("The Substraction of %d and %d is: %d\n",num1,num2,num1-num2);**
-			break;
-		case 3:
-			printf("The Multiplication of %d and %d is: %d\n",num1,num2,num1\*num2);**
-			break;
-		case 4:
-			if (num2==0)
+    case 1:
+      printf("The Addition of %d and %d is: %d\n",num1,num2,num1+num2);
+      break;
+    case 2:
+      printf("The Substraction of %d and %d is: %d\n",num1,num2,num1-num2);**
+        break;
+    case 3:
+      printf("The Multiplication of %d and %d is: %d\n",num1,num2,num1\*num2);**
+        break;
+    case 4:
+      if (num2==0)
       {
-				printf("The second integer is zero. Devide by zero.\n");
-			} 
+        printf("The second integer is zero. Devide by zero.\n");
+      } 
       else 
       {
-				printf("The Division of %d and %d is : %d\n",num1,num2,num1/num2);
-			} 
-			break;
-		case 5:
-			break; 
-		default:
+        printf("The Division of %d and %d is : %d\n",num1,num2,num1/num2);
+      } 
+      break;
+    case 5:
+      break; 
+    default:
       printf("Input correct option\n");
-			break;
-	}
+      break;
+  }
 }
 ```
 
@@ -238,7 +238,7 @@ The syntax of a while loop in C programming language is:
 ```c
 while (condition)
 {
-	statement(s);
+  statement(s);
 }
 ```
 
@@ -287,7 +287,7 @@ Here is the flow of control in a for loop:
 **When you compile and execute the below program, what this program will produce the result?** 
 
 ```c
- #include <stdio.h>
+#include <stdio.h>
 
 int main(int argc, char **argv)
 {
@@ -309,7 +309,7 @@ The syntax of a do...while loop in C programming language is:
 ```c
 do
 {
-	statement(s);
+  statement(s);
 } while (condition);
 ```
 
