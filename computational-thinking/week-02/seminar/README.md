@@ -1,82 +1,38 @@
-# Computational Thinking Seminar 02 -- Logic
+# Computational Thinking Seminar 02
 
- The goal of this tutorial is not to solve that specific problem, but to exercise a certain set of skills, or to practice solving a certain type of problem. 
+It is usually the case that students are asked to take a very active role in their seminars and all students will be invited to speak and contribute to discussions. In this way, it is not only academic understanding that you will gain but also the chance to develop a wide range of personal and key skills. These may include how best to communicate and present your views and to build your confidence when speaking in front of other students. This Seminar is aiming for below objectives:
 
-1. Each problem consists of three statements. Based on the first two statements, the third statement may be true, false, or uncertain.
+- Providing an opportunity to explore a topic in depth.
+- Analysing and critically evaluating different viewpoints.
+- Developing a wide range of communication and study skills.
+- Building confidence.
+- Easing communication between students and tutors.
 
-   - Tanya is older than Eric.
-   - Cliff is older than Tanya.
-   - Eric is older than Cliff.
+ 
 
-   If the first two statements are true, the third statement is
+## Student-led seminar guide
 
-   1. true
-   2. false
-   3. uncertain 
+### 10 Minute Seminar Presentation Guide
 
-2. Solve the following.
+Here is an example of an outline for a 10-minute seminar presentation which you could possibly adapt for your own circumstances and needs.
 
-   - Blueberries cost more than strawberries.
+| Timing      | Focus                                                        |
+| ----------- | ------------------------------------------------------------ |
+| 2-3 minutes | Introduce yourself. Give the  purpose of the talk            |
+|             | Main body of the talk                                        |
+| 5-6 minutes | Identify possible points for  discussion                     |
+| 2 minutes   | Conclusion                                                   |
+|             | Summarise main points  briefly.  Draw your own conclusions.  Thank your audience for their  attention. Invite questions. |
 
-   - Blueberries cost less than raspberries.
-   - Raspberries cost more than both strawberries and blueberries.
+**The topic of the Seminar – Coding isn’t the same as computational thinking.**
 
-   If the first two statements are true, the third statement is
+As Stephen Wolfram candidly puts it:
 
-   1. true
-   2. false
-   3. uncertain
+>  Coding isn’t the same as computational thinking
 
-3. Solve the following
+We can broadly think of it as a method of formalised problem-solving. 
 
-   - All the trees in the park are flowering trees.
-   - Some of the trees in the park are dogwoods.
-   - All dogwoods in the park are flowering trees.
+1. **Is computational thinking programming?**
+2. **What is the difference between computational thinking and programming?** 
 
-   If the first two statements are true, the third statement is
-
-   1. true
-   2. false
-   3. uncertain 
-
-4. Solve the following.
-
-   - Mara runs faster than Gail.
-   - Lily runs faster than Mara.
-   - Gail runs faster than Lily.
-
-   If the first two statements are true, the third statement is
-
-   1. true
-   2. false
-   3. uncertain
-
-5. Solve the following
-
-   - All the tulips in Zoe's garden are white.
-   - All the pansies in Zoe's garden are yellow.
-   - All the flowers in Zoe's garden are either white or  yellow.
-
-   If the first two statements are true, the third statement is
-
-   1. true
-   2. false
-   3. uncertain
-
-6. Grace thought of a number, added 7, multiplied by 3, took away 5 and divided by 4 to give an answer of 7. What was the starting number?
-
-7. If ADD = 9, BAD = 7 and CAD = 8 what is the value of ADA?
-
-   Each letter here has the same value as its place in the alphabet. So A = 1, B = 2 etc.
-
-8. Three computers were lined up in a row. The Dell was to the left of the Viglen but not necessarily next to it. The blue computer was to the right of the white computer. The black computer was to the left of the Hewlett Packard PC. The Hewlett Packard was to the left of the Viglen. What was the order of the computers?
-9. If DATA = 52, CACHE = 40 and BIT = 62. What is the value of BABBAGE? Here each letter has double the value of its place in the alphabet. So A = 2, B= 4 and so forth.
-10. Four friends in the sixth grade were sharing a pizza. They decided that the oldest friend would get the extra piece. Randy is two months older than Greg, who is three months younger than Ned. Kent is one month older than Greg. Who should get the extra piece of pizza?
-    1. Randy
-    2. Greg
-    3. Ned
-    4. Kent
-11. During the past year, Josh saw more movies than Stephen. Stephen saw fewer movies than Darren. Darren saw more movies than Josh. If the first two statements are true, the third statement is: 
-    1. true
-    2. false
-    3. uncertain
+Stephen Wolfram is a British-American computer scientist, physicist, and businessman. He is known for his work in computer science, mathematics, and in theoretical physics. In 2012, he was named an inaugural fellow of the American Mathematical Society.
