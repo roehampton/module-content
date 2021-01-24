@@ -14,9 +14,10 @@
    2. false
    3. uncertain 
 
-2. 
+2. Solve the following.
 
    - Blueberries cost more than strawberries.
+
    - Blueberries cost less than raspberries.
    - Raspberries cost more than both strawberries and blueberries.
 
@@ -26,7 +27,7 @@
    2. false
    3. uncertain
 
-3. 
+3. Solve the following
 
    - All the trees in the park are flowering trees.
    - Some of the trees in the park are dogwoods.
@@ -38,7 +39,7 @@
    2. false
    3. uncertain 
 
-4. 
+4. Solve the following.
 
    - Mara runs faster than Gail.
    - Lily runs faster than Mara.
@@ -50,7 +51,7 @@
    2. false
    3. uncertain
 
-5. 
+5. Solve the following
 
    - All the tulips in Zoe's garden are white.
    - All the pansies in Zoe's garden are yellow.
