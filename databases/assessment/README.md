@@ -68,9 +68,9 @@ A logically well represented report containing Part One and Part Two with approp
 
 ## Deadlines
 
-**Part One of the coursework must be uploaded to Moodle by 14.00 on Friday 12th of February (end of Week 4).**
+**Part One of the coursework must be uploaded to Moodle by 14.00 on Friday 26th of February (end of Week 6).**
 
-**Part Two of the coursework must be uploaded to Moodle by 14.00 on Friday 19th of March (end of Week 9).**
+**Part Two of the coursework must be uploaded to Moodle by 14.00 on Friday 26th of March (end of Week 10).**
 
 **Part Three of the coursework must be uploaded to Moodle by 14.00 on Friday 16th of April (after Spring Break).** 
 
