@@ -6,17 +6,11 @@
 
 **Examples (or make up your own)**
 
-• You work for the NHS and need to create a booking
-system for the public for getting their Covid-19 jab
-• You work for a start-up that wants to start
-delivering medicines to care homes from local
-pharmacies by drone
-• You have been asked to help a community group
-that wants to connect allotment growers to people in
-the local area that might want to take their excess
-veg for free
-• You are doing research to design devices that might
-help people with dementia live at home
+- You work for the NHS and need to create a booking system for the public for getting their Covid-19 jab
+- You work for a start-up that wants to start
+  delivering medicines to care homes from local pharmacies by drone
+- You have been asked to help a community group that wants to connect allotment growers to people in the local area that might want to take their excess veg for free
+- You are doing research to design devices that might help people with dementia live at home
 
 ### Questions
 
