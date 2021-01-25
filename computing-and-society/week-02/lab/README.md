@@ -15,7 +15,7 @@
 ### Questions
 
 - Who are the primary users?
-- What are the key values of your project?
+- What are the key values of your project? (mention 3 - 4 points)
 - What methods will you use to reserach and evaluate your solution?
 
 
