@@ -68,17 +68,17 @@ A logically well represented report containing Part One and Part Two with approp
 
 ## Deadlines
 
-**Part One of the coursework must be uploaded to Moodle by 17.00 on Friday 30th of October (end of Week 4).**
+**Part One of the coursework must be uploaded to Moodle by 14.00 on Friday 12th of February (end of Week 4).**
 
-**Part Two of the coursework must be uploaded to Moodle by 17.00 on Friday 4th of December (end of Week 9).**
+**Part Two of the coursework must be uploaded to Moodle by 14.00 on Friday 19th of March (end of Week 9).**
 
-**Part Three of the coursework must be uploaded to Moodle by 17.00 on Friday 18th of December (before Winter Break).** 
+**Part Three of the coursework must be uploaded to Moodle by 14.00 on Friday 16th of April (after Spring Break).** 
 
 ## Marking Scheme
 
 ### Part One
 
-| **Criteria**                                                 | **Excellent**                                                | **Satisfactory**                                             | **Not satisfactory**                                         | **Not attempted**                                            |
+| **Criteria**                                                 | **Excellent**                                                | **Good**                                                     | **Developing**                                               | **Not attempted**                                            |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Idea** the suitability of the idea for a DBMS.             | The idea requires a DBMS and has been well specified.        | The idea would require a DBMS to manage although the idea is not fully specified. | Idea is simple and could be managed without a DBMS.          | No idea provided or idea unsuitable.                         |
 | **Purpose of DBMS** how well defined the purpose of the DBMS is. | The DBMS purpose is clearly defined and represents a good use of a DBMS. | The DBMS purpose is clearly defined although does not clearly represent a good use for a DBMS. | The DBMS purpose is not clearly defined.                     | Purpose of the DBMS not given, or purpose ill defined.       |
@@ -89,7 +89,7 @@ A logically well represented report containing Part One and Part Two with approp
 
 ### Part Two
 
-| **Criteria**                                                 | **Excellent**                                                | **Satisfactory**                                             | **Not satisfactory**                                         | **Not attempted**                                            |
+| **Criteria**                                                 | **Excellent**                                                | **Good**                                                     | **Developing**                                               | **Not attempted**                                            |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **SQL comments** code is commented correctly.                | SQL is sufficiently commented with comments on every query, code segment, and special case. | SQL is commented in most cases.                              | SQL is commented but not sufficiently.                       | Code is not commented at all or has very few comments.       |
 | **SQL correctness** how correct is the output of the SQL.    | All queries work correctly.                                  | Almost all of the queries work correctly, or output is correct almost all the time. | Some queries do not work correctly, or output is incorrect.  | No output provided from SQL, or output is incorrect.         |
@@ -100,7 +100,7 @@ A logically well represented report containing Part One and Part Two with approp
 
 ### Part Three
 
-| **Criteria**                                                 | **Excellent**                                                | **Satisfactory**                                             | **Not satisfactory**                                         | **Not attempted**                                            |
+| **Criteria**                                                 | **Excellent**                                                | **Good**                                                     | **Developing**                                               | **Not attempted**                                            |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Presentation** how well organised is the report.           | Good organisation, points are logically ordered, report order flows together. | Organised, although some points are somewhat jumpy. General flow of report works. | Some organisation points jump around. Flow is unclear.       | Poorly organised. No logical progression. Overall flow is vague. |
 | **Discussion** overall level of discussion in the report.    | Excellent overall level of discussion provided.              | Good discussion level provided although unclear or inconsistent in a couple of places. | Discussion is good but lacks clarity and consistency in places. | Discussion is poor and does not provide clarity to the report. |
