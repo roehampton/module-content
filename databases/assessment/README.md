@@ -10,7 +10,7 @@ The coursework meets the following module learning outcomes:
 
 In this coursework you are tasked with creating a database system for the smooth and efficient operation of a business of your choosing. Hence, you are required to specify what type of business you will be building your databases system for, along with the different collections of data that may be required to be stored in your database in order to achieve its purpose. The completion of your coursework will be graded by submission of a written report as well as a script of SQL statements.
 
-You will need to create a formal business report with everything compiled into a single document (PDF). The report should use 12-point font in Times New Roman, 1-inch margins, and double line spaced. Th report should be properly paged, paragraphed, and sectioned, and include the following sections in order.
+You will need to create a formal business report with everything compiled into a single document (PDF). The report should use 12-point font in Times New Roman, 1-inch margins, and double line spaced. The report should be properly paged, paragraphed, and sectioned, and include the following sections in order.
 
 1. Cover page.
 2. Table of contents.

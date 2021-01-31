@@ -61,7 +61,7 @@ Each group will undertake **four** graded Sprints:
 3. Friday 19th March at 17.00.
 4. Friday 23rd April at 17.00.
 
-Each Spring features a submission (via Moodle) and a review at the next class session. Each group will be given **10 minutes maximum** for the review. Your group will be **allocated a time for the code review.** The details of the individual review points are below. These meetings **must be attended** at the **stated time.** Guidelines for review attendance:
+Each Sprint features a submission (via Moodle) and a review at the next class session. Each group will be given **10 minutes maximum** for the review. Your group will be **allocated a time for the code review.** The details of the individual review points are below. These meetings **must be attended** at the **stated time.** Guidelines for review attendance:
 
 - **Being late** for the meeting or **not being ready** when the meeting starts will result in the grade for the review being capped at 50%.
 - **Not attending** the meeting will mean the review will be marked at 0%.
