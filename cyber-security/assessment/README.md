@@ -50,7 +50,16 @@ It is highly recommended that you review the following chapters in the essential
 
 ### Marking Scheme
 
-The following rubric will be used to 
+The following rubric will be used to grade the report.
+
+| **Criteria**                                                 | **Excellent**                                                | **Satisfactory**                                             | **Not Satisfactory**                                         | **Not attempted**                                            |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Presentation** how well organised is the report.           | Good organisation, points are logically ordered, report order flows together. | Organised, although some points are somewhat jumpy. General flow of report works. | Some organisation points jump around. Flow is unclear.       | Poorly organised. No logical progression. Overall flow is vague. |
+| **Discussion** overall level of discussion in the report.    | Excellent overall level of discussion provided.              | Good discussion level provided although unclear or inconsistent in a couple of places. | Discussion is good but lacks clarity and consistency in places. | Discussion is poor and does not provide clarity to the report. |
+| **Quality of information** ability to provide details to support the report. | Supporting details specific to subject.                      | Some details are non-supporting to the subject.              | Details are somewhat unclear and do not support the topic.   | Specific details undefined or difficult to find.             |
+| **Risks identified** quality and completeness of the risks identified in the report. | Excellent range of risks identified and clearly described.   | Range of risks covers the most obvious ones, and description is generally clear. | Some clear risks not covered and/or level of description is unclear. | No risks identified, or types of risk identified are not suitable for the scenario. |
+| **Recommendations** quality and completeness of the recommendations made in the report. | Recommend measures summarises and draws clear, effective methods to address risks identified. | Recommended measures summarises methods although some further clarity on effectiveness is required. | Recommended measures are only remotely related to the risks described. | No recommended measures provided, or measures are inappropriate to the risks identified. |
+| **Format** ability to meet the formatting standard defined.  | Report is in the correct format.                             | Report is mostly in the correct format                       | Report has a few formatting issues.                          | Report has many formatting issues or does not meet the guidelines specified. |
 
 ## Report Two
 
