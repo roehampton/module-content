@@ -66,133 +66,14 @@ Your ZIP file **must** use your student ID as a name. For example, if your stude
 
 The following rubric will be used:
 
-| **Criteria**                                                 | **Excellent**                                                | **Good**                                                     | **Developing**                                               | **Not Attempted**                                            |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Solution** the completeness of the code fo meet the specification given. | A completed solution
-meeting all the
-specifications.           | A completed solution
-that does not quite
-meet all the
-specifications. | A completed
-solution is
-implemented and
-runs but lacks much
-of the specification. | Solution doesn’t run
-or does not meet the
-specifications defined. |
-| **Correctness** ability to create
-code that reliably
-produces correct
-answers or
-appropriate results. | Program produces
-correct answers or
-appropriate results for
-all inputs tested. | Program produces
-correct answers or
-appropriate results
-for most inputs. | Program approaches
-correct answers or
-appropriate results
-for most inputs but
-can contain
-miscalculations. | Program does not
-produce correct
-answers or
-appropriate results for
-most inputs. |
-| **Logic** ability to use
-correct program
-structures
-appropriate to the
-problem domain. | Program logic is
-correct with no known
-boundary errors, and
-no redundant or
-contradictory
-conditions. | Program logic is
-mostly correct but
-may contain an
-occasional boundary
-error or redundant
-or contradictory
-condition. | Program logic is on
-the right track but
-shows no
-recognition of
-boundary conditions
-(such as < vs. <=). | Program contains
-some conditions that
-specify the opposite of
-what is required (less
-than vs. greater than),
-confuse Boolean
-AND/OR operators, or
-lead to infinite loops. |
-| **Robustness** ability of the
-program to handle
-unexpected input
-and error
-conditions correctly
-as evidenced via
-testing. | Program handles
-erroneous or
-unexpected input
-gracefully; action is
-taken without
-surprising the user.
-Boundary cases are
-considered and tested. | All obvious error
-conditions are
-checked for and
-appropriate action is
-taken. Nearly all
-boundary cases are
-considered and
-tested. | Some obvious error
-conditions are
-checked for and
-some sort of action
-is taken. Most
-boundary cases are
-considered and
-tested. | Program often fails or
-fails completely.
-Boundary conditions
-are not tested for. |
+| **Criteria**| **Excellent** | **Good** | **Developing** | **Not Attempted** |
+| ----------- | ------------- | -------- | -------------- | ------------------------ |
+| **Solution** the completeness of the code fo meet the specification given. | A completed solution meeting all the specifications.           | A completed solution that does not quite meet all the specifications. | A completed solution is implemented and runs but lacks much of the specification. | Solution doesn’t run or does not meet the specifications defined. | 
+| **Correctness** ability to create code that reliably produces correct answers or appropriate results. | Program produces correct answers or appropriate results for all inputs tested. | Program produces correct answers or appropriate results for most inputs. | Program approaches correct answers or appropriate results for most inputs but can contain miscalculations. | Program does not produce correct answers or appropriate results for most inputs. |
+| **Logic** ability to use correct program structures appropriate to the problem domain. | Program logic is correct with no known boundary errors, and no redundant or contradictory conditions. | Program logic is mostly correct but may contain an occasional boundary error or redundant or contradictory condition. | Program logic is on the right track but shows no recognition of boundary conditions (such as < vs. <=). | Program contains some conditions that specify the opposite of what is required (less than vs. greater than), confuse Boolean AND/OR operators, or lead to infinite loops. |
+| **Robustness** ability of the program to handle unexpected input and error conditions correctly as evidenced via testing. | Program handles erroneous or unexpected input gracefully; action is taken without surprising the user. Boundary cases are considered and tested. | All obvious error conditions are checked for and appropriate action is taken. Nearly all boundary cases are considered and tested. | Some obvious error conditions are checked for and some sort of action is taken. Most boundary cases are considered and tested. | Program often fails or fails completely. Boundary conditions are not tested for. |
 | **Error freedom** removal of all errors existing within the current program. | All errors removed such that the program will compile and run under all conditions. | All obvious errors are removed but there are some smaller issues not rectified. Program will compile and run. | Some obvious errors fixed but some still exist. Program will compile and run. | Program either fails to compile, or if it does not further errors have been fixed. |
-| **Clarity** ability to format
-and document
-code for human
-consumption (Good
-Style) | Program contains
-appropriate
-documentation for all
-major functions,
-variables, or non-trivial
-algorithms.
-Formatting,
-indentation, and other
-white space aids
-readability. | Program contains
-some
-documentation on
-major functions,
-variables, or nontrivial
-algorithms.
-Indentation and
-other formatting is
-appropriate. | Program contains
-some
-documentation (at
-least the student’s
-name and program’s
-purpose) but has
-occasionally
-misleading
-indentation. | Program contains no
-documentation, or
-grossly misleading
-indentation. |
+| **Clarity** ability to format and document code for human consumption (Good Style) | Program contains appropriate documentation for all major functions, variables, or non-trivial algorithms. Formatting, indentation, and other white space aids readability. | Program contains some documentation on major functions, variables, or nontrivial algorithms. Indentation and other formatting is appropriate. | Program contains some documentation (at least the student’s name and program’s purpose) but has occasionally misleading indentation. | Program contains no documentation, or grossly misleading indentation. |
 
 ### Academic Misconduct
 
