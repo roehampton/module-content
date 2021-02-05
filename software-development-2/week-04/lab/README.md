@@ -219,47 +219,69 @@ Your screen will be updated to the following. There are three points of interest
   - Finally, we get to our own code. `debug.exe!main` is the debugger executing our `main` function.
   - `debug.exe!sum_digit` is the current function being executed -- `sum_digit`.
 
-So we now know that our function seems to be starting correctly. 1223 is being passed in as a parameter. Let us finish the function. **Click the 
-
-Step out of.
+So we now know that our function seems to be starting correctly. 1223 is being passed in as a parameter. Let us finish the function. **Click the Step Out button now. It is illustrated below.**
 
 ![image-20210203193119440](image-20210203193119440.png)
 
-Continue.
+Your application will now return to the main function. **Next press the Continue (below) button to run the application to completion. Close any terminal windows that have opened.**
 
 ![image-20210203193229845](image-20210203193229845.png)
 
-Start again.
+**Start the application again by clicking on the Green Triangle at the top-left of the Visual Studio window.**
 
 ![image-20210203134024569](image-20210203134024569.png)
 
-Step into.
+Your application will pause at the breakpoint. **Now do the following actions to get to the start of the `while` loop:**
 
-Step over twice
+- **Step Into**.
+- **Step Over twice.**
+
+Your Visual Studio Code window should look like the following, with execution paused at the start of the `while` loop.
 
 ![image-20210203193520370](image-20210203193520370.png)
 
-Step through for loop.
+Let us now step through one iteration of the loop and see what happens. **Step Over three times to pause your code at the end of the loop as illustrated below.**
 
 ![image-20210203193615868](image-20210203193615868.png)
 
-Say we've been stupid.
+**Now look at your variables.** They should be:
 
-Stop.
+- `num` 122
+- `rem` 3
+- `sum` 0
+
+OK, `sum` didn't change. That is our bug. We've been stupid and forgotten to update `sum` during the `while` loop. Let us fix that now. **Press the Stop button to stop running the program. It is illustrated below.**
 
 ![image-20210203193645376](image-20210203193645376.png)
 
-Fix it.
+**Fix the `while` loop by adding the line `sum += rem;`. See below for where to add it.**
 
 ![image-20210203193830878](image-20210203193830878.png)
 
-Run. Test few different values.
+**Now restart the program and step through again until the end of the first iteration of the `while` loop. See below as an example of the Visual Studio Code window.** Notice now that `sum` is updating. **Use Continue to run the application to completion and check the output is correct.**
 
 ![image-20210203194058751](image-20210203194058751.png)
 
+**Left-click on the breakpoint to remove it and test the application with different numbers for `sum_digit` to check it is working.**
+
 ### General Debugging Workflow
 
-### Exercises
+Our general debugging workflow is as follows:
+
+1. Run application and find there is an error.
+2. Set a breakpoint as close to where you know the error is. If you don't know, use the start of the application.
+3. Step through the program trying to find where the error is occurring. Use Step Over initially until you find which function the error is occurring.
+4. Set new breakpoints closer to where the problem seems to be.
+5. Repeat steps 3 and 4 until you find where the bug is.
+
+### Exercise
+
+Find where the bug is in the following application. It generates the factorial of an input from the user. For example:
+
+- Factorial(1) = 1
+- Factorial(2) = 2 * 1 = 2
+- Factorial(3) = 3 * 2 * 1 = 6
+- Factorial(4) = 4 * 3 * 2 * 1 = 24
 
 ```c
 #include <stdlib.h>
@@ -280,11 +302,6 @@ int main(int argc, char **argv)
 }
 ```
 
+## Advice
 
-
-
-
-## Assertions
-
-## Exercises
-
+Programming is a bit of a lifestyle choice. To be a good programmer, you need to put a lot of hours of practice in. That means working through tutorials, fixing your errors, and training yourself in the skill of programming. Debugging really helps here. You should be spending 10-20 hours outside class practicing programming. It is a key skill in computer science, and you will find we will be moving much faster in what we expect you to achieve from now on.
