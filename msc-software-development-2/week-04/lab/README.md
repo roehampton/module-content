@@ -251,7 +251,7 @@ Now we have done our work with SQLite, we can use Node.js to talk to our SQLite 
 4. **Run the following command:**
 
    ```shell
-   npm install sqlite3
+   npm install --save sqlite3@^5.0.0
    ```
 
 You now have the necessary packages to work with SQLite databases in Node.js. *But wait!* Look at your Source Control panel in Visual Studio Code. Over 1000 untracked files. What has happened?
