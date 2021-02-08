@@ -1,6 +1,6 @@
 # Software Development 2 Lab 02 -- More C
 
- These tutorials are designed to teach you a number of C Programming principles with sophisticated topics and examples. The goal of each problem is not to solve that specific problem, but to exercise a certain set of skills, or to practice solving a certain type of problem. 
+These tutorials are designed to teach you a number of C Programming principles with sophisticated topics and examples. The goal of each problem is not to solve that specific problem, but to exercise a certain set of skills, or to practice solving a certain type of problem. 
 
 ## If statements in C
 

@@ -25,6 +25,14 @@ In this coursework you are tasked with creating a dynamic web application for th
 - Your application must be version controlled using Git and publicly accessible on GitHub. This is not negotiable.
 - Your application must be deployable as a Docker container. This is not negotiable.
 
+### Advice on Application Choice
+
+We are not looking for anything sophisticated in your application. Fundamentally, you should aim to develop a [CRUD application](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete). A CRUD application is effectively a front-end to a database, providing a method to create, read, update, and delete data from a web site to a database on a server.
+
+An example tutorial on building a CRUD application using JavaScript and HTML forms is available here: [JavaScript CRUD Example Tutorial (javaguides.net)](https://www.javaguides.net/2020/11/javascript-crud-example-tutorial.html). An example image of a potential front-end for a CRUD application is below.
+
+![img](https://codeshack.io/web/img/posts/crud-application-php-pdo-mysql.png)
+
 ## Group Submission
 
 The coursework **must** be delivered by a group. The aim of the module is to assess your ability to work as a team to deliver a product. Therefore, the majority of your coursework grade will be based on your team's ability to work together using the methods defined in the module.
@@ -33,7 +41,7 @@ The submission is monitored weekly during lab stand-up meetings, and formally vi
 
 ## Individual Assessment
 
-Individual contributions to the team will be assessed based on attendance at the various meetings and via metrics gathered from tools such as GitHub. **Individual contributions can lead to a scaling of the overall coursework grade if the module team have evidence that illustrates a lack of contribution to the team deliverable.**
+Individual contributions to the team will be assessed based on attendance at the various meetings and via metrics gathered from tools such as GitHub. **Lack of individual contributions can lead to a scaling of the overall coursework grade if the module team have evidence that illustrates a lack of contribution to the team deliverable.**
 
 The coursework **must** be delivered as part of a team. **If anyone is dismissed from their team this means they cannot deliver the coursework and will fail.** Dismissal from a team uses the following process:
 
@@ -53,7 +61,7 @@ Each group will undertake **four** graded Sprints:
 3. Friday 19th March at 17.00.
 4. Friday 23rd April at 17.00.
 
-Each Spring features a submission (via Moodle) and a review at the next class session. Each group will be given **10 minutes maximum** for the review. Your group will be **allocated a time for the code review.** The details of the individual review points are below. These meetings **must be attended** at the **stated time.** Guidelines for review attendance:
+Each Sprint features a submission (via Moodle) and a review at the next class session. Each group will be given **10 minutes maximum** for the review. Your group will be **allocated a time for the code review.** The details of the individual review points are below. These meetings **must be attended** at the **stated time.** Guidelines for review attendance:
 
 - **Being late** for the meeting or **not being ready** when the meeting starts will result in the grade for the review being capped at 50%.
 - **Not attending** the meeting will mean the review will be marked at 0%.
@@ -99,9 +107,9 @@ Submission requirements for this Sprint:
   - State diagrams
   - Class diagrams
   - Sequence diagrams
-- Implementation progress towards final version of application, including:
-  - Integration with a database
-  - Access to data using URLs (RESTful)
+- Rough designs of the screens (pages) that your application will have and how these flow together. We are looking for wireframes and a high-level overview of how the application flows together. For example, see the following resources:
+  - [How to create a user experience flow chart (UX Flow Chart) (startuprocket.com)](https://www.startuprocket.com/articles/how-to-create-a-user-experience-flow-chart-ux-flow-chart)
+  - [Mobile Application Design : Paper Prototype Video - YouTube](https://www.youtube.com/watch?v=y20E3qBmHpg)
 
 ### Sprint 3
 
@@ -114,8 +122,9 @@ The aim of this Sprint is to have a working prototype of your application, with 
 Submission requirements for this Sprint:
 
 - Updated task board of user stories showing progress towards 50%.
-- User interface suitability for the type of application being developed.
 - Implementation progress towards final version of application, meeting 50% of the current requirements.
+  - Integration with a database
+  - Access to data using URLs (RESTful)
   - Application can be deployed as Docker container.
   - GitHub repository practice.
 
@@ -137,4 +146,41 @@ The aim of this Sprint is to deliver the final version of your application. The 
 
 #### Submission: Assessment Week 2
 
-A four page report reflecting on the overall project, including your own contribution, the team's effectiveness, the effectiveness of the roles undertaken by members (e.g., Scrum master, Product Owner), and the quality of the final deliverable.
+A four page report reflecting on the overall project, including your own contribution, the team's effectiveness, the effectiveness of the roles undertaken by members (e.g., Scrum Master, Product Owner), and the quality of the final deliverable. This reflection should be a maximum of 1000 words.
+
+## Marking Scheme
+
+### Sprint 1
+
+| **Criteria**                                                 | **Excellent**                                                | **Satisfactory**                                             | **Not Satisfactory**                                         | **Not attempted**                                            |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Idea** the suitability of the idea for a CRUD application. | The idea requires a CRUD application and has been well specified. | The idea would require a CRUD application to manage although the idea is not fully specified. | Idea is simple and could be managed without a CRUD application. | No idea provided or idea unsuitable.                         |
+| **Purpose of the application** how well defined the purpose of the application is. | The application purpose is clearly defined and represents a good use of a CRUD application. | The application purpose is clearly defined although does not clearly represent a good use for a CRUD application. | The application purpose is not clearly defined.              | Purpose of the application not given, or purpose ill defined. |
+| **Business questions** the suitability of the business questions to the application defined. | Precise business questions defined that are clearly suitable for the application defined. | The business questions provided are suitable for the application defined although could be more precise. | The business questions provided are not clearly suitable for the application defined. | No business questions provided or business questions unsuitable. |
+| **Task definition** the completeness and suitability of the initially defined tasks. | Tasks represent clearly the main tasks to be completed and are suitable for the application proposed. | Tasks may either be lacking a complete set of those expected at this stage, or there might be some unsuitability in the tasks defined. | Tasks lack completeness and there are tasks defined that are unsuitable for the application proposed. | No tasks provided, or tasks completely unsuitable and incomplete. |
+| **Code of Conduct** the suitability of the Code of Conduct and its ability to support the team's work. | Code of Conduct suitably covers the problems that can arise and how the team will resolve issues when they arise. | Code of Conduct covers most issues the team will face and provides suitable guidance of how to resolve these. | Code of Conduct only covers some significant issues and/or doesn't provide clear guidance of how to proceed. | Code of Conduct not provided, or unsuitable for managing the team. |
+| **Technical aspects** the completeness of technical deliverables. | Both GitHub repository and task board created and all members have joined and contributed. | GitHub repository and task board created but not all team members have joined and contributed. | GitHub repository and task board created but only one person joined, or one of these aspects not created. | No GitHub repository and task board created, or simply just created with nothing additional done. |
+
+### Sprint 2
+
+| **Criteria** | **Excellent** | **Satisfactory** | **Not Satisfactory** | **Not attempted** |
+| ------------ | ------------- | ---------------- | -------------------- | ----------------- |
+|              |               |                  |                      |                   |
+
+### Sprint 3
+
+| **Criteria** | **Excellent** | **Satisfactory** | **Not Satisfactory** | **Not attempted** |
+| ------------ | ------------- | ---------------- | -------------------- | ----------------- |
+|              |               |                  |                      |                   |
+
+### Sprint 4
+
+| **Criteria** | **Excellent** | **Satisfactory** | **Not Satisfactory** | **Not attempted** |
+| ------------ | ------------- | ---------------- | -------------------- | ----------------- |
+|              |               |                  |                      |                   |
+
+### Individual Contribution
+
+| **Criteria** | **Excellent** | **Satisfactory** | **Not Satisfactory** | **Not attempted** |
+| ------------ | ------------- | ---------------- | -------------------- | ----------------- |
+|              |               |                  |                      |                   |

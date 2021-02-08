@@ -283,7 +283,7 @@ Example: Let's write a piece of code that identifies whether a number is even or
     x = 3
 
     # our branching program
-    if (x/2)*2 == x
+    if (x % 2) == 0
       print ("even");
     else: print ("odd");
     
