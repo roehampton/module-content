@@ -76,8 +76,16 @@ sqlite>
 >
 > To import the SQL as a database, run the following command in the root of your repository:
 >
+> **MacOS and Linux**
+>
 > ```shell
 > cat students.sql | sqlite3 students.db
+> ```
+>
+> **Windows**
+>
+> ```shell
+> type students.sql | sqlite3 students.db
 > ```
 >
 > Now skip to the [Version Contolling SQLite Section](#Version Controlling a SQLite Database).
@@ -214,11 +222,19 @@ This will output the SQL into `students.sql`. **Before running this, you should 
 
 To input SQL into an SQL database we perform the following operation on the command line:
 
+**MacOS and Linux**
+
 ```shell
 cat students.sql | sqlite3 students.db
 ```
 
-`cat` outputs the contents of a file, and `|` pipes (transfers) output from one program to another -- in this instance `sqlite3`.
+**Windows**
+
+```shell
+type students.sql | sqlite3 students.db
+```
+
+`cat` and `type` outputs the contents of a file, and `|` pipes (transfers) output from one program to another -- in this instance `sqlite3`.
 
 You now know how to version control your SQLite database. However, you might find this difficult to remember to do. Before each commit, you'll have to dump the database, and commit it. Then you'll have to remember to delete the database before recreating it.
 
