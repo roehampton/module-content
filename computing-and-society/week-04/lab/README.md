@@ -4,20 +4,20 @@
 
 ### Groups
 
-You will be in groups of 3.  Each person takes a role as follows:
+You will be in groups of minimum 2.  Each person takes a role as follows:
 
 1. Person taking the test (tester)
 2. Person running the test (test organiser)
-3. Notetaker
+3. Notetakers (can be 2 people)
 
 ### Devising the test
 
-You will need to follow these steps:
-1. Choose a website. Ideally, the person taking the test will not be very familiar with it.  If you are not sure, use one of our suggestions.
-2. The person running the test and observer should decide on 2 - 3  task that the person doing the test should aim to complete (or use one of our suggestions)
+**It is suggested that you use at least one of our examples below (Zipcar or ACM digital library) for your first test. Then you can go to 'running the test' immediately.**
 
+If you want to use your own example for following 'rounds', you will need to follow these steps:
+1. Choose a website. Ideally, the person taking the test will not be very familiar with it.
+2. Without the tester present, the person running the test and observer should decide on 2 - 3  task that the person doing the test should aim to complete (or use one of our suggestions)
 
-  [827a13c8]: https://zipcar.co.uk "Zipcar"
 
 ### Running the Test
 
@@ -36,7 +36,7 @@ You will need to follow these steps:
 
 
 
-### Making recommendations
+### Making recommendationst started
 
 1. Among all the 3 people in the group, agree on the top 3 - 5 biggest problems encountered. Don't at this point recommend a fix.
 2. Once the problems have been identified, make recommendations for simple changes that could address these problems.  Find the simplist solution you can eg. changes in wording.
