@@ -261,10 +261,8 @@ Example:
 When **today** is invoked, it returns a &quot;time object,&quot; which contains many pieces of information about the current time. These are the current time&#39;s **attributes** , which you can access via the customary **dot-notation** syntax. In this program, we are interested in the minute attribute, which we can access by appending **.minute** to the method invocation, as shown above. The resulting value is then assigned to the **right\_this\_minute** variable. You can think of this line of code as saying: _create an object that represents today&#39;s time, then extract the value of the minute attribute before assigning it to a variable._ It is tempting to _split_ this single line of code into two lines to make it &quot;easier to understand,&quot; as follows:
 
     # First determine the current time
-    time_now = datetime.today()
+    time_now = datetime.datetime.today()
     time_now
-
-
 
 
     # then extract the minute value
@@ -279,7 +277,7 @@ Example: is this an odd minute?
 
     from datetime import datetime 
     odds=[1, 3, 5, 7, 9,11,13,15,17,19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59 ] 
-    right_this_minute = datetime.today().minute 
+    right_this_minute = datetime.datetime.today().minute 
     if right_this_minute in odds:
         print("This minute seems a little odd.") 
     else:
