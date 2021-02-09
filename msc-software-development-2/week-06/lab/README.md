@@ -1,385 +1,497 @@
-# Software Development 2 Lab 06 -- Docker
+# Software Development 2 Lab 06 -- Starting a Project from Scratch and Introducing Angular.js
 
-## Getting Started with Docker
+## Creating a New Git Repository
 
-We will step away from JavaScript for a while to use Docker.  Docker will support our deployment to ensure we run in the same configuration wherever we execute our code.  This ensures we do not have conflicts between what works on our development machine and the deployment machine.
+In GitHub, you will see a **+** near the top of the page, which you can select **New repository** from:
 
-### Checking if Docker is Installed and Working
+![GitHub New Repository](github-new-repo.png)
 
-The simplest method to check if Docker is installed on your system is to open a terminal (or Powershell in Windows) and issue the following command:
+This will open a new window.  You need to enter the name for the repository (`student-database`), make sure the repository is **Public** and then select the **Apache 2.0** license type.  **Add a .gitignore and select Node.** **Ensure that a README is added**.This details are illustrated below:
 
-```shell
-docker --version
-```
+![image-20201231143414340](image-20201231143414340.png)
 
-If installed you will get a response as follows:
+Click on **Create repository** and you will be presented with the following:
 
-```shell
-Docker version 19.03.13, build 4484c46d9d
-```
+![image-20201231143543703](image-20201231143543703.png)
 
-To check if Docker is working correctly use the following command:
+## Cloning Your Project in Visual Studio Code
 
-```shell
-docker run hello-world
-```
+Now we need to clone the GitHub project in Visual Studio Code. 
 
-If Docker is working correctly you should get the following output:
+1. **Open Visual Studio Code.**
+2. **Make sure no folder is currently open. We can do this by using File then Close Folder from the main menu.**
+3. **Click on the Source Control button on the left-hand side of the Visual Studio Code window.**
+4. **Your window should now look like this.**
 
-```shell
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-0e03bdcc26d7: Pull complete
-Digest: sha256:1a523af650137b8accdaed439c17d684df61ee4d74feac151b5b337bd29e7eec
-Status: Downloaded newer image for hello-world:latest
+![image-20201227134347876](image-20201227134347876.png)
 
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
+We need the the location of our repository.  This is the URL of the repository you created, which should be of the form `https:\\github.com\<user-name>\student-database` (or whatever project name you gave).  For example, my repository is [https:\\github.com\kevin-chalmers\student-database](https:\\github.com\kevin-chalmers\student-database).
 
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-    (amd64)
- 3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
+**Click the Clone Repository button and Visual Studio Code will ask for the repository URL at the top of the window**.
 
-To try something more ambitious, you can run an Ubuntu container with:
- $ docker run -it ubuntu bash
+![image-20201227134725482](image-20201227134725482.png)
 
-Share images, automate workflows, and more with a free Docker ID:
- https://hub.docker.com/
+1. **Press return, and Visual Studio Code will ask you where you want to save the repository. Pick somewhere sensible.**
 
-For more examples and ideas, visit:
- https://docs.docker.com/get-started/
-```
+2. **Visual Studio Code will ask you if you want to open the repository. Choose to do so.**
 
-The output explains what Docker actually did when you issued the command.  We will cover aspects of these steps in the following sections.
+You now have your GitHub repository cloned to the local machine and opened in Visual Studio Code. 
 
-If Docker is installed and working skip to [Basic Docker Usage](#basic-docker-usage).  If not, continue reading.
+## Initialising the Project with `npm`
 
-#### Installing Docker
-
-Installing Docker on Linux is easy - you should find it in your package manager.  For example, with Ubuntu use:
+`npm` is more than just a package manager -- it can also manage our project for us, helping to launch our applications effectively. To do this, we can ask `npm` to initialise a project. **In the Visual Studio Code terminal run the following command:**
 
 ```shell
-sudo apt install docker
+npm init
 ```
 
-For Windows, use the installation instructions found [here](https://docs.docker.com/docker-for-windows/install-windows-home/) if you have Windows 10 Home (most likely) or [here](https://docs.docker.com/docker-for-windows/install/) if you have Windows 10 Professional.  For MacOS, the install instructions are [here](https://docs.docker.com/docker-for-mac/install/).  **Ensure that the Docker service has started**.  See the relevant instructions.  On some systems, Docker is not running at the start.
+This will now walk you through the process of setting up your project. **When prompted, enter the following**:
 
-To test that Docker has been installed correctly, run the following command from the shell:
+- `package name` -- just press return to accept the default `student-database`.
+- `version` -- enter whatever you want, although `0.0.2` is probably the most accurate.
+- `description` -- enter `Student database application written in JavaScript.`
+- `entry point` -- enter `main.js`.
+- `test command` -- just press return for now.
+- `git repository` -- press return to accept the default which will be your repository URL.
+- `keyword` -- enter `JavaScript, Node.js, Express.js, SQLite, Angular.js`
+- `author` -- enter your name.
+- `license` -- enter `Apache-2.0`,
+- Press return to accept the details.
+
+`npm` will have created a new file `package.json` which contains this information for us. **Open this file now in Visual Studio Code.** At about line 6 you should see the following code:
+
+```json
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+```
+
+**Modify `package.json` to also include a `start` script as follows:**
+
+```json
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+```
+
+**Save updated `package.json` file.** We will now be able to start our application using `npm start`. This will become useful later.
+
+**STOP, COMMIT** -- add the `package.json` file to your GitHub repository.
+
+### Installing Project Dependencies
+
+Let us now add our project dependencies. **Run the following in the Visual Studio Code terminal**:
 
 ```shell
-docker run hello-world
+npm install sqlite3
+npm install express
 ```
 
-Which should produce output similar to:
+This will have updated your `package.json` file and created a `package-lock.json` file. **Commit these changes to your repository.**
+
+## Creating a Folder Structure
+
+We are now going to create our folder structure for our project. You can add files and folders in Visual Studio Code. The structure we want to have is:
+
+- application
+  - app.js
+- data
+  - data.js
+- static
+  - index.html
+  - index.js
+- .gitignore
+- LICENSE
+- main.js
+- package-lock.json
+- package.json
+- README.md
+
+We will look at each of these files in term shortly. **Commit these changes to GitHub.**
+
+## Adding the Database
+
+We will just use the database we have already created. **Copy `students.db` and `students.sql` to the `data` folder of your project.**
+
+### Updating `.gitignore`
+
+Our `.gitignore` file currently only works for Node.js files. We still need to tell Git to ignore our database file. To do this, **open `.gitignore` in Visual Studio Code and add `*.db` to the end.
+
+**STOP, COMMIT** -- we have now got ourselves back to the position we were in at the end of the last lab (more or less). **If you want to learn about how we can automate the version control of our database read the Git Hooks section next, otherwise skip over it. Warning -- it is an advanced topic.**
+
+### Git Hooks
+
+**WARNING** -- this is a slightly advanced topic, and isn't necessary to manage your database. You can just do it manually as described previously.
+
+We can ask Git to automate the dump, delete, recreate process for us using *Git Hooks.* A Git Hook is just code that is run before or after particular events occur in your repo, such as committing and merging.
+
+When you created a Git repository, Git created some hidden files to manage the repository. These are in a hidden `.git` folder within the root directory of your folder. Within this folder, there is a `hooks` folder which contains any hooks we have defined.
+
+Let us create a pre-commit hook. **In Windows, the easiest thing to do is open Git Bash from the start menu.** Linux and MacOS can do this from the standard terminal. **Change directory in the command prompt to your Git repository folder, and then run the following in the command prompt:**
 
 ```shell
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-0e03bdcc26d7: Pull complete
-Digest: sha256:1a523af650137b8accdaed439c17d684df61ee4d74feac151b5b337bd29e7eec
-Status: Downloaded newer image for hello-world:latest
-
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
+nano .git/hooks/pre-commit
 ```
 
-### Basic Docker Usage
-
-Docker works by providing application containers.  Several container images already exist for our use: go to [Docker Hub](https://hub.docker.com/) and search to see the available options.  This means we can launch applications easily via Docker, including infrastructure services like web servers and databases.
-
-#### Pulling Docker Images
-
-To get started, let us pull a web server.  Nginx is a common lightweight web server that will illustrate the basic steps.  First, we must `pull` a Docker image from the server to our local repository (machine):
+Enter the following into the file:
 
 ```shell
-docker pull nginx
+#!/bin/bash
+rm data/students.sql
+sqlite3 data/students.db .dump > data/students.sql
+git add data/students.sql
 ```
 
-This will pull the `nginx` image, which allows us to instantiate (run) it locally as a container.  We can also specify which version of Nginx we want by adding a *tag*:
+**Use CTRL-O to save the file, and then CTRL-X to exit.** We have now created a script that will do the following just before a commit is finalised:
+
+* Deletes any existing `students.sql` file.
+* Dumps `students.db` into `students.sql`.
+* Adds `students.sql` to the Git commit.
+
+As Git checks for differences, this will have no effect if the database has not been updated since the last commit.
+
+**Now run the following command**:
 
 ```shell
-docker pull nginx:latest
+nano .git/hooks/post-merge
 ```
 
-This will pull the latest Nginx version image, which is the default behaviour of `pull`.  See the Nginx image page on [Docker Hub](https://hub.docker.com/_/nginx/) for more details.
-
-#### Starting Docker Containers
-
-Once we have an image in our local repository, we can start it as a container.  To do this we use the `run` command:
+The contents for this file are:
 
 ```shell
-docker run nginx
+#!/bin/bash
+rm data/students.db
+cat data/students.sql | sqlite3 data/students.db
 ```
 
-You will notice that nothing happened, and the command line is waiting.  Using `run` in this way is not recommended.  Press **Ctrl-C** to stop the running container.
+**Use CTRL-O to save the file, then CTRL-X to exit.** We have created a script that will run after a merge (the end of a pull) that does the following:
 
-Docker containers should be started as detached processes.  We do this using the `-d` flag.  Furthermore, for Nginx we need to open up a port for the web server.  We do this using the `-p` flag.  Let us try again and use these new flags:
+* Deletes the existing `students.db` file.
+* Creates a new `students.db` file from `students.sql`.
+
+**If you are on MacOS or Linux you will need to make these files executable.** This is done as follows:
 
 ```shell
-docker run -d -p 8080:80 nginx
+chmod +x .git/hooks/pre-commit
+chmod +x .git/hooks/post-merge
 ```
 
-We have run the Nginx server as a detached container, and mapped the local machine's port 8080 to the port 80 of the Nginx web server.  If you don't know, port 80 is the default port a web server operates on.  When you issue this command you will get a hash code value out.  Mine was:
+**NOTE** -- these scripts are not shared in your repository. You will need to set them up on each machine you are working on for them to work effectively.
 
-```shell
-c147e0b0386f50bc62c39ddeb422633aae6104093f28aa1bfc98fc18243c860b
+## Our Basic Starting Application
+
+Let us put together our starting application. It is much the same as our last one.
+
+### `index.html`
+
+This will be the main home page of our website. At the moment, we will just use the existing `students.html` code given below.
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student List</title>
+        <script src="index.js"></script>
+    </head>
+    <body onload="printStudents()">
+        <h2>Students</h2>
+        <div id="main"></div>
+    </body>
+</html>
 ```
 
-But is a web server running?  We can test that by opening up a web browser and going to `localhost:8080` or `127.0.0.1:8080`.
+> #### Why `index.html`?
+>
+> `index.html` is the standard webpage your browser will look for. For example, if you go to www.google.com your browser will actually try to get www.google.com/index.html. Your web browser will just not tell you about it.
 
-![Nginx Running](nginx-running.png)
+### `index.js`
 
-If you see the Nginx welcome screen congratulations!  You are up and running with your first container.
+`index.js` will communicate with our web service. At the moment, it will just add `Hello World!` to the `main` `<div>`. We will do more later.
 
-#### Stopping Containers
+```javascript
+"use strict";
 
-It is easy to forget which containers are running on your system.  To check, use the following command:
-
-```shell
-docker ps
+function printStudents() {
+    var main = document.getElementById("main");
+    main.innerHTML = "Hello, world!";
+}
 ```
 
-You will get an output similar to the following:
+### `app.js`
 
-```shell
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
-c147e0b0386f        nginx               "nginx -g 'daemon of…"   14 minutes ago      Up 14 minutes       0.0.0.0:8080->80/tcp   thirsty_pasteur
+Our `app.js` file will manage our Express.js interface. At the moment, it will just return `Hello, world!` on the `/students` endpoint and serve the webpages in the `static` directory.
+
+```javascript
+"use strict";
+
+// Import express library.
+const express = require("express");
+
+// Create express application.
+var app = express();
+
+// Add static files location
+app.use(express.static("static"));
+
+// Add /students endpoing
+app.get("/students", function(req, res) {
+    res.send("Hello world!");
+});
+
+// Start listening on port 3000
+app.listen(3000, function(err) {
+    if (err) {
+        return console.error(err.message);
+    }
+    console.log("Server started.");
+});
 ```
 
-There is quite a bit of information here, but what we are interested in is the `CONTAINER ID` (`c147e0b0386f`) and the `NAMES` (`thirsty_pasteur`).  Either of these identifiers we can use to stop the container.  We do so with the `stop` command:
+### `data.js`
 
-```shell
-docker stop c147e0b0386f
+`data.js` will manage the connection to our database. At the moment, it will just connect to the database and do nothing else. The code is below:
+
+```javascript
+"use strict";
+
+// Import SQLite library.
+// Use verbose mode to give more detailed error outputs
+const sqlite3 = require("sqlite3").verbose();
+
+// Connect to the database.
+// Function is callback when connection completed.
+// err is any error message that occurs
+let db = new sqlite3.Database("students.db", function(err) {
+    // If an error, print it out.
+    if (err) {
+        return console.error(err.message);
+    }
+    console.log("Connected to students database.");
+});
 ```
 
-Executing `docker ps` again will now provide empty output:
+### `main.js`
 
-```shell
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS
+`main.js` is our main code file. It's job will be to start our application and connect it to our database. However, at the moment, we are not connecting these together. We will just run the application and data layers independently, as follows:
+
+```javascript
+"use strict";
+
+// Include the app.js and data.js files.
+// This will run the code.
+const app = require("./application/app");
+const data = require("./data/data.js");
 ```
 
-And you can test that the web server is stopped by going to `localhost:8080` although you might have to hit refresh to ensure the cached version is not used.
+You should now be able to run your application. **Use `npm start` in the Visual Studio Code terminal and you should receive the following output:**
 
-#### Removing Containers
+```javascript
+> student-database@0.0.2 start /Users/kevin/Repositories/student-database
+> node main.js
 
-Although the container has stopped it has not been removed from your system.  To list containers on the local system run `ps` with the `-a` flag:
-
-```shell
-docker ps -a
+Server started.
+Connected to students database.
 ```
 
-You will get output similar to the following:
+**Go to the following URLs to see if it works:**
 
-```shell
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
-c147e0b0386f        nginx               "nginx -g 'daemon of…"   28 minutes ago      Exited (0) 2 seconds ago                        thirsty_pasteur
-08b4881360f1        nginx               "nginx -g 'daemon of…"   28 minutes ago      Exited (0) 28 minutes ago                       hopeful_johnson
-ce91ec7aa627        hello-world         "/hello"                 38 minutes ago      Exited (0) 38 minutes ago                       modest_mestorf
+- `127.0.0.1:3000`
+- `127.0.0.1:3000\students`
+
+**Remember to commit and push your changes. This is your final reminder.**
+
+## Getting Started with Angular.js
+
+So far, we have spent a lot of time on the back-end (server-side) part of our application, using Node.js, Express.js and SQLite. Our front-end (client-side) webpage is a bit basic. We will now start using a front-end web framework -- Angular.js.
+
+> ### What is Angular.js?
+>
+> Angular.js is a web framework supported by Google. It uses a technique called *model-view-controller* (which we will cover later in the module) to support development.
+>
+> **WARNING** -- Angular.js is not Angular. Although strongly related, Angular uses Typescript (a superset of JavaScript) as a language. We are staying with JavaScript and using the Angular.js library instead.
+
+### Your First Angular.js Application
+
+Let us see what Angular.js can do. **Modify your `index.html` file to the following**:
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AngularJS First Application</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+    </head>
+    <body>
+        <h1>Sample Application</h1>
+        <div ng-app = "">
+            <p>Enter your Name: <input type="text" ng-model="name"></p>
+            <p>Hello <span ng-bind="name"></span>!</p>
+        </div>
+    </body>
+</html>
 ```
 
-These are the three containers we have started so far: two `nginx` (one detached, one not) and `hello-world`.  To remove a container we use the `rm` command:
+**Reload `127.0.0.1:3000` and you should be able to enter your name in the text box and immediately see it appear in the hello message.**
 
-```shell
-docker rm modest_mestorf
+OK, how does this work? Angular.js uses a model-view-controller. For the model part, we can name certain values and bind them to other areas. So, we have:
+
+- `<input type="text" ng-model="name">` means the data in the text box has been given the model ID `name`.
+- `<span ng-bind="name">` means we have created a `<span>` (just a part of text -- a span of characters) which contains the model data with ID `name`.
+- We then create a `<div>` with the property `ng-app` (we can just set it to `""`). This tells the Angular.js library where to look for certain Angular.js HTML elements.
+
+So we just tag parts of our HTML with Angular.js elements and it takes care of the rest. We have so far introduced the following:
+
+- `ng-app` used on a `<div>` to denote an Angular.js application section.
+- `ng-model` used to denote a value with an ID.
+- `ng-bind` used to bind a value of given ID.
+
+#### Now you try
+
+Extend this application so you have another text box for an age and display `You are <age> years old.`
+
+### Angular.js Controllers
+
+In a model-view-controller system, the controller is responsible for managing our model (the data). We can declare controllers in Angular.js and then use this controller to, for example, set some values. **Update `index.html` to the following**.
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AngularJS Controller</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <h2>AngularJS Sample Application</h2>
+        <div ng-app = "mainApp" ng-controller = "studentController">
+            <p>ID: {{student.id}}</p>
+            <p>Name: {{student.name}}</p>
+        </div>
+    </body>
+</html>
 ```
 
-If you want a container to be automatically removed when stopped, we can use the `--rm` flag when starting a container:
+We have done four new things here:
 
-```shell
-docker run -d --rm -p 8080:80 nginx
+- We have included `index.js` again. We will use this for our JavaScript code.
+- We have given our `ng-app` a name -- `mainApp`. 
+- We have defined the `ng-controller` for the `mainApp` -- `studentController`. This we will declare in the `index.js` file.
+- We are using `{{student.id}}` and `{{student.name}}` to bind the values of `student` to these parts of our HTML file. This is equivalent to having `ng-bind`. Whatever the current values of `student.id` and `student.name` are will appear here.
+
+**Now update `index.js` to the following:**
+
+```javascript
+"use strict";
+
+// Definition of Student type
+class Student {
+    // ID of the student
+    id;
+    // Name of the student
+    name;
+
+    // Creates a new Student object
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+
+// Get's the mainApp section of the HTML document
+var mainApp = angular.module("mainApp", []);
+
+// Creates the controller for the main application.
+mainApp.controller("studentController", function($scope) {
+  	// Sets a new model value -- student.
+    $scope.student = new Student("001", "Kevin Chalmers");
+});
 ```
 
-When `stop` is called on this container it will be automatically removed from the local system.
+The `Student` class declaration is our simple one from before. The more interesting part is the second half of the code.
 
-#### Docker Commands Covered
+We first get the `mainApp` by using `angular.module`. This will give us the `mainApp` object.
 
-Below are the Docker commands we have covered so far.
+Once we have the `mainApp` object, we define the `studentController` by calling the `mainApp.controller` method. The controller is just a function, taking one parameter -- `$scope`. **This is our key parameter as it defines what our `mainApp` can interact with to automate Angular.js sites.** For example, we define `$scope.student`. This is then seen as a model value `student` in our Angular.js HTML. Thus, in `index.html`, `{{student.id}}` is replaced with `001` and `{{student.name}}` is replaced with `Kevin Chalmers`. **Reload `127.0.0.1:3000` and you will see the new page.**
 
-| Docker Command                                | Description                                                  |
-| --------------------------------------------- | ------------------------------------------------------------ |
-| `docker pull <name>`                          | *Pulls the named Docker image from the server to the local repository allowing it to be instantiated.* |
-| `docker run <name>`                           | *Starts running an instance of the image `name` as a container.* |
-| `docker run -d <name>`                        | *Starts running an instance of the image `name` as a detached container.* |
-| `docker run -d -p <local>:<container> <name>` | *Starts a container, mapping the local port `local` to the container port `container`*. |
-| `docker run -d --rm <name>`                   | *Starts running an instance of `name` which will be automatically removed when the container is stopped.* |
-| `docker ps`                                   | *Lists running containers.*                                  |
-| `docker ps -a`                                | *Lists all containers.*                                      |
-| `docker stop <id>`                            | *Stops the container with the given `id` which is the `CONTAINER ID` or `NAME`.* |
-| `docker rm <id>`                              | *Removes a container from the local system.*                 |
+#### Now you try
 
-### Writing Dockerfiles
+Update `index.html` and `index.js` so a second student's details are also shown under the first student's details.
 
-Our aim with Docker is to run our applications within containers.  To do this, we need to create our own Docker images, which we do by writing a **Dockerfile**.  A Dockerfile specifies the set-up for a image which we can create containers from, and the syntax is simple.  Writing Dockerfiles falls into *infrastructure as code* since we can define our execution infrastructure in code files (Dockerfiles).
+### Responding to Events
 
-To start, create a new folder called `test-dockerfile` in the file-system (**not** in your current repository) and open the terminal (Powershell, command prompt) in that folder.  Now create a file called `Dockerfile` and use the following:
+To end our initial introduction to Angular.js, let us look at how we can respond to events. This is much the same as we do in standard JavaScript and HTML, although we set Angular.js events rather than standard HTML ones. **Update `index.html` to the following:**
 
-```docker
-FROM ubuntu:latest
-CMD ["echo", "'It worked!'"]
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AngularJS Controller</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <h2>AngularJS Sample Application</h2>
+        <div ng-app = "mainApp" ng-controller = "studentController">
+            <p>ID: {{student.id}}</p>
+            <p>Name: {{student.name}}</p>
+            <p><input type="button" value="Click Me!" ng-click="update()"></p>
+        </div>
+    </body>
+</html>
 ```
 
-We have defined two items for our Docker image:
+The only difference here is that we have created a new button and set `ng-click` to `update()`. So, rather than set `onclick` we set `ng-click` for Angular.js. The `update()` function has to be declared within the `mainApp` scope. We do this in the `index.js`. **Update `index.js` to the following:**
 
-1. It uses the latest Ubuntu image as its parent (base).  This is the `FROM` statement.
-2. It executes `echo 'It worked!'` whenever the container is started.  This is the `CMD` statement.
+```javascript
+"use strict";
 
-To build our image we use the following (from the directory that `Dockerfile` is saved):
+// Definition of Student type
+class Student {
+    // ID of the student
+    id;
+    // Name of the student
+    name;
 
-```shell
-docker build -t test-dockerfile .
+    // Creates a new Student object
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+
+// Get's the mainApp section of the HTML document
+var mainApp = angular.module("mainApp", []);
+
+// Creates the controller for the main application.
+mainApp.controller("studentController", function($scope) {
+  	// Sets a new model value -- student.
+    $scope.student = new Student("001", "Kevin Chalmers");
+    // Sets the update() function for the scope. Used by the button.
+    $scope.update = function() {
+        // Update the student value in the scope
+        $scope.student.id = "002";
+        $scope.student.name = "Lisa Haskel";
+    }
+});
 ```
 
-The command tells docker to *build* an image (`build`), with the name `test-dockerfile` (`-t` means we are providing a name), and to use the current directory (`.`).  So the command format is:
+The only addition here is we set `$scope.update` to equal to a `function` where we change the values of the `student` model value.
 
-```shell
-docker build -t <name> <folder>
-```
+**Reload `127.0.0.1:3000` and click the button to see the result.**
 
-When executed you will get the following output:
+## So you want to know more
 
-```shell
-[+] Building 0.2s (5/5) FINISHED
- => [internal] load build definition from Dockerfile  0.0s
- => => transferring dockerfile: 91B                   0.0s
- => [internal] load .dockerignore                     0.0s
- => => transferring context: 2B                       0.0s
- => [internal] load metadata for docker.io/library/u  0.0s
- => [1/1] FROM docker.io/library/ubuntu:latest        0.1s
- => => resolve docker.io/library/ubuntu:latest        0.0s
- => exporting to image                                0.0s
- => => exporting layers                               0.0s
- => => writing image sha256:cb80098a871d1974cb4faf42  0.0s
- => => naming to docker.io/library/test-dockerfile    0.0s
-```
+We will be covering more Angular.js through the module, but if you want to get stuck in now there are a few resources that you will find useful:
 
-OK, let us run an instance of our image.
+- TutorialsTeacher -- https://www.tutorialsteacher.com/angularjs/angularjs-tutorials.
+- TutorialsPoint -- https://www.tutorialspoint.com/angularjs/index.htm
+- w3schools -- https://www.w3schools.com/angular/
 
-```shell
-docker run --rm test-dockerfile
-```
+It is always a good idea to practice and develop your skills with other tutorials, and Angular.js is a useful technology to learn if web development interests you.
 
-And you should have the received the following output:
+## Exercises
 
-```shell
-It worked!
-```
-
-If so, congratulations!  You have created and run your first personal Docker image.  We will look at further Dockerfile commands as we need them.  Let us get back to Visual Studio Code.
-
-## Docker in Visual Studio Code
-
-Thankfully, there is a Docker extension for Visual Studio Code.  To install, **Extensions tab by clicking the Extensions button on the left-hand side of the Visual Studio Code window.**
-
-![image-20210103184815286](image-20210103184815286.png)
-
-**Enter Docker to search for the Docker extension, and then Click Install.**
-
-![image-20210103185027153](image-20210103185027153.png)
-
-You will notice that a new button has appeared on the left-hand side. This is the Docker tab. **Click on the Docker button now to open the Docker panel.**
-
-![image-20210103185312328](image-20210103185312328.png)
-
-Here you can see a list of containers and images that are available in Docker. At the moment this should be almost empty if not empty. But we have now
-
-## Deploying Our Application to Docker in Visual Studio
-
-We are almost there.  It has been a long process to get to this stage, and it may seem we have not done any software development, which we haven't.  We have setup many processes which means our software development task will be easier.  Trust me!  The process might have been long in this lab but we have made our lives substantially easier in the future.  Let us finish our process by deploying our application to a Docker image and running it.
-
-To finish our process we need to create a Dockerfile in Visual Studio Code for our current project.  **Add a new file called `Dockerfile` to your project in the root directory of your repository.**
-
-```dockerfile
-# Base image to use
-FROM node:latest
-
-# Create application directory
-WORKDIR /usr/src/app
-
-# Install application dependencies
-# Copy across project configuration information
-COPY package*.json ./
-
-# Ask npm to install the dependencies
-RUN npm install
-
-# Copy across all our files
-COPY . .
-
-# Expose our application port (3000)
-EXPOSE 3000
-
-# On start, run the application using npm
-ENTRYPOINT ["npm", "start"]
-```
-
-We are using a few new directives here:
-
-1. We now use the `node` image as our base image since we are building a Node.js application.
-2. `WORKDIR` states where we want Docker to execute programs from in the container - the *working directory*.  This is `/usr/src/app`.
-3. `COPY` will copy a file or folder from the source on the local machine to the destination in the Docker image.  First, we copy the `package.json` files. This is so we can install the package dependencies.
-4. `RUN` will run a command during the image building process. So, we are asking Docker to run `npm install` during image creation. `npm install` looks at the `package.json` files and installs any packages that are required -- in our case `express` and `sqlite3`.
-5. Next we copy all the files to the working directory (`COPY . .`). We actually don't want all files so we will tell Docker which files to ignore.
-6. `EXPOSE` opens a port of the container. Containers by default cannot open ports themselves and we have to expose them during image creation. As our application uses port 3000 we have to expose it.
-7. `ENTRYPOINT` tells Docker what to execute when the container is created.  That is, run `npm start` which will run our application.
-
-**Now add a new file `.dockerignore` with the following contents:**
-
-```shell
-.git
-node_modules
-npm-debug.log
-```
-
-This tells Docker to ignore these files and folders. We don't need Docker to copy our `.git` folder of the `node_modules` folder. `nom-debug.log` can be generated during debugging so we'll just add it now.
-
-OK, moment of truth. **In Visual Studio Code's terminal enter the following to build your image:**
-
-```shell
-docker build -t studentdatabase .
-```
-
-**And then we can run your application using the following in the terminal:**
-
-```shell
-docker run -d --rm -p 5000:3000 studentdatabase
-```
-
-This will run your application in Docker which you can visit at `127.0.0.1:5000` (as we are redirecting local port 5000 to container port 3000). **Make sure it works and if not retrace your steps and make sure your Dockerfile is correct and that your application works normally.**
-
-**Now add the Dockerfile to our Git repository and push to GitHub.**
-
-And you are done.  A lot of work just to run your application again but we are in a good position to carry on in the next lab.  And just one final check for those of you who are interested.  Our created image exists in our local repository.  You can check this by using the `docker images` command:
-
-```shell
-docker images
-```
-
-You will get an output as follows:
-
-```shell
-REPOSITORY                                             TAG       IMAGE ID       CREATED          SIZE
-studentdatabase                                        latest    485f8ba3c92a   15 minutes ago   959MB
-nginx                                                  latest    ae2feff98a0c   2 weeks ago      133MB
-vsc-computersystems-a94657a644b8b60e02417e4836ae85c0   latest    ccdd54b1126c   6 weeks ago      601MB
-<none>                                                 <none>    dc0294214b52   6 weeks ago      131MB
-mysql                                                  latest    8e85dd5c3255   2 months ago     544MB
-test-dockerfile                                        latest    cb80098a871d   3 months ago     72.9MB
-ubuntu                                                 latest    9140108b62dc   3 months ago     72.9MB
-hello-world                                            latest    bf756fb1ae65   12 months ago    13.3kB
-```
-
-The top image is the one IntelliJ just created.  We can create a new instance by using the `IMAGE ID`.  For example, if I run:
-
-```shell
-docker run --rm 485f8ba3c92a
-```
-
-The application will run again. 
-
-We can share this image on Dockerhub (or via private Docker repositories) so others can run our application easily. You have effectively created your first application that someone else can easily run on their computer without installing a collection of programming tools.
-
+1. Expand the current `index.html` and `index.js` files so that you have an array of `Student` and display them in a table. You should have at least five students.
+2. Now modify the table so that each cell is actually a text box displaying the current values of the `Student` array. **HINT** -- remember we used `ng-model` rather than `ng-bind` for the text box.
+3. Finally, add a button to each table row. When clicked, a button should reset the data in that row to its original setting.
