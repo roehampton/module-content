@@ -1,233 +1,257 @@
-# Software Development 2 Lecture 8 -- The Three Ways: Underpinning Principles of DevOps
+# Software Development 2 Lecture 8 -- Continuous Integration
 
-In this lecture we will explore the key principles of DevOps and how these are mapped to the work in the rest of the module.  DevOps, and the culture surrounding it, has become a desirable trend for graduates.  In this module we skate over the principles with a software engineering lens.  The principles you will find are similar to ones already discussed in the module.
+In this lecture we will examine Continuous Integration (CI), how it allows us to automate our build processes, and how it can provide feedback.  The aim is to explore why CI is useful, and the process of undertaking CI.
 
-## Overview of DevOps
+## What is Continuous Integration?
 
-DevOps tries to address the boundary between the developers (the creators of software) and operations (the management of software).  DevOps is a set of principles and techniques that enable improved working between these two groups, driven by a number of the ideas we have already presented in this module:
+> Build Software at Every Change.
+>
+> -Continuous Integration.
 
-- The Lean Movement.
-- The Agile Manifesto.
-- Agile Infrastructure and Velocity Movement.
-- The Continuous Delivery Movement.
-- The Toyota Kata - which is about continuous improvement.
+Martin Fowler has defined **Continuous Integration** as *a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily -- leading to multiple integrations per day.  Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible.*  This allows teams to reduce integration problems and develop cohesive software faster.
 
-The following table summarises how these trends have affected business practices.
+CI is therefore the practice of performing integration upon every commit.  So that raises the question, what is integration?
 
-|                     | **1970s-1980s**   | **1990s**                | **2000s-Present** |
-| ------------------- | ----------------- | ------------------------ | ----------------- |
-| **Era**             | Mainframes        | Client/server            | Cloud             |
-| **Technology**      | COBOL, DB2        | C++, Oracle              | Java, MySQL, etc. |
-| **Cycle time**      | 1-5 years         | 3-12 months              | 2-12 weeks        |
-| **Cost**            | \$1M-​\$100M       | \$100k-​\$10M             | \$10k-​\$1M        |
-| **At risk**         | The whole company | Product line or division | Product feature   |
-| **Cost of failure** | Bankruptcy        | Revenue miss             | Negligible        |
+### What Does Integration Mean?
 
-This is taken from Adrian Cockcroft's talk *Velocity and Volume (or Speed Wins)* which you can watch below.  Adrian was Cloud Architect at Netflix at the time, and is now Vice President for Cloud Architecture Strategy at Amazon Web Services.
+Integration is the process of combining the software components of a system together: *integrating them*.  The combination of these components results in an integration build.  We perform such a build for two purposes:
 
-[![Velocity and Volume (or Speed Wins)](https://img.youtube.com/vi/wyWI3gLpB8o/0.jpg)](https://www.youtube.com/watch?v=wyWI3gLpB8o)
+1. To perform **integration tests**.
+2. To deploy the software.
 
-These forces has led to two conflicting goals in IT organisations:
+### What is an Integration Test?
 
-- Respond to the rapidly changing competitive landscape.
-- Provide stable, reliable, and secure service to the customer.
+This is one of the key ideas of this lecture.  An integration test is one that is performed when the system is integrated.  From [Wikipedia](https://en.wikipedia.org/wiki/Integration_testing):
 
-### An Example
+> Integration testing (sometimes called integration and testing, abbreviated I&T) is the phase in software testing in which **individual software modules are combined and tested as a group**. It occurs **after unit testing** and before validation testing.
 
-Why is this a problem?  Let us consider an abstract scenario in an IT business (adapted from *The DevOps Manual*).
+So integration tests are tests performed on combined software modules rather than unit tests which target single methods and classes.
 
-First, our applications and infrastructure can become fragile over time.  This is due to system complexity, poor documentation, and work arounds being used.  **Technical debt** (where quick and easy solutions lead to long-term problems) means that systems get into a mess.  Operations promise to fix the problems, but the costs is prohibitive.  Any change is also considered dangerous as it may break the system.
+### Why Continuous Integration?
 
-Then someone tries to compensate for broken promises of delivery times.  This may manifest itself as a bigger promise for a feature or launch that will solve the problems.  This just adds to the work of the development and IT team with new issues to solve and new work arounds needed.  Release dates are missed, revenue and company value reduce, and technical debt increases.
+CI provides feedback:
 
-Finally, everything just keeps getting harder and harder.  Every little bit of work takes longer to complete, delivery time increases, and dependencies increase.  The team works slower and slower until failure occurs.
+> Continuous Integration increases your opportunities for feedback.
+>
+> -Continuous Integration
 
-### What is DevOps?
+CI provides the following value:
 
-DevOps is not a technology or group of technologies.  It is a methodology.  From [Wikipedia](https://en.wikipedia.org/wiki/DevOps) (emphasis mine):
+- It reduces risk.
+- It reduces the number of repetitive manual processes.
+- It allows us to create deployable software at any point - or be potentially shippable.
+- It makes the project output more visible.
+- It creates greater confidence in the product being developed.
 
-> DevOps (a clipped compound of "development" and "operations") is a **software development methodology** that combines software development (Dev) with information technology operations (Ops). The **goal of DevOps is to shorten the systems development life cycle** while delivering features, fixes, and updates frequently in close alignment with business objectives.
+A key addition is automating processes.  It is often the case that software engineers create software to automate other users' processes, but not their own.  CI is about automating some of our processes.  In particular, we want the delivery of software to be as simple as possible:
 
-DevOps is a software development methodology that aims to shorten the systems development life cycle.  DevOps builds on previous software development movements but includes IT operations in the process.
+> The development of software may be complex, but the delivery of software must be a push-button affair.
+>
+> -Continuous Integration.
 
-DevOps defines *The Three Ways* - principles and practices that support the DevOps method and culture.  The following image (produced by Gene Kim) illustrates these:
+Automated build scripts reduce the manual, repetitive and error-prone processes development and operations have to perform. We also want our builds to be fast: we want to builds to fail fast so we get the rapid feedback to resolve problems.
 
-![The Three Ways of DevOps](three-ways.jpg)
+And finally, we enable information sharing.  Our CI system can provide metrics that we visualise or share with the necessary team members to better understand the complexity of our work.  However, we must remember to not spam information everywhere.  If everyone gets all the feedback it just means everyone will ignore it.
 
-The Three Ways of DevOps are:
+### Continuous Integration Principles and Practice
 
-1. Flow.
-2. Feedback.
-3. Continual Experimentation and Learning.
+The practice of CI is more than just a tool.  It requires dedication from the development team to undertake certain practices such as frequent commits, immediately fixing broken builds, and having an integration system.  All of this is automated as far as possible.  The general principles of CI are:
 
-These have direct links to Agile and Lean practices that we previously presented.
+- Developers commit their code to a centralised version control at least once per day.
+- A separate build machine performs integration builds several times per day.
+- 100% of tests must pass for every build.
+- A deployable product is created for functional testing.
+- If the build breaks then the highest priority is to fix it.
+- Developers review reports generated by the build system such as coding standards and dependency analysis looking for improvement.
 
-## The First Way of DevOps: The Principles of Flow
+The point is as developers you have to live these practices.  Saying that CI is good and undertaking the practice of CI are different.  However, although developers agree that CI and other practices (such as code reviews and testing) are good, they do not practice these principles often.
 
-Flow is about work flowing from left to right: from the Development Team, to the Operations Team, and finally the customer.  The aim is to maximise this flow to provide more value to the customer in a shorter time.
+So as a software engineer your role is to practice CI.  There are seven general practices that work well:
 
-### Make Work Visible
+- Commit code frequently.
+- Don’t commit broken code.
+- Fix broken builds immediately.
+- Write automated developer tests.
+- All tests and inspections must pass.
+- Run private builds.
+- Avoid getting broken code.
 
-Work in IT is not easily seen.  Consider what is visible when you are working on a new piece of code.  Does anyone actually see what you are working on?  How do they see it?  Compare this to the work undertaken building a car on an assembly line.  It is perfectly visible when work is queuing up at a particular point (say attaching the doors) as the cars are physically there.  We can see where a problem is in the work queue by looking.
+## Continuous Integration Workflow
 
-To make work visible in a IT organisation we have to use other methods.  Kanban is such a process (see task board below).  We will cover Kanban in [Lecture 08](../lecture08).
+> Get everything you need into source control and get it so that you can build the whole system with a single command.
+>
+> -Martin Fowler
 
-<p><a href="https://commons.wikimedia.org/wiki/File:Sample_Kanban_Board.png#/media/File:Sample_Kanban_Board.png"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Sample_Kanban_Board.png/1200px-Sample_Kanban_Board.png" alt="Sample Kanban Board.png"></a><br>By <a href="//commons.wikimedia.org/w/index.php?title=User:Andycarmichaeluk&amp;action=edit&amp;redlink=1" class="new" title="User:Andycarmichaeluk (page does not exist)">Andy Carmichael</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=55448101">Link</a></p>
+Continuous Integration starts when a developer commits code to the repository.  A general workflow is:
 
-### Limit Work in Progress (WiP)
+![Continuous Integration Workflow](ci-workflow.png)
 
-Another feature of Kanban is the idea of *limiting the work in progress*.  Consider what can happen in IT.  Different faults can come in which require urgent attention.  Developments are also ongoing.  All of these require someone to work on them.
+Source: [www.pepgotesting.com](http://www.pepgotesting.com/continuous-integration/).
 
-**No one can multitask.** It is not possible.  Whatever you are doing, there is a cost to switch task - a **context switch time.**  You may have a short context switch time, which gives you an illusion of multitasking, but the cost is still there.
+The steps in a CI scenario will typically go something like this:
 
-As context switch time is a given, any change of task will have a cost.  For example, consider that you have two tasks to complete, each taking 8 hours.  You work 8 hours per day, and need to complete the tasks as soon as possible.  You have a context switch time of 5 minutes, and you decide to switch between tasks every hour - just so you can get them both complete on time.  What happens?
+1. The developer commits changes to source control.
+2. The CI server polls for and receives the changes.
+3. The CI server builds the software.
+4. The CI server runs automated tests on the build.
+5. The build and tests either succeed or fail.
+6. The team are notified about the status of the build and tests.
 
-- Work on task 1 (1 hour).
-- Switch task (5 minutes).
-- Work on task 2 (1 hour).
-- Switch task (5 minutes).
-- etc.
+The key aspect of CI is again the practice: developers **must** commit their code frequently.
 
-Instead of taking 16 hours to complete two tasks, you take about 18.5 hours, an increase of approximately 15%.
+### Feedback from Continuous Integration
 
-If everyone works on just one task - if everyone limits their work in progress - tasks will be completed faster.  That adds value to the customer.
+Remember that our CI system provides feedback on the status of our builds and tests.  We want to know as soon as possible if there is a problem with our build and prioritise fixing the build if there is a problem.  By running our automated build and test whenever we commit a change we can answer the following questions (taken from *Continuous Integration: Improving Software Quality and Reducing Risk*):
 
-### Reduce Batch Sizes
+- Do all the software components work together?
+- What is my code complexity?
+- Is the team adhering to the established coding standards?
+- How much code is covered by automated tests?
+- Were all the tests successful after the latest change?
+- Does my application still meet the performance requirements?
+- Were there any problems with the last deployment?
 
-To support limiting WiP we need to reduce the size of our work.  If only one task is to be worked on at once, it will block other work until it is completed.  The image below illustrates this idea:
+This is beyond a test for the software being successfully built.  From our CI system we can know how well our software was built.  We can spot defects early.  Continuous building ensures our feedback is quick and happens at every change of the system.
 
-[![Small](https://cdn-images-1.medium.com/max/2000/1*YtshITZLqxYGzfYBHqTZNA.gif)](https://medium.com/@stefanluyten/single-piece-flow-5d2c2bec845b)  Taken from *Single Piece Flow* by Stefan Luyten: https://medium.com/@stefanluyten/single-piece-flow-5d2c2bec845b.
+Some CI systems are visualised in the real-world.  For example, a *build-light indicator* might exist to provide clear global signalling of the build status:
 
-So two practices to manage your work:
+<p><a href="https://commons.wikimedia.org/wiki/File:Series_of_build_lights.jpg#/media/File:Series_of_build_lights.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Series_of_build_lights.jpg" alt="Series of build lights.jpg" height="480" width="358"></a><br>By Dushan Hanuska - <a rel="nofollow" class="external free" href="https://www.flickr.com/photos/hanuska/5931613961/in/photostream/">https://www.flickr.com/photos/hanuska/5931613961/in/photostream/</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=16205076">Link</a></p>
 
-- Limit the WiP.
-- Reduced the size of the work.
+## Building a Continuous Integration System
 
-Consider what we are doing with our Git commits.  We are doing small pieces of work, committing them, and moving to the next task.  This allows tasks to be completed quickly, progress to be made, and the product iterated towards completion while testing it works.
+> CI is not just a technical implementation; it is also an organizational and cultural implementation.
+>
+> -Continuous Integration.
 
-### Reduce the Number of Handoffs
+As stated, CI requires developers to change how they work.  Developers must commit code frequently, prioritise broken builds, create automated build scripts with tests that always pass, and not commit or fetch broken code to/from version control.
 
-When work is handed off from one team or person to another problems can arise.  The receiver of work does not know everything the sender knows.  This introduces two problems:
+Incremental development of the CI system is important.  In a large codebase, going from no CI to full CI in one step will fail.  Rather, choose a lower occurrence build, such as a nightly build.  As the team gets comfortable with the practice, we can increase the number of builds until we are fully undertaking CI.
 
-- the receiver loses sight of the point of the task.
-- the communication between sender and receiver introduces a delay as the sender tries to explain the task to the receiver.
+A CI system only requires four features (from *Continuous Integration: Improving Software Quality and Reducing Risk*):
 
-Reducing handoffs involves either reorganising teams (integrating Development and Operations for example), or automating the process.  Flow increases through the system as a result.
+- A connection to a version control repository.
+- A build script.
+- Some sort of feedback mechanism (such as e-mail).
+- A process for integrating the source code changes (manual or CI server).
 
-### Continually Identify and Elevate Our Constraints
+Once the team have started to adopt CI practices, and the CI system is setup, the following steps are used to ensure we maintain a good CI workflow:
 
-The [Theory of Constraints](https://en.wikipedia.org/wiki/Theory_of_constraints) comes from the work of *Eliyahu Goldratt* and was fundamental in transforming manufacturing to lean practices.  In summary, the Theory of Constraints has five focusing steps:
+- **Identify** a process that requires automation (e.g., compilation, test, inspection, deployment, database integration, etc.).
+- **Build** a script to support the automation making it repeatable and consistent.
+- **Share** via version control so others can use the scripts.
+- **Make it continuous** by running the script with every change applied.
 
-1. Identify the system's constraint.
-2. Decide how to exploit the system's constraint.
-3. Subordinate everything else to the above decision.
-4. Elevate the system's constraints.
-5. If the previous steps brake the constraint (i.e., it is no longer a problem), return to step 1.  Do not allow inertia to cause system constraints.
+We can further improve our CI by asking the following questions:
 
-To summarise, find out what is slowing down the work.  Once found, fix it until it is not a problem.  Then find the new problem slowing down the work.
+- How much code coverage do you have with your tests?
+- How long does it take to run your builds?
+- What is your average code complexity?
+- How much code duplication do you have?
+- Are you labelling your builds in your version control repository?
+- Where do you store your deployed software?
 
-### Eliminate Waste and Hardship in the Value Stream
+These questions allow us to continuously improve our CI method.  We are asking the questions about the quality of our software that we are building.
 
-We covered waste in [Lecture 04](../lecture04) on *Lean Software Development*.  *The DevOps Manual* cites *Implementing Lean Software Development* (also by Poppendieck and Poppendieck) for the following categories:
+### Building
 
-- **Partially done work** - can become obsolete or lose value over time.
-- **Extra processes** - anything that does not add value to the customer.
-- **Extra features** - add complexity and effort for no reason.
-- **Task switching** - context switch time affects everyone.
-- **Waiting** - increase time for delivery and prevent people from doing work.
-- **Motion** - moving people or work takes time.
-- **Defects** - takes effort to fix.
-- **Nonstandard or manual work** - automate as much as possible.
-- **Heroics** - if people have to perform unreasonable tasks (e.g., working late every night, one person fixing everything) then they become less productive over time.
+> A build acts as the process for putting source code together and verifying that the software works as a cohesive unit.
+>
+> -Continuous Integration
 
-## The Second Way of DevOps: The Principles of Feedback
+Building software is the first stage of our CI system after it has fetched changes from version control.  But what is a software build?  Is it just compiling software?  Is compiling and testing?  What other automated processes should be used?  The answer is up to the team.  A key point is that we want builds to be fast so that we can get the feedback.
 
-Receiving fast and constant feedback from customer to Operations and Development (right to left) improves the service to the customer.  Either we stop problems recurring, or we detect problems faster.  This improves system safety - the system is less likely to fail.
+The aim is to have a build script that contains all of the processes we have decided to automate.  The script also needs to be separate from any IDE.  These steps ensure that:
 
-### Working Safely with Complex Systems
+1. Developers can use different IDEs.
+2. The CI server can run the script without intervention.
 
-If a system is complex, it means it is too big for any one person to see the whole and understand how the parts work together.  Components are strongly coupled leading to system behaviour not easily explained via component behaviour.
+A basic build script should perform the following steps:
 
-A complex system will not always behave the same way under the same conditions.  Therefore, using static means of monitoring a system is not sufficient.  As failure will occur, we need conditions to work safer with complex systems.  These are:
+1. Clean.
+2. Compile source code.
+3. Integrate database.
+4. Run tests.
+5. Run inspections.
+6. Deploy software.
 
-- Manage complex work so that problems are revealed.
-- When a problem arises they are *swarmed and solved*, leading to new learning.
-- New knowledge is exploited throughout the organisation.
-- Leaders create other leaders who grow these capabilities.
+As discussed, developers run separate builds on their own machines before committing their code.  This prevents broken builds being pushed to source control.  The steps for running a private build are:
 
-### See Problems as They Occur
+1. Check out code from version control.
+2. Make changes to that code.
+3. Get the latest changes from version control.
+4. Build, including unit tests.
+5. Commit changes to version control.
 
-It is one thing to test your software.  It is another to ensure the results of those tests are visible to the team.  The more automated our processes become, the more information we can gather and present to the team to visualise the problem.  This is a feedback loop.  Quick and informative feedback will allow the team to solve problems quickly before they become a bigger issue.
+#### Integration Build
 
-### Swarm and Solve Problems to Build New Knowledge
+Once code is pushed to version control and fetched by the CI server, an integration build occurs. This includes all the components in the project, such as other software components, databases, etc.  The aim is to ensure that all the components work together.
 
-Essentially, stop waiting to fix a problem: **fix the problem now.**  Waiting to schedule a fix is not beneficial, as the context of the problem degrades over time.  Fix the problem now, and gain the new knowledge from performing that fix.
+#### Release Build
 
-Swarming is when everyone on the team gets behind fixing the problem.  It is necessary as:
+For deployable software we need to create a release build.  A release build can happen at the end of milestone, can include performance (nonfunctional) tests, and must include any acceptance tests.  The aim is to create installation media and prepare for full QA testing.
 
-- It prevents a problem progressing downstream where it becomes more expensive to fix.
-- It prevents the team starting new work which may introduce further errors.
-- If the problem is not fixed, it could become recurrent at the next operation, leading to further errors to fix.
+## Risk in Software Development
 
-### Keep Pushing Quality Closer to the Source
+As stated, CI reduces risk by continuously building and integrating our software.  Risk is **the potential for a problem to occur**.  When a risk occurs it becomes a problem.  We focus on the high-priority risks (most damaging) that are most likely to occur.
 
-Surprisingly, in complex systems, more checks and approvals increases the chance of future failure.  This is because these checks and approvals happen further away from the team who undertook the work.  This means the checkers and approvers have less knowledge about what they are looking at.
+Agile itself reduces risk as we are always delivering value to the customer and receiving feedback.  In traditional approaches, our risk builds over time as we do not know if we are delivering the right product.  Resources have been committed without knowledge if we are delivering what the customer wants.  In Agile, small iterations mean we reduce risk.  The below image illustrates:
 
-By the production team being responsible for testing and quality (via automation), everyone sees quality as their responsibility.  This will improve overall quality as a team will ensure quality is baked in.  They will not expect someone else to do the checking for them.
+<p><a href="https://commons.wikimedia.org/wiki/File:Agile-vs-iterative-flow.jpg#/media/File:Agile-vs-iterative-flow.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Agile-vs-iterative-flow.jpg" alt="Agile-vs-iterative-flow.jpg" height="319" width="640"></a><br>By <a href="//commons.wikimedia.org/w/index.php?title=User:Christopher_Little&amp;action=edit&amp;redlink=1" class="new" title="User:Christopher Little (page does not exist)">Christopher Little</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by/3.0" title="Creative Commons Attribution 3.0">CC BY 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=11645092">Link</a></p>
 
-### Enable Optimising for Downstream Work Centres
+There are four key risks addressed by Continuous Integration:
 
-This is really about seeing where your work goes next.  Working with customers is very important, but if you forget the next step after development (e.g., operation or QA), then you make work harder for them.  Focus on where the work goes next to optimise for this area.
+- Lack of deployable software.
+- Late discovery of defects.
+- Lack of project visibility.
+- Low-quality software.
 
-## The Third Way of DevOps: The Principles of Continual Learning and Experimentation
+Let us look at each of these risks in turn.
 
-The Third Way is about building a high-trust culture that supports a scientific approach to experimentation and learning from those experiments.  People test ideas to see what can improve the delivery of value, and this new knowledge is shared across the organisation.
+### Risk: Lack of Deployable Software
 
-A culture of fear and low trust emerges where mistakes are punished.  If people who make suggestions or point out problems are seen as troublemakers then improvements will not occur.  How we deal with these issues is important in any cultural environment.
+Our goal is to always have potentially shippable software.  Therefore, having no deployable software is a risk to our development process.  We do so by:
 
-### Enabling Organisational Learning and a Safety Culture
+- Decoupling the IDE from the build process.
+- Placing all database artefacts in version control.
+- Rebuilding the database from the build script.
+- Testing and inspecting the database.
+- Automating the build process to reduce wasted time and effort.
 
-We want to create an organisation that learns and trusts the people within it.  
+### Risk: Late Discovery of Defects
 
-| Pathological                          | Bureaucratic                                      | Generative                         |
-| ------------------------------------- | ------------------------------------------------- | ---------------------------------- |
-| Information is hidden                 | Information may be ignored                        | Information is actively sought     |
-| Messengers are "shot"                 | Messengers are tolerated                          | Messengers are trained             |
-| Responsibilities are shirked          | Responsibilities are compartmented                | Responsibilities are shared        |
-| Bridging between teams is discouraged | Bridging between teams is allowed but discouraged | Bridging between teams is rewarded |
-| Failure is covered up                 | Organisation is just and merciful                 | Failure causes inquiry             |
-| New ideas are crushed                 | New ideas create problems                         | New ideas are welcomed             |
+We automate regression testing to find defects quickly.  We do so by:
 
-Taken from *A Typology of Organisation Cultures* by *R. Westrum*.  http://dx.doi.org/10.1136/qshc.2003.009522
+1. Writing test code for all source code.
+2. Running tests in the build script.
+3. Running tests continuously at any change committed to version control
 
-We want to be a *generative organisation*.  This allows information and learning to be shared in a culture of support and safety.
+Once tests are written, we check code coverage to ensure as much code as possible is tested.  Local unit tests and integration tests should cover most, if not all, our code.
 
-- [ ] Reflect on your own experiences working in an organisation.  Can you relate to the different aspects from your previous experience?  What about your experience of the University?
+### Risk: Lack of Project Visibility
 
-### Institutionalise the Improvement of Daily Work
+Remember we want to visualise both the work that is happening and the state of our system.  A CI system can provide useful telemetry about the state of our build.  Charts can be produced by the CI system that provides us with confidence about our software.
 
-Basically, schedule time to fix defects and improve the code base.  Do not leave this as a task to do later.  Explicitly schedule - routinely - the time to pay off technical debt.  This will make the system safer.
+### Risk: Low-Quality Software
 
-### Transform Local Discoveries into Global Improvements
+Complex code, code that does not follow the architectural design, and code duplication all lead to defects in the software.  Rather than writing a report about the quality of the software, we can run a tool as part of the build.  These automated inspection tools can provide vital metrics on our software quality as we perform CI.
 
-The simple answer is to create mechanisms to share knowledge within the organisation.  This can be done through documenting processes and automating work.  Shared code and repositories really helps here.
+### Summary of Risks
 
-### Inject Resilience Patterns into Our Daily Work
+To summarise, CI overcomes main software risks as follows:
 
-Experiment with how work is conducted.  This can be done in several ways, including:
-
-- running scripts that randomly fail some servers to see how the system responds.
-- adding faults into code intentionally to check the response.
-- challenging the team to increase the number of deploys per day to see what happens.
-
-### Leaders Reinforce a Learning Culture
-
-A leader's role should be to create a great team environment to allow the team to do their best work.  This means the leader and team are dependent on each other.  A leader should reinforce the learning and encourage the experimentation that leads to a more successful team overall.
+| **Risk**                    | **Mitigation**                                               |
+| --------------------------- | ------------------------------------------------------------ |
+| Lack of deployable software | CI system builds software at any time via repeatable process from version control. |
+| Late discovery of defects   | Run tests at every change.                                   |
+| Lack of project visibility  | Software health known at all times via continuous builds.    |
+| Low-quality software        | Tests and inspections run at each change to maintain high standards. |
 
 ## Summary
 
-To summarise, we have covered the following:
+In this lecture we have covered the fundamentals of CI.  Specifically, we:
 
-- Defined what we mean by DevOps - a software development methodology built on agile and lean, integrating bot development and operation of software.
-- Described the Three Ways of DevOps: flow, feedback, and continual experimentation and learning.
-- Reflected on how the module maps to the Three Ways by listing the lectures in each sub-area.
+- *Defined Continuous Integration* as the process of performing integration building and testing on each change committed to version control.
+- *Explained why Continuous Integration is useful*, focusing on risk reduction and workflow.
+- *Described the Continuous Integration workflow*, looking at the steps and CI system setup.
+- *Described risk in software development and how this is managed via Continuous Integration*, focusing on lack of deployable software, late discovery of defects, lack of project visibility, and low-quality software.
+

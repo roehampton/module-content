@@ -1,4 +1,4 @@
-# Software Development 2 Lab 05 -- Programming Style and Documentation
+# Software Development 2 Lab 05 -- Pre-processor
 
 We have now covered how data is represented on the machine when working with C.  Let us now look a bit more into how code is generated and how we break our code up into separate files.  We are going to move onto developing larger and larger applications from now on as we will be able split our code up accordingly.  First, we need to look into what is known as the *pre-processor*.
 
@@ -158,301 +158,326 @@ int main(int argc, char **argv)
 
 If you run this program you will get the same output at the standard *Hello World* application.
 
-\subsection{Example - Student Details}
+## Makefiles
 
-Let us now build an example that uses separate code files.  For this we will revisit our student example.  First, let us define our \texttt{student.h} header file:
+Up until this point, your program building and running has been relatively simple. **The real world doesn't work like that**. You have to get used to managing build and execution configuration files. We will introduce you to this idea in this module via makefiles.
 
-\begin{lstlisting}[caption=\texttt{student.h} Header File]
+A makefile is a handy method of building applications by containing all the necessary instructions in a single file, rather than typing them in the command line each time.
+
+Visual Studio Code does not fully support makefiles yet, although Microsoft have feature development to support it. You can download this now. To do so, follow the installation instructions [here](https://github.com/microsoft/vscode-makefile-tools). We will cover this in class.
+
+Once installed, you should create a `makefile` (note -- no filename extension) file in Visual Studio Code.
+
+### Simple Makefile
+
+Below is a simple `makefile` to build our `hello.c` file:
+
+```makefile
+hello:
+	cl hello.c
+```
+
+**NOTE -- if you are using MacOS replace `cl` with `clang`. If you are using Linux, replace `cl` with `gcc`.**
+
+The `makefile` declares a new build target -- `hello` -- which is built by invoking `cl hello.c`.
+
+We can now call `make` stating we want to undertake the `hello` build.  We do this as follows:.
+
+```shell
+make hello
+```
+
+And it is as simple as that.  You might be asking yourself *what is the point in that?*.  Well, we can perform more than one instruction as part of the build, and it also allows us to store our build configurations in a file so we don't have to remember how to perform the build.  This will become important as we build more complex applications. **You should start writing make files from now on.**  In fact, you are required to use them for your assessment.
+
+## Example -- Student Details
+
+Let us now build an example that uses separate code files.  For this we will revisit our student example.  First, let us define our `student.h` header file:
+
+```c
 #pragma once
 
 // A structure representing a student
 struct student
 {
-    unsigned int matric;
+    unsigned int id;
     char *name;
     char *address;
 };
 
 // Declaration of print student method - not implementation
 void print_student(struct student s);
-\end{lstlisting}
+```
 
-Note the use of \texttt{\#pragma once} again.  Otherwise we have two declarations.  The first is a \texttt{student struct}.  This is the same \texttt{struct} that we defined before.  The second is the \texttt{print\_student} function.  Here we are just declaring the function.  We have provided no implementation detail.  This is in the \texttt{student.c} code file:
+Note the use of `#pragma once` again.  Otherwise we have two declarations.  The first is a `struct student`.  The second is the `print_student` function.  Here we are just declaring the function.  We have provided no implementation detail.  This is in the `student.c` code file:
 
-\begin{lstlisting}[caption=\texttt{student.c} Code File]
+```c
 #include "student.h"
 #include <stdio.h>
 
 void print_student(struct student s)
 {
-	printf("Matric: %d\n", s.matric);
-	printf("Name: %s\n", s.name);
-	printf("Address: %s\n", s.address);
+    printf("ID: %d\n", s.id);
+    printf("Name: %s\n", s.name);
+    printf("Address: %s\n", s.address);
 }
-\end{lstlisting}
+```
 
-Our implementation file just contains the details of how we implement \texttt{print\_student}.  It includes the \texttt{student.h} and \texttt{stdio.h} header files.  Otherwise we are just implementing the same code as before.
+Our implementation file just contains the details of how we implement `print\_student`.  It includes the `student.h` and `stdio.h` header files.  Otherwise we are just implementing the same code as before.
 
 Finally our main application file is as follows:
 
-\begin{lstlisting}[caption=Main Student Application]
+```c
 #include "student.h"
 
 int main(int argc, char **argv)
 {
-	struct student s;
-	s.matric = 123456;
-	s.name = "Kevin Chalmers";
-	s.address = "Edinburgh Napier University";
-	print_student(s);
-	
-	return 0;
+    struct student s;
+    s.id = 123456;
+    s.name = "Kevin Chalmers";
+    s.address = "University of Roehampton";
+    print_student(s);
+    return 0;
 }
-\end{lstlisting}
+```
 
-This is just the same \texttt{main} as we developed before.  Notice that we have only included the \texttt{student.h} header file.
+This is just the same `main` as we developed before.  Notice that we have only included the `student.h` header file.
 
-To understand what is happening now when we build the application examine Figure~\ref{fig:student-file-structure}.  At the top of the figure is our \texttt{student.h} file acting as a bridge between our \texttt{main.c} and \texttt{student.c} files.  Underneath this is the how the two generated \texttt{obj} files are linked together to form the main application.
+To understand what is happening now when we build the application examine the figure below.  At the top of the figure is our `student.h` file acting as a bridge between our `main.c` and `student.c` files.  Underneath this is the how the two generated `obj` files are linked together to form the main application.
 
-\begin{figure}[htb]
-\centering
-\includegraphics{student-file-structure}
-\caption{Structure of Student Application - both File Inclusion and Object Files}
-\label{fig:student-file-structure}
-\end{figure}
+![Student File Structure](student-structure.png)
 
-\subsection{Exercises}
+### Exercises
 
-\begin{enumerate}
-\item Compile and build the new version of the student application.  You know how to do multiple file compilation, so you should be able to undertake this.
-\item Determine what the two code files would look like after the pre-processor pass. This gives you an idea of how the implementation details are separate with the header file acting as a bridge. 
-\item Make files?  Yes we are still going on about these.
-\end{enumerate}
+1. Compile and build the new version of the student application.  You will need to create a `makefile` entry that uses the line `cl student.c main.c` (or with `clang` or `gcc` as appropriate).
+2. Determine what the two code files would look like after the pre-processor pass. This gives you an idea of how the implementation details are separate with the header file acting as a bridge.
 
-\section{A Simple Array Library}
+## File Input and Output
 
-OK, now let us develop a nice little reusable library.  Our library will allow us to work with an array of data.  It will provide the following features:
-\begin{enumerate}
-\item searching an array for a value
-\item sorting the array
-\item generating random data into the array
-\end{enumerate}
+Let us look at the key ideas of file I/O in C:
 
-We will split these three different functions into three separate code files.  Let us look at the these in turn.
+- Read in data from a file.
+- Write data to a file.
 
-The code for the header is below.
+This may be a new concept to some of you -- how we go about reading and writing files.  In C, the principles are actually similar to working with reading and writing from the command line.  We are just going to perform the actions with a file.
 
-You now know how to create and use a library.  Let us reuse that library as we explore working with file input-output in C.
+File I/O is another fundamental part of computing.  It forms two-thirds of a high level view of an application:
 
-\section{Reading Files}
-
-This may be a new concept to some of you - how we go about reading and writing files.  The principles are actually similar to working with reading and writing from the command line.  We are just going to perform the actions with a file.
-
-File I/O is another fundamental part of computing.  It forms two thirds of a high level view of an application:
-\[
-\text{input} \Rightarrow \text{process} \Rightarrow \text{output}
-\]
+*Input* **&rarr;** *Process* **&rarr;** *Output*
 
 We will look at both input and output over the next two sections.  Let us first look at how we open a file.
 
-\subsection{Opening a File}
+### Opening a File
 
-To open a file in C we use the \texttt{fopen} function.  This will return a \texttt{FILE*} (pointer to a FILE).  The call requires a filename and a mode.  The filename has to be a correct filename in the system relative to the place where the executable is run (for our purposes the same folder).  \texttt{fopen} is illustrated below.
+To open a file in C we use the `fopen` function.  This will return a `FILE*` (pointer to a `FILE`).  The call requires a filename and a mode.  The filename has to be a correct filename in the system relative to the place where the executable is run (for our purposes the same folder).  `fopen` is illustrated below.
 
-\begin{lstlisting}[caption=Opening a File]
+```c
 FILE *file = fopen("filename", "mode");
-\end{lstlisting}
+```
 
-The \texttt{mode} value is a string telling C how to open the file.  There are a few different methods of opening a file.  Table~\ref{tab:file-mode} describes the different methods.
+The `mode` value is a string telling C how to open the file.  There are a few different methods of opening a file.  The table below describes the different methods.
 
-\begin{table}[htb]
-\centering
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline
-\textbf{Mode} & \textbf{Description} \\
-\hline
-r & opens the file for reading \\
-\hline
-w & opens the file for writing.  Existing files of the name have their contents discarded \\
-\hline
-a & opens the file for appending (writing at the end).  Will not discard existing file contents.  File seeking operations are ignored. \\
-\hline
-r+ & opens a file for reading and updating \\
-\hline
-w+ & opens a file for reading and updating.  Discards and existing contents in the file \\
-\hline
-a+ & opens a file for reading and updating at the end.  Will not discard contents.  File seeking operations are ignored. \\
-\hline
-b & opens the file as binary rather than text \\
-\hline
-\end{tabularx}
-\caption{File Opening Modes in C}
-\label{tab:file-mode}
-\end{table}
+| **Mode** | **Description**                                              |
+| -------- | ------------------------------------------------------------ |
+| `r`      | Opens the file for reading.                                  |
+| `w`      | Opens the file for writing. Existing files with the same name are overwritten. |
+| `a`      | Opens the file for appending (writing at the end). Will not discard existing file contents. File seeking operations are ignored. |
+| `r+`     | Opens the file for reading and updating.                     |
+| `w+`     | Opens the file for reading and updating. Overwrites the existing file. |
+| `a+`     | Opens the file for reading and updating at the end. Will not discard contents. File seeking operations are ignored. |
+| `b`      | Opens the file as binary rather than text.                   |
 
-\subsection{Opening a File for Binary Reading}
+#### Opening a File for Text Reading
 
-We are going to read a file in binary.  These means we have to combine the read mode (\texttt{r}) and the binary mode (\texttt{b}).  We do this as follows:
+We are going to read a text file. We do this as follows:
 
-\begin{lstlisting}[caption=Opening a File for Binary Reading]
-FILE *file = fopen("filename", "rb");
-\end{lstlisting}
+```c
+FILE *file = fopen("filename", "r");
+```
 
-\subsection{Reading a Binary File}
+#### Reading a Text File
 
-Let us now write a test application to open a binary file, read it in, and then sort it.  To do this we will also write a function that will read in a file and return the amount of data read.  The form of the data file will be such that the first 4 bytes will tell us the number of values stored in the data file.  This means that we don't know how many values are stored, so we will have to introduce some strategies for allocating enough space to store our values.  The code for our test application is below.  We will explain the new parts presently.
+Let us now write a test application to open a text file, read it in, and then print it.  To do this we will also write a function that will read in a file and return the amount of data read. The code for our test application is below.  We will explain the new parts presently.
 
-\begin{lstlisting}[caption=Reading a Binary File]
+```c
 #include <stdlib.h>
 #include <stdio.h>
-#include "sort.h"
+#include <string.h>
 
-// Reads in a block of data as an int array
-int readfile(int **data)
+// Reads in a text file
+char* read_file(char *filename)
 {
     // Open file for reading
     FILE *file;
-    file = fopen("numbers.dat", "rb");
-    // First value is number of integers
-    int size;
-    fread(&size, sizeof(int), 1, file);
-    // Allocate memory for that number of values
-    *data = (int*)malloc(sizeof(int) * size);
-    // Read in rest of data
-    fread(*data, sizeof(int), size, file);
-    // Return size
-    return size;
+    file = fopen(filename, "r");
+    // Move to the end of the file
+    fseek(file, 0, SEEK_END);
+    // Find out file position
+    long size = ftell(file);
+    // Rewind back to the start
+    fseek(file, 0, SEEK_SET);
+    // Allocate memory for that number of values + 1
+    char *data = (char*)malloc(size + 1);
+    // Read in data
+    fread(data, sizeof(char), size, file);
+    // Set final byte of memory to null terminator
+    data[size] = '\0';
+    // Return data
+    return data;
 }
 
 int main(int argc, char **argv)
 {
-    // Declare data
-    int *data;
     // Read in file
-    int size = readfile(&data);
-    // Sort
-    sort(size, data);
-    // Print first 20 results
-    for (int i = 0; i < 20; ++i)
-        printf("%d\n", data[i]);
+    char *data = read_file("test.txt");
+    // Print
+    printf("%s\n", data);
 
     // Free the allocated memory - otherwise a memory leak! (very bad)
     free(data);
     
     return 0;
 }
-\end{lstlisting}
+```
 
-\begin{framed}
-\textbf{Allocating Memory}
+> **Allocating Memory**
+>
+> We used two new functions in this example -- `malloc` and `free`.  `malloc` (Memory ALLOCation) creates a block of memory for us to use. This is required as we don't know the number of values we require to store the file contents.  We therefore use `malloc` to create the memory block.  `malloc` requires just one value -- the amount of data (in bytes) we need to allocate.  
+>
+> `malloc` returns a pointer to the memory location it has allocated memory at.  This pointer is of type `void` (so we have a `void*`).  This means that the type of memory is undefined (it is just a block).  We cast it to a pointer to `char` (a `char*`) to set the `data` value.
+>
+> The other function we have used is `free`.  This releases any allocated memory once we have finished with it.  **This is very important!**.  Let me repeat that -- **THIS IS VERY IMPORTANT!**.  If you do not free your allocated memory it cannot be used, leading to memory leaks.  Over time, this could lead to your application running out of memory.  Ensuring you free your allocated memory is an important consideration in C and C++ (there is no garbage collector like in Python, Java and C\#).  We will spend an entire unit exploring this concept.
 
-We used two new functions in this example - \texttt{malloc} and \texttt{free}.  \texttt{malloc} (Memory ALLOCation) creates a block of memory for us to use.  This is required as we don't know the number of values we require to store the file contents.  We therefore use \texttt{malloc} to create the memory block.  \texttt{malloc} requires just one value - the amount of data (in bytes) we need to allocate.  Notice that we used the size of an \texttt{int} times the number of values we are going to read.
+> **`fread` and `fclose`**
+>
+> We have two other functions for working with files.  The first is `fread`.  This reads in data from a file.  It takes the following parameters:
+>
+> - the memory location to read the file into
+> - the size of the data type being read in (e.g., `sizeof(char`))
+> - the number of values of the data type to read in
+> - the file to read in from
+>
+> Points 2 and 3 above provide us with the amount of data to read in (the size of the type times the number of values).
+>
+> The second new function we used was `fclose`.  This closes the file. **You should always close your files after you have finished with them!**.  If you don't close the file you can cause system conflicts.  If you are writing to a file, you may lose the information sent to the file when the application exits.  The application *will not* automatically push the contents to the hard drive, even on exit.  Therefore data can be lost.
 
-\texttt{malloc} returns a pointer to the memory location it has allocated memory at.  This pointer is of type \texttt{void} (so we have a \texttt{void*}).  This means that the type of memory is undefined (it is just a block).  We cast it to a pointer to \texttt{int} (a \texttt{int*}) to set the \texttt{data} value.
+#### Exercise
 
-The other function we have used is \texttt{free}.  This releases any allocated memory once we have finished with it.  \emph{This is very important!}.  Let me repeat that - \emph{THIS IS VERY IMPORTANT!}.  If you do not free your allocated memory it cannot be used, leading to memory leaks.  Over time, this could lead to your application running out of memory.  Ensuring you free your allocated memory is an important consideration in C and C++ (there is no garbage collector like in Java and C\#).  We will spend an entire unit exploring this concept.
-\end{framed}
+Create a text file in the same folder as your program called `test.txt` and add some text to it. Then, compile and run the program to ensure you know it works.
 
-\begin{framed}
-\textbf{Why \texttt{**data}?  What does that mean?}
+### Writing Text Files
 
-Look at what the code is saying (remembering that \texttt{*} means \emph{pointer-to}).  We are effectively saying that we have a \emph{pointer-to} a \emph{pointer-to} \texttt{int}.  In other words, the \texttt{data} value points to a memory location that contains a memory location.
+Let us extend the previous version of the application now to also save the data in a text file.  The following code will accomplish this for you.  You should hopefully understand what is meant by a text file by now.
 
-Why do we need this?  Well, the call to \texttt{malloc} will create a new memory location.  If we just used a memory location for \texttt{data} (a pointer-to \texttt{int}) we would overwrite the memory location in \texttt{data} within the function \texttt{readfile} but not in the \texttt{main} function.  We would affectively lose the memory location (and create a memory leak).
-
-At the moment this will seem confusing, but we will spend time exploring this over a couple of units in the module.  At the moment, understand that we have passed data as a \emph{pointer-to a pointer-to} \texttt{int}.
-\end{framed}
-
-\begin{framed}
-\texttt{fread} and \texttt{fclose}
-
-How many boxes do we need after this code?  We have two other functions for working with files.  The first is \texttt{fread}.  This reads in data from a file.  It takes the following parameters:
-\begin{enumerate}
-\item the location to read the file into
-\item the size of the data type being read in
-\item the number of values of the data type to read in
-\item the file to read in from
-\end{enumerate}
-
-Points 2 and 3 above provide us with the amount of data to read in (the size of the type times the number of values).
-
-The second new function we used was \texttt{fclose}.  This closes the file.  \emph{You should always close your files after you have finished with them!}.  If you don't close the file you can cause system conflicts.  If you are writing to a file, you may lose the information sent to the file when the application exits.  The application \emph{will not} automatically push the contents to the hard drive, even on exit.  Therefore data can be lost.
-\end{framed}
-
-\subsection{Exercise}
-
-You should be able to compile and link this file.  You will need the \texttt{array.lib} library we generated in the previous section.  The application will give a similar output to the last one.  However, we are now sorting \emph{a lot} of data, and the application will take time to complete.
-
-\section{Writing Files}
-
-Let us extend the previous version of the application now to also save the sorted data in a text file.  The following code will accomplish this for you.  You should hopefully understand what is meant by a text file by now.
-
-\begin{lstlisting}[caption=Reading and Sorting a Binary File and Outputting as Text]
-#include <stdio.h>
+```c
 #include <stdlib.h>
-#include "sort.h"
+#include <stdio.h>
+#include <string.h>
 
-// Reads in a block of data as an int array
-int readfile(int **data)
+// Reads in a text file
+char* read_file(char *filename)
 {
     // Open file for reading
     FILE *file;
-    file = fopen("numbers.dat", "rb");
-    // First value is number of integers
-    int size;
-    fread(&size, sizeof(int), 1, file);
-    // Allocate memory for that number of values
-    *data = (int*)malloc(sizeof(int) * size);
-    // Read in rest of data
-    fread(*data, sizeof(int), size, file);
-    // Close file
-    fclose(file);
-    // Return size
-    return size;
+    file = fopen(filename, "r");
+    // Move to the end of the file
+    fseek(file, 0, SEEK_END);
+    // Find out file position
+    long size = ftell(file);
+    // Rewind back to the start
+    fseek(file, 0, SEEK_SET);
+    // Allocate memory for that number of values + 1
+    char *data = (char*)malloc(size + 1);
+    // Read in data
+    fread(data, sizeof(char), size, file);
+    // Set final byte of memory to null terminator
+    data[size] = '\0';
+    // Return data
+    return data;
 }
 
-// Writes strings to the file
-void writefile(int size, int *data)
+void write_file(char *filename, char *data)
 {
     // Create file
     FILE *file;
-    file = fopen("sorted.txt", "w");
-    // Loop through each value, writing to the file
-    for (int i = 0; i < size; ++i)
-        fprintf(file, "%d\n", data[i]);
+    file = fopen(filename, "w");
+    // Find the length of the string
+    long len = strlen(data);
+    // Write len bytes to the file
+    fwrite(data, sizeof(char), len, file);
     // Close the file
     fclose(file);
 }
 
 int main(int argc, char **argv)
 {
-    // Read in data
-    int *data;
-    int size = readfile(&data);
-    // Sort
-    sort(size, data);
-    // Write the data
-    writefile(size, data);
+    // Read in file
+    char *data = read_file("test.txt");
+    // Print
+    printf("%s\n", data);
+    // Write the output
+    write_file("output.txt", data);
+
     // Free the allocated memory - otherwise a memory leak! (very bad)
     free(data);
-
+    
     return 0;
 }
-\end{lstlisting}
+```
 
-\begin{framed}
-\texttt{fprintf}
+>  **`fwrite`**
+>
+> We used `write` as a command here.  This works exactly as `fread` but in reverse, writing data to the file rather than reading it in.
 
-We used \texttt{fprintf} as a command here.  This works exactly as \texttt{printf} except that is requires a \texttt{FILE*} to print to.  Here we have used the opened file, but we could also use \texttt{stdout} (the command line).
-\end{framed}
+### Exercise
 
-\section{Exercises}
-
-We've covered a lot of ideas in this unit and you should go through it again to ensure you are comfortable of, and understand the, concepts discussed.  File reading we will return to in C++ (where our life gets a little easier).  So there are only a couple of exercises here.
-
-\begin{enumerate}
-\item Write an application that prompts the user for a name and writes it to a file as text.  Each name should be on a new line.  The application should continue asking for names until END is entered.
-\item Write an application that reads in your sorted text file and prints out the values.  You should use \texttt{fgets} to read in the lines from the text file.
-\end{enumerate}
+Compile and run this program and ensure it outputs the text to the file `output.txt`.
 
 ## Command Line Parameters
+
+For our final application let us examine the two values that we declare for our main application -- `argc` and `argv`.
+
+`argc` provides a count of the number of command line arguments that have been passed into the application.  It is an integer value that provides information about its partner value -- `argv`.
+
+`argv` is an interesting parameter.  Its type is `char**`, or a pointer to a pointer to `char`.  If you remember from our work on strings, we defined a string as a `char*`.  We also defined an array of `char` as a `char*`.  A `char**` can be considered as an `array of strings`.  `argc` tells us how many strings we have.  As the strings are null-terminated, we can use `strlen` to get the length of each string if we want.  The following image illustrates the idea:
+
+![arguments](arguments.svg)
+
+As an example of working with the command line arguments, try the following (fairly short) application.
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main(int argc, char **argv)
+{
+	// Loop for number of arguments
+	for (int i = 0; i < argc; ++i)
+	{
+		printf("Argument %d: %s\n", i, argv[i]);
+	}
+	printf("All arguments printed.\n");
+	
+	return 0;
+}
+```
+
+Running this application (let us assume you have called it \texttt{command-line}) provides the following output:
+
+```shell
+command-line hello world programming fundamentals
+Argument 0: command-line
+Argument 1: hello
+Argument 2: world
+Argument 3: programming
+Argument 4: fundamentals
+All arguments printed.
+```
+
+Notice that the name of the application is argument 0.  This does depend on the operating system running the application.  Windows provides the name as an argument.  This is worth remembering.
+
+## Exercises
+
+We've covered a lot of ideas in this unit and you should go through it again to ensure you are comfortable of, and understand the, concepts discussed.  File reading we will return to in C++ (where our life gets a little easier).  So there is only a one exercise here.
+
+- Write an application that prompts the user for a name and writes it to a file as text.  Each name should be on a new line.  The application should continue asking for names until END is entered. You may find `fprintf` useful here.
+  
