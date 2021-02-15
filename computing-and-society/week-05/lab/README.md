@@ -1,6 +1,9 @@
 # Computing and society week 5
 ## Microsoft Teams conference calling
 
+#### Code of conduct:
+https://www.mozilla.org/en-US/about/governance/policies/participation/
+
 
 ### Create a meeting (Meeting leader)
 
