@@ -34,7 +34,9 @@
         data = [2.71, 3.14, 1.41, 1.62]
 
         # Swap the element at index 1 with the element at index 3
-        temp = data[1] data[1] = data[3] data[3] = temp
+        temp = data[1] 
+        data[1] = data[3] 
+        data[3] = temp
 
         # Display the modified list
         print(data)
