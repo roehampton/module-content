@@ -20,6 +20,9 @@ https://www.mozilla.org/en-US/about/governance/policies/participation/
 ### In your meeting
 
 - Leader should check participants and welcome each person as they join.
+- Explore and set the meeting permissions. Click 'people' tab, click the three dots, choose manage permissions.
+   - Set 'who can bypass the lobby' to 'only  me'
+   - Ensure all participants can present
 - Each person should introduce themselves in a few words, mic and preferabley camera on.
 - Practice screen sharing.
     - Each person to find an image or website representing 'my dream journey' (seaside, trip to mars...?)
