@@ -28,6 +28,7 @@ https://www.mozilla.org/en-US/about/governance/policies/participation/
     - Each person to find an image or website representing 'my dream journey' (seaside, trip to mars...?)
     - In turn, use the screen sharing facility to share the image
 - Use the whiteboard to collaboratively brainstorm your ideal computer science class. What would you teach and how would  you teach it?
+- At the end of your session, save the whiteboard as an image so you can share it with the group.
 
 
 ###  Useful info
