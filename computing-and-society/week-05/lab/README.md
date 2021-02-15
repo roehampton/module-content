@@ -19,8 +19,8 @@
 - Leader should check participants and welcome each person as they join.
 - Each person should introduce themselves in a few words, mic and preferabley camera on.
 - Practice screen sharing.
-    * Each person to find an image or website representing 'my dream journey' (seaside, trip to mars...?)
-    * In turn, use the screen sharing facility to share the image
+    - Each person to find an image or website representing 'my dream journey' (seaside, trip to mars...?)
+    - In turn, use the screen sharing facility to share the image
 - Use the whiteboard to collaboratively brainstorm your ideal computer science class. What would you teach and how would  you teach it?
 
 
