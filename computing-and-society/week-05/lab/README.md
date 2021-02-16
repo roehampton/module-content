@@ -11,10 +11,22 @@ https://www.mozilla.org/en-US/about/governance/policies/participation/
 
 - Go to your calendar in the Teams app
 - click 'meet now' in the top right corner
+
+
+
+![calendar](calendar.png)
+
+
 - Enter the Meeting (you will be by yourself at this point)
-- Click the 'participants' icon on the share tray
+- Click the 'participants' icon on the share tray.  The 'people' slide-in should open on the right
+
+![share tray](share-tray.png)
+
 - Use the 'invite someone' autocomplete to invite your colleagues
 - They should then receive an email or teams notification and be able to join the meeting.
+- You can also get the unique link for the meeting by clicking the link notification
+
+![calendar](people.png)
 
 
 ### In your meeting
