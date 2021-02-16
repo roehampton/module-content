@@ -63,4 +63,41 @@ The following rubric will be used to grade the report.
 
 ## Report Two
 
+**This report covers the learning outcome *Evaluate risks to privacy and anonymity in commonly used applications.***
+
+Continuing from the example above, the university has decided to invest further in the use of office software. They have proposed that the following policies are enacted:
+
+- Academic staff booking system -- academic staff will now use a system that will allow students to view their calendar and schedule meetings with academics to provide targeted support.
+- Microsoft Teams -- all staff are now expected to use Microsoft Teams as a communication mechanism between themselves, students, and any external parties. The idea is that since Microsoft Teams integrates with SharePoint then it becomes easier to share documents such as student records.
+- Camera and microphone on policy -- to support a good working environment, the university believes all staff and students should have their cameras and microphones on when engaging in virtual communication.
+- Student support logging -- to better support students with specific needs, the university wishes to keep a log of these centrally on SharePoint in an Excel file. This log file will contain the student ID and details of their particular support needs.
+
+The university has asked you to analyse these policies and identify potential risks to privacy and anonymity of their staff, students, and external parties they interact with. They have asked for a four page report providing the following information:
+
+- Any risks to privacy and anonymity that may already exist in their systems.
+- Any risks to privacy and anonymity that the new policies might cause.
+- What measures should the university take to mitigate the risks you have identified.
+
+You will need to create a formal business report with everything compiled into a single document (PDF). The report should use 12-point font in Times New Roman, 1-inch margins, and single line spaced. The report should be properly paged, paragraphed, and sectioned, and include the following sections in order.
+
+1. An introduction to the report, providing its context and motivation.
+2. Privacy and anonymity risks identified for the existing systems, detailing why it is a risk.
+3. Privacy and anonymity risks identified for the new policies, detailing why it is a risk.
+4. Recommended measures the university should take and how it addresses each of the risks.
+
+The report must be a maximum of four pages.
+
+### Marking Scheme
+
+The following rubric will be used to grade the report.
+
+| **Criteria**                                                 | **Excellent**                                                | **Satisfactory**                                             | **Not Satisfactory**                                         | **Not attempted**                                            |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Presentation** how well organised is the report.           | Good organisation, points are logically ordered, report order flows together. | Organised, although some points are somewhat jumpy. General flow of report works. | Some organisation points jump around. Flow is unclear.       | Poorly organised. No logical progression. Overall flow is vague. |
+| **Discussion** overall level of discussion in the report.    | Excellent overall level of discussion provided.              | Good discussion level provided although unclear or inconsistent in a couple of places. | Discussion is good but lacks clarity and consistency in places. | Discussion is poor and does not provide clarity to the report. |
+| **Quality of information** ability to provide details to support the report. | Supporting details specific to subject.                      | Some details are non-supporting to the subject.              | Details are somewhat unclear and do not support the topic.   | Specific details undefined or difficult to find.             |
+| **Risks identified** quality and completeness of the risks identified in the report. | Excellent range of risks identified and clearly described.   | Range of risks covers the most obvious ones, and description is generally clear. | Some clear risks not covered and/or level of description is unclear. | No risks identified, or types of risk identified are not suitable for the scenario. |
+| **Recommendations** quality and completeness of the recommendations made in the report. | Recommend measures summarises and draws clear, effective methods to address risks identified. | Recommended measures summarises methods although some further clarity on effectiveness is required. | Recommended measures are only remotely related to the risks described. | No recommended measures provided, or measures are inappropriate to the risks identified. |
+| **Format** ability to meet the formatting standard defined.  | Report is in the correct format.                             | Report is mostly in the correct format                       | Report has a few formatting issues.                          | Report has many formatting issues or does not meet the guidelines specified. |
+
 ## Report Three
