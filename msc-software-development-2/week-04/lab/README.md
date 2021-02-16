@@ -328,7 +328,7 @@ Closed connection to students database.
 
 ### Performing Queries
 
-You are hopefully familiar with making SQL queries by now. Let us perform one on our `students.db` file now. **Update `db_test.js` to the following:
+You are hopefully familiar with making SQL queries by now. Let us perform one on our `students.db` file now. **Update `db_test.js` to the following**:
 
 ```javascript
 // Import SQLite library.

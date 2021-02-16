@@ -151,20 +151,6 @@ Everything else you have seen before, except what we do in `app.get`. Here, we e
 
 And that is it. It is that easy to send our data back. This will also work for multiple rows of data -- just use `res.json(rows)`. So, to get all students we can add the following endpoint:
 
-```javascript
-// Create a get for /students
-app.get("/students", function(req, res) {
-    var sql = "SELECT * FROM Students";
-    db.all(sql, function(err, rows) {
-        if (err) {
-            return console.error(err);
-        }
-      	res.header("Access-Control-Allow-Origin", "*");
-        res.json(rows);
-    });
-});
-```
-
 ### Now you try
 
 Add the following endpoints to the application with appropriate SQL queries:
