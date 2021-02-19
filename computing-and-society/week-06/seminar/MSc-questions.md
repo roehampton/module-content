@@ -5,11 +5,7 @@
 
 Hello!  Welcome to companyx.  I hope you like our office!  
 
-
-<img src="EMEA-Engineering-Hub-Zurich-Camenzind-Evolution-5.jpg
-" width=50% >
-
-
+![office](EMEA-Engineering-Hub-Zurich-Camenzind-Evolution-5.jpg)
 
 I see that you've just completed your MSc in computing and Roehampton Uni.  Thats great.  We do really value career changers and find that people with different experiences really benefit our company, especially in the dev team.
 
