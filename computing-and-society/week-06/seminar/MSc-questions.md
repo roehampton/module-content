@@ -3,9 +3,7 @@
 
 ### For Junior/mid developer at companyx
 
-Hello!  Welcome to companyx.  I hope you like our office!  
-
-![office](EMEA-Engineering-Hub-Zurich-Camenzind-Evolution-5.jpg)
+Hello!  Welcome to companyx. 
 
 I see that you've just completed your MSc in computing and Roehampton Uni.  Thats great.  We do really value career changers and find that people with different experiences really benefit our company, especially in the dev team.
 
