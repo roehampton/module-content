@@ -27,6 +27,12 @@ Use the whiteboard, and see if you can group the the tests into some generic ite
 - MVP
 - Beta version
 
+### Resource
+
+Consider this example, but develop more for your specific example.
+
+![stakeholders](stakholders-testing.png)
+
 
 **To consider:**
 How do you think that involving stakeholders in early-stage research may benefit the eventual quality of your product?
