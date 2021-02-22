@@ -365,7 +365,7 @@ In a model-view-controller system, the controller is responsible for managing ou
     <body>
         <h2>AngularJS Sample Application</h2>
         <div ng-app = "mainApp" ng-controller = "studentController">
-            <p>ID: \{\{ student.id &#123;&#123;</p>
+            <p>ID: {{ "{{ student.id " "}}}} student.id </p>
             <p>Name: &#123;&#123; student.name &#123;&#123;</p>
         </div>
     </body>
