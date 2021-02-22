@@ -365,8 +365,8 @@ In a model-view-controller system, the controller is responsible for managing ou
     <body>
         <h2>AngularJS Sample Application</h2>
         <div ng-app = "mainApp" ng-controller = "studentController">
-            <p>ID: {{student.id}}</p>
-            <p>Name: {{student.name}}</p>
+            <p>ID: \{\{ student.id &#123;&#123;</p>
+            <p>Name: &#123;&#123; student.name &#123;&#123;</p>
         </div>
     </body>
 </html>
@@ -377,7 +377,7 @@ We have done four new things here:
 - We have included `index.js` again. We will use this for our JavaScript code.
 - We have given our `ng-app` a name -- `mainApp`. 
 - We have defined the `ng-controller` for the `mainApp` -- `studentController`. This we will declare in the `index.js` file.
-- We are using `{{student.id}}` and `{{student.name}}` to bind the values of `student` to these parts of our HTML file. This is equivalent to having `ng-bind`. Whatever the current values of `student.id` and `student.name` are will appear here.
+- We are using &#123;&#123;student.id}}` and `{{student.name}}` to bind the values of `student` to these parts of our HTML file. This is equivalent to having `ng-bind`. Whatever the current values of `student.id` and `student.name` are will appear here.
 
 **Now update `index.js` to the following:**
 
@@ -433,8 +433,8 @@ To end our initial introduction to Angular.js, let us look at how we can respond
     <body>
         <h2>AngularJS Sample Application</h2>
         <div ng-app = "mainApp" ng-controller = "studentController">
-            <p>ID: {{student.id}}</p>
-            <p>Name: {{student.name}}</p>
+            <p>ID: {{ student.id }}</p>
+            <p>Name: {{ student.name }}</p>
             <p><input type="button" value="Click Me!" ng-click="update()"></p>
         </div>
     </body>
