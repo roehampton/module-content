@@ -377,7 +377,7 @@ We have done four new things here:
 - We have included `index.js` again. We will use this for our JavaScript code.
 - We have given our `ng-app` a name -- `mainApp`. 
 - We have defined the `ng-controller` for the `mainApp` -- `studentController`. This we will declare in the `index.js` file.
-- We are using &#123;&#123;student.id}}` and `{{student.name}}` to bind the values of `student` to these parts of our HTML file. This is equivalent to having `ng-bind`. Whatever the current values of `student.id` and `student.name` are will appear here.
+- We are using `{{ "{{ student.id "}}}}` and `{{ "{{ student.name "}}}}` to bind the values of `student` to these parts of our HTML file. This is equivalent to having `ng-bind`. Whatever the current values of `student.id` and `student.name` are will appear here.
 
 **Now update `index.js` to the following:**
 
@@ -412,7 +412,7 @@ The `Student` class declaration is our simple one from before. The more interest
 
 We first get the `mainApp` by using `angular.module`. This will give us the `mainApp` object.
 
-Once we have the `mainApp` object, we define the `studentController` by calling the `mainApp.controller` method. The controller is just a function, taking one parameter -- `$scope`. **This is our key parameter as it defines what our `mainApp` can interact with to automate Angular.js sites.** For example, we define `$scope.student`. This is then seen as a model value `student` in our Angular.js HTML. Thus, in `index.html`, `{{student.id}}` is replaced with `001` and `{{student.name}}` is replaced with `Kevin Chalmers`. **Reload `127.0.0.1:3000` and you will see the new page.**
+Once we have the `mainApp` object, we define the `studentController` by calling the `mainApp.controller` method. The controller is just a function, taking one parameter -- `$scope`. **This is our key parameter as it defines what our `mainApp` can interact with to automate Angular.js sites.** For example, we define `$scope.student`. This is then seen as a model value `student` in our Angular.js HTML. Thus, in `index.html`, `{{ "{{ student.id "}}}}` is replaced with `001` and `{{ "{{ student.name "}}}}` is replaced with `Kevin Chalmers`. **Reload `127.0.0.1:3000` and you will see the new page.**
 
 #### Now you try
 
