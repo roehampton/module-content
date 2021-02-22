@@ -1,4 +1,4 @@
-# Google’s Blockly
+# Computational Thinking Lab 06 -- Google’s Blockly
 
 ## What is Variable?
 
@@ -18,9 +18,9 @@ Blockly supports dynamically typed languages such as Python and JavaScript and w
 
 ### Creation of a basic Blockly task
 
-  ![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg)  
+  ![img](clip_image002.jpg)  
 
-![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg)
+![img](clip_image004.jpg)
 
 This graphical representation shows that you can use variables and text tools to declare variables and assign visually and print your name. Right side you can see the JavaScript shows that how did you declare variable. Basically, the left side is where you can configure the tool, and the right side will display a live preview of what you did so far. The left side has two tabs: the toolbox will hold the pool of blocks that the student can use to solve the task. To add blocks, simply click on one category and drag/drop the block you want in the tab.
 
@@ -30,9 +30,9 @@ Now you may go to the link - [**https://developers.google.com/blockly/**](https:
 
 ## Find out the length of a string
 
-  ![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg)  
+  ![img](clip_image002-1613982601496.jpg)  
 
-![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg)
+![img](clip_image004-1613982601496.jpg)
 
 - Now your tasks - Find out the length of your name  
 
@@ -64,9 +64,9 @@ Many programming languages support a combination of the assignment (=) and arith
 
 The below program will calculate Addition (+) and assign the value to answer variable. Finally, it will print the value of answer. 
 
-  ![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg)  
+  ![img](clip_image002-1613982625525.jpg)  
 
-![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg)
+![img](clip_image004-1613982625525.jpg)
 
 - Now your tasks - Declare any two numbers: 20,10 or any numbers you like the best and perform all arithmetic operations 
 
@@ -74,38 +74,35 @@ The below program will calculate Addition (+) and assign the value to answer var
 
 Instead of setting the value of name in code, let us ask the user for their name. Replace the ‘hard-coded’ text block with a prompt block that gets input from the user. You can optionally add a message to display in the prompt, such as “Your name please?”.
 
-  ![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image014.jpg)  
+  ![img](clip_image002-1613982645197.jpg)  
 
-![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image016.jpg)
+![img](clip_image004-1613982645197.jpg)
 
 If you want to delete a block, simply drag it to the trashcan on the bottom right.
 
 If you want to do these tasks you need to know the - **THE PROGRAMMING BLOCKS** below -  
 
-![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image018.jpg)
+![img](clip_image002-1613982672719.jpg)
 
-![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image020.jpg)
+![img](clip_image004-1613982672719.jpg)
 
-![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image022.jpg)
+![img](clip_image006.jpg)
 
 - Now your tasks –- declare two variables and ask user to enter name and display name along with any message. 
 
 More variable declaration below – 
 
-![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image024.jpg)
+![image-20210222083127937](image-20210222083127937.png)
 
 - Now your tasks - Build and analysis the visual development representations and explain how it works!
 
-![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image026.jpg)
+![img](clip_image002-1613982701186.jpg)
 
-![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image028.jpg)
-
-![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image030.jpg)
+![img](clip_image004-1613982701186.jpg)
 
 A “For” Loop is used to repeat a specific block of code a known number of times. 
 
-  ![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image032.jpg)  
- ![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image034.jpg)
+  ![img](clip_image002-1613982717116.jpg)   ![img](clip_image004-1613982717116.jpg)
 
 Step 1: First initialization happens, and the counter variable gets initialized.
 
@@ -119,17 +116,17 @@ Step 3: After successful execution of statements inside the body of loop, the co
 
 In computer science, a Boolean expression is an expression used in programming languages that produces a Boolean value when evaluated. A Boolean value is either true or false. For interpretation, zero is interpreted as false and anything non-zero is interpreted as true. Below program displayed True based on the condition
 
-​       **![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image036.jpg)**  
+​       **![img](clip_image002-1613982738373.jpg)**  
 
-**![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image038.jpg)**
+**![img](clip_image004-1613982738373.jpg)**
 
 - Now your tasks - set up the condition and display Boolean value true / false using Relational Operators such as Greater than (>), Less than (<), Greater than or equal to (>=), Less than or equal to (<=), and Not equal to (!=) 
 
-**Conditional Statements** 
+## Conditional Statements
 
-   **![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image040.jpg)**  
+   **![img](clip_image002-1613982756194.jpg)**  
 
-**![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image042.jpg)**
+![image-20210222083251442](image-20210222083251442.png)
 
 - Now your tasks – Set the condition (number) less than 12 and find out the result 
 
@@ -137,9 +134,9 @@ In computer science, a Boolean expression is an expression used in programming l
 
 The else..if statement is useful when you need to check multiple conditions within the program, nesting of if - else blocks can be avoided using else..if statement.
 
-  ![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image044.jpg)  
+  ![img](clip_image002-1613982786165.jpg)  
 
-![img](file:///C:/Users/KEVIN~1.CHA/AppData/Local/Temp/msohtmlclip1/01/clip_image046.jpg)
+![image-20210222083311828](image-20210222083311828.png)
 
 - How may this programme work?
 
