@@ -151,9 +151,13 @@ int main(int argc, char **argv)
     
     // Check if your name is Kevin
     if (first_name == "Kevin")
+    {
         cout << "Hey! Another Kevin\n";
+    }
     else
+    {
         cout << "Oh well\n";
+    }
     
     // Output number of characters entered
     cout << "You entered " << first_name.length() << " characters" << endl;
@@ -175,93 +179,93 @@ int main(int argc, char **argv)
 ```
 
 Let us look at some of these lines, particularly where we have done things differently:
-\begin{description}
-\item[lines 7 to 9] - declare the C++ \texttt{string} objects we are going to use
-\item[line 14] - we read in from \texttt{cin} the \texttt{first\_name} value using the stream input (\texttt{>>}) operator
-\item[line 17] - we perform a string comparison.  Note now we can just use the standard equality operator (\texttt{==}) rather than calling a function to compare.  The equality operator will perform the same process.
-\item[line 23] - we use the \texttt{length} method to get the length of the string.  This will return the same value as \texttt{size} and therefore is interchangeable.
-\end{description}
+
+- Lines 12 - 14 -- declare the C++ `string` objects we are going to use
+- Line 19 -- we read in from `cin` the `first_name` value using the stream input (`>>`) operator
+- Line 22 -- we perform a string comparison.  Note now we can just use the standard equality operator (`==`) rather than calling a function to compare.  The equality operator will perform the same process
+- Line 32 -- we use the `length` method to get the length of the string.  This will return the same value as `size` and therefore is interchangeable.
 
 As you can see, working with input-output and strings is easier in C++ than C.  This is one of the benefits of having object-orientation.  We can operate on our data more effectively and therefore reduce our code.
 
-## \section{Using \texttt{getline} to Read Lines of Text}
+## Using `getline` to Read Lines of Text
 
-OK, this is our final example of working with the C++ \texttt{string} object before moving onto the main point of this unit.  Here we are going to use a nice helper function provided in the C++ Standard Library known as \texttt{getline}.  This function allows us to read an entire line from an input stream until we encounter the newline character.  This allows us to work around the problem of having space characters in our input streams.  The example application is below.  It simply prompts for and reads in someone's full name.
+OK, this is our final example of working with the C++ `string` object before moving onto the main point of this unit.  Here we are going to use a nice helper function provided in the C++ Standard Library known as `getline`.  This function allows us to read an entire line from an input stream until we encounter the newline character.  This allows us to work around the problem of having space characters in our input streams.  The example application is below.  It simply prompts for and reads in someone's full name.
 
-\begin{lstlisting}[caption=Using \texttt{getline}]
+```cpp
 #include <iostream>
 #include <string>
+
+using std::string;
+using std::cout;
+using std::cin;
+using std::getline;
+using std::endl;
 
 int main(int argc, char **argv)
 {
     // Declare string to store name
-    std::string full_name;
+    string full_name;
 
     // Prompt for name
-    std::cout << "Please enter your full name: ";
+    cout << "Please enter your full name: ";
     // Read in full_name using cin and getline
-    std::getline(std::cin, full_name);
+    getline(cin, full_name);
     
     // Print name
-    std::cout << "Your full name is " << full_name << " which is ";
-    std::cout << full_name.length() << " characters long" << std::endl;;
+    cout << "Your full name is " << full_name << " which is ";
+    cout << full_name.length() << " characters long" << endl;;
     
     return 0;
 }
-\end{lstlisting}
+```
 
-Line 12 is where we are using the \texttt{getline} function.  Notice is takes two parameters:
-\begin{enumerate}
-\item the stream to read from.  This could be the command line, a file, or something similar
-\item the \texttt{string} to read into
-\end{enumerate}
+Line 18 is where we are using the `getline` function.  Notice is takes two parameters:
 
-Compile and run this application to get an idea of the result.  You should understand everything else about this code by now.
+1. the stream to read from.  This could be the command line, a file, or something similar
+2. the `string` to read into
 
-## \section{Passing by Value (Copying Data)}
+**Compile and run this application to get an idea of the result**.  You should understand everything else about this code by now.
 
-With that short tour of C++ focusing on command line interaction and strings we are ready to move onto the main focus of this unit - how values are passed to functions / operations in C and C++.  This is where we have to start understanding a little about how values are passed as parameters, and our initial introduction to the stack in the \emph{Inline Assembly} unit will help us here.
+## Passing by Value (Copying Data)
+
+With that short tour of C++ focusing on command line interaction and strings we are ready to move onto the main focus of this unit -- how values are passed to functions / operations in C and C++.  This is where we have to start understanding a little about how values are passed as parameters, and our initial introduction to the stack in the *Inline Assembly* unit will help us here.
 
 Over the next few sections we are going to look at the three techniques for passing a value as a parameter to a function / operation.  There are as follows:
-\begin{enumerate}
-\item Passing a value by copying it to the function / operation (\emph{pass-by-value})
-\item Passing a value by providing a reference to the function / operation (\emph{pass-by-reference})
-\item Passing a value by providing a pointer to the function / operation (\emph{pass-by-pointer})
-\end{enumerate}
+
+- Passing a value by copying it to the function / operation (*pass-by-value*)
+- Passing a value by providing a reference to the function / operation (*pass-by-reference*)
+- Passing a value by providing a pointer to the function / operation (*pass-by-pointer*)
 
 The first technique we will look at is pass-by-value.  This is the technique we have been using in most cases up until now.  This technique involves creating a copy of our value(s) and giving them to the function / operation.  This means that anything the function / operation does with the value is not reflected in the caller.
 
 With that in place, let us look at our pass-by-value application.  This is below.
 
-\begin{lstlisting}[caption=Passing a Parameter by Value]
+```cpp
 #include <iostream>
+
+using std::cout;
+using std::endl;
 
 void foo(int x)
 {
-    std::cout << "Start of function, x = " << x << std::endl;
+    cout << "Start of function, x = " << x << endl;
     x = 20;
-    std::cout << "End of function, x = " << x << std::endl;
+    cout << "End of function, x = " << x << endl;
 }
 
 int main(int argc, char **argv)
 {
     int x = 10;
-    std::cout << "Before function call, x = " << x << std::endl;
+    cout << "Before function call, x = " << x << endl;
     foo(x);
-    std::cout << "After function call, x = " << x << std::endl;
-
+    cout << "After function call, x = " << x << endl;
     return 0;
 }
-\end{lstlisting}
+```
 
 There is nothing unusual or new in this application.  The idea we are trying to examine is what is happening in memory and with the variables.  We have already covered the stack, and we have mentioned the stack pointers (that tell us the bottom and top of the stack).  With that in mind, we can visualise what is happening in our application as shown in Figure~\ref{fig:pass-by-value}.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\textwidth]{pass-by-value}
-\caption{Interpretation of the Stack During Pass-by-Value}
-\label{fig:pass-by-value}
-\end{figure}
+![pass-by-value](pass-by-value.png)
 
 To start with we have our value that is declared in our main application.  This is the value at the bottom of the pointer.  When we call the function, we push a copy of \texttt{x} onto the stack (let us assume that there is something else on the stack between our two \texttt{x} values).  When we change the value of \texttt{x} in the function, only the function's copy is modified.  The original value (at the bottom of the stack) is unaffected. Therefore, when the function exits, this change has been lost.
 
