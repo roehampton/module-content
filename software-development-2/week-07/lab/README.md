@@ -20,8 +20,8 @@ using std::endl;
 
 int main(int argc, char **argv)
 {
-    cout << "Hello, world!" << endl;
-    return 0;
+  cout << "Hello, world!" << endl;
+  return 0;
 }
 ```
 
@@ -50,15 +50,15 @@ using std::string;
 
 int main(int argc, char **argv)
 {
-    string command = "";
-    // Loop round command lines, appending to the string
-    for (int i = 0; i < argc; ++i)
-        command += string(argv[i]) + string(" ");
-    // Print the command line
-    cout << command << endl;
-    // Print out the length of the string
-    cout << "Command line is " << command.size() << " characters long" << endl;
-    return 0;
+  string command = "";
+  // Loop round command lines, appending to the string
+  for (int i = 0; i < argc; ++i)
+    command += string(argv[i]) + string(" ");
+  // Print the command line
+  cout << command << endl;
+  // Print out the length of the string
+  cout << "Command line is " << command.size() << " characters long" << endl;
+  return 0;
 }
 ```
 
@@ -139,42 +139,42 @@ using std::string;
 
 int main(int argc, char **argv)
 {
-    // Declare strings to store name
-    string first_name;
-    string last_name;
-    string full_name;
+  // Declare strings to store name
+  string first_name;
+  string last_name;
+  string full_name;
 
-    // Prompt for first name
-    cout << "Please enter your first name: ";
-    // Read in first_name using cin
-    cin >> first_name;
-    
-    // Check if your name is Kevin
-    if (first_name == "Kevin")
-    {
-        cout << "Hey! Another Kevin\n";
-    }
-    else
-    {
-        cout << "Oh well\n";
-    }
-    
-    // Output number of characters entered
-    cout << "You entered " << first_name.length() << " characters" << endl;
-    // Prompt for last name
-    cout << "Please enter your last name: ";
-    cin >> last_name;
-    // Output number of characters entered
-    cout << "You entered " << last_name.length() << " characters" << endl;
-    
-    // Join the strings
-    full_name = first_name + string(" ") + last_name;
-    
-    // Print name
-    cout << "Your full name is " << full_name << " which is ";
-    cout << full_name.length() << " characters long" << endl;;
-    
-    return 0;
+  // Prompt for first name
+  cout << "Please enter your first name: ";
+  // Read in first_name using cin
+  cin >> first_name;
+
+  // Check if your name is Kevin
+  if (first_name == "Kevin")
+  {
+    cout << "Hey! Another Kevin\n";
+  }
+  else
+  {
+    cout << "Oh well\n";
+  }
+
+  // Output number of characters entered
+  cout << "You entered " << first_name.length() << " characters" << endl;
+  // Prompt for last name
+  cout << "Please enter your last name: ";
+  cin >> last_name;
+  // Output number of characters entered
+  cout << "You entered " << last_name.length() << " characters" << endl;
+
+  // Join the strings
+  full_name = first_name + string(" ") + last_name;
+
+  // Print name
+  cout << "Your full name is " << full_name << " which is ";
+  cout << full_name.length() << " characters long" << endl;;
+
+  return 0;
 }
 ```
 
@@ -203,19 +203,19 @@ using std::endl;
 
 int main(int argc, char **argv)
 {
-    // Declare string to store name
-    string full_name;
+  // Declare string to store name
+  string full_name;
 
-    // Prompt for name
-    cout << "Please enter your full name: ";
-    // Read in full_name using cin and getline
-    getline(cin, full_name);
-    
-    // Print name
-    cout << "Your full name is " << full_name << " which is ";
-    cout << full_name.length() << " characters long" << endl;;
-    
-    return 0;
+  // Prompt for name
+  cout << "Please enter your full name: ";
+  // Read in full_name using cin and getline
+  getline(cin, full_name);
+
+  // Print name
+  cout << "Your full name is " << full_name << " which is ";
+  cout << full_name.length() << " characters long" << endl;;
+
+  return 0;
 }
 ```
 
@@ -248,380 +248,362 @@ using std::endl;
 
 void foo(int x)
 {
-    cout << "Start of function, x = " << x << endl;
-    x = 20;
-    cout << "End of function, x = " << x << endl;
+  cout << "Start of function, x = " << x << endl;
+  x = 20;
+  cout << "End of function, x = " << x << endl;
 }
 
 int main(int argc, char **argv)
 {
-    int x = 10;
-    cout << "Before function call, x = " << x << endl;
-    foo(x);
-    cout << "After function call, x = " << x << endl;
-    return 0;
+  int x = 10;
+  cout << "Before function call, x = " << x << endl;
+  foo(x);
+  cout << "After function call, x = " << x << endl;
+  return 0;
 }
 ```
 
-There is nothing unusual or new in this application.  The idea we are trying to examine is what is happening in memory and with the variables.  We have already covered the stack, and we have mentioned the stack pointers (that tell us the bottom and top of the stack).  With that in mind, we can visualise what is happening in our application as shown in Figure~\ref{fig:pass-by-value}.
+There is nothing unusual or new in this application.  The idea we are trying to examine is what is happening in memory and with the variables.  We have already covered the stack, and we have mentioned the stack pointers (that tell us the bottom and top of the stack).  With that in mind, we can visualise what is happening in our application as shown below.
 
 ![pass-by-value](pass-by-value.png)
 
-To start with we have our value that is declared in our main application.  This is the value at the bottom of the pointer.  When we call the function, we push a copy of \texttt{x} onto the stack (let us assume that there is something else on the stack between our two \texttt{x} values).  When we change the value of \texttt{x} in the function, only the function's copy is modified.  The original value (at the bottom of the stack) is unaffected. Therefore, when the function exits, this change has been lost.
+To start with we have our value that is declared in our main application.  This is the value at the bottom of the pointer.  When we call the function, we push a copy of `x` onto the stack (let us assume that there is something else on the stack between our two `x` values).  When we change the value of `x` in the function, only the function's copy is modified.  The original value (at the bottom of the stack) is unaffected. Therefore, when the function exits, this change has been lost.
 
-Running this application will give an output as shown below:
+> **Scope (yet again)**
+>
+> Basically we are looking at scope here again.  The scope of the main application is different than the scope of the function.  As such, any variables that are *not references or pointers* will be copies, and be different in each scope.  Our work in pass-by-reference and pass-by-pointer allows us to overcome scoping limitations such as these.
 
-\begin{lstlisting}[style=DOS, caption=Output from Pass-by-Value Application]
-Before function call, x = 10
-Start of function, x = 10
-End of function, x = 20
-After function call, x = 10
-\end{lstlisting}
+## Passing by Reference
 
-\begin{framed}
-\textbf{Scope (yet again)}
+Now let us move onto working with *pass-by-reference*.  This technique allows us to avoid passing a copy of a value to a function / operation but rather pass a *reference* to the value.  This means that the function / operation is directly accessing the same value as the caller of the function.
 
-Basically we are looking at scope here again.  The scope of the main application is different than the scope of the function.  As such, any variables that are \emph{not references or pointers} will be copies, and be different in each scope.  Our work in pass-by-reference and pass-by-pointer allows us to overcome scoping limitations such as these.
-\end{framed}
+When it comes to calling a function / operation that uses pass-by-reference, you as the caller of the function / operation has to do nothing different.  It is the function / operation that declares that is taking in a reference to a value.  It does this by declaring a parameter as a reference using the *reference-type* specifier.  This is the ampersand (`&`) character.  For example, to pass a parameter using pass-by-reference we would declare our function / operation as follows:
 
-## \section{Passing by Reference}
-
-Now let us move onto working with \emph{pass-by-reference}.  This technique allows us to avoid passing a copy of a value to a function / operation but rather pass a \emph{reference} to the value.  This means that the function / operation is directly accessing the same value as the caller of the function.
-
-When it comes to calling a function / operation that uses pass-by-reference, you as the caller of the function / operation has to do nothing different.  It is the function / operation that declares that is taking in a reference to a value.  It does this by declaring a parameter as a reference using the \emph{reference-type} specifier.  This is the ampersand (\texttt{\&}) character.  For example, to pass a parameter using pass-by-reference we would declare our function / operation as follows:
-
-\begin{lstlisting}
+```cpp
 return-type function-name(parameter-type &name) { ... }
-\end{lstlisting}
+```
 
-Any type can have the \emph{reference-type} specifier added to it.  For example, a reference to a \texttt{char} is of type \texttt{char\&}.  An \texttt{int} is of type \texttt{int\&}.  And so on.
+Any type can have the *reference-type* specifier added to it.  For example, a reference to a `char` is of type `char&`.  An `int` is of type `int&`.  And so on.
 
-\begin{framed}
-\textbf{The \texttt{\&} Specifier and the \texttt{\&} Operator}
+> **The `&` Specifier and the `&` Operator**
+>
+> We are now getting into one of the areas that can really confuse new C++ programmers -- the use of the `&` symbol.  We now have four different uses for this symbol.  These are summarised in the following table.
+>
+> | **Use**                | **Example**        | **Description**                                              |
+> | ---------------------- | ------------------ | ------------------------------------------------------------ |
+> | Bitwise and operator   | `int c = a & b;`   | Performs a bitwise and operation on two values. This takes the bit pattern of the values and logically ands the individual bit pairs. |
+> | Logical and operator   | `bool c = a && b;` | Performs a logical and on two boolean values.                |
+> | Address of operator    | `int *a = &b;`     | Gets the address of (to create a pointer to) a value;        |
+> | Reference to specifier | `int &a = b;`      | Declares a variable as a reference type.                     |
+>
+> The main confusion comes between the use of `&` as an operator to get a pointer to a value and declaring a variable as a reference type.  This is because they are related.  Both of these capabilities rely on us not storing a value directly but having a way of accessing the value.
+>
+> To help clarify the difference, try and remember the following:
+>
+> - A pointer type is declared using `*` (e.g., `char*`).  To get a pointer to a value, we use the `&` operator on a variable.  When using `&` on a variable, we are getting a pointer to it.
+> - A reference type is declared using `&` (e.g. `char&`).  To get a reference to a value, we simply assign the variable to the reference type.  We use `&` to declare types (e.g., variable declarations, parameter declarations) as we do with `*` for pointer types.
 
-We are now getting into one of the areas that can really confuse new C++ programmers - the use of the \texttt{\&} symbol.  We now have four different uses for this symbol.  These are summarised in the following table.
-\begin{center}
-\begin{tabularx}{\textwidth}{|l|l|X|}
-\hline
-\textbf{Use} & \textbf{Example} & \textbf{Description} \\
-\hline
-Bitwise and operator & \texttt{int c = a \& c} & Performs a bitwise and operation on two values.  This takes the bit pattern of the value and logically ands the individual bits. \\
-\hline
-Logical and operator & \texttt{bool c = a \&\& b} & Performs a logical and on two boolean values. \\
-\hline
-Address of operator & \texttt{int *a = \&b} & Gets the address (to create a pointer) of a value. \\
-\hline
-Reference to specifier & \texttt{int \&a = b} & Declares a variable as a reference type. \\
-\hline
-\end{tabularx}
-\end{center}
-
-The main confusion comes between the use of \texttt{\&} as an operator to get a pointer to a value and declaring a variable as a reference type.  This is because they are related.  Both of these capabilities rely on us not storing a value directly but having a way of accessing the value.
-
-To help clarify the difference, try and remember the following:
-\begin{itemize}
-\item A pointer type is declared using \texttt{*} (e.g. \texttt{char*}).  To get a pointer to a value, we use the \texttt{\&} operator on a variable.  When using \texttt{\&} on a variable, we are getting a pointer to it.
-\item A reference type is declared using \texttt{\&} (e.g. \texttt{char\&}).  To get a reference to a value, we simply assign the variable to the reference type.  We use \texttt{\&} to declare types (e.g. variable declarations, parameter declarations) as we do with \texttt{*} for pointer types.
-\end{itemize}
-\end{framed}
-
-References may seem strange but you have actually been using them all the time in modern object-oriented languages.  Everything in Java and C\# (except the primitive types such \texttt{int}) are passed as references.  This means that in all likelihood you already think in references.  This can make working in \emph{pass-by-value} a bigger headache.  However, as you may notice, we can pass any type as a reference in C++ (using the \texttt{\&} specifier).  In Java we cannot, although C\# does provide some of this capability.
+References may seem strange but you have actually been using them all the time in modern object-oriented languages.  Everything in Python, Java and C\# (except the primitive types such `int`) are passed as references.  This means that in all likelihood you already think in references.  This can make working in `pass-by-value` a bigger headache.  However, as you may notice, we can pass any type as a reference in C++ (using the `&` specifier).  In Python and Java we cannot, although C\# does provide some of this capability.
 
 With that introduction to pass-by-reference let us move onto our example application.  This is the same as the previous pass-by-value one but this time we use a reference for the parameter.  The code is below.
 
-\begin{lstlisting}[caption=Passing a Parameter by Reference]
+```cpp
 #include <iostream>
+
+using std::cout;
+using std::endl;
 
 void foo(int &x)
 {
-    std::cout << "Start of function, x = " << x << std::endl;
-    x = 20;
-    std::cout << "End of function, x = " << x << std::endl;
+  cout << "Start of function, x = " << x << endl;
+  x = 20;
+  cout << "End of function, x = " << x << endl;
 }
 
 int main(int argc, char **argv)
 {
-    int x = 10;
-    std::cout << "Before function call, x = " << x << std::endl;
-    foo(x);
-    std::cout << "After function call, x = " << x << std::endl;
-
-    return 0;
+  int x = 10;
+  cout << "Before function call, x = " << x << endl;
+  foo(x);
+  cout << "After function call, x = " << x << endl;
+  return 0;
 }
-\end{lstlisting}
+```
 
-Our change is on line 3 where we declare the parameter \texttt{x}.  Now the type is \texttt{int\&} rather than just \texttt{int}.  This means that we are modifying the exact same value that \texttt{main} has in \texttt{foo}.  Figure~\ref{fig:pass-by-reference} provides an example.
+Our change is on line 6 where we declare the parameter `x`.  Now the type is `int&` rather than just `int`.  This means that we are modifying the exact same value that `main` has in `foo`.  Below is an example.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\textwidth]{pass-by-reference}
-\caption{Interpretation of the Stack Using Pass-by-Reference}
-\label{fig:pass-by-reference}
-\end{figure}
+![image-20210227211232161](image-20210227211232161.png)
 
-Running this application will provide the following output:
+As we can see, the modification to `x` in the function is reflected in the main application.  The reference means that we have not created a copy of the value.
 
-\begin{lstlisting}[style=DOS, caption=output from Pass-by-Reference Application]
-Before function call, x = 10
-Start of function, x = 10
-End of function, x = 20
-After function call, x = 20
-\end{lstlisting}
+> **Why use References?**
+>
+> There are a number of reasons for and against using references over copying data between functions.  A few to consider are:
+>
+> - *Pass-by-value* copies data when the variable is passed. With small sized data types this is unlikely to concern us as the memory overhead and cost of copying is low.  However, on anything larger than the size of copy for a reference we start to degrade performance.  A reference is only 4 bytes in size (or 8 on a 64-bit operating system) and therefore can be copied in a single instruction.  Anything larger than this on pass-by-value will be slower.
+> - *Pass-by-reference* allows you to modify (and therefore return) multiple values in a function.  This has its advantages when trying to write some operations that need to output multiple values.
+> - *Pass-by-Reference* does mean that you can modify values in a function.  This could cause unforeseen behaviour if you are calling someone else's code.
+> - *Pass-by-Reference* can lead to multiple objects having access to the same value.  This can enable multiple objects to *mutate the state* (in other words modify the attributes) of the object and be difficult to track in large applications.
+>
+> The developers of Java decided that pass-by-reference was the best method (they have a garbage collector to clean up memory -- C++ doesn't which we will explore next unit).  In practice, pass-by-reference is also recommended in C++, but it has it's limitations.  For example, there is no such thing as a `null` reference in C++.  This means a reference must always point to an initialised value.  Also, a reference cannot change to point to a different location in memory.  It is fixed and will always point to the same location.  This has it's pros and cons.  The pointer type is more versatile, but therefore also more volatile.
 
-As we can see, the modification to \texttt{x} in the function is reflected in the main application.  The reference means that we have not created a copy of the value.
+## Example -- Copying and Sorting by Value and Reference
 
-\begin{framed}
-\textbf{Why use References?}
+Let us look at how pass-by-value impacts memory usage in comparison to pass-by-reference.  We will build two applications that perform a sort on two large arrays of data passed.  The first way will involve pass-by-copy which will require two copies of the array to be in existence, and hence more memory being used.  The second will involve pass-by-reference and hence reduce memory usage.  To do this we will also use a `vector` to store our data.
 
-There are a number of reasons for and against using references over copying data between functions.  A few to consider are:
-\begin{enumerate}
-\item \emph{Pass-by-value} copies data when the variable is passed.  On a sized data types this is unlikely to concern us as the memory overhead and cost of copying is low.  However, on anything larger than the size of copy for a reference we start to degrade performance.  A reference is only 4 bytes in size (or 8 on a 64-bit operating system) and therefore can be copied in a single instruction.  Anything larger than this on pass-by-value will be slower.
-\item \emph{Pass-by-Reference} allows you to modify (and therefore return) multiple values in a function.  This has its advantages when trying to write some operations that need to output multiple values.
-\item \emph{Pass-by-Reference} does mean that you can modify values in a function.  This could cause unforeseen behaviour if you are calling someone else's code.
-\item \emph{Pass-by-Reference} can lead to multiple objects having access to the same value.  This can enable multiple objects to \emph{mutate the state} (in other words modify the attributes) of the object and be difficult to track in large applications.
-\end{enumerate}
-
-The developers of Java decided that pass-by-reference was the best method (they have a garbage collector to clean up memory - C++ doesn't which we will explore next unit).  In practice, pass-by-reference is also recommended in C++, but it has it's limitations.  For example, there is no such thing as a \texttt{null} reference in C++.  This means a reference must also point to an initialised value.  Also, a reference cannot change to point to a different location in memory.  It is fixed and will also point to the same location.  This has it's pros and cons.  The pointer type is more versatile, but therefore also more volatile.
-\end{framed}
-
-\section{Example - Copying and Sorting by Value and Reference}
-
-Let us look at how pass-by-value impacts memory usage in comparison to pass-by-reference.  We will build an application that performs a bubble sort on two large arrays of data in two different ways.  The first way will involve pass-by-copy which will require two copies of the array to be in existence, and hence more memory being used.  The second will involve pass-by-reference and hence reduce memory usage.  To do this we will also use a \texttt{vector} to store our data.
-
-\begin{framed}
-\textbf{What is a \texttt{vector} in C++}
-
-A \texttt{vector} in C++ terms is very similar to a standard array except it provides mechanisms to add, remove, insert, etc.  The \texttt{vector} will resize itself based on requirements.  This means that if you add a value to the \texttt{vector} it will increase in size, and if you remove an item the \texttt{vector} will decrease in size.
-
-It is very likely that you have used a data store object that resizes in other languages.  In Java this is known as an \texttt{ArrayList}.  We will use \texttt{vector} in places from now on, but we will cover data structures in more depth in a later unit.
-
-A \texttt{vector} has a type associated with it.  This is declared in angle brackets in the variable declaration.  For example, to declare a \texttt{vector} that stores type \texttt{int} we use \texttt{vector<int>}.  This uses a technique called \emph{templates} which allow us to provide compile time type information.  We will only briefly cover templates as they can be used for far more sophisticated purposes than we can fully cover in the module.
-\end{framed}
+> **What is a `vector` in C++**
+>
+> A `vector` in C++ terms is very similar to a standard array except it provides mechanisms to add, remove, insert, etc.  The `vector` will resize itself based on requirements.  This means that if you add a value to the `vector` it will increase in size, and if you remove an item the `vector` will decrease in size.
+>
+> It is very likely that you have used a data store object that resizes in other languages.  Python has a `List` data type. Java has an `ArrayList`.  We will use `vector` in places from now on, but we will cover data structures in more depth in a later unit.
+>
+> A `vector` has a type associated with it.  This is declared in angle brackets in the variable declaration.  For example, to declare a `vector` that stores type `int` we use `vector<int>`.  This uses a technique called `templates` which allow us to provide compile time type information -- a generic type.  We will only briefly cover templates as they can be used for far more sophisticated purposes than we can fully cover in the module.
 
 Our test application is below.
 
-\begin{lstlisting}[caption=Passing a Vector by Value and Reference]
+```cpp
 #include <iostream>
 #include <vector>
 
-void sort_copy(std::vector<int> data)
+using std::cout;
+using std::endl;
+using std::vector;
+
+void sort_copy(vector<int> data)
 {
-    // Iterate through each value
-    for (int i = 0; i < data.size(); ++i)
+  // Iterate through each value
+  for (int i = 0; i < data.size(); ++i)
+  {
+    // Loop through values above index i
+    for (int j = 0; j < data.size() - (i + 1); ++j)
     {
-        // Loop through values above index i
-        for (int j = 0; j < data.size() - (i + 1); ++j)
-        {
-            // Test if data[j] > data[j + 1]
-            if (data[j] > data[j + 1])
-            {
-                // Swap values
-                int temp = data[j + 1];
-                data[j + 1] = data[j];
-                data[j] = temp;
-            }
-        }
-        if (i % 1000 == 0)
-			std::cout << ((float)i / (float)data.size()) * 100.0f << "% sorted" << std::endl;
+      // Test if data[j] > data[j + 1]
+      if (data[j] > data[j + 1])
+      {
+        // Swap values
+        int temp = data[j + 1];
+        data[j + 1] = data[j];
+        data[j] = temp;
+      }
     }
+    // Print % completed
+    if (i % 1000 == 0)
+    {
+      cout << ((float)i / (float)data.size()) * 100.0f << "% sorted" << endl;
+    }
+  }
 }
 
-void sort_reference(std::vector<int> &data)
+void sort_reference(vector<int> &data)
 {
-    // Iterate through each value
-    for (int i = 0; i < data.size(); ++i)
+  // Iterate through each value
+  for (int i = 0; i < data.size(); ++i)
+  {
+    // Loop through values above index i
+    for (int j = 0; j < data.size() - (i + 1); ++j)
     {
-        // Loop through values above index i
-        for (int j = 0; j < data.size() - (i + 1); ++j)
-        {
-            // Test if data[j] > data[j + 1]
-            if (data[j] > data[j + 1])
-            {
-                // Swap values
-                int temp = data[j + 1];
-                data[j + 1] = data[j];
-                data[j] = temp;
-            }
-        }
-        if (i % 1000 == 0)
-            std::cout << ((float)i / (float)data.size()) * 100.0f << "% sorted" << std::endl;
+      // Test if data[j] > data[j + 1]
+      if (data[j] > data[j + 1])
+      {
+        // Swap values
+        int temp = data[j + 1];
+        data[j + 1] = data[j];
+        data[j] = temp;
+      }
     }
+    if (i % 1000 == 0)
+    {
+      cout << ((float)i / (float)data.size()) * 100.0f << "% sorted" << endl;
+    }
+  }
 }
 
 int main(int argc, char **argv)
 {
-    std::vector<int> data;
-    for (int i = 0; i < 262144; ++i)
-        data.push_back(262144 - i);
+  // Create a vector of numbers in reverse order
+  vector<int> data;
+  for (int i = 0; i < 262144; ++i)
+  {
+    data.push_back(262144 - i);
+  }
 
-    std::cout << "Sorting by copy..." << std::endl;
-    sort_copy(data);
-    std::cout << "Sorting by reference..." << std::endl;
-    sort_reference(data);
-    
-    return 0;
+  cout << "Sorting by copy..." << endl;
+  sort_copy(data);
+  cout << "Sorting by reference..." << endl;
+  sort_reference(data);
+
+  return 0;
 }
-\end{lstlisting}
+```
 
 Let us point out a few lines of interest:
-\begin{description}
-\item[line 4] - here we are passing the vector by \emph{value}.  Note that we don't use any specifier on the data type for the parameter.
-\item[lines 7, etc.] - we use the method \texttt{size} on the \texttt{vector}.  This provides the number of elements currently stored in the \texttt{vector}.
-\item[line 13, etc.] - notice that we can use standard array notation to access members of the \texttt{vector}, e.g. \texttt{data[i]}.  Within the \texttt{vector} is an actual array used to store the data.  C++ provides \emph{operator overloading} which allows us to access this array.
-\item[line 26] - here we are passing the vector by \emph{reference}.  We have used the \texttt{\&} specifier on the data type for the parameter.
-\item[line 52] - we use the \texttt{push\_back} method on the \texttt{vector} to add values to the end of the data store.  For the first call to \texttt{push\_back} we set the $0^{th}$ element, for the second call the $1^st$ element, and so on.
-\item[line 55] - we call the pass-by-value version of sort.  Notice we don't have to use any additional code to call with pass-by-value.
-\item[line 57] - we call the pass-by-reference version of sort.  Notice we don't have to use any additional code to call with pass-by-reference.
-\end{description}
 
-The size of the \texttt{vector} data in memory is approximately 1 megabyte.  When we use the pass-by-value version, we create a copy of the \texttt{vector} and therefore add another 1 megabyte of memory usage.  This can be seen using the Windows Task Manager.
+- Line 8 -- here we are passing the vector by *value*.  Note that we don't use any specifier on the data type for the parameter.
+- Lines 11, etc. -- we use the method `size` on the `vector`.  This provides the number of elements currently stored in the `vector`.
+- Line 13, etc. -- notice that we can use standard array notation to access members of the `vector`, e.g., `data[I]`.  Within the `vector` is an actual array used to store the data.  C++ provides *operator overloading* which allows us to access this array.
+- Line 33 -- here we are passing the vector by *reference*.  We have used the `&` specifier on the data type for the parameter.
+- Line 63 -- we use the `push\_back` method on the `vector` to add values to the end of the data store.  For the first call to `push\_back` we set the 0<sup>th</sup> element, for the second call the ​1<sup>st</sup> element, and so on.
+- Line 67 -- we call the pass-by-value version of sort.  Notice we don't have to use any additional code to call with pass-by-value.
+- Line 69 -- we call the pass-by-reference version of sort.  Notice we don't have to use any additional code to call with pass-by-reference.
 
-### \subsection{Exercise}
+The size of the `vector` data in memory is approximately one megabyte.  When we use the pass-by-value version, we create a copy of the `vector` and therefore add another one megabyte of memory usage.  This can be seen using your systems task manager.
 
-To truly test this application you will need to open Windows Task Manager.  Watch the application memory usage when the application has copied the vector, and also when it has passed by reference.  An example is shown in Figure~\ref{fig:taskmgr}.
+### Exercise
 
-\begin{figure}[htb]
-\centering
-\begin{subfigure}[b]{.45\textwidth}
-\includegraphics[width=\textwidth]{taskmgr-copy}
-\end{subfigure}
-\begin{subfigure}[b]{.45\textwidth}
-\includegraphics[width=\textwidth]{taskmgr-ref}
-\end{subfigure}
-\caption{Task Manager During Pass-by-Copy (left) and Pass-by-Reference (right)}
-\label{fig:taskmgr}
-\end{figure}
+To truly test this application you will need to open Windows Task Manager (or equivalent on Linux and MacOS).  Watch the application memory usage when the application has copied the vector, and also when it has passed by reference.  An example is shown below. Note that the copy version uses 2.6 MB of memory and the reference version 1.6 MB (or 1 MB less).
 
-## \section{Array Library in C++}
+| **Copy**                          | **Reference**                   |
+| --------------------------------- | ------------------------------- |
+| ![taskmgr-copy](taskmgr-copy.PNG) | ![taskmgr-ref](taskmgr-ref.PNG) |
 
-We have now introduced enough C++ to allow us to reimplement our simple array library using C++ objects and techniques.  Remember that we created three pieces of functionality:
-\begin{enumerate}
-\item Searching for an item in the array
-\item Sorting data in the array
-\item Generating random values to fill the array
-\end{enumerate}
+## Array Library in C++
 
-We will not implement the search method this time - mainly because the \texttt{vector} provides this capability.  To be fair, C++ provides a sort capability which you can look at in the exercises.  The other change we will make is the use of the C++ \texttt{vector} rather than a raw array.  Let us look at the two other functions in turn.
+We have now introduced enough C++ to allow us to implement a simple array library using C++ objects and techniques.  We will create two pieces of functionality:
 
-### \subsection{Sorting}
+1. Sorting data in the array
+2. Generating random values to fill the array
 
-Our C++ header for sort is again called \texttt{sort.h}.  Remember that it just takes the array data and its size.  Now we are using a \texttt{vector} the size is provided as a method.  Our \texttt{sort.h} is declared below.
+We will use the `vector` type to make life easier.
 
-\begin{lstlisting}[caption=\texttt{sort.h} Header File in C++]
+### Sorting
+
+Our C++ header for `sort` is called `sort.h` and is declared below.
+
+```cpp
 #pragma once
 
 #include <vector>
 
 void sort(std::vector<int> &data);
-\end{lstlisting}
+```
 
-The implementation undertakes the same bubble sort approach as we did in the C version.  The only difference is that we are using the \texttt{vector} data type rather than the raw array.  The code for \texttt{sort.cpp} is below.
+Notice that we use `std::vector` in our declaration here. If you remember how the preprocessor works, you will recall that this file is just included at the top of our file. **If we added `using std::vector` in our header file, our source file would also be using it and this might not be what we want. NEVER ADD `using` TO A HEADER FILE -- it's bad practice.**
 
-\begin{lstlisting}[caption=\texttt{sort.cpp} Code File in C++]
+The code for `sort.cpp` is below.
+
+```cpp
 #include "sort.h"
 #include <iostream>
 
+using std::cout;
+using std::endl;
+using std::vector;
+
 void sort(std::vector<int> &data)
 {
-    // Iterate through each value
-    for (int i = 0; i < data.size(); ++i)
+  // Iterate through each value
+  for (int i = 0; i < data.size(); ++i)
+  {
+    // Loop through values above index i
+    for (int j = 0; j < data.size() - (i + 1); ++j)
     {
-        // Loop through values above index i
-        for (int j = 0; j < data.size() - (i + 1); ++j)
-        {
-            // Test if data[j] > data[j + 1]
-            if (data[j] > data[j + 1])
-            {
-                // Swap values
-                int temp = data[j + 1];
-                data[j + 1] = data[j];
-                data[j] = temp;
-            }
-        }
-        if (i % 1000 == 0)
-            std::cout << ((float)i / (float)data.size()) * 100.0f << "% sorted" << std::endl;
+      // Test if data[j] > data[j + 1]
+      if (data[j] > data[j + 1])
+      {
+        // Swap values
+        int temp = data[j + 1];
+        data[j + 1] = data[j];
+        data[j] = temp;
+      }
     }
+    if (i % 1000 == 0)
+    {
+      cout << ((float)i / (float)data.size()) * 100.0f << "% sorted" << endl;
+    }
+  }
 }
-\end{lstlisting}
+```
 
-### \subsection{Generating}
+### Generating
 
-Our C generation method required our data to generate into and its size.  For the C++ version we will just take a size value and return a new \texttt{vector} of that size filled with random values.  As such, our header file \texttt{generate.h} is defined as follows:
+Our generation method will take a size value and return a new `vector` of that size filled with random values.  As such, our header file `generate.h` is defined as follows:
 
-\begin{lstlisting}[caption=\texttt{generate.h} Header File in C++]
+```cpp
 #pragma once
 
 #include <vector>
 
 std::vector<int> generate(int size);
-\end{lstlisting}
+```
 
-The implementation will use C++ random mechanisms to create the \texttt{vector}.  The code is below.  We will look at C++ random after the code is introduced.
+The implementation will use C++ random mechanisms to create the `vector`.  The code is below.  We will look at C++ random after the code is introduced.
 
-\begin{lstlisting}[caption=\texttt{generate.cpp} Code File in C++]
+```cpp
 #include "generate.h"
 #include <random>
 
+using std::vector;
+using std::random_device;
+using std::default_random_engine;
+
 std::vector<int> generate(int size)
 {
-    // Create random generator
-    std::random_device rd;
-    // Create distribution
-    std::uniform_int_distribution<int> dist;
-    // Generate random numbers
-    std::vector<int> data;
-    for (int i = 0; i < size; ++i)
-        data.push_back(dist(rd));
-
-    return data;
+  // Create random device
+  // This is a true random device if your hardware supports it
+  random_device device;
+  // Create a random number generator seeded by this device
+  default_random_engine engine(device());
+  // Create distribution - how should randoms be distributed
+  // We use uniform for normal randomness
+  uniform_int_distribution<int> dist;
+  // Generate random numbers
+  vector<int> data;
+  for (int i = 0; i < size; ++i)
+  {
+    data.push_back(dist(engine));
+  }
+  return data;
 }
-\end{lstlisting}
+```
 
-\begin{framed}
-\textbf{Random Numbers in C++}
+> **Random Number Generation in C++**
+>
+> Random number generation is very sophisticated in C++. Why they spent so long on this and still haven't added a networking  to the standard library is anyone's guess. However, we need two objects to generate random numbers in C++:
+>
+> - Something to generate random values -- in this case the `default_random_engine`.
+> - Something to decide how the random numbers are distributed -- in this case a `uniform_int_distribution`.
+>
+> If you don't know about how values are distributed the following diagram might help.
+>
+> ![Distributions](https://www.isobudgets.com/wp-content/uploads/2019/10/probability-distributions-half.jpg))
+>
+> We can get random numbers without using a distribution, but generally you will want to use one.
+>
+> A random engine will produce values in a predictable order, so we have to seed it with an initially truly random number. Here, we use `random_device` which will produce a truly random number if your hardware supports it.
 
-Random number generation is a relatively new feature in C++.  Until the C++11 standard (released in 2011), C++ programmers used the same random function as C.  With the introduction of C++11, C++ programmers have quite a wide ranging set of objects to generate random numbers.
+### Test Application
 
-C++ random number generation uses two objects:
-\begin{description}
-\item[random number generation engine] - this object is responsible for generating random numbers using a particular algorithm.  This is the \texttt{random\_device} object in our code.
-\item[value distribution] - this object can take a random engine and return a value of the required type and within a given range.  This is our \texttt{uniform\_int\_distribution} object in our code.  It allows us to get values of type \texttt{int} from the random engine.  We could also define a minimum and maximum value to be produced by providing these as parameters.
-\end{description}
+We can now build a test application to test our library.  This is shown below.
 
-We can get random numbers without using a distribution, but generally you will want to use one.  To get a value within the distribution we use the following code:
-
-\texttt{\emph{type} val = distribution(engine);}
-\end{framed}
-
-### \subsection{Test Application}
-
-We can now build a test application to test our library.  This is shown below.  As can be seen, using C++ and object orientation reduces our code requirement.
-
-\begin{lstlisting}[caption=Test Application for C++ Array Library]
+```cpp
 #include "generate.h"
 #include "sort.h"
 #include <iostream>
 
+using std::cout;
+using std::endl;
+using std::vector;
+
 int main(int argc, char **argv)
 {
-    std::vector<int> data = generate(65536);
-    sort(data);
+  vector<int> data = generate(65536);
+  sort(data);
 
-    // Print the first 100 values
-    for (int i = 0; i < 100; ++i)
-        std::cout << data[i] << std::endl;
-    
-    return 0;
+  // Print the first 100 values
+  for (int i = 0; i < 100; ++i)
+  {
+    cout << data[i] << endl;
+  }
+  return 0;
 }
-\end{lstlisting}
+```
 
-### \subsection{Exercise}
+### Exercise
 
-You can now build the application (remember - you should be using make files for this).  There is a library component (the sort and generate parts), and the main application.  Ensure that you are building a separate library that you link in the main application build.  We have already covered this, so go back and review the content to ensure you can replicate it.  An example output is given below:
+You can now build the application (remember -- you should be using make files for this).  An example output is given below:
 
-\begin{lstlisting}[style=DOS, caption=Output from C++ Array Library Test Application]
+```shell
 ... previous lines
-
 2416421
 2453633
 2472376
@@ -638,268 +620,194 @@ You can now build the application (remember - you should be using make files for
 2750678
 2751473
 2772010
-\end{lstlisting}
+```
 
-## \section{Reading Files in C++}
+## Files in C++
 
-In the last unit we took our array library and combined it with some file input-output.  We will repeat this now for C++ and see the difference working with object-orientation provides.  C++ works on the basis of \emph{streams}, which we have already seen with \texttt{cout} and \texttt{cin}.  Files, once opened, are also just streams we can read from and write to.  Table~\ref{tab:stream-types} describes some of the common base stream types in C++.
+Let us now use file input and output. C++ works on the basis of *streams*, which we have already seen with `cout` and `cin`.  Files, once opened, are also just streams we can read from and write to.  The below describes some of the common base stream types in C++.
 
-\begin{table}[htb]
-\centering
-\begin{tabularx}{\textwidth}{|l|X|X|}
-\hline
-\textbf{Type} & \textbf{Friendly Name} & \textbf{Description} \\
-\hline
-\texttt{istream} & input stream & A stream that data can be read from. \\
-\hline
-\texttt{ostream} & output stream & A stream that data can be written to. \\
-\hline
-\texttt{iostream} & input-output stream & A stream that can be read from and written to \\
-\hline
-\texttt{fstream} & file stream & Represents an input-output stream that points to a file.  \texttt{ifstream} and \texttt{ofstream} also exist. \\
-\hline
-\texttt{stringstream} & string stream & Provides a stream that can be written to to create a \texttt{string}. Can be used instead of appending. \\
-\hline
-\end{tabularx}
-\caption{Common Stream Types in C++}
-\label{tab:stream-types}
-\end{table}
+| **Type**       | **Friendly Name**   | **Description**                                          |
+| -------------- | ------------------- | -------------------------------------------------------- |
+| `istream`      | Input Stream        | A stream that data can be read from.                     |
+| `ostream`      | Output Stream       | A stream that data can be written to.                    |
+| `iostream`     | Input-output Stream | A stream that can be read from and written to.           |
+| `fstream`      | File Stream         | Represents an input-output stream that points to a file. |
+| `stringstream` | String Stream       | Provides a stream that writes to a `string` object.      |
 
-The one we are interested in here is \texttt{fstream}, or more specifically \texttt{ifstream} to read data from.  We will look at \texttt{ofstream} in the next section.
+The one we are interested in here is `fstream`, or more specifically `ifstream` to read data from and `ofstream` to write data to.
 
-\begin{framed}
-\textbf{Working with \texttt{ifstream}}
+> **Working with `ofstream`**
+>
+> - **Creating a `ofstream`** -- to create a `ofstream` object we use the call `ofstream var-name(filename, mode);`. The *filename* parameter is a `string` representing the filename. The *mode* determines the mode we open the file in (e.g., binary). It is an optional parameter.
+> - **Writing Data** -- we can use the streaming operator (`<<`) to write individual values. However, we can also use `write` to read in a set amount of data into an area of memory.
+> - **Closing a `ofstream`** -- the method `close` is used to close a `ofstream`.
 
-Before looking at our application let us introduce how we work with the \texttt{ifstream} type.
+> **Working with `ifstream`**
+>
+> - **Creating a `ifstream`** -- to create a `ifstream` object we use the call `ifstream var-name(filename, mode);`.  The *filename* parameter is a `string` representing the filename.  The *mode* determines the mode we open the file in (e.g., binary). It is an optional parameter.
+> - **Seeking in a File** -- we can seek to a particular position in a file using the `seekg` command.  We can use this to move to the end of a file and then get the position using `tellg`.
+> - **Getting the Current File Position** -- we can use `tellg` to tell us which position in the file (byte number) we are currently accessing.
+> - **Reading in Data** -- we can use the streaming operator (`>>`) to read in individual values.  However, we can also use `read` to read in a set amount of data into an area of memory.
+> - **Closing a `ifstream`** -- the method `close` is used to close a `ifstream`.
 
-\begin{description}
-\item[Creating a \texttt{ifstream}] - to create a \texttt{ifstream} object (and either open or create a file accordingly) we use the call \texttt{ifstream \emph{var-name}(\emph{filename}, \emph{mode});}.  The \emph{filename} parameter is a \texttt{string} representing the filename.  The mode determines the mode we open the file in (e.g. binary).
-\item[Seeking in a File] - we can seek to a particular position in a file using the \texttt{seekg} command.  We can use this to move to the end of a file and then get the position using \texttt{tellg}.
-\item[Getting the Current File Position] - we can use \texttt{tellg} to tell us which position in the file (byte number) we are currently accessing.
-\item[Reading in Data] - we can use the streaming operator to read in individual values.  However, we can also use \texttt{read} to read in a set amount of data into an area of memory
-\item[Closing a \texttt{ifstream}] - the method \texttt{close} is used to close a \texttt{ifstream}
-\end{description}
-\end{framed}
+Let us now look at an example.  The code for our application is below.  This should be straightforward by now.
 
-Our application to read from a data file is below.  With the \texttt{ifstream} operations described above you should be able to understand what we are doing.
-
-\begin{lstlisting}[caption=Reading Binary Files in C++]
-#include <iostream>
-#include <fstream>
-#include <string>
+```cpp
+#include "generate.h"
 #include "sort.h"
-
-std::vector<int> readfile(std::string &filename)
-{
-    // Open the file
-    std::ifstream file(filename, std::ios::binary);
-    // Get the size of the file - seek to end
-    file.seekg(0, file.end);
-    std::streampos size = file.tellg();
-    // Seek back to start
-    file.seekg(0, file.beg);
-    // Number of elements is size / sizeof(int)
-    int elements = size / sizeof(int);
-    // Create an array of data to read into
-    int *temp = new int[elements];
-    // Read in data
-    file.read((char*)temp, size);
-    // Close the file
-    file.close();
-    // Copy data into the vector
-    std::vector<int> data(temp, temp + elements);
-    // Delete the data
-    delete[] temp;
-    // Return the vector
-    return data;
-}
-
-int main(int argc, char **argv)
-{
-    // Read in a vector
-    std::vector<int> data = readfile(std::string("numbers.dat"));
-    // Print the vector size
-    std::cout << "Numbers read = " << data.size() << std::endl;
-    // Sort the vector
-    sort(data);
-    // Output first 100 numbers
-    for (int i = 0; i < 100; ++i)
-        std::cout << data[i] << std::endl;
-    
-    return 0;
-}
-\end{lstlisting}
-
-Let us look at some of these lines in more detail.
-\begin{description}
-\item[line 6] - note that we are passing the name of the file as a reference to \texttt{readFile}.  This is because we don't need a copy of the filename in our \texttt{readFile} operation.
-\item[line 9] - here we open our file.  Note the mode we open with - \texttt{std::ios::binary}.  This means that we are opening the file as a binary file.
-\item[line 11] - we use \texttt{seekg} to seek to the end of the file (0 from \texttt{end} of \texttt{file}).  This is important for the next line.
-\item[line 12] - we get the position in the file using \texttt{tellg}.  We now know the size of the file in bytes.
-\item[line 14] - we seek back to the start of the file (0 from \texttt{beg}inning of \texttt{file}).
-\item[line 16] - we calculate the number of \texttt{int} values in the file by dividing its size by the size of an \texttt{int}.
-\item[line 18] - we allocate memory to store the file contents using the \texttt{new} operator.  We will cover this in more detail in the next unit.
-\item[line 20] - we read the file into our allocated memory.  Note that we have to cast to a \texttt{char*} for this to happen.
-\item[line 22] - we close the file.
-\item[line 24] - this is a new way of creating our \texttt{vector} and might seem a bit strange.  What we are doing is giving \texttt{vector} a starting and ending memory location, which is used to copy the data into the \texttt{vector}.  The starting memory location is the pointer representing our memory we read the file into.  The end location is this memory location plus the number of elements (which will be implicitly multiplied by the size of the data type).  This line takes a bit of getting used to, so take your time and ensure you understand it.
-\item[line 26] - we free the allocated memory from line 18.  This will be covered in the next unit.
-\end{description}
-
-\begin{framed}
-\textbf{Using \texttt{new} and \texttt{delete} in C++}
-
-In this example we have used to new concepts - \texttt{new} and \texttt{delete}.  These commands are used in C++ to allocate memory and free it after we have finished with it.  We have looked at these ideas a little in C.  You are very likely used to working with \texttt{new} in Java.  However, in C++ things are different in that we need to ensure that we free up any memory created using \texttt{new}.  This is unlike Java where the garbage collector does this for us.  Working out when we need to allocate and free memory is an important skill in C++.
-\end{framed}
-
-\section{Writing Files in C++}
-
-Let us now look at writing files in C++.  The code for our application is below.  This should be straightforward by now.
-
-\begin{lstlisting}[caption=Writing Text Files in C++]
+#include <string>
 #include <iostream>
 #include <fstream>
-#include <vector>
-#include <string>
 
-std::vector<std::string> readfile(std::string &filename)
+using std::string;
+using std::cout;
+using std::endl;
+using std::vector;
+using std::ifstream;
+using std::ofstream;
+
+void write_file(const string &filename, vector<int> &data)
 {
-    // Open file - default is text
-    std::ifstream file(filename);
-    // String to read into
-    std::string line;
-    // Data to return
-    std::vector<std::string> data;
-    // Read until end of file
-    while (std::getline(file, line))
-        data.push_back(line);
-    // Close file
-    file.close();
-    // Return data
-    return data;
+  // Open file for output
+  ofstream file(filename);
+  // Loop through each value in the vector
+  for (int &val : data)
+  {
+    // Output value to the file
+    file << val << endl;
+  }
+  // Close the file
+  file.close();
 }
 
-void writefile(std::string &filename, std::vector<std::string> &data)
+vector<int> read_file(const string &filename)
 {
-    // Open file - default is text
-    std::ofstream file(filename);
-    // Write each line into file starting at end of vector
-    for (int i = data.size() - 1; i >= 0; --i)
-        file << data[i] << std::endl;
-    // Close the file
-    file.close();
+  // Vector to read into
+  vector<int> data;
+  // Open file for input
+  ifstream file(filename);
+  // Loop until end of file (eof)
+  while (!file.eof())
+  {
+    // Read in value
+    int temp;
+    file >> temp;
+    // Add to the vector
+    data.push_back(temp);
+  }
+  return data;
 }
 
 int main(int argc, char **argv)
 {
-    // Read in file
-    std::vector<std::string> data = readfile(std::string("sorted.txt"));
-    // Print lines read
-    std::cout << "Lines read = " << data.size() << std::endl;
-    writefile(std::string("reversed.txt"), data);
+  // Generate a random vector
+  vector<int> data = generate(65536);
+  // Save the random vector to a file
+  write_file("numbers.txt", data);
+  // Sort the data
+  sort(data);
+  // Read back in the unsorted data
+  vector<int> unsorted = read_file("numbers.txt");
 
-    return 0;
+  // Print the first 100 values of each
+  for (int i = 0; i < 100; ++i)
+  {
+    cout << data[i] << "\t" << unsorted[i] << endl;
+  }
+  return 0;
 }
-\end{lstlisting}
+```
 
-Line 15 uses the \texttt{get\_line} command to read a line of the text file into a string.  This call returns \texttt{true} as long as there are lines of code to read.  This is why we use the \texttt{while} loop to fill the \texttt{vector} with read strings.  The other line to take note of is line 29 where we using the streaming operator to write lines to the file.
+## `const` References
 
-## \section{\texttt{const} References}
+Our final look at references considers the use of `const` which we saw in the file I/O example.  Remember in C we used `const` to define constant values, whether it be variables or parameters.  We can also declare references as `const`.  This means that the value stored in the reference cannot be changed.  Let us look at an example.
 
-Our final look at references considers the use of \texttt{const}.  Remember in C we used \texttt{const} to define constant values, whether it be variables or parameters.  We can also declare references as \texttt{const}.  This means that the value stored in the reference cannot be changed.  Let us look at an example.
-
-\begin{lstlisting}[caption=Passing \texttt{const} References]
+```cpp
 #include <iostream>
 #include <string>
 
-std::string join(const std::string &a, const std::string &b)
+using std::string;
+using std::cout;
+using std::endl;
+
+string join(const string &a, const string &b)
 {
-    // This line won't compile
-    return a.append(b);
+  // This line won't compile
+  return a.append(b);
 }
 
 int main(int argc, char **argv)
 {
-    std::string greeting = join(std::string("Hello,"), std::string(" World!"));
-
-    std::cout << greeting << std::endl;
-    
-    return 0;
+  string greeting = join(string("Hello,"), string(" World!"));
+  cout << greeting << endl;
+  return 0;
 }
-\end{lstlisting}
+```
 
-The \texttt{append} method used on line 6 is not \texttt{const}, and therefore your code won't compile.  However, if we modify our \texttt{join} function to use the append operator (\texttt{+}) we create a copy of the strings and therefore get around the problem.  This code is below.
+The `append` method used on line 11 is not `const`, and therefore your code won't compile.  However, if we modify our `join` function to use the append operator (`+`) we create a copy of the strings and therefore get around the problem.  This code is below.
 
-\begin{lstlisting}[caption=Adding Two \texttt{const string} Values Together in C++]
-std::string join(const std::string &a, const std::string &b)
+```cpp
+string join(const string &a, const string &b)
 {
     // This line will compile
     return a + b;
 }
-\end{lstlisting}
+```
 
-You might ask then why do we pass by \texttt{const} at all.  For one reason, safety - we are stating we are not going to modify the value.  For another reason, the compiler can actually improve the application performance if it knows a value is \texttt{const}.  This can be an important benefit when writing optimised code, and you should consider using \texttt{const} whenever it is suitable.
+You might ask then why do we pass by `const` at all.  For one reason, **safety** -- we are stating we are not going to modify the value.  For another reason, the compiler can actually improve the application performance if it knows a value is `const`.  This can be an important benefit when writing optimised code, and you should consider using `const` whenever it is suitable.
 
-### \subsection{Exercise}
+### Exercise
 
-Can you write another version of \texttt{join} that uses the \texttt{append} method of \texttt{string}?  This is possible.  You must use the same function prototype as already defined (i.e. the values must be \texttt{const}).
+Can you write another version of `join` that uses the `append` method of `string`?  This is possible.  You must use the same function prototype as already defined (i.e., the values must be `const`).
 
-## \section{Pointers}
+## Pointers
 
 So references where the easier part of this unit.  The more difficult part is understanding pointers.  Pointers are considered the most difficult part of working with C and C++ as they take novice programmers a bit of time to understand.  This isn't helped by the use of similar symbols between references and pointers in C++.
 
 Remember that a pointer is just a location in memory that we treat like a particular value.  This is similar to references, except that we can make a pointer point to different parts of memory as required.  Remember that a reference is fixed.
 
-To declare a pointer we use the \texttt{*} specifier with the type.  For example, a pointer to an \texttt{int} is declared as \texttt{int*}.  To get the address of a variable we use the \texttt{\&} operator (address of operator).  To get the value stored in the memory location pointed to by a pointer we use the \texttt{*} operator.  Let us summarise this a little.  This is given in Table~\ref{tab:pointers}.
+To declare a pointer we use the `*` specifier with the type.  For example, a pointer to an `int` is declared as `int*`.  To get the address of a variable we use the `&` operator (address of operator).  To get the value stored in the memory location pointed to by a pointer we use the `*` operator.  Let us summarise this a little.  This is given below.
 
-\begin{table}[htb]
-\centering
-\begin{tabularx}{\textwidth}{|l|l|X|}
-\hline
-\textbf{Operator / Specifier} & \textbf{Example} & \textbf{Description} \\
-\hline
-Pointer type specifier & \texttt{int *x;} & Declares that a variable or parameter is a pointer type. \\
-\hline
-Address-of operator & \texttt{int *x = \&y;} & Gets the memory address of a variable \\
-\hline
-Dereference operator & \texttt{int z = *x;} & Gets the value stored in the memory location represented by the pointer \\
-\hline
-\end{tabularx}
-\caption{Pointer Operators and Specifiers}
-\label{tab:pointers}
-\end{table}
+| **Operator / Specifier** | **Example**                  | **Description**                                              |
+| ------------------------ | ---------------------------- | ------------------------------------------------------------ |
+| Pointer type specifier   | `int *x;`                    | Declares that a variable of parameter is a pointer type.     |
+| Address-of operator      | `int *x = &y;`               | Gets the memory address of a variable.                       |
+| Dereference operator     | `int z = *x;`<br />`*x = 5;` | Accesses the value stored in the memory location, allowing retrieval or modification. |
 
 Let us now implement our \emph{pass-by-pointer} application as we did for pass-by-value and pass-by-reference.  This time we will also print out the memory location of our variable to illustrate that it is not changing throughout the application.  The code for our application is below.  Note the use of the \emph{address-of} and \emph{dereference} operators.
 
-\begin{lstlisting}[caption=Passing a Value as a Pointer]
+```cpp
 #include <iostream>
+
+using std::cout;
+using std::endl;
 
 void foo(int *x)
 {
-    std::cout << "Address of x in function = " << x << std::endl;
-    std::cout << "Start of function, x = " << *x << std::endl;
-    // Have to dereference pointer to change value
-    *x = 20;
-    std::cout << "End of function, x = " << *x << std::endl;
-    std::cout << "Address of x at end of function = " << x << std::endl;
+  cout << "Address of x in function = " << x << endl;
+  cout << "Start of function, x = " << *x << endl;
+  // Have to dereference pointer to change value
+  *x = 20;
+  cout << "End of function, x = " << *x << endl;
+  cout << "Address of x at end of function = " << x << endl;
 }
 
 int main(int argc, char **argv)
 {
-    int x = 10;
-    std::cout << "Starting address of x = " << &x << std::endl;
-    std::cout << "Before function call, x = " << x << std::endl;
-    // Have to pass the pointer (or address of) x to the function
-    foo(&x);
-    std::cout << "After function call, x = " << x << std::endl;
-    std::cout << "End address of x = " << &x << std::endl;
-
-    return 0;
+  int x = 10;
+  cout << "Starting address of x = " << &x << endl;
+  cout << "Before function call, x = " << x << endl;
+  // Have to pass the pointer (or address of) x to the function
+  foo(&x);
+  cout << "After function call, x = " << x << endl;
+  cout << "End address of x = " << &x << endl;
+  return 0;
 }
-\end{lstlisting}
+```
 
 An example output from this application is below.  Note that the memory address remains the same throughout the application.
 
-\begin{lstlisting}[style=DOS, caption=Output from Pass-by-Pointer Application]
+```shell
 Starting address of x = 003FFC30
 Before function call, x = 10
 Address of x in function = 003FFC30
@@ -908,101 +816,118 @@ End of function, x = 20
 Address of x at end of function = 003FFC30
 After function call, x = 20
 End address of x = 003FFC30
-\end{lstlisting}
+```
 
-## \section{Arrays as Pointers to Memory}
+## Arrays as Pointers to Memory
 
 One of the most common uses for pointers in C and C++ is when we are working with arrays.  Arrays are just blocks of memory, and as pointers hold memory locations, an array is just a pointer to the starting memory location of the block of memory representing the array.  This allows us to pass around large blocks of memory as a pointer thus avoiding copying.
 
-\begin{framed}
-\textbf{Arrays Revisited}
-
-We have covered arrays in C and C++ in a few places now, although we haven't delved to far into the subject (this will happen in the next unit).  Remember to create an array in C / C++ we use the following:
-
-\texttt{\emph{type} name[size];}
-
-This will create a \emph{fixed} (compile time defined) size array.  This is an important distinction in C in comparison to Java.  In Java, array sizes are defined at runtime as standard.  In C and C++ our arrays are of fixed size at compile time unless we use memory allocation.
-
-In C, memory allocation is handled using the \texttt{malloc} function.  This returns a pointer to a memory block of the required size.  In C++ we can use the \texttt{new} operator to create an array of the required size at runtime:
-
-\texttt{\emph{type} *name = new \emph{type}[size];}
-
-This is how you are likely to remember array allocation in Java (apart from the pointer part).  
-
-In C and C++ arrays are a pointer to the start of the memory block where the memory is located.  The size of the array is not stored however (unlike in Java) so we have to pass this value around.  This is why working with \texttt{vector} in C++ is almost always a better choice.
-\end{framed}
+> **Arrays Revisited**
+>
+> We have covered arrays in C and C++ in a few places now, although we haven't delved to far into the subject (this will happen in the next unit).  Remember to create an array in C / C++ we use the following:
+>
+> ```cpp
+> type name[size];
+> ```
+>
+> This will create a `fixed` (compile time defined) size array.  This is an important distinction in C in comparison to Python,  Java and C#.  In Java, array sizes are defined at runtime as standard.  In C and C++ our arrays are of fixed size at compile time unless we use memory allocation.
+>
+> In C, memory allocation is handled using the `malloc` function.  This returns a pointer to a memory block of the required size.  In C++ we can use the `new` operator to create an array of the required size at runtime:
+>
+> ```cpp
+> type *name = new type[size];
+> ```
+>
+> This is how array allocation in Java and C# works (apart from the pointer part).  
+>
+> In C and C++ arrays are a pointer to the start of the memory block where the memory is located.  The size of the array is not stored however (unlike in Java) so we have to pass this value around.  This is why working with `vector` in C++ is almost always a better choice.
 
 An example array application is below:
 
-\begin{lstlisting}[caption=Passing Arrays as Pointers]
+```cpp
 #include <iostream>
+
+using std::cout;
+using std::endl;
 
 int* create_array()
 {
-    // This memory is created on the stack
-    int data[20];
-    for (int i = 0; i < 20; ++i)
-        data[i] = i;
-    return data;
-    // Stack emptied - memory gone
+  // This memory is created on the stack
+  int data[20];
+  for (int i = 0; i < 20; ++i)
+  {
+    data[i] = i;
+  }
+  return data;
+  // Stack emptied - memory gone
 }
 
 int* create_array_new()
 {
-    // Memory created on the heap
-    int *data = new int[20];
-    for (int i = 0; i < 20; ++i)
-        data[i] = i;
-    return data;
-    // Memory on the heap still relevant
+  // Memory created on the heap
+  int *data = new int[20];
+  for (int i = 0; i < 20; ++i)
+  {
+    data[i] = i;
+  }
+  return data;
+  // Memory on the heap still relevant
 }
 
 void create_array(int *data)
 {
-    for (int i = 0; i < 20; ++i)
-        data[i] = i;
+  for (int i = 0; i < 20; ++i)
+  {
+    data[i] = i;
+  }
 }
 
 int main(int argc, char **argv)
 {
-    int *data = create_array();
-    // Print out all elements
-    for (int i = 0; i < 20; ++i)
-        std::cout << data[i] << std::endl;
+  int *data = create_array();
+  // Print out all elements
+  for (int i = 0; i < 20; ++i)
+  {
+    cout << data[i] << endl;
+  }
 
-    data = create_array_new();
-    // Print out all elements
-    for (int i = 0; i < 20; ++i)
-        std::cout << data[i] << std::endl;
-    // Free the memory
-    delete[] data;
-    // Set to nullptr
-    data = nullptr;
-    
-    // Create array from pointer
-    // This will cause a memory allocation error
-    // nullptr (memory address 0) cannot be allocated to
-    create_array(data);
-    
-    // Allocate memory
-    data = new int[20];
-    // Create array from pointer
-    create_array(data);
-    // Print out all elements
-    for (int i = 0; i < 20; ++i)
-        std::cout << data[i] << std::endl;
-    // Free the memory
-    delete[] data;
-    // Set to nullptr
-    data = nullptr;
-    
-    return 0;
+  data = create_array_new();
+  // Print out all elements
+  for (int i = 0; i < 20; ++i)
+  {
+    std::cout << data[i] << std::endl;
+  }
+  // Free the memory
+  delete[] data;
+  // Set to nullptr
+  data = nullptr;
+
+  // Create array from pointer
+  // This will cause a memory allocation error
+  // nullptr (memory address 0) cannot be allocated to
+  create_array(data);
+
+  // Allocate memory
+  data = new int[20];
+  // Create array from pointer
+  create_array(data);
+  // Print out all elements
+  for (int i = 0; i < 20; ++i)
+  {
+    std::cout << data[i] << std::endl;
+  }
+  // Free the memory
+  delete[] data;
+  // Set to nullptr
+  data = nullptr;
+
+  return 0;
 }
-\end{lstlisting}
+```
 
-Compiling this version of the code will cause a runtime error because of line 48 (or more specifically on line 26 which is called by line 48).  Try running the application as is to check this.  After that, comment out line 48 and run.  You should get an output as follows:
+Compiling this version of the code will cause a runtime error because of line 61 (or more specifically on line 34 which is called by line 61).  Try running the application as is to check this.  After that, **comment out line 61 and run**.  You should get an output as follows:
 
-\begin{lstlisting}[style=DOS, caption=Output from Arrays as Pointers Application]
+```shell
 0
 14754591
 14908184
@@ -1063,91 +988,78 @@ Compiling this version of the code will cause a runtime error because of line 48
 17
 18
 19
-\end{lstlisting}
+```
 
-The interesting values printed out are the first 20.  This is what happens when we return a pointer to a location on the stack which is no longer valid.  The data here has been overwritten.  This means that we have a variable that is pointing to an area of the stack we may use later, which will cause a possible \emph{stack corruption} problem later.  Stack corruption is where our stack is modified unintentionally, commonly by pointing to an invalid location on the stack.  Figure~\ref{fig:stack-corruption} provides an illustration of what is happening.
+The interesting values printed out are the first 20.  This is what happens when we return a pointer to a location on the stack which is no longer valid.  The data here has been overwritten.  This means that we have a variable that is pointing to an area of the stack we may use later, which will cause a possible *stack corruption* problem later.  Stack corruption is where our stack is modified unintentionally, commonly by pointing to an invalid location on the stack.  The below figure provides an illustration of what is happening.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\textwidth]{stack-corruption}
-\caption{Data and Stack Corruption Example - Returning Non-Valid Memory}
-\label{fig:stack-corruption}
-\end{figure}
+![image-20210228102636238](image-20210228102636238.png)
 
-## \section{\texttt{const} Pointers and Pointers to \texttt{const}}
+## `const` Pointers and Pointers to `const`
 
-We covered \texttt{const} in relation to references previously.   Now let us look at how \texttt{const} affects pointers.  There are actually two potential \texttt{const} parts to a pointer - the data stored in the pointer (\emph{constant data}) and the memory location pointed to by the pointer (\emph{constant pointer}).  Table~\ref{tab:const-pointer} illustrates the different approaches.
+We covered `const` in relation to references previously.   Now let us look at how `const` affects pointers.  There are actually two potential `const` parts to a pointer -- the data stored in the pointer (*constant data*) and the memory location pointed to by the pointer (*constant pointer*).  The below table illustrates the different approaches.
 
-\begin{table}[htb]
-\centering
-\begin{tabularx}{\textwidth}{|l|l|X|}
-\hline
-\textbf{\texttt{const} Part} & \textbf{Example} & \textbf{Description} \\
-\hline
-Value & \texttt{const int *x} & The value pointed to by the pointer is constant and cannot be changed.  The memory address can be changed however. \\
-\hline
-Pointer & \texttt{int *const x} & The memory address cannot be changed (is constant).  However, the value pointed to can be changed. \\
-\hline
-Value and Pointer & \texttt{const int *const x} & Both the value pointed to and the memory address are \texttt{const}. \\
-\hline
-\end{tabularx}
-\caption{\texttt{const}ness of Pointers}
-\label{tab:const-pointer}
-\end{table}
+| **`const` Part**  | **Example**          | **Description**                                              |
+| ----------------- | -------------------- | ------------------------------------------------------------ |
+| Value             | `const int *x`       | The value pointed to is constant and cannot be changed. The memory address can be changed however. |
+| Pointer           | `int *const x`       | The memory address is constant and cannot be changed. However, the value pointed to can be changed. |
+| Value and pointer | `const int *const x` | Both the value pointed to and the memory address are constant. |
 
 Let us now build an example application.  The code below has a number of lines you will have to comment out, but you should first build the code without the commented out lines.  This is so you can see the compiler error that C++ will provide.
 
-\begin{lstlisting}[caption=\texttt{const} Pointers and Pointers to \texttt{const}]
+```cpp
 #include <iostream>
+
+using std::cout;
+using std::endl;
 
 void foo(const int *x)
 {
-    std::cout << "Address of x in function = " << x << std::endl;
-    std::cout << "Start of function, x = " << *x << std::endl;
-    // Wont compile - value pointed to is const
-    *x = 20;
-    std::cout << "End of function, x = " << *x << std::endl;
-    std::cout << "Address of x at end of function = " << x << std::endl;
+  cout << "Address of x in function = " << x << endl;
+  cout << "Start of function, x = " << *x << endl;
+  // Wont compile - value pointed to is const
+  *x = 20;
+  cout << "End of function, x = " << *x << endl;
+  cout << "Address of x at end of function = " << x << endl;
 }
 
 void foo2(int *const x)
 {
-    std::cout << "Address of x in function = " << x << std::endl;
-    std::cout << "Start of function, x = " << *x << std::endl;
-    // Will compile - pointer is const, not value pointed to
-    *x = 20;
-    std::cout << "End of function, x = " << *x << std::endl;
-    std::cout << "Address of x at end of function = " << x << std::endl;
+  cout << "Address of x in function = " << x << endl;
+  cout << "Start of function, x = " << *x << endl;
+  // Will compile - pointer is const, not value pointed to
+  *x = 20;
+  cout << "End of function, x = " << *x << endl;
+  cout << "Address of x at end of function = " << x << endl;
 }
 
 void foo3(int *const x)
 {
-    std::cout << "Address of x in function = " << x << std::endl;
-    std::cout << "Start of function, x = " << *x << std::endl;
-    // Won't compile - trying to change address pointed to
-    x = nullptr;
-    std::cout << "End of function, x = " << *x << std::endl;
-    std::cout << "Address of x at end of function = " << x << std::endl;
+  cout << "Address of x in function = " << x << endl;
+  cout << "Start of function, x = " << *x << endl;
+  // Won't compile - trying to change address pointed to
+  x = nullptr;
+  cout << "End of function, x = " << *x << endl;
+  cout << "Address of x at end of function = " << x << endl;
 }
 
 int main(int argc, char **argv)
 {
-    int x = 10;
-    std::cout << "Starting address of x = " << &x << std::endl;
-    std::cout << "Before function call, x = " << x << std::endl;
-    // Have to pass the pointer (or address of) x to the function
-    foo2(&x);
-    std::cout << "After function call, x = " << x << std::endl;
-    std::cout << "End address of x = " << &x << std::endl;
+  int x = 10;
+  cout << "Starting address of x = " << &x << endl;
+  cout << "Before function call, x = " << x << endl;
+  // Have to pass the pointer (or address of) x to the function
+  foo2(&x);
+  cout << "After function call, x = " << x << endl;
+  cout << "End address of x = " << &x << endl;
 
-    return 0;
+  return 0;
 }
-\end{lstlisting}
+```
 
 The compiler error provided by Microsoft's C++ compiler is as follows:
 
-\begin{lstlisting}[style=DOS, caption=Compiler Error from Trying to Modify a \texttt{const}]
-        cl const_pointer.cpp
+```shell
+ cl const_pointer.cpp
 Microsoft (R) C/C++ Optimizing Compiler Version 18.00.30501 for x86
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
@@ -1159,89 +1071,97 @@ const_pointer.cpp(8) : error C3892: 'x' : you cannot assign to a variable that i
 s const
 const_pointer.cpp(28) : error C3892: 'x' : you cannot assign to a variable that
 is const
-\end{lstlisting}
+```
 
-\begin{framed}
-\textbf{What is \texttt{nullptr}?}
-
-We have introduced another new term in this code - \texttt{nullptr}.  This is a new addition to C++11 and provides the equivalent of \texttt{null} in Java.  \texttt{nullptr} effectively points at memory location 0.  \texttt{NULL} is a commonly defined value in C and C++ and is also 0.  It is quite common to point unallocated memory to location 0 to allow code checks.
-\end{framed}
+> **What is `nullptr`?**
+>
+> We have introduced another new term in this code -- `nullptr`.  This is a new addition to C++11 and provides the equivalent of `None` in Python or  `null` in Java and C#.  `nullptr` effectively points at memory location 0.  `NULL` is a commonly defined value in C and C++ and is also 0.  It is quite common to point unallocated memory to location 0 to allow code checks.
 
 We've only begun to stray into pointers here, and the next unit will look at memory allocation and management.  Here we have to use pointers, although the C++11 standard has introduced some helper objects to make our life easier.
 
-## \section{Namespaces}
+## Namespaces
 
-One final idea from C++ we will introduce in this unit is the idea of \emph{namespaces}.  A namespace is just a nice way of managing a collection of code that we consider to be part of a unit (such as a library).  We've actually been using namespaces since the start of our C++ work.  This is the \texttt{std} part we have been putting in front of our objects from the standard library.
+One final idea from C++ we will introduce in this unit is the idea of *namespaces*.  A namespace is just a nice way of managing a collection of code that we consider to be part of a unit (such as a library).  We've actually been using namespaces since the start of our C++ work.  This is the `std` part we have been putting in front of our objects from the standard library.
 
-There is a debate amongst C++ programmers about when you should use the full object name, but usually you want to reduce the amount of typing you have to undertake when coding.  Typically in our main application we want to just tell the compiler that we are using a particular namespace and then just use the object names directly.  We do this using the \texttt{using} statement:
+There is a debate amongst C++ programmers about when you should use the full object name, but usually you want to reduce the amount of typing you have to undertake when coding.  Typically in our main application we want to just tell the compiler that we are using a particular namespace and then just use the object names directly.  We do this using the `using` statement for an entire namespace:
 
-\begin{lstlisting}
+```cpp
 using namespace std;
-\end{lstlisting}
+```
 
-Because we have told C++ that we are using a particular namespace we can now access our objects directly.  So instead of writing \texttt{std::string} we can just write \texttt{string}.  \emph{From this point onwards our applications will use the \texttt{std} namespace}.  This will always occur in our main applications.  However, in header files we will not use the namespace.  This is common practice in C++ code.
+Because we have told C++ that we are using a particular namespace we can now access our objects directly.  So instead of writing `using std::string` and `using std::cout` we can just use `using namespace std`. In header files we should not use the namespace.  This is common practice in C++ code.
 
-As an example application, let us rewrite our file I/O code with a \texttt{using} statement.
+As an example application, let us rewrite our file I/O code with a `using namespace` statement.
 
-\begin{lstlisting}[caption=Using Namespaces in C++]
+```cpp
+#include "generate.h"
+#include "sort.h"
+#include <string>
 #include <iostream>
 #include <fstream>
-#include <vector>
-#include <string>
 
 using namespace std;
 
-vector<string> readfile(string &filename)
+void write_file(const string &filename, vector<int> &data)
 {
-    // Open file - default is text
-    ifstream file(filename);
-    // String to read into
-    string line;
-    // Data to return
-    vector<std::string> data;
-    // Read until end of file
-    while (getline(file, line))
-        data.push_back(line);
-    // Close file
-    file.close();
-    // Return data
-    return data;
+  // Open file for output
+  ofstream file(filename);
+  // Loop through each value in the vector
+  for (int &val : data)
+  {
+    // Output value to the file
+    file << val << endl;
+  }
+  // Close the file
+  file.close();
 }
 
-void writefile(string &filename, vector<string> &data)
+vector<int> read_file(const string &filename)
 {
-    // Open file - default is text
-    ofstream file(filename);
-    // Write each line into file starting at end of vector
-    for (int i = data.size() - 1; i >= 0; --i)
-        file << data[i] << endl;
-    // Close the file
-    file.close();
+  // Vector to read into
+  vector<int> data;
+  // Open file for input
+  ifstream file(filename);
+  // Loop until end of file (eof)
+  while (!file.eof())
+  {
+    // Read in value
+    int temp;
+    file >> temp;
+    // Add to the vector
+    data.push_back(temp);
+  }
+  return data;
 }
 
 int main(int argc, char **argv)
 {
-    // Read in file
-    vector<string> data = readfile(string("sorted.txt"));
-    // Print lines read
-    cout << "Lines read = " << data.size() << endl;
-    writefile(string("reversed.txt"), data);
+  // Generate a random vector
+  vector<int> data = generate(65536);
+  // Save the random vector to a file
+  write_file("numbers.txt", data);
+  // Sort the data
+  sort(data);
+  // Read back in the unsorted data
+  vector<int> unsorted = read_file("numbers.txt");
 
-    return 0;
+  // Print the first 100 values of each
+  for (int i = 0; i < 100; ++i)
+  {
+    cout << data[i] << "\t" << unsorted[i] << endl;
+  }
+  return 0;
 }
-\end{lstlisting}
+```
 
-As can be seen, our code is a bit simpler and there is less to write.  You are likely to come across different approaches to using namespaces in other peoples C++ code, but the approach taken in this module is that described above.  This is the expected coding practice of the module.
+As can be seen, our code is a bit simpler and there is less to write.  You are likely to come across different approaches to using namespaces in other people's C++ code. We will stick with `using std::something` for each class we use though.
 
-\section{Exercises}
+## Exercises
 
 This has been a large unit, and you should familiarise yourself with the content.  However, the following exercises will help you strengthen your understanding and knowledge of C++.
 
-\begin{enumerate}
-\item Investigate \texttt{std::setprecision} and how it can be used to determine the number of decimal places printed out on the command line.  Write an application that tests the \texttt{std::setprecision} method on the command line to see the different results.
-\item C++ provides \texttt{std::find} and \texttt{std::sort} methods.  Investigate these and then use them to rewrite the array library developed in this unit using \texttt{std::vector}.  In particular, compare the performance of the \texttt{sort} method with our trivial bubble sort.
-\item Our \texttt{generate} function did seed its random (see discussion on \texttt{srand} previously).  Discover how to seed a random engine in C++ and do this in your library to ensure the random numbers cannot be predicted.
-\item Other C++ random engines exist.  Investigate these random engines by using them in your array library.  Look at the output results to understand how they generate values.
-\item Modify the distribution in your array library so that numbers only up to 255 are generated.
-\item \textbf{For the Brave} - we haven't covered certain aspects of call conventions in this unit.  Investigate the \texttt{\_\_cdecl}, \texttt{\_\_stdcall} and \texttt{\_\_fastcall} calls.
-\end{enumerate}
+1. Investigate `std::setprecision` and how it can be used to determine the number of decimal places printed out on the command line.  Write an application that tests the `std::setprecision` method on the command line to see the different results.
+2. C++ provides a `std::sort` function.  Investigate this and then use it to rewrite the array library developed in this unit using `std::vector`.  In particular, compare the performance of the `sort` method with our trivial bubble sort.
+3. Other C++ random engines and distributions exist.  Investigate these random engines by using them in your array library.  Look at the output results to understand how they generate values.
+4. Modify the distribution in your array library so that numbers only up to 255 are generated.
+5. **For the Brave** -- we haven't covered certain aspects of call conventions in this unit.  Investigate the `__cdecl`, `__stdcall` and `__fastcall` calls.
