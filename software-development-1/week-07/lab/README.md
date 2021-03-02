@@ -5,7 +5,7 @@ In this lab we will explore:
 
 1. How to pass parameters and arguments
 2. Use Python's dictironary file type
-3. Understnad the scope of Local and Global variables
+3. Understand the scope of Local and Global variables
 
 
 First, let's do a functions recap:
