@@ -117,12 +117,12 @@ Submission requirements for this Sprint:
 
 #### Review: Week 10
 
-The aim of this Sprint is to have a working prototype of your application, with at least 50% of the project completed.
+The aim of this Sprint is to have a working prototype of your application, with good progress in the technical deliverables of the project.
 
 Submission requirements for this Sprint:
 
-- Updated task board of user stories showing progress towards 50%.
-- Implementation progress towards final version of application, meeting 50% of the current requirements.
+- Updated task board of user stories showing progress in the technical deliverables.
+- Implementation progress towards final version of application:
   - Integration with a database
   - Access to data using URLs (RESTful)
   - Application can be deployed as Docker container.
@@ -137,10 +137,8 @@ The aim of this Sprint is to deliver the final version of your application. The 
 - Overall application quality.
 - Metrics from GitHub. Also used to assess individual contribution.
 - Code quality including comments.
-- Continuous integration working.
 - Application containerised with Docker.
 - Final version of the task board and project requirements met.
-- Quality and coverage of unit tests.
 
 ### Individual Reflection
 
