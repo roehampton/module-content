@@ -43,6 +43,14 @@ You will be assessed against these learning outcomes.
 
 
 
+·    A project report.
+
+·    Any required deliverables, such as software products produced.
+
+·    A short screencast illustrating the work they have done.
+
+
+
 ## Selecting Your Project
 
 Selecting a project is your first major task. There are a few things you need to take into consideration:
@@ -147,11 +155,31 @@ For a generalist masters project, the student is expected to demonstrate the fol
 
 
 
+·    Project initiation and signoff.
+
+·    Project planning and initial investigation.
+
+·    Project mid-point review.
+
+·    Project delivery.
+
+
+
 ### Support Workshops
 
 
 
 **TO DO**
+
+
+
+·    Problem elucidation and objective setting.
+
+·    How to perform an investigation into the literature and context of a project.
+
+·    How to conduct an evaluation.
+
+·    How to deliver a significant piece of written work.
 
 
 
@@ -172,6 +200,14 @@ For a generalist masters project, the student is expected to demonstrate the fol
 
 
 ### Milestones
+
+
+
+**TO DO**
+
+
+
+### Project Management
 
 
 
@@ -263,31 +299,59 @@ The main part of the report. Each section should be numbered using Arabic (stand
 
 The structure of the main body will somewhat vary based on the nature of the project. However, there is a general flow through the project, with additional sections added as necessary.
 
-1. Introduction to the project.
-2. The legal, social, ethical and professional issues relevant to the project.
-3. The structure then varies based on whether the project is build-orientated or research-orientated:
-   - Research Orientated:
-     4. An investigation, generally driven by a search and review of relevant literature.
-     5. A methodology defining how you will undertake your research.
-     6. The results from performing the research methodology.
-     7. Discussion of the results and what they tell us about your area of research.
-   - Build Orientated:
-     4. A review into the background of the work, which can be driven by technology, literature, and other resources.
-     5. A design of the artefact to be built.
-     6. Details of the implementation of the artefact.
-     7. An evaluation of your artefact to objectively determine its quality.
+- Introduction to the project.
+- The legal, social, ethical and professional issues relevant to the project.
+- The structure then varies based on whether the project is build-orientated or research-orientated:
+  - Research Orientated:
+    - An investigation, generally driven by a search and review of relevant literature.
+    - A methodology defining how you will undertake your research.
+    - The results from performing the research methodology.
+    - Discussion of the results and what they tell us about your area of research.
+  - Build Orientated:
+    - A review into the background of the work, which can be driven by technology, literature, and other resources.
+    - A design of the artefact to be built.
+    - Details of the implementation of the artefact.
+    - An evaluation of your artefact to objectively determine its quality.
+- A conclusion to the report, summarising the findings, discussing related work, and any future work.
 
-8. A conclusion to the report, summarising the findings, discussing related work, and any future work.
+**It is, however, up to you how to structure your project and the contents of these sections. This guidance lets you know what we expect and what is likely to provide you with the most success.**
+
+The main body has a **maximum** word count limit of 10,000 words. Organising the writing of your report is one of the signifiant challenges you will face. Some suggestions on how to organise and write the main body are:
+
+- Early in the project, plan the sections and an estimated size. This will help you keep within the word count.
+- Start writing early. Ask for feedback from your supervisor. And don't write from page 1 -- the biggest obstacle is staring at the first blank page and wondering how to start. Write up parts of your work as you do them.
+- You are writing your report for your examiners first and foremost. They will use the assessment criteria defined here. Importantly, it is expected that you use a formal, academic writing style relevant to the discipline. Your supervisor can help here by giving you feedback on your early writing.
 
 ##### Introduction
 
+This section should introduce the work. Depending on the nature of the project, you might have the following parts:
+
+- An initial paragraph introducing the project context and idea (all projects).
+- A hypothesis and/or research question(s) (research based projects)
+- Aims of the project (all projects)
+  - Aims are broad statements of desired outcomes and intentions.
+- Objectives of the project (all projects)
+  - Tangible steps that will be taken to achieve the aims -- tasks that will be done.
+- Breakdown of the rest of the report (all projects)
+  - Describe the upcoming sections in order -- this provides your reader with a roadmap of the report.
+
 ##### Legal, Social, Ethical, and Professional Issues
+
+Your project must include a description of the legal, social, ethical and professional issues relevant to the project. **All projects will have either a legal, social, ethical or professional issue element.** You must discuss these here and highlight any issues that had to be addressed before undertaking the project.
+
+If your project required ethical clearance, then this must be clearly stated in this section, including how the ethical considerations were managed.
 
 ##### Background
 
+The aim of the background section is to provide the reader with the relevant contextual information necessary to understand your work. This section must be suitably referenced based on the reviews undertaken. There are two reviews that are likely to take place within this section -- a technology review and a literature review. The section concludes with a summary of the findings from the background investigation and how that **justifies** the work undertaken in your project.
+
 ###### Technology Review
 
+The technology review focuses on technology that will be and could be used for the project. Typically, it is expected that you have reviewed different technology options for your project and summarised these options here. It should be clear why the technology choices taken were made.
+
 ###### Literature Review
+
+All projects should reference some academic literature, although it is primarily research orientated projects that will conduct a significant literature review in the background section. As with the technology review, the goal here is to make it clear why the choices were made in the project. It is expected that at least the research methodology and/or evaluation approach are defined from existing sources.
 
 ##### Design or Methodology
 

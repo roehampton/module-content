@@ -23,10 +23,10 @@
 | 4      | ~~UML workflow.~~                             | ~~Connect SQLite.~~                                   | ~~OO design.~~                                 |                                        |
 | 5      | ~~User requirements gathering: user stories~~ | ~~Express.js~~                                        | ~~User requirements gathering: user stories.~~ |                                        |
 | 6      | ~~Modern Software Architecture~~              | ~~New project. Git Hooks. Angular~~                   | ~~Team session.~~                              | Coursework 2 (user stories and design) |
-| 7      | ~~DevOps~~                                    | ~~Docker.~~                                           | UI design and CSS.                             |                                        |
-| 8      | ~~Continuous integration~~                    | Continuous integration. Deployment.                   | UI design and CSS.                             |                                        |
+| 7      | ~~DevOps~~                                    | ~~Docker.~~                                           | ~~UI design and CSS.~~                         |                                        |
+| 8      | ~~Continuous integration~~                    | Continuous integration. Deployment.                   | ~~UI design and CSS.~~                         |                                        |
 | 9      | ~~Test-driven development~~                   | Design Patterns. Model view controller. More Angular. | ~~Team session.~~                              | Coursework 3 (prototype)               |
-| 10     | ~~Bug Tracking~~                              | Unit testing.                                         | Testing.                                       |                                        |
+| 10     | ~~Bug Tracking~~                              | Unit testing.                                         | ~~Testing.~~                                   |                                        |
 | Assess |                                               |                                                       |                                                |                                        |
 | Assess |                                               |                                                       |                                                | Coursework 4 (final deliverable)       |
 
