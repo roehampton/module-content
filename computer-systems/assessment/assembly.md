@@ -1,24 +1,38 @@
 # Computer Systems Coursework 1 -- Assembly Programming
 
-Part 1 of the coursework is worth 40% of the total coursework mark. The submission deadline is **Friday 20th November online via Moodle by 23.59.**
+Part 1 of the coursework is worth 40% of the total coursework mark.
 
 Part 1 of the coursework focuses on assembly programming. This coursework meets the module learning outcome *Write assembly code segments.* You will submit an assembly code file to complete this coursework.
 
-The aim of the coursework is to create a program that reads in an input from the user and displays a message according to said input. The output of the program will be:
+The aim of this coursework is for you to write an assembly program using `NASM` that outputs the timetables from 1 to 13. The output should be:
 
-- If the user enters `1` then the output is "Welcome to my assembly program."
-- If the user enters `2` then the output is "The second choice."
-- If the user enters `3` then the output is "The last choice."
-- If the user enters `q` then the output is "Goodbye!" and the program will exit.
-- If the user enters any other input, the output message is "ERROR! Please try again."
+```
+     1   2   3   4   5   6   7   8   9  10  11  12  13
+ 1   1   2   3   4   5   6   7   8   9  10  11  12  13
+ 2   2   4   6   8  10  12  14  16  18  20  22  24  26
+ 3   3   6   9  12  15  18  21  24  27  30  33  36  39
+ 4   4   8  12  16  20  24  28  32  36  40  44  48  52
+ 5   5  10  15  20  25  30  35  40  45  50  55  60  65
+ 6   6  12  18  24  30  36  42  48  54  60  66  72  78
+ 7   7  14  21  28  35  42  49  56  63  70  77  84  91
+ 8   8  16  24  32  40  48  56  64  72  80  88  96 104
+ 9   9  18  27  36  45  54  63  72  81  90  99 108 117
+10  10  20  30  40  50  60  70  80  90 100 110 120 130
+11  11  22  33  44  55  66  77  88  99 110 121 132 143
+12  12  24  36  48  60  72  84  96 108 120 132 144 156
+13  13  26  39  52  65  78  91 104 117 130 143 156 169
+```
 
-The program will prompt the user when it runs by outputting "Please enter a choice: ". The program will continuously loop until the user enters `q`.
+Code requirements:
 
-The **Appendix** provides an example of how we can read input from the user in assembly.
+- **Your assembly code must calculate each timetable value.** That is, to output the value of 10 * 7 your program must undertake that calculation. **Simply printing a stored string of results will provide a mark of 0.**
+- **Your assembly code must use `nam` as an assembler. Not doing so will result in a mark of 0.**
 
 ## Submission Requirements
 
 You must submit your assembly code file to Moodle. The file should be documented to explain your implementation. Name the code file `coursework.asm`.
+
+**Your assembly code must be buildable using `nasm`. This is not negotiable. If you use a different assembler your assessment will be graded at 0.**
 
 **Do not submit any other files.** Your mark will be adversely affected if you submit incorrect files.
 
@@ -41,27 +55,4 @@ The following rubric will be used to assess your work.
 All submissions will be processed through a code plagarism tool. If signs of misconduct are found, all students involved will be contacted to discuss further steps. Please see here for information on academic integrity at the university https://portal.roehampton.ac.uk/information/Pages/Academic-Integrity.aspx. Our guiding principle is:
 
 > Academic integrity and honesty are fundamental to the academic work you produce at the University of Roehampton. You are expected to complete coursework which is your own and which is referenced appropriately. The university has in place measures to detect academic dishonesty in all its forms. If you are found to be cheating or attempting to gain an unfair advantage over other students in any way, this is considered academic misconduct and you will be penalised accordingly.
-
-## Appendix -- Reading and Testing Values in Assembly
-
-Reading input from the keyboard in assembly can be done in a number of different ways. We will look at the most basic -- accessing the raw input stream from standard input. The following code demonstrates how to store input into a variable `num`.
-
-```assembly
-; Read and store the user input
-    mov eax, 3		; set system call to perform a read (SYS_READ)
-    mov ebx, 0		; set input stream to standard input (STDIN)
-    mov ecx, num	; set the location to read into
-    mov edx, 2		; set the number of bytes to read, 2
-    int 0x80		; call the operating system
-```
-
-**Note that to get one character from the user you need to read in two bytes -- one for the character and one for the carriage return.**
-
-To check the input, we have to place it in an 8-bit register and use `cmp`. We have to use an 8-bit register as we have only read a byte. For example:
-
-```assembly
-; Check input
-    mov al, [num]	; move num read into al register
-    cmp al, 'x'		; compare al to character x
-```
 

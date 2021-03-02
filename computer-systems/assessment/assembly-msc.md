@@ -1,6 +1,6 @@
 # Computer Systems Coursework 1 -- Assembly Programming
 
-Part 1 of the coursework is worth 40% of the total coursework mark. The submission deadline is **Friday 5th March on Moodle by 16.00 (4 pm).**
+Part 1 of the coursework is worth 40% of the total coursework mark.
 
 Part 1 of the coursework focuses on assembly programming. This coursework meets the module learning outcome *Write assembly code segments.* You will submit an assembly code file to complete this coursework.
 
@@ -40,7 +40,7 @@ You must submit your assembly code file to Moodle. The file should be documented
 
 The following rubric will be used to assess your work.
 
-| **Criteria**                                                 | **Excellent**                                                | **Good**                                                     | **Developing**                                               | **Not attempted**                                            |
+| **Criteria**                                                 | **Excellent**                                                | **Satisfactory**                                             | **Not satisfactory**                                         | **Not attempted**                                            |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Syntax** ability to understand and follow the rules of the programming language. | Program compiles and contains no evidence of misunderstanding or misinterpreting the syntax of the language. | Program compiles and is free from major syntactic misunderstandings, but may contain non-standard usage or superfluous elements. | Program compiles, but contains errors that signal misunderstanding of syntax. | Program does not compile.                                    |
 | **Solution** the completeness of the code to meet the specification given. | A completed solution meeting all the specifications.         | A completed solution that does not meet all the specifications. | A completed solution is implemented and runs but lacks much of the specification. | Solution doesn't run or does not meet the specifications defined. |
