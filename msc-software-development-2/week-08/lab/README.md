@@ -368,3 +368,26 @@ Database link.
 
 #### Testing
 
+## Workflow
+
+1. Design enough of the system (e.g., user stories, diagrams, database design, frontend design).
+2. Populate some of the database.
+3. Setup GitHub repository and pull.
+4. Initialise project using npm.
+   1. Add any dependencies.
+   2. Add start script
+5. Create Dockerfile (runtime environment)
+6. Create folder structure.
+7. Create Express.js endpoints -- remember the static pages.
+8. Do a test, via Docker, to make sure you can access the endpoints.
+9. Turn endpoints into SQL statements and return JSON.
+   1. Test each one as you build.
+10. Add a frontend page (e.g., student.html).
+11. Use dummy data to test frontend page works.
+12. Repeat steps 10 and 11 for each page.
+13. Change dummy data to talk to correct Express.js endpoints.
+    1. Start with requesting pages.
+    2. Do updating pages later.
+14. Test each addition.
+15. Repeat 13 and 14 until all pages talk to the backend.
+16. Finish.
