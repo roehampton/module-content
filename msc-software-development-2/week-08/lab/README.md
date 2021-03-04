@@ -2,6 +2,14 @@
 
 In this lab we will put together all the components we have been discussing throughout the module to complete our Student Database application. There is quite a lot to do, and it is expected that this lab will take a significant time (more than one week) to complete.
 
+## Basic Application Architecture
+
+
+
+**TODO**
+
+
+
 ## Requirements
 
 Our Student Database system is designed to manage students at university, including their programme of study, the modules on the programme, and the students grades on their modules. The application is designed for both administrators to manage student data, and for students to update their personal data and see their module results. Let us first define our set of user stories for this application.
@@ -20,11 +28,35 @@ Our user stories are focused on administrators and students. We will keep these 
 
 ### Use Case Diagrams
 
+
+
+**TODO**
+
+
+
 ### Activity Diagrams
+
+
+
+**TODO**
+
+
 
 ### Database Design
 
+
+
+**TODO**
+
+
+
 ### Frontend Design
+
+
+
+**TODO**
+
+
 
 ## Logistics -- GitHub, `npm` and Docker
 
