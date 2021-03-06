@@ -1,5 +1,7 @@
 # Software Development 2 Lab 08 -- Memory Management: Using the Stack and Heap
 
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 In this unit we are going to expand on our work with understanding pointers by beginning to work with memory.  When working with a low-level systems language such as C/C++, memory management is an important consideration. 
 
 In this unit we are going to investigate how we allocate memory, the difference between the stack and the heap, as well as looking a bit deeper into scope.  We will also look at the new C++ features called \emph{smart pointers}.  For those of you who are a little more adventurous we will also look at basic value casting in C++.

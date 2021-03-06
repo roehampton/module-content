@@ -13,6 +13,8 @@ MathJax = {
 <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 
 C is often referred to as a systems language as it provides a close approximation to how the computer works. As such, when we declare data in C it has a direct representation in memory. This has advantages when working with memory, but does mean we need to be more cautious in comparison to languages such as Java and C\# (which are often referred to as *managed languages*).
 

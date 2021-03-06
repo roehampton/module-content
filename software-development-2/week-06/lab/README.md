@@ -1,5 +1,7 @@
 # Software Development 2 Lab 06 -- Inline Assembly Programming
 
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 **WARNING -- before starting this lab it is recommended that you use a Windows machine only with the Microsoft compiler. Assembly is platform specific and we will only cover the Microsoft toolchain.**
 
 We've looked at how our C data values are represented in memory (their *low-level representation*).  In this unit we will look closer at how our operations are represented.  This requires us to look at assembly code.
