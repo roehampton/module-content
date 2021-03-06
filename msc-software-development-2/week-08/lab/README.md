@@ -1,6 +1,33 @@
-# Software Development 2 Lab 08 -- Case Study: Building the Student Application
+# Software Development 2 Lab 08 -- Case Study: Building the Student Application Part 1
 
-In this lab we will put together all the components we have been discussing throughout the module to complete our Student Database application. There is quite a lot to do, and it is expected that this lab will take a significant time (more than one week) to complete.
+In this lab we will put together all the components we have been discussing throughout the module to complete our Student Database application. There is quite a lot to do, and it is expected that this lab will take a longer time (two weeks) to complete.
+
+## Workflow
+
+To give you an idea of the process we are going to follow, see the below series of steps.
+
+1. Design enough of the system (e.g., user stories, diagrams, database design, frontend design).
+2. Populate some of the database.
+3. Setup GitHub repository and pull.
+4. Initialise project using npm.
+   1. Add any dependencies.
+   2. Add start script
+5. Create Dockerfile (runtime environment)
+6. Create folder structure.
+7. Create Express.js endpoints -- remember the static pages.
+8. Do a test, via Docker, to make sure you can access the endpoints.
+9. Turn endpoints into SQL statements and return JSON.
+   1. Test each one as you build.
+10. Add a frontend page (e.g., student.html).
+11. Use dummy data to test frontend page works.
+12. Repeat steps 10 and 11 for each page.
+13. Change dummy data to talk to correct Express.js endpoints.
+    1. Start with requesting pages.
+    2. Do updating pages later.
+14. Test each addition.
+15. Repeat 13 and 14 until all pages talk to the backend.
+16. Repeat steps 7 to 15 for functionality that updates the database.
+17. Finish.
 
 ## Basic Application Architecture
 
@@ -47,6 +74,10 @@ Our user stories are focused on administrators and students. We will keep these 
 
 
 **TODO**
+
+
+
+### Class Diagram
 
 
 
@@ -226,6 +257,7 @@ Git commit.
 ```txt
 \---app
 |       app.js
+|       student.js
 |
 \---data
 |       data.js
@@ -256,6 +288,61 @@ Git commit.
 
 
 
+### Class Definitions
+
+Defining modules.
+
+```javascript
+"use strict";
+
+exports.Student = class {
+  // Student ID
+  id;
+  // Student first name
+  first_name;
+  // Student last name
+  last_name;
+  // Student programme
+  programme;
+  // Student modules
+  modules;
+
+  constructor(id, first_name, last_name, programme) {
+    this.id = id;
+    this.first_name = first_name;
+    this.last_name = last_name;
+  }
+}
+
+exports.Programme = class {
+  // Programme code
+  code;
+  // Programme name
+  name;
+
+  constructor(code, name) {
+    this.code = code;
+    this.name = name;
+  }
+}
+
+exports.Module = class {
+  // Module code
+  code;
+  // Module name
+  name;
+
+  constructor(code, name) {
+    this.code = code;
+    this.name = name;
+  }
+}
+```
+
+
+
+
+
 ### Endpoints
 
 1. Module
@@ -269,6 +356,9 @@ Git commit.
 
 ```javascript
 "use strict";
+
+// The application layer uses student classes
+const student = require("./student.js");
 
 // The application layer talks to the data layer
 const data = require("../data/data.js");
@@ -284,46 +374,46 @@ app.use(express.static("static"));
 
 // Add /module endpoint
 app.get("/module/:code", function(req, res) {
-    // Return "Module <code>"
-    res.send("Module " + req.params.code);
+  // Return "Module <code>"
+  res.send("Module " + req.params.code);
 });
 
 // Add /modules endpoint
 app.get("/modules", function(req, res) {
-    // Return "All modules"
-    res.send("All modules");
+  // Return "All modules"
+  res.send("All modules");
 });
 
 // Add /programme endpoint
 app.get("/programme/:code", function(req, res) {
-    // Return "Programme <code>"
-    res.send("Programme " + req.params.code);
+  // Return "Programme <code>"
+  res.send("Programme " + req.params.code);
 });
 
 // Add /programmes endpoint
 app.get("/programmes", function(req, res) {
-    // Return "All programmes"
-    res.send("All programmes");
+  // Return "All programmes"
+  res.send("All programmes");
 });
 
 // Add /student endpoint
 app.get("/student/:id", function(req, res) {
-    // Return "Student <id>"
-    res.send("Student " + req.params.id);
+  // Return "Student <id>"
+  res.send("Student " + req.params.id);
 });
 
 // Add /students endpoint
 app.get("/students", function(req, res) {
-    // Return "All students"
-    res.send("All students");
+  // Return "All students"
+  res.send("All students");
 });
 
 // Start listening on port 3000
 app.listen(3000, function(err) {
-    if (err) {
-        return console.error(err.message);
-    }
-    console.log("Server started.");
+  if (err) {
+    return console.error(err.message);
+  }
+  console.log("Server started.");
 });
 ```
 
@@ -347,7 +437,7 @@ const app = require("./app/app");
 
 
 
-`docker run -d --rm -p 5000:3000`
+`docker run -d --rm -p 5000:3000 student-database`
 
 
 
@@ -380,46 +470,205 @@ Git commit
 
 Database link.
 
-### SQL Statements
+```javascript
+"use strict";
 
-### Testing
+// Import SQLite library.
+const sqlite3 = require("sqlite3").verbose();
 
-## Frontend Setup
+// Connect to the database.
+var db = new sqlite3.Database("data/students.db", function(err) {
+    if (err) {
+        return console.error(err.message);
+    }
+    console.log("Connected to students database.");
+});
+```
 
-### More Angular
 
-### Testing
 
-## Talking to Our Backend
+`docker build -t student-database .`
 
-### Requesting Data
 
-#### Testing
 
-### Updating Data
+`docker run --rm student-database`
 
-#### Testing
 
-## Workflow
 
-1. Design enough of the system (e.g., user stories, diagrams, database design, frontend design).
-2. Populate some of the database.
-3. Setup GitHub repository and pull.
-4. Initialise project using npm.
-   1. Add any dependencies.
-   2. Add start script
-5. Create Dockerfile (runtime environment)
-6. Create folder structure.
-7. Create Express.js endpoints -- remember the static pages.
-8. Do a test, via Docker, to make sure you can access the endpoints.
-9. Turn endpoints into SQL statements and return JSON.
-   1. Test each one as you build.
-10. Add a frontend page (e.g., student.html).
-11. Use dummy data to test frontend page works.
-12. Repeat steps 10 and 11 for each page.
-13. Change dummy data to talk to correct Express.js endpoints.
-    1. Start with requesting pages.
-    2. Do updating pages later.
-14. Test each addition.
-15. Repeat 13 and 14 until all pages talk to the backend.
-16. Finish.
+Git commit.
+
+
+
+## Implementing Endpoints
+
+
+
+### Getting All Students
+
+
+
+#### `getAllStudents`
+
+
+
+```sql
+SELECT 
+	Students.id, 
+  Students.first_name, 
+  Students.last_name, 
+  Students.programme,
+  Programmes.name
+FROM
+  Students,
+  Programmes
+WHERE
+  Students.programme = Programmes.code
+```
+
+
+
+```javascript
+// Export getStudents function
+exports.getStudents = function(callback) {
+    // Create SQL statement
+    var sql = `
+        SELECT 
+            Students.id, 
+            Students.first_name, 
+            Students.last_name, 
+            Students.programme,
+            Programmes.name
+        FROM
+            Students,
+            Programmes
+        WHERE
+            Students.programme = Programmes.code
+        `;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Execute callback function
+        callback(rows);
+    });
+};
+```
+
+
+
+```javascript
+// Add /students endpoint
+app.get("/students", function(req, res) {
+  // Call getStudents on data
+  data.getStudents(function(rows) {
+    res.json(rows);
+  });
+});
+```
+
+
+
+`docker build -t student-database .`
+
+
+
+`docker run --rm student-database`
+
+
+
+Git commit.
+
+
+
+### Getting All Programmes
+
+
+
+```javascript
+exports.getProgrammes = function(callback) {
+  // Create SQL statement
+  var sql = `SELECT * FROM Programmes`;
+  // Execute query. Return all
+  db.all(sql, function(err, rows) {
+    // Check if error
+    if (err) {
+      return console.error(err.message);
+    }
+    // Execute callback function
+    callback(rows);
+  });
+};
+```
+
+
+
+```javascript
+// Add /programmes endpoint
+app.get("/programmes", function(req, res) {
+    // Call getProgrammes on data
+    data.getProgrammes(function(rows) {
+        res.json(rows);
+    });
+});
+```
+
+
+
+### Getting All Modules
+
+
+
+```javascript
+// Export getModules function
+exports.getModules = function(callback) {
+    // Create SQL statement
+    var sql = `SELECT * FROM Modules`;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        callback(rows);
+    });
+};
+```
+
+
+
+```javascript
+// Add /modules endpoint
+app.get("/modules", function(req, res) {
+    // Call getModules on data
+    data.getModules(function(rows) {
+        res.json(rows);
+    });
+});
+```
+
+
+
+### Getting a Module
+
+
+
+### Getting a Programme
+
+
+
+Include modules
+
+
+
+### Getting Grades
+
+
+
+### Getting a Student
+
+
+
+#### 
+
