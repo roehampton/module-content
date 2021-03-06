@@ -1,5 +1,7 @@
 # Software Development 2 Lab 01 -- Getting Started with C
 
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 These tutorials are designed to teach you a number of C Programming principles with sophisticated topics and examples. The goal of each problem is not to solve that specific problem, but to exercise a certain set of skills, or to practice solving a certain type of problem. 
 
 C programming language is a general purpose, high level language that was originally developed by Dennis MacAlistair Ritchie in Bell Labs. In essence, Dennis MacAlistair Ritchie was an American computer scientist. Nowadays, the C language is widely used in application, operating system, and embedded system development, and its influence is seen in most modern programming languages. 
