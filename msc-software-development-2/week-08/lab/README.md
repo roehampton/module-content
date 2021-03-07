@@ -318,6 +318,8 @@ exports.Programme = class {
   code;
   // Programme name
   name;
+  // Programme modules
+  modules = [];
 
   constructor(code, name) {
     this.code = code;
@@ -456,7 +458,9 @@ CONTAINER ID   IMAGE              COMMAND       CREATED              STATUS     
 
 ## Talking to Our Database
 
+Our application currently sends dummy data. Let us update the application so that it can connect to the database.
 
+- **Update `data.js` to connect to the database by entering the following code:**
 
 ```javascript
 "use strict";
@@ -476,31 +480,29 @@ var db = new sqlite3.Database("data/students.db", function(err) {
 });
 ```
 
+- **Now rebuild the Docker image: `docker build -t student-database .`**
+- **Run the Docker image using `docker run -it --rm student-database`. `-it` means run the container in interactive mode so you can see the output and stop it. Note that you should get the message `Connected to students database` if everything worked OK.**
+- **Use Control-C to exit the application. You will get an error message. Just ignore it.**
 
+- **Commit your changes to GitHub. Remember:**
+  - **Add your changes.**
+  - **Commit your changes.**
+  - **Push your changes.**
 
-`docker build -t student-database .`
+**NOTE** -- if for some reason at any point your Docker image is not working, undertake the following steps:
 
-
-
-`docker run --rm student-database`
-
-
-
-Git commit.
-
-
+- **Stop the Docker container**
+- **Rerun the Docker container using interactive mode as shown above.**
+- **Try to replicate the problem you are having.**
+- **The errors will now appear in the Terminal.**
 
 ## Implementing Endpoints
 
-
+We now have everything in place to implement our application. We will go through each endpoint, implement it then test it to see if it works.
 
 ### Getting All Students
 
-
-
-#### `getAllStudents`
-
-
+Our first endpoint will be getting all students -- `/students`. The SQL statement we will use is the following:
 
 ```sql
 SELECT 
@@ -516,7 +518,7 @@ WHERE
   Students.programme = Programmes.code
 ```
 
-
+- **Add the following to `data.js`. It requests all the students from the database, creates an array of `Student` objects from the results, and then returns it to the caller.**
 
 ```javascript
 // Export getStudents function
@@ -558,7 +560,12 @@ exports.getStudents = function(callback) {
 };
 ```
 
+Couple of things here:
 
+- We are using the `exports` idea again.
+- We pass the parameter `callback` into `getStudents`. This will be a function that is called at the end of `getStudents` to return the data to the caller.
+
+- **Now update `app.js`, changing the `/students` endpoint code to the following:**
 
 ```javascript
 // Add /students endpoint
@@ -570,23 +577,25 @@ app.get("/students", function(req, res) {
 });
 ```
 
+- **Rebuild your Docker image using the following command:`docker build -t student-database .`**
+- **Run the Docker image as a container with the following command: `docker run -d --rm -p 5000:3000 student-database`**
+- **Test the new endpoint works by visiting `localhost:5000/students` in your browser. Your output should be the following:**
 
+```json
+[{"id":1,"first_name":"Kevin","last_name":"Chalmers","programme":{"code":"09UU59311","name":"BSc Computer Science"},"modules":[]},{"id":2,"first_name":"Lisa","last_name":"Haskel","programme":{"code":"48PN0081","name":"MSc Computing"},"modules":[]},{"id":3,"first_name":"Arturo","last_name":"Araujo","programme":{"code":"09UU59311","name":"BSc Computer Science"},"modules":[]},{"id":4,"first_name":"Kimia","last_name":"Aksir","programme":{"code":"48PN0081","name":"MSc Computing"},"modules":[]},{"id":5,"first_name":"Pelumi","last_name":"Apantaku","programme":{"code":"48PN0081","name":"MSc Computing"},"modules":[]},{"id":6,"first_name":"Mohammed","last_name":"Ahmad","programme":{"code":"09UU59311","name":"BSc Computer Science"},"modules":[]},{"id":7,"first_name":"Amer","last_name":"Salman","programme":{"code":"09UU5931","name":"BSc Computer Science"},"modules":[]},{"id":8,"first_name":"Amitave","last_name":"Banik","programme":{"code":"09UU5931","name":"BSc Computer Science"},"modules":[]}]
+```
 
-`docker build -t student-database .`
-
-
-
-`docker run --rm student-database`
-
-
-
-Git commit.
-
-
+- **Stop the container. Find its name using `docker ps` and then stop it using `docker stop`.**
+- **Commit your changes to GitHub. Remember:**
+  - **Add the changes.**
+  - **Commit the changes.**
+  - **Push the changes.**
 
 ### Getting All Programmes
 
+We now just need to repeat this process for our other endpoints.
 
+- **Add the following to `data.js`**
 
 ```javascript
 // Export getProgrammes function
@@ -614,7 +623,7 @@ exports.getProgrammes = function(callback) {
 };
 ```
 
-
+- **Update the endpoint in `app.js`**
 
 ```javascript
 // Add /programmes endpoint
@@ -626,11 +635,23 @@ app.get("/programmes", function(req, res) {
 });
 ```
 
+- **Rebuild your Docker image using the following command:`docker build -t student-database .`**
+- **Run the Docker image as a container with the following command: `docker run -d --rm -p 5000:3000 student-database`**
+- **Test the new endpoint works by visiting `localhost:5000/programmes` in your browser. Your output should be the following:**
 
+```json
+[{"code":"09UU5931","name":"BSc Computer Science"},{"code":"48PN0081","name":"MSc Computing"}]
+```
+
+- **Stop the container. Find its name using `docker ps` and then stop it using `docker stop`.**
+- **Commit your changes to GitHub. Remember:**
+  - **Add the changes.**
+  - **Commit the changes.**
+  - **Push the changes.**
 
 ### Getting All Modules
 
-
+- **Add the following to `data.js`**
 
 ```javascript
 // Export getModules function
@@ -648,7 +669,7 @@ exports.getModules = function(callback) {
         // Loop through each row and create a module object
         for (var row of rows) {
             // Create module object
-            var mod = student.Module(row.code, row.name);
+            var mod = new student.Module(row.code, row.name);
             // Add module to array
             modules.push(mod);
         }
@@ -658,7 +679,7 @@ exports.getModules = function(callback) {
 };
 ```
 
-
+- **Update the endpoint in `app.js`**
 
 ```javascript
 // Add /modules endpoint
@@ -670,11 +691,23 @@ app.get("/modules", function(req, res) {
 });
 ```
 
+- **Rebuild your Docker image using the following command:`docker build -t student-database .`**
+- **Run the Docker image as a container with the following command: `docker run -d --rm -p 5000:3000 student-database`**
+- **Test the new endpoint works by visiting `localhost:5000/modules` in your browser. Your output should be the following:**
 
+```json
+[{"code":"CMP020C101","name":"Software Development 1"},{"code":"CMP020C102","name":"Computer Systems"},{"code":"CMP020C103","name":"Mathematics for Computer Science"},{"code":"CMP020C104","name":"Software Development 2"},{"code":"CMP020C105","name":"Computing and Society"},{"code":"CMP020C106","name":"Databases"},{"code":"CMP020N201","name":"Software Development 3"},{"code":"CMP020N202","name":"Operating Systems"},{"code":"CMP020N203","name":"Algorithms"},{"code":"CMP020N204","name":"Software Engineering"},{"code":"CMP020N205","name":"Data Science"},{"code":"CMP020N206","name":"Artificial Intelligence"},{"code":"CMP040X301","name":"Final-Year Project"},{"code":"CMP020X302","name":"Data Visualisation"},{"code":"CMP020X303","name":"Machine Learning"},{"code":"CMP020X304","name":"Data Engineering"},{"code":"CMP020X305","name":"Cybersecurity"},{"code":"CMP020L001","name":"Software Development 1"},{"code":"CMP020L002","name":"Computer Systems"},{"code":"CMP020L003","name":"Databases"},{"code":"CMP020L004","name":"Software Development 2"},{"code":"CMP020L005","name":"Computing and Society"},{"code":"CMP020L006","name":"Cybersecurity"},{"code":"CMP060L050","name":"MSc Project"}]
+```
+
+- **Stop the container. Find its name using `docker ps` and then stop it using `docker stop`.**
+- **Commit your changes to GitHub. Remember:**
+  - **Add the changes.**
+  - **Commit the changes.**
+  - **Push the changes.**
 
 ### Getting a Module
 
-
+- **Add the following to `data.js`**
 
 ```javascript
 // Export getModule function
@@ -682,7 +715,7 @@ exports.getModule = function(code, callback) {
     // Create SQL statement
     var sql = `
         SELECT * FROM Modules
-        WHERE code = ${code}`;
+        WHERE code = '${code}'`;
     // Execute query. Only one row returned.
     db.get(sql, function(err, row) {
         if (err) {
@@ -696,37 +729,199 @@ exports.getModule = function(code, callback) {
 };
 ```
 
-
+- **Update the endpoint in `app.js`**
 
 ```javascript
 // Add /module endpoint
 app.get("/module/:code", function(req, res) {
     // Call getModule on data
-    data.getModule(function(module) {
+    data.getModule(req.params.code, function(module) {
         res.json(module);
     });
 });
 ```
 
+- **Rebuild your Docker image using the following command:`docker build -t student-database .`**
+- **Run the Docker image as a container with the following command: `docker run -d --rm -p 5000:3000 student-database`**
+- **Test the new endpoint works by visiting `localhost:5000/module/CMP020L004` in your browser. Your output should be the following:**
 
+```json
+{"code":"CMP020L004","name":"Software Development 2"}
+```
 
-
+- **Stop the container. Find its name using `docker ps` and then stop it using `docker stop`.**
+- **Commit your changes to GitHub. Remember:**
+  - **Add the changes.**
+  - **Commit the changes.**
+  - **Push the changes.**
 
 ### Getting a Programme
 
+- **Add the following to `data.js`**
 
+```javascript
+// Export getProgramme function
+exports.getProgramme = function(code, callback) {
+    // Create SQL statement
+    // First get the programme
+    var sql = `
+        SELECT * FROM Programmes
+        WHERE code = '${code}'`;
+    // Execute query. Only one row returned
+    db.get(sql, function(err, row) {
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create the programme object
+        var prog = new student.Programme(row.code, row.name);
+        // Now get the modules for the programme.
+        sql = `
+            SELECT Modules.code, Modules.name
+            FROM Modules, Programme_Modules
+            WHERE 
+                Programme_Modules.programme = '${code}'
+                AND
+                Programme_Modules.module = Modules.code`;
+        // Execute query. Multiple rows returned.
+        db.all(sql, function(err, rows) {
+            if (err) {
+                return console.error(err.message);
+            }
+            // Loop through each row and create a module object
+            for (var row of rows) {
+                // Create module object
+                var mod = new student.Module(row.code, row.name);
+                // Add module to programme
+                prog.modules.push(mod);
+            }
+            // Return programme
+            callback(prog);
+        });
+    });
+};
+```
 
-Include modules
+- **Update the endpoint in `app.js`**
 
+```javascript
+// Add /programme endpoint
+app.get("/programme/:code", function(req, res) {
+    // Call getProgramme on data
+    data.getProgramme(req.params.code, function(programme) {
+        res.json(programme);
+    });
+});
+```
 
+- **Rebuild your Docker image using the following command:`docker build -t student-database .`**
+- **Run the Docker image as a container with the following command: `docker run -d --rm -p 5000:3000 student-database`**
+- **Test the new endpoint works by visiting `localhost:5000/programme/09UU5931` in your browser. Your output should be the following:**
 
-### Getting Grades
+```json
+{"code":"09UU5931","name":"BSc Computer Science","modules":[{"code":"CMP020C101","name":"Software Development 1"},{"code":"CMP020C102","name":"Computer Systems"},{"code":"CMP020C103","name":"Mathematics for Computer Science"},{"code":"CMP020C104","name":"Software Development 2"},{"code":"CMP020C105","name":"Computing and Society"},{"code":"CMP020C106","name":"Databases"},{"code":"CMP020N201","name":"Software Development 3"},{"code":"CMP020N202","name":"Operating Systems"},{"code":"CMP020N203","name":"Algorithms"},{"code":"CMP020N204","name":"Software Engineering"},{"code":"CMP020N205","name":"Data Science"},{"code":"CMP020N206","name":"Artificial Intelligence"},{"code":"CMP040X301","name":"Final-Year Project"},{"code":"CMP020X302","name":"Data Visualisation"},{"code":"CMP020X303","name":"Machine Learning"},{"code":"CMP020X304","name":"Data Engineering"},{"code":"CMP020X305","name":"Cybersecurity"}]}
+```
 
-
+- **Stop the container. Find its name using `docker ps` and then stop it using `docker stop`.**
+- **Commit your changes to GitHub. Remember:**
+  - **Add the changes.**
+  - **Commit the changes.**
+  - **Push the changes.**
 
 ### Getting a Student
 
+- **Add the following to `data.js`:**
 
+```javascript
+// Export getStudent function
+exports.getStudent = function(id, callback) {
+    // Create SQL statement
+    // First get the student and their programme details
+    var sql = `
+        SELECT 
+            Students.id, 
+            Students.first_name, 
+            Students.last_name, 
+            Students.programme,
+            Programmes.name
+        FROM
+            Students,
+            Programmes
+        WHERE
+            Students.id = '1'
+            AND
+            Students.programme = Programmes.code
+        `;
+    // Execut query. Only one row returned.
+    db.get(sql, function(err, row) {
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create programme object
+        var prog = new student.Programme(row.programme, row.name);
+        // Create student object
+        var stud = new student.Student(row.id, row.first_name, row.last_name, prog);
+        // Now get the grades for the student
+        sql = `
+            SELECT
+                Modules.code,
+                Modules.name,
+                Grades.grade
+            FROM
+                Modules, Grades
+            WHERE
+                Grades.student = ${id}
+                AND
+                Grades.module = Modules.code
+            `;
+        // Execute query. Multiple rows returned.
+        db.all(sql, function(err, rows) {
+            if (err) {
+                return console.error(err.message);
+            }
+            // Loop through each row and create a module object and attach a grade
+            for (var row of rows) {
+                // Create module object
+                var module = new student.Module(row.code, row.name);
+                // Create a module combined with grade
+                var grade = {module, grade:row.grade}
+                // Add module and grade to student
+                stud.modules.push(grade);
+            }
+            // Return student
+            callback(stud);
+        });
+    });
+};
+```
 
-#### 
+- **Update the endpoint in `app.js`**
 
+```javascript
+// Add /student endpoint
+app.get("/student/:id", function(req, res) {
+    // Call getStudent on data
+    data.getStudent(req.params.id, function(student) {
+        res.json(student);
+    });
+});
+```
+
+- **Rebuild your Docker image using the following command:`docker build -t student-database .`**
+- **Run the Docker image as a container with the following command: `docker run -d --rm -p 5000:3000 student-database`**
+- **Test the new endpoint works by visiting `localhost:5000/student/1` in your browser. Your output should be the following:**
+
+```json
+{"id":1,"first_name":"Kevin","last_name":"Chalmers","programme":{"code":"09UU5931","name":"BSc Computer Science","modules":[]},"modules":[{"module":{"code":"CMP020C101","name":"Software Development 1"},"grade":82},{"module":{"code":"CMP020C102","name":"Computer Systems"},"grade":65},{"module":{"code":"CMP020C103","name":"Mathematics for Computer Science"},"grade":100},{"module":{"code":"CMP020C104","name":"Software Development 2"},"grade":85},{"module":{"code":"CMP020C105","name":"Computing and Society"},"grade":62},{"module":{"code":"CMP020C106","name":"Databases"},"grade":72}]}
+```
+
+- **Stop the container. Find its name using `docker ps` and then stop it using `docker stop`.**
+- **Commit your changes to GitHub. Remember:**
+  - **Add the changes.**
+  - **Commit the changes.**
+  - **Push the changes.**
+
+## What Next?
+
+Next week we will start on our frontend by using the defined endpoints. However, there is one thing you should try and do right now.
+
+- **Your `app.js` code will crash if your queries don't return anything. Can you stop this form happening?**
