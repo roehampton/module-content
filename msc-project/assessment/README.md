@@ -37,19 +37,11 @@ You will be assessed against these learning outcomes.
 
 ## Project Deliverables
 
+Your project has three main deliverables.
 
-
-**TO DO**
-
-
-
-·    A project report.
-
-·    Any required deliverables, such as software products produced.
-
-·    A short screencast illustrating the work they have done.
-
-
+- The project report -- a rough outline of the contents of the report is provided below.
+- Any required deliverables, such as software products produced. These should be made available in a manner such that the examination team can access them easily.
+- A short screencast illustrating the work they have done. This can be just a short PowerPoint recording with you talking behind it. Or, it can be a technical walkthrough of your product while you explain the features. **The screencast must be approximately five to ten minutes long. If it is significantly longer or shorter this will impact the final grade of your project.**
 
 ## Selecting Your Project
 
@@ -133,41 +125,34 @@ For a generalist masters project, the student is expected to demonstrate the fol
 
 ### Project Types by Programme
 
+Your project requires you to investigate, design, implement, and evaluate an artefact for a particular problem relevant to your degree of study. Put simply, you must develop something related to a problem in your discipline area.
 
+The artefact will be built and/or written to meet your programme requirements. For example, a software library can be considered a build artefact for software development projects, and the API documentation produced would be written content.
 
-**TO DO**
-
-
+Below provides the guidance for each specific programme area.
 
 #### MSc Computing
 
+MSc Computing is a broad conversion degree, and therefore the project must investigate a computing problem/area. Typically, this will be in the development of a software artefact and suitable critical evaluation of the technologies and/or methods used in the investigation and/or build.
 
+The developed artefact should be large enough to demonstrate the meeting of the programme learning outcomes. Possible artefacts include, but are not limited to:
 
-**TO DO**
-
-
+- Algorithms.
+- Database applications.
+- Mobile applications.
+- Desktop applications.
+- Web applications.
+- Websites.
+- Software prototypes.
+- Simulations/simulators.
 
 ## Project Process
 
-
-
-**TO DO**
-
-
-
-·    Project initiation and signoff.
-
-·    Project planning and initial investigation.
-
-·    Project mid-point review.
-
-·    Project delivery.
-
-
+The MSc Project occurs during any term so giving specific dates is difficult. The following provides a rough outline for the project. Specific dates will be shared via Moodle and your timetable.
 
 ### Support Workshops
 
-
+The project team run four support workshops to help you along the journey of your project.
 
 **TO DO**
 
@@ -201,19 +186,21 @@ For a generalist masters project, the student is expected to demonstrate the fol
 
 ### Milestones
 
+You have three submissions as part of the project. These are designed to ensure you have started your project and are making sufficient progress, as well as providing opportunities for feedback. Note that these weeks are approximate and actual dates will be provided on Moodle and subject to supervisory team availability.
 
-
-**TO DO**
-
-
+- Week 1: Project initiation and sign off -- you must provide a brief overview of your proposal and the name of your proposed supervisor.
+- Week 5: Progress review -- you must provide a short overview of the outcome of your investigation, any particular work you have undertaken in implementation or results gathering, and a concrete plan for how you will deliver the project by the deadline.
+- Week 6: Progress review meeting -- your supervisory team will meet with you to discuss your progress. The second marker will provide feedback, specifically as they are detached from the project process. This will provide you with an external viewpoint of how things are going.
+- Week 15: Project delivery -- your report and other supporting artefacts are submitted via Moodle.
+- Week 18: Oral examination -- this is your chance to discuss your project and explain to your supervisors what you have achieved. Some points to note:
+  - This is not an interrogation -- it is a collegiate discussion and feedback session.
+  - This is a chance to talk about your project -- perhaps your only chance. Show why you found it exciting.
+  - Your second marker has only really read some documents from you and may not understand your project. This is your chance to explain things here.
+  - Really, the oral examination normally results in your grade increasing as your markers get a better picture of the work you have done.
 
 ### Project Management
 
-
-
-**TO DO**
-
-
+A key aspect of your
 
 ### Assessment Criteria
 
@@ -343,6 +330,8 @@ If your project required ethical clearance, then this must be clearly stated in 
 
 ##### Background
 
+You need to convince your examination team that your project is a viable one by answering the question -- **why is this a suitable project for a MSc Project?**
+
 The aim of the background section is to provide the reader with the relevant contextual information necessary to understand your work. This section must be suitably referenced based on the reviews undertaken. There are two reviews that are likely to take place within this section -- a technology review and a literature review. The section concludes with a summary of the findings from the background investigation and how that **justifies** the work undertaken in your project.
 
 ###### Technology Review
@@ -355,23 +344,79 @@ All projects should reference some academic literature, although it is primarily
 
 ##### Design or Methodology
 
+Now you must tell your examination team what you are going by answering the question -- **how are you going to undertake the project?**
+
+The aim of this section is to explain to your reader the work you are going to undertake. Depending on whether the project is more build or research focused, this section can take one of the following forms.
+
+###### Design
+
+If your project is a build focused project, you should provide a design for what your project will build. The nature of this design will depend on your project, but it should provide a complete idea of what you are going to build, including the technologies to be used.
+
+###### Methodology
+
+If your project is research focused, then you need to define the particular research methodology you are using to gather and assess data. Typically, this will involve some sort of data gathering process and statistical analysis of results. However, you should also describe the tools (e.g., technologies) that you will use as well.
+
 ###### Alternative Approaches
+
+Another important point in this section is to document any alternative approaches you could have taken to complete the project. For example, were there different technology choices, design choices, or methodological choices you could have taken? You should explain why you have taken the approach you have taken rather than these alternatives.
 
 ##### Implementation or Results
 
+Once the examination team what you planned to do, you must tell them what happened -- **what was the outcome of the work you undertook in the project?**
+
+A build project will discuss the implementation. **Do not just paste in lines of code to your report and call that an implementation! Your report should feature minimum code to only discuss points.** The idea for an implementation is to describe how the design has actually turned out.
+
+A research project will present the results from performing the methodology. These results must be correctly presented, using appropriate tables, charts, and statistical tests that suit the nature of the project. Results should be summarised and any findings clearly presented.
+
 ##### Evaluation
 
-##### Conclusion
+The examination team now need to know how well the project went -- **how good was the outcome from the project?**
 
-###### Reflection
+Evaluation is an important element of any project. You must tell your reader how good the final deliverable is. **Your project does not have to be perfect -- indeed the outcomes might have been bad.** The point is you must evaluate the outcome and discuss its strengths and weaknesses.
+
+A key element of this section is a reflection on the aims and objectives set out at the start of the project, and how well these have been met. **Again, it is possible not to achieve an aim or objective.** The point is you evaluate how well you did meet your goals.
 
 ###### Related Work
 
+Answer the question -- **who else has done something similar and how does my work compare?**
+
+Another key element of this section is evaluating your work against that of others. How good is your work when compared to other people who have undertake similar work? It is important to be able to understand how well you have achieved your goals in relation to others, while also considering the time limitations of the project.
+
+##### Conclusion
+
+The conclusion summarises the project. You need to highlight your key outputs and/or discoveries. There are some particular subsections that must appear in your conclusion.
+
+###### Reflection
+
+You must critically reflect on the entire project process and how well you have worked on the project. What particular things have you learned during the project? Why were you able and unable to meet project goals? What would have you done differently in hindsight?
+
+A common approach many students take in this section is to claim poor time management. **Poor time management is rarely a problem unless you had too much to do in the project.** Normally, what is called poor time management is poor organisation, planning, and motivation. Being honest in your reflection will help you understand how you can improve these issues rather than focusing on time management issues.
+
 ###### Future Work
+
+Answer the question -- **what next?**
+
+You've completed a significant piece of work -- perhaps the largest piece of work you have ever done. But no project is ever 100% complete, and you will have found new ideas alone the way. If someone were to pick up your project, what avenues should be explored next.
 
 #### References
 
+In this section you **must** reference any sources used in your work. Typically, these sources will have come up during the investigation and related work sections. Your referencing must use the IEEE referencing style [IEEE Citation Guidelines2.doc (ieee-dataport.org)](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE Citation Guidelines.pdf).
+
+It is **highly** recommended that you use reference management software such as Mendeley or Zotero.
+
+Many students ask how many references are required. That is like asking how long a piece of string is. Your project should have as many references as is required for it. However, having few references indicates that no thorough investigation has occurred.
+
 #### Appendices
+
+Appendices appear after references. Your appendices depend on the nature of your project. **Do not assume people will read your appendices.** Even if you direct them to do so in your main text, appendices are considered additional information and should not be relied upon to understand your main body of work. Refer readers to an appendix using a phrase such as *see Appendix A for further details*.
+
+The following documents **must** be included as references:
+
+- Your Project Proposal.
+- Your Progress Review Form.
+- Your original plan and revised plans as your project evolved.
+- A description of how to access any technical output. **It is strongly recommended you use GitHub or similar to do this.**
+- Any important communications between you and external stakeholders -- **please ensure private data is removed and communications anonymised.**
 
 ### Report Layout and Style
 
@@ -383,9 +428,9 @@ All projects should reference some academic literature, although it is primarily
 
 ### Proposal
 
-### Supervisory Team Agreement
+### Mid-point Progress Review
 
-### Mid-point Review
+### Progress Review Feedback
 
 ### Final Submission
 

@@ -31,11 +31,9 @@ To give you an idea of the process we are going to follow, see the below series 
 
 ## Basic Application Architecture
 
+The basic application architecture we have been working to is below. In this lab we will cover everything up to and including Express.js.
 
-
-**TODO**
-
-
+![image-20210306214659379](image-20210306214659379.png)
 
 ## Requirements
 
@@ -61,14 +59,6 @@ Our user stories are focused on administrators and students. We will keep these 
 
 
 
-### Activity Diagrams
-
-
-
-**TODO**
-
-
-
 ### Database Design
 
 
@@ -81,35 +71,42 @@ Our user stories are focused on administrators and students. We will keep these 
 
 
 
-### Frontend Design
-
-
-
 **TODO**
 
 
 
 ## Logistics -- GitHub, `npm` and Docker
 
+Our first task when creating a project is setup the main configurations:
+
+1. GitHub repository.
+2. `npm` initialisation.
+3. Docker file.
+
 ### GitHub Setup
+
+- **Create a new GitHub repository for your project. For example, the details I used are below**.
 
 ![image-20210301190551085](image-20210301190551085.png)
 
+- **Next clone your GitHub repository in Visual Studio Code. Use the Version Control tab and select Clone Repository.**
+
 ![image-20210301190717525](image-20210301190717525.png)
 
-
+- **When your repository has been cloned, your Visual Studio Code should look something like this.**
 
 ![image-20210301190910116](image-20210301190910116.png)
 
-
+We are now ready to set up the Node project via 
 
 ### `npm`
 
-
+- **Open the Terminal in Visual Studio Code and enter `npm init` as shown below.**
 
 ![image-20210301191011054](image-20210301191011054.png)
 
-
+- **Just use the default values is you wish. It will create a `package.json` file.**
+- **Open `package.json` and add the `start` script `node main.js`. My one is below. See Line 7 for the change.**
 
 ```json
 {
@@ -135,19 +132,13 @@ Our user stories are focused on administrators and students. We will keep these 
 
 ```
 
-
+- **Now let us install our dependencies. Enter `npm install express` in the Visual Studio Code Terminal.**
 
 ![image-20210301202127533](image-20210301202127533.png)
 
+- **Now enter `npm install sqlite3` in your Visual Studio Code Terminal.**
 
-
-`npm install express`
-
-
-
-`npm install sqlite3`
-
-
+Your `package.json` file should now look like this.
 
 ```json
 {
@@ -176,29 +167,23 @@ Our user stories are focused on administrators and students. We will keep these 
 }
 ```
 
-
-
-Git commit
-
-
+- **Now add the file `main.js` to the main folder of your project. Use the following code:**
 
 ```javascript
 console.log("Hello, world!");
 ```
 
+- **Test your application now by running `npm start` in the Visual Studio Code Terminal. Your output should be `Hello, world!`.**
+- **Commit your changes to GitHub now. Remember**:
+  - **Add the changes.**
+  - **Create a commit.**
+  - **Push the changes.**
 
-
-`npm start`
-
-
-
-Git commit.
-
-
+We have now set up our project to run. Let us now create the execution environment.
 
 ### Docker Setup
 
-
+- **Create a `Dockerfile` file in the main folder of the project, using the below. NOTE -- for most of you this will be the default `Dockerfile` for your project.**
 
 ```dockerfile
 # Base image to use
@@ -224,7 +209,7 @@ EXPOSE 3000
 ENTRYPOINT ["npm", "start"]
 ```
 
-
+- **Now add a `.dockerignore` file to your main project folder using the following for its contents.**
 
 ```txt
 .git
@@ -232,32 +217,36 @@ node_modules
 npm-debug.log
 ```
 
+- **Build your docker image now using the following command within the Visual Studio Code Terminal: `docker build -t student-database .` (remember the dot at the end).**
 
+- **Now run your docker image as a container by executing the following: `docker run --rm student-database`**
 
-`docker build -t student-database .`
-
-
-
-`docker run --rm student-database`
-
-
+You should have output similar to the below.
 
 ![image-20210301203903716](image-20210301203903716.png)
 
+- **Now commit your changes to GitHub. Remember:**
+  - **Add your changes.**
+  - **Commit the changes.**
+  - **Push the changes.**
 
-
-Git commit.
-
-
+We now have our configuration set up. Let us move onto our backend development.
 
 ## Backend Setup
 
+Our backend is written in Node.js, using SQLite as a database and communicating with the frontend via Express.js. We will now perform the following steps:
+
+- Create our project folder structure.
+- Define our classes.
+- Define our endpoints (Express.js routes).
+
 ### Folder Structure
+
+- **Update your Visual Studio Project folder as follows. Some of these files should already be created. Ensure you create the correct folders and that the files are in the correct place. `student.db` is available on Moodle.**
 
 ```txt
 \---app
 |       app.js
-|       student.js
 |
 \---data
 |       data.js
@@ -268,6 +257,7 @@ Git commit.
 \---static
 |       index.html
 |       index.js
+|
 |   .dockerignore
 |   .gitignore
 |   Dockerfile
@@ -276,21 +266,29 @@ Git commit.
 |   package-lock.json
 |   package.json
 |   README.md
+|   student.js
 ```
 
-
+- **Below is how this looks in Visual Studio Code.**
 
 ![image-20210301205801881](image-20210301205801881.png)
 
-
-
-Git commit.
-
-
+- **Commit your changes to GitHub. Remember:**
+  - **Add your changes.**
+  - **Commit your changes.**
+  - **Push your changes.**
 
 ### Class Definitions
 
-Defining modules.
+We can now define our classes. We are going to put these in `student.js`. This file will be a **module** that we can import into other parts of our code. A module requires us to use the `exports` object. This allows other code to use parts of our module. For example, if we want to export a function, `myFunction` from our module, we would do the following:
+
+```javascript
+exports.myFunction = function() { 
+  // function contents.
+};
+```
+
+- **Enter the below into the `student.js` file.**
 
 ```javascript
 "use strict";
@@ -304,13 +302,14 @@ exports.Student = class {
   last_name;
   // Student programme
   programme;
-  // Student modules
-  modules;
+  // Student modules and grades
+  modules = [];
 
   constructor(id, first_name, last_name, programme) {
     this.id = id;
     this.first_name = first_name;
     this.last_name = last_name;
+    this.programme = programme;
   }
 }
 
@@ -339,26 +338,29 @@ exports.Module = class {
 }
 ```
 
-
-
-
+- **Commit your changes to GitHub. Remember:**
+  - **Add the changes.**
+  - **Commit the changes.**
+  - **Push the changes.**
 
 ### Endpoints
 
-1. Module
-2. Modules
-3. Programme
-4. Programmes
-5. Student
-6. Students
+Endpoints are the routes that our Express.js application will offer to our front end. We need an endpoint for each data type we can request -- `Student`, `Programme`, and `Module` -- as well being able to get all of the entries for these types in the database. Therefore, we require six endpoints.
 
+1. Module -- `/module/code`
+2. Modules -- `/modules`
+3. Programme -- `/programme/code`
+4. Programmes -- `/programmes`
+5. Student -- `/student/id`
+6. Students -- `/students`
 
+- **Below is the contents of `app.js`. Enter this code now. We have covered each part of this code so far.**
 
 ```javascript
 "use strict";
 
 // The application layer uses student classes
-const student = require("./student.js");
+const student = require("../student.js");
 
 // The application layer talks to the data layer
 const data = require("../data/data.js");
@@ -417,7 +419,7 @@ app.listen(3000, function(err) {
 });
 ```
 
-
+- **Now update the `main.js` file to the following.**
 
 ```javascript
 "use strict";
@@ -427,54 +429,43 @@ app.listen(3000, function(err) {
 const app = require("./app/app");
 ```
 
-
-
 ### Testing
 
+Let us now test our application.
 
+- **Build the Docker image using `docker build -t student-database .`**
 
-`docker build -t student-database .`
-
-
-
-`docker run -d --rm -p 5000:3000 student-database`
-
-
+- **Now run the Docker image in detached mode (`-d`) and redirect the host machine's port 5000 to the container's port 3000: `docker run -d --rm -p 5000:3000 student-database`**
+- **Now open your browser and test the endpoints to see if they are working. For example, `localhost:5000/students` returns the following.**
 
 ![image-20210301212734028](image-20210301212734028.png)
 
-
-
-`docker ps`
-
-
+- **Now we need to stop our Docker container. Run the following to list the running containers: `docker ps`. This will output the list of running containers. For example, mine is below:**
 
 ```shell
 CONTAINER ID   IMAGE              COMMAND       CREATED              STATUS              PORTS                    NAMES
 974905b65c5c   student-database   "npm start"   About a minute ago   Up About a minute   0.0.0.0:5000->3000/tcp   wonderful_dijkstra
 ```
 
+- **To stop the running container use `docker stop <name>` where `<name>` is the name of your container. For example, I will run `docker stop wonderful_dijkstra`.**
 
-
-
-
-`docker stop wonderful_dijkstra`
-
-
-
-Git commit
-
-
+- **Commit your changes to GitHub. Remember:**
+  - **Add your changes.**
+  - **Commit your changes.**
+  - **Push your changes.**
 
 ## Talking to Our Database
 
-Database link.
+
 
 ```javascript
 "use strict";
 
 // Import SQLite library.
 const sqlite3 = require("sqlite3").verbose();
+
+// The application layer uses student classes
+const student = require("../student.js");
 
 // Connect to the database.
 var db = new sqlite3.Database("data/students.db", function(err) {
@@ -550,8 +541,19 @@ exports.getStudents = function(callback) {
         if (err) {
             return console.error(err.message);
         }
+        // Create an array of Students
+        var students = [];
+        // Loop through rows creating Student objects
+        for (var row of rows) {
+            // Create programme object
+            var prog = new student.Programme(row.programme, row.name);
+            // Create student object
+            var stud = new student.Student(row.id, row.first_name, row.last_name, prog);
+            // Add student to array
+            students.push(stud);
+        }
         // Execute callback function
-        callback(rows);
+        callback(students);
     });
 };
 ```
@@ -562,8 +564,8 @@ exports.getStudents = function(callback) {
 // Add /students endpoint
 app.get("/students", function(req, res) {
   // Call getStudents on data
-  data.getStudents(function(rows) {
-    res.json(rows);
+  data.getStudents(function(students) {
+    res.json(students);
   });
 });
 ```
@@ -587,18 +589,28 @@ Git commit.
 
 
 ```javascript
+// Export getProgrammes function
 exports.getProgrammes = function(callback) {
-  // Create SQL statement
-  var sql = `SELECT * FROM Programmes`;
-  // Execute query. Return all
-  db.all(sql, function(err, rows) {
-    // Check if error
-    if (err) {
-      return console.error(err.message);
-    }
-    // Execute callback function
-    callback(rows);
-  });
+    // Create SQL statement
+    var sql = `SELECT * FROM Programmes`;
+    // Execute query. Return all
+    db.all(sql, function(err, rows) {
+        // Check if error
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create programme array
+        var programmes = [];
+        // Loop through rows creating programme objects
+        for (var row of rows) {
+            // Create programme object
+            var prog = new student.Programme(row.code, row.name);
+            // Add object to array
+            programmes.push(prog);
+        }
+        // Execute callback function
+        callback(programmes);
+    });
 };
 ```
 
@@ -608,8 +620,8 @@ exports.getProgrammes = function(callback) {
 // Add /programmes endpoint
 app.get("/programmes", function(req, res) {
     // Call getProgrammes on data
-    data.getProgrammes(function(rows) {
-        res.json(rows);
+    data.getProgrammes(function(programmes) {
+        res.json(programmes);
     });
 });
 ```
@@ -631,7 +643,17 @@ exports.getModules = function(callback) {
         if (err) {
             return console.error(err.message);
         }
-        callback(rows);
+        // Create modules array
+        var modules = [];
+        // Loop through each row and create a module object
+        for (var row of rows) {
+            // Create module object
+            var mod = student.Module(row.code, row.name);
+            // Add module to array
+            modules.push(mod);
+        }
+        // Execute callback function
+        callback(modules);
     });
 };
 ```
@@ -642,8 +664,8 @@ exports.getModules = function(callback) {
 // Add /modules endpoint
 app.get("/modules", function(req, res) {
     // Call getModules on data
-    data.getModules(function(rows) {
-        res.json(rows);
+    data.getModules(function(modules) {
+        res.json(modules);
     });
 });
 ```
@@ -651,6 +673,42 @@ app.get("/modules", function(req, res) {
 
 
 ### Getting a Module
+
+
+
+```javascript
+// Export getModule function
+exports.getModule = function(code, callback) {
+    // Create SQL statement
+    var sql = `
+        SELECT * FROM Modules
+        WHERE code = ${code}`;
+    // Execute query. Only one row returned.
+    db.get(sql, function(err, row) {
+        if (err) {
+            return console.error(err.message);
+        }
+        // Create a module object
+        var module = new student.Module(row.code, row.name);
+        // Return module
+        callback(module);
+    });
+};
+```
+
+
+
+```javascript
+// Add /module endpoint
+app.get("/module/:code", function(req, res) {
+    // Call getModule on data
+    data.getModule(function(module) {
+        res.json(module);
+    });
+});
+```
+
+
 
 
 
