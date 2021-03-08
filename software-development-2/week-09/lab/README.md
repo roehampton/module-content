@@ -208,13 +208,112 @@ int main(int argc, char **argv)
 
 
 
-- Files
-  - eof
-- Checking the type of data:
-  - isalnum
-  - isalpha
-  - isdigit
-- Catching errors -- divide by zero, memory access
+- Eof and get line
+
+
+
+```cpp
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using std::string;
+using std::cout;
+using std::endl;
+using std::ifstream;
+using std::getline;
+
+int main(int argc, char **argv)
+{
+  string buffer;
+  // Open file for reading
+  ifstream file("test.txt");
+  // Loop until end of file
+  while (!file.eof())
+  {
+    // Get next line of text from file
+    getline(file, buffer);
+    // Print the read line
+    cout << buffer << endl;
+  }
+  return 0;
+}
+```
+
+
+
+- Catching errors -- stoi
+
+
+
+```cpp
+#include <iostream>
+#include <string>
+
+using std::string;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::stoi;
+
+int main(int argc, char **argv)
+{
+  // Ask the user for input
+  string input;
+  cout << "Enter a number: ";
+  cin >> input;
+  // Try and convert the input string to a number
+  int n = stoi(input);
+  // Output number
+  cout << "You entered " << n << endl;
+  return 0;
+}
+```
+
+
+
+```cpp
+#include <iostream>
+#include <string>
+#include <stdexcept>
+
+using std::string;
+using std::cin;
+using std::cout;
+using std::cerr;
+using std::endl;
+using std::stoi;
+using std::invalid_argument;
+
+int main(int argc, char **argv)
+{
+  // Ask the user for input
+  string input;
+  // Loop until break
+  while (true)
+  {
+    try
+    {
+      cout << "Enter a number: ";
+      cin >> input;
+      // Try and convert the input string to a number
+      int n = stoi(input);
+      // Output number
+      cout << "You entered " << n << endl;
+      // If we get here, break out of loop
+      break;
+    }
+    catch(const invalid_argument& e)
+    {
+      cerr << e.what() << endl;
+    }
+  }
+  return 0;
+}
+```
+
+
+
 - Throwing your own errors
 - Declaring functions have errors
 - Advanced -- regular expressions
