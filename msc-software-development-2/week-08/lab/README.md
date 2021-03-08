@@ -506,7 +506,7 @@ Our first endpoint will be getting all students -- `/students`. The SQL statemen
 
 ```sql
 SELECT 
-	Students.id, 
+  Students.id, 
   Students.first_name, 
   Students.last_name, 
   Students.programme,
