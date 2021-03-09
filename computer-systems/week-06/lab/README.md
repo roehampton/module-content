@@ -85,7 +85,7 @@ global main
 extern printf                   ; ask to include printf function
 
 SECTION .data
-    msg: db "Hello, <name>",0xa,0x0
+    msg db "Hello, <name>",0xa,0x0
 
 SECTION .text
 
@@ -125,7 +125,7 @@ extern printf
 SECTION .data
     A dd 20
     B dd 31
-    msg db "20 + 30 = %d",0xa,0x0
+    msg db "20 + 31 = %d",0xa,0x0
 
 SECTION .text
 
