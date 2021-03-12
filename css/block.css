@@ -7,3 +7,11 @@ body
     -o-user-select: none;
     user-select: none;
 }
+
+@media print
+{
+    body
+    {
+        display: none;
+    }
+}
