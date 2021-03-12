@@ -1,5 +1,8 @@
 # Software Development 2 Lab 07 -- Introduction to C++ and Calling Conventions
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
 <link rel="stylesheet" href="/module-content/css/block.css">
 
 In this unit we are going to look at how we work with functions / operations in more detail. We are interested in how our variables are transferred and used by our functions / operations.  This involves our first major investigation into what a pointer is and what a reference is.  The former concept becomes very important when we look at memory management in the next unit.  To use the latter concept, we need to change the language we are using to C++.  This is the language we will use from now on.

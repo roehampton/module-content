@@ -1,5 +1,8 @@
 # Software Development 2 Lab 06 -- Inline Assembly Programming
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
 <link rel="stylesheet" href="/module-content/css/block.css">
 
 **WARNING -- before starting this lab it is recommended that you use a Windows machine only with the Microsoft compiler. Assembly is platform specific and we will only cover the Microsoft toolchain.**

@@ -1,5 +1,8 @@
 # Software Development 2 Lab 08 -- Memory Management: Using the Stack and Heap
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
 <link rel="stylesheet" href="/module-content/css/block.css">
 
 In this unit we are going to expand on our work with understanding pointers by beginning to work with memory.  When working with a low-level systems language such as C/C++, memory management is an important consideration. 

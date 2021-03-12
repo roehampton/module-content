@@ -1,5 +1,8 @@
 # Software Development 2 Lab 04 -- Program Tracing and Debugging
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
 <link rel="stylesheet" href="/module-content/css/block.css">
 
 So far, we have been writing code and trying to fix errors as we go, hoping that the compiler will detect any problems we have. But what if our logic is incorrect? How do we find and resolve errors? You will find that this takes a significant amount of the work you will do as a programmer -- finding bugs and fixing them. Let us look at how we can do this.
