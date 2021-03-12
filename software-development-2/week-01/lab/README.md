@@ -1,5 +1,7 @@
 # Software Development 2 Lab 01 -- Getting Started with C
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad()</script>
 <link rel="stylesheet" href="/module-content/css/block.css">
 
 These tutorials are designed to teach you a number of C Programming principles with sophisticated topics and examples. The goal of each problem is not to solve that specific problem, but to exercise a certain set of skills, or to practice solving a certain type of problem. 
