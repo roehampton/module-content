@@ -5,7 +5,9 @@
 
 <link rel="stylesheet" href="/module-content/css/block.css">
 
-In this lab we will explore how we ensure that the input into our programmes is correct. This is a very important concept. Invalid input is one of the main reasons your programme can fail
+In this lab we will explore how we ensure that the input into our programs is correct. This is a very important concept. Invalid input is one of the main reasons your program can fail, and one of the main security risks for you programs.
+
+## Testing if a Value Input is a Number
 
 - Read in number but isn't a number
 

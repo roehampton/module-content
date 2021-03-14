@@ -1,3 +1,5 @@
+# Software Development 2 Lab 09 -- Case Study Part 2
+
 ### Frontend Design
 
 
@@ -7,6 +9,12 @@
 ## Frontend Setup
 
 ### More Angular
+
+#### Programmes Page
+
+#### Modules Page
+
+#### Students Page
 
 ### Testing
 
