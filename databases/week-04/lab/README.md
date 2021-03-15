@@ -1,5 +1,10 @@
 # Databases Lab 4 -- Database Constraints
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 **This lab will describe database constraints and how to create and maintain constraints within the database. In addition, how constraints can be added to the existing database tables will be demonstrated.**  
 
 Database constraints work at the table level, which enforces rules whenever a row is inserted, updated, or deleted from that table. The constraint types that will be used are:

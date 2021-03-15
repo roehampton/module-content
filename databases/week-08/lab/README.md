@@ -1,5 +1,11 @@
 # Databases Lab 8 -- Subquery
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 **This lab describes the problems that different types of subqueries can solve through single and multi-row outputs while accessing database.**
 
 Subquery is an advanced features used within the `SELECT` block in any SQL statement. For example, if we are asked to find the salaries greater than Jones' salary from the `employee` table then to solve this problem, we need two queries:

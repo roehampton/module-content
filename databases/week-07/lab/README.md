@@ -1,5 +1,10 @@
 # Databases Lab 7 -- Joining
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 **This lab is about displaying/ accessing data from multiple tables by *joining* them. Also, the topic covers how to obtain data from more than one table, using different available joining methods.**
 
 Several times the requirement may be as such, that more than one table needs to be accessed to get the desired report displayed. For example, in the database `EmployeeInfo`, `Employee` table has all the information about employee like: employee’s number, name, salary, hiredate, his job and department number in which employee is working in) and in the `Department` table, department’s number, name and it’s location information is available.

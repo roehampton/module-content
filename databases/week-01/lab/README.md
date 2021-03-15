@@ -1,5 +1,10 @@
 # Databases Lab 1 -- Introduction to the Database Server MySQL
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 **The contents of this lab are based on operating MySQL database server. Also, by using the graphical user interface of the server how to explore and visualise the database as well the database tables will be covered.**
 
 To begin with, we must have [XAMPP installed](https://www.apachefriends.org/download.html). Through the XAMPP control panel we will get MySQL module and by selecting **Start** we can activate the MySQL server.

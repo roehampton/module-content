@@ -1,5 +1,10 @@
 # Databases Lab 3 - Data Manipulation Language
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 **This lab explores how to populate database tables with appropriate values and properly access those records. We will also make changes to the records/values and deleting them within the database using SQL.** 
 
 Data Manipulation Language (DML) is a kind of transaction on the database table which can:

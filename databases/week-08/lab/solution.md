@@ -1,5 +1,10 @@
 # Databases Lab 8 -- Subquery
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 ## Solutions
 
 1. Enter data.

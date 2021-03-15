@@ -1,5 +1,10 @@
 # Databases Lab 9 -- Views
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 **The content of today’s lesson is based on creating *views* and to query relevant data dictionary object to retrieve information about views.** 
 
 `VIEW` is a logical representation of data as a subset from one or more table(s).

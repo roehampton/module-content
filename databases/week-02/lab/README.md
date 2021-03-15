@@ -1,5 +1,10 @@
 # Databases Lab 2 -- Data Definition Language
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 **The contents of this lab will be mainly emphasising on how to describe main database objects, create tables in the database, describing data types which can be used while specifying column definitions, alter tables as well as how to drop, rename, and truncate tables within the database.** 
 
 There are a few considerations to remember while defining any database object (database *table*):

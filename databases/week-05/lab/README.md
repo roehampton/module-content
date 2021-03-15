@@ -1,5 +1,10 @@
 # Databases Lab 5 -- Special Operators in SQL
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 **This lab focuses on the special types of operators that are used to access information by effective querying from any database table.**  
 
 There are comparison operators which can be used while performing any query on an existing database or database table as below: 

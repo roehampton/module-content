@@ -1,5 +1,10 @@
 # Databases Lab 6 -- Aggregation Functions
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 **This lab focuses on aggregation of data using group functions.**
 
 Group functions are operated on set(s) of rows to provide one result per group. Types of aggregation functions are:
