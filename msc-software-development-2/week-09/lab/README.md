@@ -498,7 +498,7 @@ Now all we need to do is repeat this process for `all_students.html` and `all_st
       <tr ng-repeat = "module in selectedStudent.modules">
         <td>{{ "{{ module.module.code "}}}}</td>
         <td>{{ "{{ module.module.name "}}}}</td>
-        <td>{{ "{{ module.grade ßtd>
+        <td>{{ "{{ module.grade "}}}}</td>
       </tr>
     </table>
   </div>
