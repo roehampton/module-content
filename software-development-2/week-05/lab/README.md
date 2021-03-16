@@ -169,8 +169,6 @@ Up until this point, your program building and running has been relatively simpl
 
 A makefile is a handy method of building applications by containing all the necessary instructions in a single file, rather than typing them in the command line each time.
 
-Visual Studio Code does not fully support makefiles yet, although Microsoft have feature development to support it. You can download this now. To do so, follow the installation instructions [here](https://github.com/microsoft/vscode-makefile-tools). We will cover this in class.
-
 Once installed, you should create a `makefile` (note -- no filename extension) file in Visual Studio Code.
 
 ### Simple Makefile
