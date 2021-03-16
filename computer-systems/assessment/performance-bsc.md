@@ -1,6 +1,6 @@
 # Computer Systems Coursework 2 -- System Performance
 
-Part 2 of the coursework is worth 60% of the total coursework mark. The submission deadline is **Friday 18th December online via Moodle by 23.59.**
+Part 2 of the coursework is worth 60% of the total coursework mark.
 
 Part 2 of the coursework focuses on system performance. This covers the module learning outcomes:
 
@@ -25,11 +25,11 @@ The table below defines five different systems from different manufacturers that
 
 | System | Cores | 720p hour encoding | 1080p hour encoding | 2160p hour encoding | Initial Cost | Cost Per Hour |
 | ------ | ----- | ------------------ | ------------------- | ------------------- | ------------ | ------------- |
-| 1      | 1     | 8 hours            | 16 hours            | 32 hours            | £3000        | £0.30         |
-| 2      | 2     | 6 hours            | 12 hours            | 24 hours            | £5000        | £0.60         |
-| 3      | 4     | 3 hours            | 6 hours             | 12 hours            | £10000       | £1.00         |
-| 4      | 8     | 1 hour             | 2 hours             | 4 hours             | £20000       | £1.50         |
-| 5      | 16    | 0.25 hours         | 0.50 hours          | 1 hour              | £0           | £5.00         |
+| 1      | 1     | 2 hours            | 4 hours             | 8 hours             | £1000        | £0.10         |
+| 2      | 2     | 1 hour             | 2 hours             | 4 hours             | £3000        | £0.15         |
+| 3      | 4     | 1 hour             | 1 hour              | 2 hours             | £5000        | £0.50         |
+| 4      | 8     | 0.5 hours          | 1 hour              | 1.5 hours           | £10000       | £0.75         |
+| 5      | 16    | 0.25 hours         | 0.50 hours          | 1 hour              | £0           | £3.00         |
 
 The EPL also want to ensure their fans have the best experience when watching video online. They have asked you to test the following browsers and determine which one is best:
 
@@ -39,7 +39,7 @@ The EPL also want to ensure their fans have the best experience when watching vi
 
 To test the performance, they have provided a test video (https://youtu.be/LXb3EKWsInQ). They require testing of all resolutions (720p, 1080p, 2160p).
 
-The EPL has 100,000 hours of content to encode. They require 50% of the content to be available in twelve weeks, and the following 75% in 24 weeks, and the full 100% in one year.
+The EPL has 50,000 hours of content to encode. They require 25% of the content to be available in twelve weeks, 50% in 24 weeks, and the full 100% in one year.
 
 As the head of the system engineering department, you have been given the responsibility to draft a report on the following:
 
