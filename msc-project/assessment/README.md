@@ -150,7 +150,7 @@ The developed artefact should be large enough to demonstrate the meeting of the 
 
 The MSc Project occurs during any term so giving specific dates is difficult. The following provides a rough outline for the project. Specific dates will be shared via Moodle and your timetable.
 
-### Support Workshops
+### ==Support Workshops==
 
 The project team run four support workshops to help you along the journey of your project.
 
@@ -168,7 +168,7 @@ The project team run four support workshops to help you along the journey of you
 
 
 
-### Supervisory Team
+### ==Supervisory Team==
 
 
 
@@ -176,11 +176,27 @@ The project team run four support workshops to help you along the journey of you
 
 
 
-### Lifecycle
+### ==Lifecycle==
 
 
 
 **TO DO**
+
+
+
+#### ==Project Initiation==
+
+
+
+#### ==Progress Review==
+
+
+
+#### ==Delivery==
+
+
+
+#### ==Oral Examination==
 
 
 
@@ -198,11 +214,11 @@ You have three submissions as part of the project. These are designed to ensure 
   - Your second marker has only really read some documents from you and may not understand your project. This is your chance to explain things here.
   - Really, the oral examination normally results in your grade increasing as your markers get a better picture of the work you have done.
 
-### Project Management
+### ==Project Management==
 
 A key aspect of your
 
-### Assessment Criteria
+### ==Assessment Criteria==
 
 
 
@@ -210,7 +226,7 @@ A key aspect of your
 
 
 
-## Ethics
+## ==Ethics==
 
 
 
@@ -218,7 +234,7 @@ A key aspect of your
 
 
 
-## Report Format and Requirements
+## ==Report Format and Requirements==
 
 
 
@@ -418,20 +434,97 @@ The following documents **must** be included as references:
 - A description of how to access any technical output. **It is strongly recommended you use GitHub or similar to do this.**
 - Any important communications between you and external stakeholders -- **please ensure private data is removed and communications anonymised.**
 
-### Report Layout and Style
+### ==Report Layout and Style==
 
-#### Word Count
+#### ==Word Count==
 
-### Writing Style
+### ==Copyright and Intellectual Property Rights (IPR)==
 
-## Forms
+### ==Writing Style==
 
-### Proposal
+## ==Submission and Assessment==
 
-### Mid-point Progress Review
+### ==Assessment Criteria==
 
-### Progress Review Feedback
+### ==Submission==
 
-### Final Submission
+#### ==Project Proposal==
 
-### Grading
+#### ==Review==
+
+#### ==Report==
+
+#### ==Additional Files==
+
+#### ==Video Presentation==
+
+#### ==Oral Examination==
+
+## ==Regulations==
+
+### ==Extensions==
+
+### ==Late Projects==
+
+### ==Academic Misconduct==
+
+**Plagiarism** is a serious offence in academic work. This is where you present work of another as your own. It includes, but is not limited to, the copying from other students, books, the Internet, or other sources.
+
+You may be accused of academic misconduct if you:
+
+- Use an author's exact works without given appropriate attribution (a reference).
+- Write about another person's ideas without giving appropriate attribution.
+- Modify too little of a source even when giving appropriate attribution.
+- Presenting a collection of others' ideas without appropriate attribution.
+- Copy another student's work. If you lend you work to another, both of you can be penalised for academic misconduct.
+- Have someone else complete your work for.
+- Submit work already submitted for another assessment.
+
+You can avoid many plagiarism issues by being diligent in your approach to your work:
+
+- Recording all the appropriate references when you make notes. **Use reference management software as far as possible.**
+- Ensure your notes are not copies -- rewrite ideas in your own words.
+- Paraphrase paragraphs and not sentences.
+- When you write, even a draft, add the appropriate reference.
+- Collaborating means sharing ideas, not written work or code.
+- Read as widely as you can to see how other authors avoid plagiarism.
+
+
+
+### Failed Projects
+
+The pass mark for the MSc Project is 50%.
+
+Students who fail the project at the first attempt are normally given the opportunity to **resubmit the project next term with the mark capped at 50%.** This is not a new project, but a resubmission of your project addressing the areas of weakness as fed back by the examination team. You will have to undertake the following steps:
+
+- Resubmission of the report addressing the issues raised, perhaps including additional technical work.
+- Resubmission of the video presentation if new technical work has been delivered.
+- A further oral presentation.
+
+### Student Support
+
+Your first points of contact during your project should be:
+
+- Your supervisor.
+- Your Academic Guidance Tutor (AGT).
+- Your Programme Convenor.
+- Your Programme Administrator.
+
+If you have any additional support needs, please ensure that you contact the Student Wellbeing Team [Student Support: Wellbeing Support | University of Roehampton](https://www.roehampton.ac.uk/student-support/wellbeing-support/).
+
+General academic support is provided by the Academic Achievement Team via the Library [Academic Achievement - Library Home at University of Roehampton](https://library.roehampton.ac.uk/prf.php?account_id=140270).
+
+If you are experiencing technical difficulties when submitting your work you must contact the IT Service Desk immediately before the deadline [ServiceDesk | University of Roehampton](https://www.roehampton.ac.uk/current-students/servicedesk/).
+
+## ==Forms==
+
+### ==Proposal==
+
+### ==Mid-point Progress Review==
+
+### ==Progress Review Feedback==
+
+### ==Final Submission==
+
+### ==Grading==
+
