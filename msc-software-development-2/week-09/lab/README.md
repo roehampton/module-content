@@ -98,7 +98,7 @@ We will first create a simple version of our modules page. It will just display 
     <h1>Modules</h1>
     <div ng-app="mainApp" ng-controller="moduleController">
       <p>{{ "{{ module.code "}}}}</p>
-      <p>{{ "{{ module.name "}}</p>
+      <p>{{ "{{ module.name "}}}}</p>
     </div>
   </body>
 </html>
