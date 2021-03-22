@@ -138,13 +138,7 @@ Good bug reporting practice is essential. To illustrate poor communication, I wi
 
 ### Be Specific
 
-"I ran the code, and it’s not working." If you communicate this, you haven’t told the teaching team much. First, what do you mean you ran the code? What does running the code mean? In this module, it could mean:
-
-- You selected run within IntelliJ. 
-- You ran the Docker container for the application. 
-- You pushed your container to Google Cloud.
-
-Saying you ran the code tells us little.  Be specific. No one else lives in your head. Without the specific information you have, we cannot help you fix the bug.
+"I ran the code, and it’s not working." If you communicate this, you haven’t told the teaching team much. First, what do you mean you ran the code? What does running the code mean? Saying you ran the code tells us little.  Be specific. No one else lives in your head. Without the specific information you have, we cannot help you fix the bug.
 
 ### Be Verbose
 
