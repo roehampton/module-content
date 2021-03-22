@@ -37,15 +37,15 @@ We will undertake the following process:
 ```html
 <div ng-app="mainApp" ng-controller="moduleController">
   <table border = 1>
-  	<tr>
-    	<th>Code</th>
-  		<th>Name</th>
-  	</tr>
-		<tr ng-repeat="module in modules">
-    	<td>{{ "{{ module.code "}}}}</td>
-  		<td>{{ "{{ module.name "}}}}</td>
-  		<td><input type="button" ng-click="deleteModule(module.code)" value="Delete"></td>
-  	</tr>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+    </tr>
+    <tr ng-repeat="module in modules">
+      <td>{{ "{{ module.code "}}}}</td>
+      <td>{{ "{{ module.name "}}}}</td>
+      <td><input type="button" ng-click="deleteModule(module.code)" value="Delete"></td>
+    </tr>
   </table>
 </div>
 ```
