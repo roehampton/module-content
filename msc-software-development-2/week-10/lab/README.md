@@ -139,15 +139,15 @@ We now just have to repeat this process for Programmes.
 ```html
 <table border=1>
   <tr>
-  	<th>Code</th>
-		<th>Name</th>
-	</tr>
-	<tr ng-repeat="programme in programmes">
-  	<td>{{ "{{ programme.code "}}}}</td>
-		<td>{{ "{{ programme.name "}}}}</td>
-		<td><input type="button" ng-click="selectProgramme(programme.code)" value="Select"></td>
-		<td><input type="button" ng-click="deleteProgramme(programme.code)" value="Delete"></td>
-	</tr>
+    <th>Code</th>
+    <th>Name</th>
+  </tr>
+  <tr ng-repeat="programme in programmes">
+    <td>{{ "{{ programme.code "}}}}</td>
+    <td>{{ "{{ programme.name "}}}}</td>
+    <td><input type="button" ng-click="selectProgramme(programme.code)" value="Select"></td>
+    <td><input type="button" ng-click="deleteProgramme(programme.code)" value="Delete"></td>
+  </tr>
 </table>
 ```
 
@@ -246,19 +246,19 @@ For students we just repeat the same process.
 ```html
 <table border=1>
   <tr>
-  	<th>ID</th>
-		<th>First Name</th>
-		<th>Last Name</th>
-		<th>Programme Name</th>
-	</tr>
-	<tr ng-repeat="student in students">
-  	<td>{{ "{{ student.id "}}}}</td>
-		<td>{{ "{{ student.first_name "}}}}</td>
-		<td>{{ "{{ student.last_name "}}}}</td>
-		<td>{{ "{{ student.programme.name "}}}}</td>
-		<td><input type="button" ng-click="selectStudent(student.id)" value="Select"></td>
-		<td><input type="button" ng-click="deleteStudent(student.id)" value="Delete"></td>
-	</tr>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Programme Name</th>
+  </tr>
+  <tr ng-repeat="student in students">
+    <td>{{ "{{ student.id "}}}}</td>
+    <td>{{ "{{ student.first_name "}}}}</td>
+    <td>{{ "{{ student.last_name "}}}}</td>
+    <td>{{ "{{ student.programme.name "}}}}</td>
+    <td><input type="button" ng-click="selectStudent(student.id)" value="Select"></td>
+    <td><input type="button" ng-click="deleteStudent(student.id)" value="Delete"></td>
+  </tr>
 </table>
 ```
 
