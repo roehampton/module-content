@@ -1,5 +1,10 @@
 # Computer Systems Lab 1 - Introduction to C Programming
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 ## Aim
 
 The aim of this lab is to introduce you to the C programming language and output some data in different formats. Along the way, we will examine the basics of working with a Unix command line. This is to allow you to create simple C programs and run them.

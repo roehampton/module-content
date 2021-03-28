@@ -2,6 +2,18 @@
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+1. Work environment
+2. Basic one -- switch and light
+3. Inverter
+4. OR
+5. AND
+6. XOR
+7. Complex logic circuits
+8. 
+
+
+
+
 
 This lab aims to implement simple logic circuits. The software used is Logic Friday. The focus is to learn how to design the circuits, find the truth table for the gates, and simulate the combination of gates.
 
