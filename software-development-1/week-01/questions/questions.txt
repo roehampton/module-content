@@ -1,0 +1,180 @@
+$CATEGORY: sd1/week-01
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW BLUE RECTANGLE FROM (0,0) TO (200, 400)<br>
+DRAW WHITE RECTANGLE FROM (200, 0) TO (400, 400)<br>
+DRAW RED RECTANGLE FROM (400, 0) TO (600, 400)
+</code>
+{
+    =<img src\="images/france.png"/>
+    ~<img src\="images/ireland.png"/>
+    ~<img src\="images/italy.png"/>
+    ~<img src\="images/romania.png"/>
+}
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW GREEN RECTANGLE FROM (0,0) TO (200, 400)<br>
+DRAW WHITE RECTANGLE FROM (200, 0) TO (400, 400)<br>
+DRAW RED RECTANGLE FROM (400, 0) TO (600, 400)
+</code>
+{
+    ~<img src\="images/france.png"/>
+    ~<img src\="images/ireland.png"/>
+    =<img src\="images/italy.png"/>
+    ~<img src\="images/romania.png"/>
+}
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW BLUE RECTANGLE FROM (0,0) TO (200, 400)<br>
+DRAW YELLOW RECTANGLE FROM (200, 0) TO (400, 400)<br>
+DRAW RED RECTANGLE FROM (400, 0) TO (600, 400)
+</code>
+{
+    ~<img src\="images/france.png"/>
+    ~<img src\="images/ireland.png"/>
+    ~<img src\="images/italy.png"/>
+    =<img src\="images/romania.png"/>
+}
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW GREEN RECTANGLE FROM (0,0) TO (200, 400)<br>
+DRAW WHITE RECTANGLE FROM (200, 0) TO (400, 400)<br>
+DRAW ORANGE RECTANGLE FROM (400, 0) TO (600, 400)
+</code>
+{
+    ~<img src\="images/france.png"/>
+    =<img src\="images/ireland.png"/>
+    ~<img src\="images/italy.png"/>
+    ~<img src\="images/romania.png"/>
+}
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW GREEN RECTANGLE FROM (400, 0) TO (600, 400)<br>
+DRAW WHITE RECTANGLE FROM (200, 0) TO (400, 400)<br>
+DRAW ORANGE RECTANGLE FROM (0, 0) TO (200, 400)
+</code>
+{
+    ~<img src\="images/netherlands.png"/>
+    ~<img src\="images/ireland.png"/>
+    =<img src\="images/ivory-coast.png"/>
+    ~<img src\="images/italy.png"/>
+}
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW BLUE RECTANGLE FROM (0, 0) TO (200, 400)<br>
+DRAW YELLOW RECTANGLE FROM (200, 0) TO (400, 400)<br>
+DRAW RED RECTANGLE FROM (400, 0) TO (600, 400)
+</code>
+{
+    ~<img src\="images/ireland.png"/>
+    =<img src\="images/romania.png"/>
+    ~<img src\="images/france.png"/>
+    ~<img src\="images/italy.png"/>
+}
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW WHITE RECTANGLE FROM (0, 0) TO (600, 200)<br>
+DRAW RED RECTANGLE FROM (0, 200) TO (600, 400)
+</code>
+{
+    =<img src\="images/poland.png"/>
+    ~<img src\="images/ukraine.png"/>
+    ~<img src\="images/indonesia.png"/>
+    ~<img src\="images/russia.png"/>
+}
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW RED RECTANGLE FROM (0, 0) TO (600, 200)<br>
+DRAW WHITE RECTANGLE FROM (0, 200) TO (600, 400)
+</code>
+{
+    ~<img src\="images/poland.png"/>
+    ~<img src\="images/ukraine.png"/>
+    =<img src\="images/indonesia.png"/>
+    ~<img src\="images/russia.png"/>
+}
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW BLUE RECTANGLE FROM (0, 0) TO (600, 200)<br>
+DRAW YELLOW RECTANGLE FROM (0, 200) TO (600, 400)
+</code>
+{
+    ~<img src\="images/poland.png"/>
+    =<img src\="images/ukraine.png"/>
+    ~<img src\="images/indonesia.png"/>
+    ~<img src\="images/russia.png"/>
+}
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW BLACK RECTANGLE FROM (0, 0) TO (600, 133)<br>
+DRAW RED RECTANGLE FROM (0, 133) TO (600, 266)<br>
+DRAW YELLOW RECTANGLE FROM (0, 266) TO (600, 400)
+</code>
+{
+    ~<img src\="images/bulgaria.png"/>
+    =<img src\="images/germany.png"/>
+    ~<img src\="images/hungary.png"/>
+    ~<img src\="images/netherlands.png">
+}
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW RED RECTANGLE FROM (0, 266) TO (600, 400)<br>
+DRAW WHITE RECTANGLE FROM (0, 0) TO (600, 133)<br>
+DRAW GREEN RECTANGLE FROM (0, 133) TO (600, 266)
+</code>
+{
+    ~<img src\="images/hungary.png"/>
+    ~<img src\="images/russia.png"/>
+    =<img src\="images/bulgaria.png"/>
+    ~<img src\="images/austria.png"/>
+}
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW BLUE RECTANGLE FROM (0, 0) TO (600, 400)<br>
+DRAW 72 THICK WHITE LINE FROM (0, 0) TO (600, 400)<br>
+DRAW 72 THICK WHITE LINE FROM (600, 0) TO (0, 400)
+</code>
+{
+    =<img src\="images/scotland.png"/>
+    ~<img src\="images/england.png"/>
+    ~<img src\="images/finland.png"/>
+    ~<img src\="images/denmark.png"/>
+}
+
+::Which of the following flags are produced by this pseudocode?
+::[html]
+<code>
+DRAW WHITE RECTANGLE FROM (0, 0) TO (600, 400)<br>
+DRAW 72 THICK RED LINE FROM (300, 0) TO (300, 400)<br>
+DRAW 72 THICK RED LINE FROM (200, 0) TO (200, 600)
+</code>
+{
+    ~<img src\="images/scotland.png"/>
+    =<img src\="images/england.png"/>
+    ~<img src\="images/finland.png"/>
+    ~<img src\="images/denmark.png"/>
+}
