@@ -71,7 +71,7 @@ You can choose whichever method you like to ensure that `output.txt` will contai
 **Your application must be based in C and/or C++ using the standard library** This means:
 
 - **You cannot use libraries that are not provided by standard C or C++.**
-- **Your code must compile using a standard C compiler, such as Microsoft's `cl`, `gcc`, and `clang`.**
+- **Your code must compile using a standard C/C++ compiler, such as Microsoft's `cl`, `gcc`, and `clang`.**
 
 ## Submission
 
