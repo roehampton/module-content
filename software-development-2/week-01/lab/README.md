@@ -28,7 +28,7 @@ We are going to focus on using Microsoft’s compiler although you can use any c
 
 If your machine is not setup with Visual Studio Code and a C/C++ compiler, use either of the following instructions. You only need go as far running the first built program:
 
-- [Microsoft C/C++](https://code.visualstudio.com/docs/cpp/config-msvc)
+- [Microsoft C/C++](https://code.visualstudio.com/docs/cpp/config-msvc){:target="_blank"}
 - [Linux](https://code.visualstudio.com/docs/cpp/config-linux)
 - [MacOS](https://code.visualstudio.com/docs/cpp/config-clang-mac)
 
