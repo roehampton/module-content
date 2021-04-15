@@ -1008,7 +1008,7 @@ Just to end this unit, we will reflect on why we have looked at Assembly.  The m
 
 Our aim in this unit was to give you an understanding of how C code converts to Assembly.  As such, we haven't delved too deeply into a wide range of aspects in low level programming.  However, if you are interested the following link provides a reasonable starting position:
 
-<http://www.cs.virginia.edu/~evans/cs216/guides/x86.html>
+<http://www.cs.virginia.edu/~evans/cs216/guides/x86.html>{:target="_blank"}
 
 ## Exercises
 

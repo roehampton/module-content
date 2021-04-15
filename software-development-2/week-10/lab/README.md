@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" href="/module-content/css/block.css">
 
-This final unit will explore some of the real problems that can be faced when writing bad code.  Bad code is one of the biggest costs to a company.  You may even have heard the term [technical debt](https://en.wikipedia.org/wiki/Technical_debt).  This is the idea that your easy solution now has a cost in the future -- either from rework or other costs.  We will look at some examples of bad code and where you can explore to find more.
+This final unit will explore some of the real problems that can be faced when writing bad code.  Bad code is one of the biggest costs to a company.  You may even have heard the term [technical debt](https://en.wikipedia.org/wiki/Technical_debt){:target="_blank"}.  This is the idea that your easy solution now has a cost in the future -- either from rework or other costs.  We will look at some examples of bad code and where you can explore to find more.
 
 ## Why Bad Code is Bad
 
@@ -102,7 +102,7 @@ Looking at the stack for this application we have that shown it is:
 
 So what is the problem here?  Well look at how the stack is laid out.  What happens when we read into `user_input`?  The danger is that is too much data is read in (via `gets` on line 17) it will overwrite the value of `success`.  Note that `success` is set to 0 (false) at the start of the application, and we only change is to 1 (true) when the password is correct.  The problem is, `gets` may overwrite the value of `success`.  For `success` to be determined as true, it just needs to be non-zero (remember our discussion on data types).  Thus, any suitable input from `gets` may result in the message `Root access granted` from appearing.
 
-OK it is not as bad as all that.  Modern C and C++ compilers recognise various problems with stack overwriting and try and protect against it.  This is typically referred to as a [stack guard](https://en.wikipedia.org/wiki/Buffer_overflow_protection).  By default, compilers will have this switched on.  So to break our code we have to switch it off.  To do so, compile the program as follows:
+OK it is not as bad as all that.  Modern C and C++ compilers recognise various problems with stack overwriting and try and protect against it.  This is typically referred to as a [stack guard](https://en.wikipedia.org/wiki/Buffer_overflow_protection){:target="_blank"}.  By default, compilers will have this switched on.  So to break our code we have to switch it off.  To do so, compile the program as follows:
 
 ```shell
 cl filename /GS-
@@ -299,7 +299,7 @@ And there you go.  You have now executed code that should not have been.  This c
 
 ## Some CERT Coding Standards
 
-The point of this unit is to introduce some coding standards.  We will use the CERT set of rules(<https://wiki.sei.cmu.edu/confluence/display/seccode/SEI+CERT+Coding+Standards>).  These are defined to support secure and safe code.  A number of languages are defined, including C and C++.  We will be using C.  You should bookmark this resource as it will be useful for you in the future.
+The point of this unit is to introduce some coding standards.  We will use the CERT set of rules (<https://wiki.sei.cmu.edu/confluence/display/seccode/SEI+CERT+Coding+Standards>{:target="_blank"}).  These are defined to support secure and safe code.  A number of languages are defined, including C and C++.  We will be using C.  You should bookmark this resource as it will be useful for you in the future.
 
 For this section we will only look at a small number of rules.  This will give an introduction to some problems that can occur.  Some you may have even experienced.  You should review the rules and apply them.  These rules will make you a better programmer.  We won't look at the solutions to these problems.  To do this you should review the rules online.  Solutions are available there.
 
@@ -488,10 +488,10 @@ This one is probably the most important.  There are a number of Standard Library
 
 Thankfully, compilers and supporting tools have got better in the last few years, and the detection of errors has improved.  A number of tools are available, and a number of useful websites.  We list some here in no particular order:
 
-- Open Web Application Security Project (OWASP) <https://www.owasp.org/index.php/Main_Page>.
-- CERT Coding Standards <https://www.cert.org/secure-coding/>
-- Clang Static Analyser <https://clang-analyzer.llvm.org/>
-- Parasoft C/C++ Test <https://www.parasoft.com/product/cpptest/>
+- Open Web Application Security Project (OWASP) <https://www.owasp.org/index.php/Main_Page>{:target="_blank"}.
+- CERT Coding Standards <https://www.cert.org/secure-coding/>{:target="_blank"}
+- Clang Static Analyser <https://clang-analyzer.llvm.org/>{:target="_blank"}
+- Parasoft C/C++ Test <https://www.parasoft.com/product/cpptest/>{:target="_blank"}
 
 You should be working on improving your coding standards now, and on integrating these tools into your workflow.  Security and secure coding are important skills with a lot of money behind them just now.  Putting in our efforts here will make you a more valuable programmer in the long-run.
 

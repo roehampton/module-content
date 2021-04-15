@@ -537,6 +537,6 @@ We accept a single uppercase letter at the start of the regular expression, then
 
 ## So You Want to Know More
 
-You can look up the following cheatsheet that explains how regular expressions in C++ can be defined. [c++11-regex-cheatsheet.pdf (cpprocks.com)](https://cpprocks.com/files/c++11-regex-cheatsheet.pdf)
+You can look up the following cheatsheet that explains how regular expressions in C++ can be defined. [c++11-regex-cheatsheet.pdf (cpprocks.com)](https://cpprocks.com/files/c++11-regex-cheatsheet.pdf){:target="_blank"}
 
-Slightly more advanced tutorial on the power of regular expressions -- [Introduction to Regular Expressions With Modern C++ - DZone IoT](https://dzone.com/articles/introduction-to-regular-expression-with-modern-c).
+Slightly more advanced tutorial on the power of regular expressions -- [Introduction to Regular Expressions With Modern C++ - DZone IoT](https://dzone.com/articles/introduction-to-regular-expression-with-modern-c){:target="_blank"}.
