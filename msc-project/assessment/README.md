@@ -150,55 +150,57 @@ The developed artefact should be large enough to demonstrate the meeting of the 
 
 The MSc Project occurs during any term so giving specific dates is difficult. The following provides a rough outline for the project. Specific dates will be shared via Moodle and your timetable.
 
-### ==Support Workshops==
+### Support Workshops
 
 The project team run four support workshops to help you along the journey of your project.
 
-**TO DO**
+- Objective setting
+  - The focus of this workshop is to turn your idea into a plan based on a series of objectives.
+- Searching for literature
+  - This workshop will be delivered by the academic achievement team.
+- Conducting an evaluation
+  - The main area covered in this workshop will be on how you examine the output of your project to determine its quality.
+- Writing
+  - The focus of this workshop will be on how you approach writing a significant piece of writing.
 
+### Supervisory Team
 
+Your project is supported by two people:
 
-·    Problem elucidation and objective setting.
+- The supervisor, who you will meet with regularly.
+- The second marker, who will feedback at certain points of the project process.
 
-·    How to perform an investigation into the literature and context of a project.
+You must meet your main supervisor regularly to update them on your progress and receive feedback about your work. How often you meet is between you and the supervisor, but a typical model is meeting once per week. Meetings can last up to 30 minutes.
 
-·    How to conduct an evaluation.
+Initially, your supervisor may meet you with other students as you begin the project process. As you all progress and projects diverge into their individual aims, you will begin meeting your supervisor independently.
 
-·    How to deliver a significant piece of written work.
+If you cannot attend an agreed meeting you must inform your supervisor. Not informing your supervisor wastes time and gives a poor impression of professional behaviour.
 
+### Lifecycle
 
+Your project will go through four phases: initiation, main work, delivery, and assessment.
 
-### ==Supervisory Team==
+#### Project Initiation
 
+Project initiation is where you define a project idea, discuss it with a potential supervisor, and get agreement that the project is suitable for an MSc in your programme. Once signed off, you can undertake the main project work.
 
+#### Main Work
 
-**TO DO**
+The main work of the project will depend on the type of project undertaken. The order of the work will also depend on your plan. However, three key parts of your work are required:
 
+- An investigation.
+- Some sort of *"development"* work (i.e., construction of an artefact based on your project type).
+- An evaluation of the artefact.
 
+Half-way through the project process you will have a mid-point review with the supervisory team.
 
-### ==Lifecycle==
+#### Delivery
 
+Delivery of your project is submission of the requirements of the module based on your specific project. The main deliverable is a report outlining the work you have delivered. The contents of this report are outlined elsewhere.
 
+#### Assessment
 
-**TO DO**
-
-
-
-#### ==Project Initiation==
-
-
-
-#### ==Progress Review==
-
-
-
-#### ==Delivery==
-
-
-
-#### ==Oral Examination==
-
-
+The assessment of your project will be undertaken by your two supervisors independently. The supervisors will organise a meeting to discuss the project with you, and after this they will agree a final grade recommendation.
 
 ### Milestones
 
@@ -214,33 +216,19 @@ You have three submissions as part of the project. These are designed to ensure 
   - Your second marker has only really read some documents from you and may not understand your project. This is your chance to explain things here.
   - Really, the oral examination normally results in your grade increasing as your markers get a better picture of the work you have done.
 
-### ==Project Management==
+### Project Management
 
-A key aspect of your
+A key aspect of your project is the management of tasks to successfully complete your work. You are expected to define a plan of work at the start of your project and keep it up-to-date throughout the project process. Agile methods (e.g., using task boards) are a good method to manage your project. You must ensure you define your milestones and set yourself dates for completing these. Good management of yourself -- through organisation and honest reflection -- is one of the best markers for success in your work.
 
-### ==Assessment Criteria==
+### Assessment Criteria
 
+The grading forms used by the supervisors are available on Moodle. It is **highly** recommended that you examine this form to understand how you will be assessed.
 
+## Ethics
 
-**TO DO**
+University guidance on ethical requirements for your project are available here: [Research | Research Ethics | Students | University of Roehampton](https://www.roehampton.ac.uk/Research/Ethics/Students/)
 
-
-
-## ==Ethics==
-
-
-
-**TO DO**
-
-
-
-## ==Report Format and Requirements==
-
-
-
-**TO DO**
-
-
+## Report Format and Requirements
 
 ### Report Requirements
 
@@ -434,13 +422,33 @@ The following documents **must** be included as references:
 - A description of how to access any technical output. **It is strongly recommended you use GitHub or similar to do this.**
 - Any important communications between you and external stakeholders -- **please ensure private data is removed and communications anonymised.**
 
-### ==Report Layout and Style==
+### Report Layout and Style
 
-#### ==Word Count==
+A template will be provided on Moodle to support your work. However, the following guidelines **must** be adhered to:
 
-### ==Copyright and Intellectual Property Rights (IPR)==
+- All text will be black in the report unless in very exceptional circumstance.
+- Main body text must be at least 11pt font using either Arial or Times New Roman.
+- Main body text will have 1.5 line spacing.
+- Margins will be a minimum of 2 cm on each side.
+- All pages will be numbered consecutively.
+- Figures must have captions and be numbered (e.g., Figure 1).
+- Tables must have captions and be numbered (e.g., Table 1).
+- Figures may be black and white or colour.
 
-### ==Writing Style==
+#### Word Count
+
+There is a 10,000 word limit for the project. Do not see this as a target, but rather a limit to the number of words we expect a project to have. All words in the main body, excluding words in figures and tables, will count to your word count. If you think you will go over 10,000 words, you should consider what can be removed from the main body and placed in an appendix.
+
+### Copyright and Intellectual Property Rights (IPR)
+
+Your report should be written considering that it will be within the public domain. Normally, you retain copyright over your written work and Intellectual Property Rights (IPR) over any technical work. There are situations where this might not be as simple, for example when working with a company or on a larger university project. There are strategies you can utilise:
+
+- You can inform your supervisory team that the project cannot be made available to other students undertaking an MSc Project.
+- You can provide a shortened report for sharing that does not contain the protected information.
+- You can assign IPR to the external collaborator, although you should take great care when doing so. It is best to speak to your supervisor.
+- Non-disclosure agreements can be made between the external collaborator and the supervision team.
+
+### Writing Style
 
 ## ==Submission and Assessment==
 
@@ -460,13 +468,13 @@ The following documents **must** be included as references:
 
 #### ==Oral Examination==
 
-## ==Regulations==
+## Regulations
 
-### ==Extensions==
+### Extensions and Late Submissions
 
-### ==Late Projects==
+The normal university mitigating circumstances policy also applies to the MSc Project. Details are available here: [Mitigating circumstances (roehampton.ac.uk)](https://portal.roehampton.ac.uk/information/examinations/Pages/Mitigating-circumstances.aspx)
 
-### ==Academic Misconduct==
+### Academic Misconduct
 
 **Plagiarism** is a serious offence in academic work. This is where you present work of another as your own. It includes, but is not limited to, the copying from other students, books, the Internet, or other sources.
 
@@ -488,8 +496,6 @@ You can avoid many plagiarism issues by being diligent in your approach to your 
 - When you write, even a draft, add the appropriate reference.
 - Collaborating means sharing ideas, not written work or code.
 - Read as widely as you can to see how other authors avoid plagiarism.
-
-
 
 ### Failed Projects
 
