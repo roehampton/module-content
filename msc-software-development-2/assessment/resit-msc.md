@@ -1,0 +1,63 @@
+# Coursework Assessment Details
+
+## Coursework Specification
+
+The coursework is worth 100% of the total module mark.
+
+In this coursework you are tasked with creating a dynamic web application for the smooth and efficient operation of a business of your choosing. Hence you are required to specify what type of business you will be building your application for. 
+
+**Your application must be built using the tools and techniques taught in the module, although there is some flexibility.**
+
+- Your web front-end must use Angular.js. If you want to use a different front-end web framework then you must seek permission from the teaching team first.
+- Your web back-end must run via Node.js. This is not negotiable.
+- Your front-end and back-end must communicate via Express.js. If you want to use a different routing library then you must seek permission from the teaching team first.
+- Your application must use a database for storage. We will teach you SQLite, but you can use other database systems such as MySQL or a NoSQL system such as MongoDB. You must discuss this choice with the teaching team first.
+- Your application must be version controlled using Git and publicly accessible on GitHub. This is not negotiable.
+- Your application must be deployable as a Docker container. This is not negotiable.
+
+### Advice on Application Choice
+
+We are not looking for anything sophisticated in your application. Fundamentally, you should aim to develop a [CRUD application](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete). A CRUD application is effectively a front-end to a database, providing a method to create, read, update, and delete data from a web site to a database on a server.
+
+An example tutorial on building a CRUD application using JavaScript and HTML forms is available here: [JavaScript CRUD Example Tutorial (javaguides.net)](https://www.javaguides.net/2020/11/javascript-crud-example-tutorial.html). An example image of a potential front-end for a CRUD application is below.
+
+![img](https://codeshack.io/web/img/posts/crud-application-php-pdo-mysql.png)
+
+## Deliverables
+
+The aim is to deliver the final version of your application. The final version of your application will be pulled automatically from GitHub. The final submission will be assessed based on the following criteria.
+
+- Overall application quality.
+- Metrics from GitHub.
+- Code quality including comments.
+- Application containerised with Docker.
+- Final version of the task board and project requirements met.
+
+### Individual Reflection on Team Working
+
+A report reflecting on the overall project and how team working concepts discussed in the module would have supported your project. This reflection should be a maximum of 1000 words.
+
+## Marking Scheme
+
+| **Criteria**                                                 | **Excellent**                                                | **Satisfactory**                                             | **Not Satisfactory**                                         | **Not attempted**                                            |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **User story tracking** suitable documentation and tracking of user stories using a suitable task board. | All user stories are on task board, with suitable tracking of story progress including assignment of tasks. | Most user stories are on task board, and generally tracking of progress is being undertaken but some gaps in areas. | User stories are not clearly tracked in all instances, and detail is missing in areas. | User stories are not tracked, or the level of tracking is very limited. |
+| **Software design** the suitability and completeness of the software design presented given the application design proposed. | Use case diagrams that clearly map to user stories provided and provide high-quality information of the system design. Activity diagrams are of high-quality illustrating the flow of control in the application. Suitable class, state, and sequence diagrams are also provided based on the idea specified. | Use case diagrams generally map to user stories and provide good-quality information of the system design. Activity diagrams are good-quality but no not cover the complete flow of control in the application. Suitable class, state, and sequence diagrams are also provided based on the idea specified. | Use case diagrams do not map well to user stories and are lacking in some detail. Activity diagrams also lack some detail on the overall flow of control in the system. Class, state and sequence diagrams are sparse. | No diagrams provided, or use case diagrams do not map to user stories. Activity diagrams not provided, do not cover much or the system flow of control, or are inappropriate. Class, state and sequence diagrams not provided or are inappropriate. |
+| **Technical progress** the degree of progress made in the delivery of their technical requirements. | Excellent progress made towards delivering a final version of the product based on the current project and individual capabilities. | Made satisfactory progress towards delivering the final product version based on the current project and individual capabilities. | Not made satisfactory progress towards delivering the final product version based on the current project and individual capabilities. | No progress made, or progress is minimal at best.            |
+| **GitHub repository practice** evidence of good practice in GitHub. | Obvious evidence of good Git practice with commits frequent and small. | Commits are not always frequent and small.                   | Commit practice needs work.                                  | Commit practice is non-existent or poor.                     |
+| **Docker deployment** the completeness of the Docker configuration to run the necessary application. | Dockerfile defined that incorporates all the necessary components. package.json file fully defines how to install and run the application. | Dockerfile defined that incorporates most of the necessary components. package.json file exists but does not include everything to fully install and run the application. | Basic Dockerfile defined. package.json exists but does not include everything to fully install and run the application. | No Dockerfile defined. package.json not defined or is just the basic initial one. |
+| **Database integration** the completeness of the database implementation and integration into the application. | Database has been fully designed and implemented to support the project. All necessary data for the project has been entered. | Database has been fully designed and implemented to support the project. Only minimal data added at this point. | Database is not yet fully designed and implemented. Therefore, only minimal data is available. | Database has not been designed and implemented, or has very minimal design and implementation. |
+| **RESTful interfaces** the completeness of the RESTful interfaces implemented to support the project. | RESTful endpoints fully defined and implemented using an appropriate library. All endpoints return correct data from the database. | RESTful endpoints fully defined and implemented using an appropriate library. Endpoints don't all return correct data from the database. | Not all RESTful endpoints fully defined and implemented. Endpoints don't return correct data from database. | No RESTful endpoints defined, or very minimal set produced with no connection to the database. |
+| **Application quality** the overall quality of the application, based on its robustness and user interfaces. | Product is of an excellent quality, with a well built user interface and no obvious errors occurring when running the application. | Product is of a good overall quality, with generally good user interfaces and few obvious errors when running the application. | Product user interfaces have some issues, and the application has some obvious errors that lead to instability. | User interface is poor and does not meet the requirements set out for the project. Application often fails or lacks stability. |
+| **Code quality** ability to format  and document  code for human  consumption (Good  Style) | Program contains  appropriate  documentation for all  major functions,  variables, or non-trivial  algorithms.  Formatting,  indentation, and other  white space aids  readability. | Program contains  some  documentation on  major functions,  variables, or nontrivial algorithms.  Indentation and  other formatting is  appropriate. | Program contains  some  documentation (at  least the student’s  name and program’s  purpose) but has  occasionally  misleading  indentation. | Program contains no  documentation, or  grossly misleading  indentation. |
+
+### Individual Reflection
+
+| **Criteria**                                                 | **Excellent**                                                | **Satisfactory**                                             | **Not Satisfactory**                                         | **Not attempted**                                            |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Presentation** how well organised is the report.           | Good organisation, points are logically ordered, report order flows together. | Organised, although some points are somewhat jumpy. General flow of report works. | Some organisation points jump around. Flow is unclear.       | Poorly organised. No logical progression. Overall flow is vague. |
+| **Discussion** overall level of discussion in the report.    | Excellent overall level of discussion provided.              | Good discussion level provided although unclear or inconsistent in a couple of places. | Discussion is good but lacks clarity and consistency in places. | Discussion is poor and does not provide clarity to the report. |
+| **Quality of information** ability to provide details to support the report. | Supporting details specific to subject.                      | Some details are non-supporting to the subject.              | Details are somewhat unclear and do not support the topic.   | Specific details undefined or difficult to find.             |
+| **Depth of reflection** ability to provide an in-depth analysis of the overall process of the project. | Excellent depth of analysis on the overall process undertaken in the project including the product delivered based on the original vision. | Good depth of analysis, but could have gone into more detail of the product delivered based on the original vision. | Analysis is brief and doesn't really explore how the developed product compares to the original vision. | No reflection or little reflection on the overall project process and the product delivered. |
+| **Critical self appraisal** ability to critically analyse own contribution to the project process based on role. | Excellent level of self-appraisal, highlighting what went well and what would have been done differently in hindsight based on the project delivered. | Good level of self-appraisal, including some analysis of what went well and what could have gone better given hindsight. | Self-appraisal is brief and doesn't go into any real analysis of what went well or what could have gone better. | No self-appraisal or little self-appraisal on own performance. |
+| **Critical team work appraisal** ability to critically analyse team working. | Excellent level of appraisal of the team work and how it could have contributed to the delivery of the project, including individual roles undertaken in a project. | Good level of appraisal of the team work and how it could have contributed to the delivery of the project, although might be lacking exploration of individual roles. | Team work appraisal is brief and doesn't really analyse the individual roles within a team. | No team work appraisal or little team work appraisal on how it could have contributed to project delivery. |
