@@ -7,7 +7,9 @@ The Fibonacci numbers Fn, form a sequence, called the Fibonacci sequence, such t
 ###  F<sub>0</sub> = 0;  F<sub>1</sub> = 0;
 ###  F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub>
 
-This sequence is useful for many thing in mathematics (  https://en.wikipedia.org/wiki/Fibonacci_number ) maybe the most famous is its relation with the Golden ratio. 
+This sequence is useful for many thing in mathematics (  https://en.wikipedia.org/wiki/Fibonacci_number ) maybe the most famous is its relation with the Golden ratio.
+
+Python version
 
 ```Python
 # Program to display the Fibonacci sequence up to n-th term
@@ -33,4 +35,35 @@ else:
        n2 = nth
        count += 1
 ```
-dfdf
+C version
+``` C
+#include <stdio.h>
+int main() {
+
+  int i, n;
+
+  // initialize first and second terms
+  int t1 = 0, t2 = 1;
+
+  // initialize the next term (3rd term)
+  int nextTerm = t1 + t2;
+
+  // get no. of terms from user
+  printf("Enter the number of terms: ");
+  scanf("%d", &n);
+
+  // print the first two terms t1 and t2
+  printf("Fibonacci Series: %d, %d, ", t1, t2);
+
+  // print 3rd to nth terms
+  for (i = 3; i <= n; ++i) {
+    printf("%d, ", nextTerm);
+    t1 = t2;
+    t2 = nextTerm;
+    nextTerm = t1 + t2;
+  }
+
+  return 0;
+}
+
+```
