@@ -71,7 +71,7 @@ What does this two implementations have in common? Both are recursive versions. 
 
 The GDC is the largest natural number that divides both a and b without leaving a remainder.
 
-###Algorithm (Euclide's algorithm)
+### Algorithm (Euclide's algorithm)
 Input: Two natural numbers a>=0,b>=0 <br>
 Output: The GDC between a and b.
 
@@ -189,10 +189,10 @@ int main()
 
 
 ```
-## Towers of Hanoi
+## Task 3. Towers of Hanoi
 
 ### Algorithm
-Input: Number of disks
+Input: Number of disks <br>
 Ouput: A series of steps explaining how to move the disks according to the rules
 
 Move the top N−1 disks to an intermediate rod.
