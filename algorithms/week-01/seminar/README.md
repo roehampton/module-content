@@ -9,7 +9,7 @@ The Fibonacci numbers Fn, form a sequence, called the Fibonacci sequence, such t
 
 This sequence is useful for many thing in mathematics (  https://en.wikipedia.org/wiki/Fibonacci_number ) maybe the most famous is its relation with the Golden ratio. 
 
-<code>
+```Python
 # Program to display the Fibonacci sequence up to n-th term
 nterms = int(input("How many terms? "))
 # first two terms
@@ -32,4 +32,5 @@ else:
        n1 = n2
        n2 = nth
        count += 1
-</code>
+```
+dfdf
