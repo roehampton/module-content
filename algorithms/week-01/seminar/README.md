@@ -10,3 +10,4 @@ The Fibonacci numbers Fn, form a sequence, called the Fibonacci sequence, such t
 This sequence is useful for many thing in mathematics (  https://en.wikipedia.org/wiki/Fibonacci_number ) maybe the most famous is its relation with the Golden ratio. 
 
 ``Use `code` in your Markdown file.``
+At the command prompt, type <code>nano</code>.
