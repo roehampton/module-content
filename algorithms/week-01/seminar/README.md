@@ -12,7 +12,7 @@ This sequence is useful for many thing in mathematics (  https://en.wikipedia.or
 # Program to display the Fibonacci sequence up to n-th term
 
 nterms = int(input("How many terms? "))
-
+<code>
 # first two terms
 n1, n2 = 0, 1
 count = 0
@@ -34,3 +34,4 @@ else:
        n1 = n2
        n2 = nth
        count += 1
+</code>
