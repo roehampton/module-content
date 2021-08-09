@@ -72,9 +72,8 @@ What does this two implementations have in common? Both are recursive versions. 
 The GDC is the largest natural number that divides both a and b without leaving a remainder.
 
 ###Algorithm (Euclide's algorithm)
-Let k be an integer that counts the steps of the algorithm, starting with zero. Each step begins with two nonnegative remainders rk−1 and rk−2, rk−1 < rk−2. The goal of the kth step is to find a quotient qk and remainder rk that satisfy the equation
-###  r<sub>k-2</sub> = q<sub>k</sub>r<sub>k-1</sub> + r<sub>k</sub> 
-and to have 0 ≤ rk < rk−1.  <br>
+Input: Two natural numbers a>=0,b>=0 <br>
+Output: The GDC between a and b.
 
 The algorithm can be written as a sequence of equations
 ### a=q<sub>0</sub>b + r<sub>0</sub>
@@ -82,6 +81,9 @@ The algorithm can be written as a sequence of equations
 ### r<sub>0</sub>=q<sub>2</sub>r<sub>1</sub> + r<sub>2</sub>
 ### r<sub>1</sub>=q<sub>3</sub>r<sub>2</sub> + r<sub>3</sub>
 ### . . .
+
+k is an integer that counts the steps of the algorithm, starting with zero. Each step begins with two nonnegative remainders rk−1 and rk−2, rk−1 < rk−2. The goal of the kth step is to find a quotient qk and remainder rk that satisfy the equation
+###  r<sub>k-2</sub> = q<sub>k</sub>r<sub>k-1</sub> + r<sub>k</sub> and to have 0 ≤ rk < rk−1.  <br>
 
 Since the remainders decrease with every step but can never be negative, a remainder r<sub>N</sub> must eventually equal zero, at which point the algorithm stops
 
@@ -137,8 +139,8 @@ a = 1071 and b = 462
 Do you think the algorithm is correct?
 
 Let's see how to code a GCD in Python and C.
-Python version
 
+Python version
 
 ``` Python
 def GCDEuclid(x, y):
@@ -163,6 +165,7 @@ print ("The gcd of 60 and 48 is : ",end="")
 print (math.gcd(60,48))
 
 ```
+C version
 
 ``` C
 #include <stdio.h>
@@ -186,3 +189,76 @@ int main()
 
 
 ```
+## Towers of Hanoi
+
+### Algorithm
+Input: Number of disks
+Ouput: A series of steps explaining how to move the disks according to the rules
+
+Move the top N−1 disks to an intermediate rod.
+Move the bottom disk to the destination rod.
+Finally, move the N−1 disks from the intermediate peg to the destination peg.
+
+We already see that the algorithm is not only correct, but efficient. 
+
+Let us review some recursive implementations in Python and C
+``` Python
+# Recursive Python function to solve the tower of hanoi
+
+def TowerOfHanoi(n , source, destination, auxiliary):
+	if n==1:
+		print "Move disk 1 from source",source,"to destination",destination
+		return
+	TowerOfHanoi(n-1, source, auxiliary, destination)
+	print "Move disk",n,"from source",source,"to destination",destination
+	TowerOfHanoi(n-1, auxiliary, destination, source)
+		
+# Driver code
+n = 4
+TowerOfHanoi(n,'A','B','C')
+# A, C, B are the name of rods
+
+# Contributed By Dilip Jain
+
+```
+```Python
+def moveTower(height,fromPole, toPole, withPole):
+    if height >= 1:
+        moveTower(height-1,fromPole,withPole,toPole)
+        moveDisk(fromPole,toPole)
+        moveTower(height-1,withPole,toPole,fromPole)
+
+def moveDisk(fp,tp):
+    print("moving disk from",fp,"to",tp)
+
+moveTower(3,"A","B","C")
+```
+
+C version
+
+```C
+#include <stdio.h>
+
+// C recursive function to solve tower of hanoi puzzle
+void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod)
+{
+	if (n == 1)
+	{
+		printf("\n Move disk 1 from rod %c to rod %c", from_rod, to_rod);
+		return;
+	}
+	towerOfHanoi(n-1, from_rod, aux_rod, to_rod);
+	printf("\n Move disk %d from rod %c to rod %c", n, from_rod, to_rod);
+	towerOfHanoi(n-1, aux_rod, to_rod, from_rod);
+}
+
+int main()
+{
+	int n = 4; // Number of disks
+	towerOfHanoi(n, \'A\', \'C\', \'B\'); // A, B and C are names of rods
+	return 0;
+}
+
+```
+
+What about an iterative version of the Hanoi Towers? Sadly, it is not trivial and you need to use one of the data structures we will review later in this unit: Stacks.
