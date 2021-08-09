@@ -9,14 +9,12 @@ The Fibonacci numbers Fn, form a sequence, called the Fibonacci sequence, such t
 
 This sequence is useful for many thing in mathematics (  https://en.wikipedia.org/wiki/Fibonacci_number ) maybe the most famous is its relation with the Golden ratio. 
 
-# Program to display the Fibonacci sequence up to n-th term
-
-nterms = int(input("How many terms? "))
 <code>
+# Program to display the Fibonacci sequence up to n-th term
+nterms = int(input("How many terms? "))
 # first two terms
 n1, n2 = 0, 1
 count = 0
-
 # check if the number of terms is valid
 if nterms <= 0:
    print("Please enter a positive integer")
