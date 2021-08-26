@@ -191,7 +191,7 @@ As well as being able to debug within your programme, you can use Chrome or Fire
 
 You might have noticed how boring our pages look so far! Typically, HTML should only carry information about structure and content.  Styling instructions should be held in linked files called 'cascading style sheets' that apply a look and feel to specified HTML elements.
 
-CSS is an important part of web development, it can get very involved and is fun if you are a visual person, but its mostly beyond the scope of this module.  its a good skill to learn via online courses.  Introduction: https://developer.mozilla.org/en-US/docs/Learn/CSS, but if its an area you are interested in, then you can go a lot deeper in.
+CSS is an important part of web development, it can get very involved and is fun if you are a visual person.  You need to deal with complexities such as different devices and screen sizes (responsive design), how to implement styles using different web frameworks, and tools that allow you to setup almost programme-like style rules (Sass).  All this is mostly beyond the scope of this module, but its a good set of skills to learn via online courses.  Introduction: https://developer.mozilla.org/en-US/docs/Learn/CSS, but if its an area you are interested in, then you can go a lot deeper in.
 
 For now, lets cheat and connect our pages to an open source online stylesheet called milligram, but doing this will tell us the basics of CSS:
 
@@ -215,16 +215,17 @@ First, link to an external stylesheet, and while we are at it some nicer fonts t
 ```html
   <div class="container">
 ```
+
 Then close the tag before the </body> tag
 
-```
+```html
 </div>
 </body>
 ```
 
-Any better?
+Any better looking?
 
-Finally use developer tools to 'inspect' the styles you have applied, you can manipulate them as well.
+Finally use developer tools to 'inspect' the styles you have applied, you can manipulate them as well.  You can examine the whole style sheet via the 'sources' tab in developer tools.
 
 >![Inspect CSS](styleinspector.png)
 
