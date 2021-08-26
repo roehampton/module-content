@@ -105,7 +105,7 @@ We are now ready to set up the Node project via
 
 ![image-20210301191011054](image-20210301191011054.png)
 
-- **Just use the default values is you wish. It will create a `package.json` file.**
+- **Just use the default values if you wish. It will create a `package.json` file.**
 - **Open `package.json` and add the `start` script `node main.js`. My one is below. See Line 7 for the change.**
 
 ```json
@@ -361,11 +361,11 @@ Endpoints are the routes that our Express.js application will offer to our front
 ```javascript
 "use strict";
 
-// The application layer uses student classes
-const student = require("../student.js");
+// The application layer uses student classes (note ./ to indicate relative path)
+const student = require("./../student.js");
 
 // The application layer talks to the data layer
-const data = require("../data/data.js");
+const data = require("./../data/data.js");
 
 // Import express library.
 const express = require("express");

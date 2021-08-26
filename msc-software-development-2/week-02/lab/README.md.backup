@@ -215,15 +215,14 @@ First, link to an external stylesheet, and while we are at it some nicer fonts t
 ```html
   <div class="container">
 ```
-
 Then close the tag before the </body> tag
 
-```html
+```
 </div>
 </body>
 ```
 
-Any better looking?
+Any better?
 
 Finally use developer tools to 'inspect' the styles you have applied, you can manipulate them as well.
 

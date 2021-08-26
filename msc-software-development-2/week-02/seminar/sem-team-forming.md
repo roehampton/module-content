@@ -1,8 +1,49 @@
-# Software Development 2 Seminar 01 -- Team Forming and Scrum
+# Software Development 2 Seminar 02 -- Working together: Team Forming and Scrum
 
-## What is Scrum?
+## What are some of the problems when we work as a team?
 
-Scrum is a project management and group working philosophy.  For project management, the idea is simple: check your project regularly to see if it is heading in the right direction.  It is that simple, but few people manage a project this way.  The idea has been around for a while:
+1. How do we specify what we will build?
+1. How do we organise who works on what and when?
+1. How do we know if we have enough time to build it?
+1. How do we make sure everybody knows what needs to be done and fulfills their role?
+1. How do we share code but prevent conflicts and code loss?
+1. How do we replicate the technical environment on the server for 'local' development?
+
+## How do we specify what we will build?
+
+### User Stories
+
+User stories are one way that requirements or specfications are captures and communicated.  They allow the team to understand **why the task is needed.** and what the 'acceptance criteria' should be (ie. how do we know that the feature works).  In other words, a user story captures some functionality that has specific value to the user.
+
+User stories have a simple structure: 
+
+As a *user*
+I can *do something*
+So that *a requirement is met*
+
+For example:
+
+- As a student I want to submit a coursework so that I can pass the module.
+
+This example story has a number of tasks associated with it.  We need to upload a file.  That file needs to be associated with an assessment.  An assessment needs to associated with a module.  We need to login to the system.  And so on.
+
+#### Additional resources:
+
+Splitting user stories
+https://www.youtube.com/watch?v=B_xQKX_x5Hs
+This video does a good job of explaining how to identify high level user stories and then split them into smaller ones that you can action.  
+
+User stories can be time consuming to write: take a look at this article for a more streamlined approach to splitting stories into tasks that might be useful for your projects:
+https://www.nngroup.com/articles/user-story-mapping/
+ 
+
+## How do we organise who works on what and when?
+
+### What is Scrum?
+
+Scrum is a project management and group working philosophy. Many development teams will use some form of scrum - many pick and choose the elements of the methodology that suits them best, so its good to be familiar with all the main concepts. 
+
+For project management, the idea is simple: check your project regularly to see if it is heading in the right direction. The idea has been around for a while:
 
 - *"In preparing for battle I have always found that plans are useless, but planning is indispensable."* Dwight D. Eisenhower.
 - *"Plans are of little importance, but planning is essential."* Winston Churchill.
@@ -19,7 +60,6 @@ In Scrum we use the following terminology:
 
 - Product Backlog.
 - Task Board (or Scrum Board, or Kanban Board).
-- User Stories.
 - Sprints.
 - Sprint Planning.
 - Story Points.
@@ -48,13 +88,6 @@ To start with you will define four columns:
 
 Tasks flow from the the Backlog to Done as they are completed.  There are many online tools to achieve this.  We will use the one built into GitHub.  [Trello](https://trello.com/) is another popular tool.
 
-### User Stories
-
-When defining a task it should be part of a *User Story*.  This allows the team to understand **why the task is needed.**
-
-- As a student I want to submit a coursework so that I can pass the module.
-
-This story has a number of tasks associated with it.  We need to upload a file.  That file needs to be associated with an assessment.  An assessment needs to associated with a module.  We need to login to the system.  And so on.
 
 ### Sprints
 
@@ -63,51 +96,6 @@ A Sprint is a period of time when a team does work.  The typical length of time 
 ### Sprint Planning
 
 To plan a Sprint, the team selects tasks they believe they can complete during the Sprint.  These tasks are selected from the prioritised task list.
-
-### Story Points
-
-Each task is scored based on an estimated cost.  We don't talk about hours, days, or any other concept of time.  We are allocating points.  And points are a relative score.  For example, we could rate our tasks using animal sizes:
-
-- Mouse.
-- Dog.
-- Deer.
-- Hippo.
-- Elephant.
-- Blue Whale.
-
-Humans cannot judge the time it will take to complete a task.  But they can compare sizes really well.  For example:
-
-- Student can login (mouse).
-- Student can upload a file (dog).
-- Uploaded file is associated with an assessment (horse).
-- etc.
-
-Each of the sizes is given a value:
-
-- Mouse (1).
-- Dog (2).
-- Deer (3).
-- Hippo (5).
-- Elephant (8).
-- Blue Whale (13).
-
-This is the Fibonacci sequence, and has been found to be the best approach to estimate relative task size.  And we use the entire team to estimate, because collectively you can come to a better estimate.  Estimation is done via Planning Poker.
-
-### Planning Poker
-
-Planning Poker doesn't use animals but numbers - you just need to remember what the numbers represent.  We are comparing task size, not determining days of work.  Planning Poker card decks are available:
-
-<a title="By Hkniberg at English Wikipedia (Transferred from en.wikipedia to Commons.) [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:CrispPlanningPokerDeck.jpg"><img width="256" alt="CrispPlanningPokerDeck" src="https://upload.wikimedia.org/wikipedia/commons/e/eb/CrispPlanningPokerDeck.jpg"></a>
-
-The process is:
-
-1. Select a task.
-2. Everyone picks a card from their deck to score the task, but does not reveal it.
-3. When everyone is ready, everyone reveals their card at the same time (so no groupthink comes in).
-4. If the cards are within two of each other (e.g. a 2, 3, and 5 range) then sum the cards and divide by number of voters to get the average.  That is your estimated cost.
-5. If the cards are not within two of each other, then the smallest and largest scorers describe why they gave the points they did.  Then a re-vote.  Repeat until the group are within two cards of each other, then average.
-
-Remember - **this is an estimate**, and an estimate for a tiny part of the project.  You don't know.  But you need to constantly review your scores based on what you have learnt during the project.  You will get a better estimate of completion time the longer you work on the project.
 
 ### Daily Stand-up
 
@@ -142,14 +130,6 @@ The team then vote on which improvement to make and execute it in the next Sprin
 
 A team must have the necessary skills to get the work done.  A team should contain all the members needed to deliver the project/product, but should be seven people (plus or minus two) in size.  Any larger will create too many communication channels.  Smaller teams (as you will have in the module) are fine for smaller projects.
 
-By all skills, we mean everything.  DevOps is an intersection:
-
-<p><a href="https://commons.wikimedia.org/wiki/File:Devops.svg#/media/File:Devops.svg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Devops.svg/1200px-Devops.svg.png" alt="Devops.svg"></a><br>By <a href="//commons.wikimedia.org/wiki/File:Devops.png" title="File:Devops.png">Devops.png</a>: <a href="//commons.wikimedia.org/w/index.php?title=User:Rajiv.Pant&amp;action=edit&amp;redlink=1" class="new" title="User:Rajiv.Pant (page does not exist)">Rajiv.Pant</a>
-derivative work: <a href="//commons.wikimedia.org/wiki/User:Wylve" title="User:Wylve">Wylve</a> - This file was derived from:&nbsp;<a href="//commons.wikimedia.org/wiki/File:Devops.png" title="File:Devops.png">Devops.png</a>:&nbsp;<a href="//commons.wikimedia.org/wiki/File:Devops.png" class="image"></a>, <a href="https://creativecommons.org/licenses/by/3.0" title="Creative Commons Attribution 3.0">CC BY 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=20202905">Link</a></p>
-IT Operations are part of your team.  They help you deliver your product.  Your team might include sales, admin, or other people.  The team needs all the skills for your product/project.
-
-Also, a team member should only be a member of that one team.  No other. If a team member is dividing their attention across multiple projects/products then they aren't committed to either.
-
 ### Roles
 
 Scrum defines two roles within the team:
@@ -158,6 +138,8 @@ Scrum defines two roles within the team:
 2. The **Scrum Master** keeps the team working, solves blockages, and keeps the rhythm going.  Their job is to help the team work as best they can.
 
 Notice there is no Project Manager, no leader, no boss.  Teams are autonomous and self-organising.  If there is a problem in the team they collectively solve it.  Deal with problem team members.  Reflect and be honest.  Have integrity and honesty.  Get the work done and support the team.
+
+## How do we make sure everybody knows what needs to be done and fulfills their role?
 
 ### Transparency
 
@@ -256,6 +238,53 @@ If the deadline cannot be met, ask the following questions:
 
 The team then undertakes a retrospective as described above to improve how the team works.
 
+## How do we know if we have enough time to build it?
+
+### Story Points
+
+Each task is scored based on an estimated cost.  We don't talk about hours, days, or any other concept of time.  We are allocating points.  And points are a relative score.  For example, we could rate our tasks using animal sizes:
+
+- Mouse.
+- Dog.
+- Deer.
+- Hippo.
+- Elephant.
+- Blue Whale.
+
+Humans cannot judge the time it will take to complete a task.  But they can compare sizes really well.  For example:
+
+- Student can login (mouse).
+- Student can upload a file (dog).
+- Uploaded file is associated with an assessment (horse).
+- etc.
+
+Each of the sizes is given a value:
+
+- Mouse (1).
+- Dog (2).
+- Deer (3).
+- Hippo (5).
+- Elephant (8).
+- Blue Whale (13).
+
+This is the Fibonacci sequence, and has been found to be the best approach to estimate relative task size.  And we use the entire team to estimate, because collectively you can come to a better estimate.  Estimation is done via Planning Poker.
+
+### Planning Poker
+
+Planning Poker doesn't use animals but numbers - you just need to remember what the numbers represent.  We are comparing task size, not determining days of work.  Planning Poker card decks are available:
+
+<a title="By Hkniberg at English Wikipedia (Transferred from en.wikipedia to Commons.) [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:CrispPlanningPokerDeck.jpg"><img width="256" alt="CrispPlanningPokerDeck" src="https://upload.wikimedia.org/wikipedia/commons/e/eb/CrispPlanningPokerDeck.jpg"></a>
+
+The process is:
+
+1. Select a task.
+2. Everyone picks a card from their deck to score the task, but does not reveal it.
+3. When everyone is ready, everyone reveals their card at the same time (so no groupthink comes in).
+4. If the cards are within two of each other (e.g. a 2, 3, and 5 range) then sum the cards and divide by number of voters to get the average.  That is your estimated cost.
+5. If the cards are not within two of each other, then the smallest and largest scorers describe why they gave the points they did.  Then a re-vote.  Repeat until the group are within two cards of each other, then average.
+
+Remember - **this is an estimate**, and an estimate for a tiny part of the project.  You don't know.  But you need to constantly review your scores based on what you have learnt during the project.  You will get a better estimate of completion time the longer you work on the project.
+
 ### Scrum Framework
 
 To summarise the Scrum Framework see below:
@@ -287,7 +316,7 @@ To illustrate how Scrum ideals (and agile principles in general) can work, watch
 
 1. **Do we really need to meet once a day?**
 
-It would be good if you could, but in reality three times a week will probably be enough.  Also, use technology to get around the problem.  Skype or similar can allow you to communicate.  The point is to meet at the same time each day for no more than 10-15 minutes. Use the defined Scrum questions.
+It would be good if you could, but in reality three times a week will probably be enough.  Also, use technology to get around the problem.  Teams or similar can allow you to communicate.  The point is to meet at the same time each day for no more than 10-15 minutes. Use the defined Scrum questions.
 
 2. **We cannot find a time to all meet.  What do we do?**
 

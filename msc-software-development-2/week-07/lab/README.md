@@ -237,11 +237,13 @@ docker build -t test-dockerfile .
 The command tells docker to *build* an image (`build`), with the name `test-dockerfile` (`-t` means we are providing a name), and to use the current directory (`.`).  So the command format is:
 
 ```shell
-docker build -t <name> <folder>
+docker build -f <name> <folder>
 ```
 
 When executed you will get the following output:
 
+
+<to amend>
 ```shell
 [+] Building 0.2s (5/5) FINISHED
  => [internal] load build definition from Dockerfile  0.0s
