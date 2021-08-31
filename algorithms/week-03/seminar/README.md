@@ -1,4 +1,5 @@
-<code> // Linked list implementation in C
+``` C
+// Linked list implementation in C
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,4 +44,5 @@ int main() {
   head = one;
   printLinkedlist(head);
 } 
-</code>
+```
+
