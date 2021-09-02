@@ -1,5 +1,5 @@
 ## Task 3
-''' C
+``` C
 void move_zeros_to_left(int A[], int n) {
    
   if (n < 1) return;
