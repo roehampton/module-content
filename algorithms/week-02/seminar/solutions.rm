@@ -1,4 +1,4 @@
-## Task 3
+// Task 3
 ``` C
 void move_zeros_to_left(int A[], int n) {
    
