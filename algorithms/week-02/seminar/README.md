@@ -78,18 +78,9 @@ str1 = "Algorithms"
 print(print(str1.replace('s', '')))
 ```
 
-#Task 1. Find the Max and Min values in a numerical array
 
+## Task 1. Write an algorithm to find the Max and Min values in a numerical array.
 
-## Task 1. Numerical and character arrays (strings) in C
+## Task 2. Write an algorithm to sort elements of a numerical list.
 
-
-## Task2. Sort elements of a numerical list in Python, without using sort()
-
-## Task3. Write a program to create a new array from a given array of integers shifting all zeros to the left direction
-
-
-
-## Matrices
-In a computer program, a Matrix is 2-dimensional array. In Machin Learning, matrix multiplicaton its at the core of practically any algorithm, and ML is at the top of the
-job ladder. So better get right at a ealy stage. 
+## Task 3. Write an algorithm to create a new list from a given list of integers shifting all zeros to the left direction. 
