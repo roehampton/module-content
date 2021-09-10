@@ -1,5 +1,5 @@
 # Software Development 1 
-# Lab 9 --Introduction to fundamental concepts of algorithms
+# Week 10 --Introduction to fundamental concepts of algorithms
 
 In this lab, we’ll explore:
 1. Concept of an algorithm
