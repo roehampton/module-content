@@ -1,5 +1,5 @@
 # Software Development 1 
-# Lab 7 -– Functions in Python
+# Lecture 8 -– Functions in Python
 
 In this lab we will explore:
 
