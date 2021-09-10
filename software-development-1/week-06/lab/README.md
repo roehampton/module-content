@@ -1,5 +1,6 @@
 # Software Development 1 
-# Lab 6 1. A for loop executes once for each item in a collection. The collection can be a range of integers constructed by calling the range function. It can also be a list. The following example uses a for loop to total the values in data.
+# Lab 6 
+1. A for loop executes once for each item in a collection. The collection can be a range of integers constructed by calling the range function. It can also be a list. The following example uses a for loop to total the values in data.
 
 
 
