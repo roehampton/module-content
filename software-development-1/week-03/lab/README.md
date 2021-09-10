@@ -1,5 +1,7 @@
 # Software Development 1
-# Lab 3 In this seminar we will go in more depth into the Syntax and Semantics of Python
+# Lab 3 
+
+In this lab we will go in more depth into the Syntax and Semantics of Python
 
 1. A variable can be assigned many times. It always retains the value of the most recent assignment. Here is an interactive Python session that demonstrates the point: 
 
