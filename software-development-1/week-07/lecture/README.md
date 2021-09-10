@@ -1,5 +1,5 @@
 # Software Development 1 
-# Lab 6 -– Simple I/O : Creating, storing &amp; retrieving files
+# Lab 7 -– Simple I/O : Creating, storing &amp; retrieving files
 
 In this lab we will explore:
 
