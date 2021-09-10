@@ -237,7 +237,7 @@ function printStudents() {
     });
 }
 ```
-
+/student-list.html
 We've simplified the `Student` class to just work with an ID and name. Then our changes are just to `printStudents()`:
 
 - We use `$.getJSON` to get the JSON document from the server. `$` is how we access jQuery functions. We use the URL `/students` as this is the endpoint we have created.
