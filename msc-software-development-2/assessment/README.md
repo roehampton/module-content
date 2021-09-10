@@ -8,9 +8,9 @@ The coursework is worth 100% of the total module mark. Delivery of the coursewor
 
 | **Title**             | **Deadline**      | **Marks** |
 | --------------------- | ----------------- | --------- |
-| Sprint 1              | Week 3            | 15%       |
-| Sprint 2              | Week 6            | 15%       |
-| Sprint 3              | Week 9            | 25%       |
+| Sprint 1              | tbc           | 15%       |
+| Sprint 2              | tbc            | 15%       |
+| Sprint 3              | tbc           | 25%       |
 | Sprint 4              | Assessment Week 2 | 25%       |
 | Individual Reflection | Assessment Week 2 | 20%       |
 
@@ -28,10 +28,6 @@ In this coursework you are tasked with creating a dynamic web application for th
 ### Advice on Application Choice
 
 We are not looking for anything sophisticated in your application. Fundamentally, you should aim to develop a [CRUD application](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete). A CRUD application is effectively a front-end to a database, providing a method to create, read, update, and delete data from a web site to a database on a server.
-
-An example tutorial on building a CRUD application using JavaScript and HTML forms is available here: [JavaScript CRUD Example Tutorial (javaguides.net)](https://www.javaguides.net/2020/11/javascript-crud-example-tutorial.html). An example image of a potential front-end for a CRUD application is below.
-
-![img](https://codeshack.io/web/img/posts/crud-application-php-pdo-mysql.png)
 
 ## Group Submission
 
@@ -56,10 +52,9 @@ Any dismissed team member has a week to appeal the decision to the module team w
 
 Each group will undertake **four** graded Sprints:
 
-1. Friday 5th February at 17.00.
-2. Friday 26th February at 17.00.
-3. Friday 19th March at 17.00.
-4. Friday 23rd April at 17.00.
+dates tbc
+
+
 
 Each Sprint features a submission (via Moodle) and a review at the next class session. Each group will be given **10 minutes maximum** for the review. Your group will be **allocated a time for the code review.** The details of the individual review points are below. These meetings **must be attended** at the **stated time.** Guidelines for review attendance:
 
@@ -72,9 +67,9 @@ Each Sprint features a submission (via Moodle) and a review at the next class se
 
 ### Sprint 1
 
-#### Submission: Week 3
+#### Submission: tbc
 
-#### Review Meeting: Week 4
+#### Review Meeting: tbc + 1
 
 The aim of this Sprint is to check that the project workflow is set up for the team. You may choose to meet some of the feature requirements during this delivery but point, but it is not a necessity.
 
@@ -91,9 +86,9 @@ Submission requirements for this Sprint:
 
 ### Sprint 2
 
-#### Submission: Week 6
+#### Submission: tbc
 
-#### Review Meeting: Week 7
+#### Review Meeting: tbc + 1
 
 The aim of this Sprint is to check that you have a set of user requirements defined as user stories and that you have designed initial elements of your application.
 
@@ -113,9 +108,9 @@ Submission requirements for this Sprint:
 
 ### Sprint 3
 
-#### Submission: Week 9
+#### Submission: tbc 
 
-#### Review: Week 10
+#### Review: tbc + 1
 
 The aim of this Sprint is to have a working prototype of your application, with good progress in the technical deliverables of the project.
 
