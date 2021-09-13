@@ -1,5 +1,5 @@
 # Software Development 1 
-# Lacture 2 -- Introduction to Programming
+# Lecture 2 -- Introduction to Programming
 
 ## The contents of this lab will be carried out on a Jupiter Notebook. Information on using Jupiter notebooks can be found at: https://jupyter.org/
 
