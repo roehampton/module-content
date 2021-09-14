@@ -62,11 +62,77 @@ rect.setFill('blue')
 rect.draw(win)
 ```
 
+13. Close the current window
+
+```
+win.close()
+```
+
 So far we have learnt how to create rectangle with specific colour. Think about the French flag (as below). How can we  draw it by python?
-![alt text][logo]
+![Alt text][French]
 
-The French flag consists of three rectangles with 
+14. Let's create a window in flag size named "France"
 
+```
+france = GraphWin('France', 600, 400)
+```
 
+The French flag consists of three rectangles with colour blue, white and red.
+
+15. Draw the blue bar on the window.
+
+```
+rect = Rectangle(Point(0, 0), Point(200, 400))
+rect.setFill('blue')
+rect.draw(france)
+```
+
+16. Draw the white and red bars on the window.
+
+```
+rect = Rectangle(Point(200,0), Point(400, 400)))
+rect.setFill('white')
+rect.draw(france)
+```
+> Try the red bar by yourself.
+
+Now it's time to try some rectangle-based flags by yourself.
+
+![Alt text][Italy]
+![Alt text][Germany]
+![Alt text][Switzerland]
+![Alt text][United Arab Emirates]
+
+For some circle-based flags (e.g., Japanese flag as below), we use **Circle()** to draw circles. Circles are defined by a centre point and a radius.
+
+```
+circle = Circle(Point(100, 100), 50)
+```
+
+17. Similar to rectangle, we can set the colour fill to the circle, and then draw it on the window.
+
+```
+circle.setFill(‘red’)
+circle.draw(win)
+```
+
+For some line-based flags (e.g., Scottish flag as below), we use **Line()**. Each line is defined by two points, and we can set the colour (outline) and width of the line. Of course, it can also be drawn on the window.
+
+```
+line = Line(Point(0,0), Point(600, 400))
+line.setOutline('red')
+line.setWidth(80)
+line.draw(win)
+```
+
+Finally, let's look at 
+
+Now I believe you have got enough confidence to draw more challenging flags. Here some advanced flags are prepared for you to play with.
+
+![Alt text][Vietnam]
+![Alt text][Panama]
+![Alt text][Democratic Republic of Congo]
+
+Good luck and have fun!
 
 
