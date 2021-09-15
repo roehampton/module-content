@@ -4,7 +4,7 @@
 Aim: Learn how to draw flags of the world by using just Python code.
 
 To complete this task, we will use **Anaconda** as a platform, in which **Jupytor notebook** is used an interative editing and running application.
-If you are working on a university lab machine, Anaconda has already be installed. For your personal machine, please refer to [Anaconda installation guidance](https://github.com/roehampton/module-content/blob/621b81d640824a6efa486da3628cddf9e794de0a/software-development-1/week-01/lab/Anaconda_installation.md).
+If you are working on a university lab machine, Anaconda has already be installed. For your personal machine, please refer to [Anaconda installation guidance](https://github.com/roehampton/module-content/blob/dbc9ede68eaef89fdab364832ab92be2f72f797b/software-development-1/week-01/lab/Anaconda_installation.md).
 
 After Anaconda is successfully installed, you can start following the step-by-step instructions below to draw flags!
 
