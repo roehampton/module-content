@@ -271,7 +271,9 @@ line.draw(win)
 
 20. Finally, let's look at some more complicated flags baseed on polygons (e.g., Bahamas as below).
 
-![Bahamas][Bahamas.png]. 
+- **Bahamas**
+
+![Bahamas](Bahamas.png). 
 
 We use **Polygon()** to draw polygons, where the polygon corners are defined by parameters. For example, to draw a triangle, we can draw a polygon with three points.
 
@@ -287,14 +289,30 @@ tri.draw(win)
 ```
 ### Now You Try -- More Polygon-based Flags
 
-![Jamaica][Jamaica.png]
-![Seychelles][Seychelles.png]
-![Kuwait][Kuwait.png]
+- **Jamaica**
+
+![Jamaica](Jamaica.png).
+
+- **Seychelles**
+
+![Seychelles](Seychelles.png).
+
+- **Kuwait**
+
+![Kuwait](Kuwait.png).
 
 Now I believe you have got enough confidence to draw more challenging flags. Here some advanced flags are prepared for you to play with.
 
-![Vietnam][Vietnam.png]
-![Panama][Panama.png]
-![DemocraticRepublicofCongo][DemocraticRepublicofCongo.png]
+- **Vietnam**
+
+![Vietnam](Vietnam.png).
+
+- **Panama**
+
+![Panama](Panama.png).
+
+- **Democratic Republic of Congo**
+
+![Democratic Republic of Congo](DemocraticRepublicofCongo.png).
 
 Good luck and have fun!
