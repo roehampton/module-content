@@ -143,7 +143,7 @@ rect.draw(france)
 ```
 > Try the red bar by yourself. Also, remember to close the window when you are finished.
 
-### Now You Try -- More Rectangle-based Flags
+### Try more -- More Rectangle-based Flags
 
 17. Now it's time to try some rectangle-based flags by yourself.
 
@@ -208,6 +208,8 @@ circle.draw(win)
 - **Maldives**
 
 ![image-20210331201122316](image-20210331201122316.png)
+
+## Drawing Lines
 
 19. For some line-based flags (e.g., Scottish flag as below), we use **Line()**. Each line is defined by two points, and we can set the colour (outline) and width of the line. Of course, it can also be drawn on the window.
 
