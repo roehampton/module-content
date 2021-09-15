@@ -143,7 +143,7 @@ rect.draw(france)
 ```
 > Try the red bar by yourself. Also, remember to close the window when you are finished.
 
-### Now You Try -- More Flags
+### Now You Try -- More Rectangle-based Flags
 
 17. Now it's time to try some rectangle-based flags by yourself.
 
@@ -185,21 +185,7 @@ Write code to draw the following flags.
 
 ![image-20210331200754487](image-20210331200754487.png)
 
-- **Gambia**
-
-![image-20210331200802531](image-20210331200802531.png)
-
-- **Thailand**
-
-![image-20210331200810728](image-20210331200810728.png)
-
-- **Laos**
-
-![image-20210331201016569](image-20210331201016569.png)
-
-- **Maldives**
-
-![image-20210331201122316](image-20210331201122316.png)
+## Drawing Rectangles
 
 18. For some circle-based flags (e.g., Japanese flag as below), we use **Circle()** to draw circles. Circles are defined by a centre point and a radius.
 
@@ -213,8 +199,19 @@ Similar to rectangle, we can set the colour fill to the circle, and then draw it
 circle.setFill(‘red’)
 circle.draw(win)
 ```
+### Now You Try -- More Circle-based Flags
+
+- **Laos**
+
+![image-20210331201016569](image-20210331201016569.png)
+
+- **Maldives**
+
+![image-20210331201122316](image-20210331201122316.png)
 
 19. For some line-based flags (e.g., Scottish flag as below), we use **Line()**. Each line is defined by two points, and we can set the colour (outline) and width of the line. Of course, it can also be drawn on the window.
+
+![image-20210331201508784](image-20210331201508784.png)
 
 ```
 line = Line(Point(0,0), Point(600, 400))
@@ -222,10 +219,57 @@ line.setOutline('red')
 line.setWidth(80)
 line.draw(win)
 ```
+### Now You Try -- More Line-based Flags
+
+- **Gambia**
+
+![image-20210331200802531](image-20210331200802531.png)
+
+- **Thailand**
+
+![image-20210331200810728](image-20210331200810728.png)
+
+- **England**
+
+![image-20210331201516891](image-20210331201516891.png)
+
+- **Sweden**
+
+![image-20210331201529442](image-20210331201529442.png)
+
+- **Tonga**
+
+![image-20210331201537892](image-20210331201537892.png)
+
+- **Botswana**
+
+![image-20210331201545872](image-20210331201545872.png)
+
+- **Norway**
+
+![image-20210331201555322](image-20210331201555322.png)
+
+- **Trinidad and Tobago**
+
+![image-20210331201603307](image-20210331201603307.png)
+
+- **United Kingdom**
+
+![image-20210331201610778](image-20210331201610778.png)
+
+- **Greece**
+
+![image-20210331201639938](image-20210331201639938.png)
+
+- **Morocco**
+
+![image-20210331201647538](image-20210331201647538.png)
+
+## Drawing Polygons
 
 20. Finally, let's look at some more complicated flags baseed on polygons (e.g., Bahamas as below).
 
-![Alt text][Bahamas]. 
+![Bahamas][Bahamas.png]. 
 
 We use **Polygon()** to draw polygons, where the polygon corners are defined by parameters. For example, to draw a triangle, we can draw a polygon with three points.
 
@@ -239,11 +283,16 @@ Also, the colour can be set by **setFill()**.
 tri.setFill('black')
 tri.draw(win)
 ```
+### Now You Try -- More Polygon-based Flags
+
+![Jamaica][Jamaica.png]
+![Seychelles][Seychelles.png]
+![Kuwait][Kuwait.png]
 
 Now I believe you have got enough confidence to draw more challenging flags. Here some advanced flags are prepared for you to play with.
 
-![Alt text][Vietnam]
-![Alt text][Panama]
-![Alt text][Democratic Republic of Congo]
+![Vietnam][Vietnam.png]
+![Panama][Panama.png]
+![DemocraticRepublicofCongo][DemocraticRepublicofCongo.png]
 
 Good luck and have fun!
