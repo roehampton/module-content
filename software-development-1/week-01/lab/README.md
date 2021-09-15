@@ -22,7 +22,7 @@ The **computer is stupid**. It needs to know exactly what you mean when you give
 
 2. Create a **Jupyter notebook** file with Python 3 kernal (ipykernel). 
 
-<img src="create_notebook.png" alt="create_notebook" width="200"/><img src="Jupyter.png" alt="jupyter notebook" width="600"/>
+<img src="create_notebook.png" alt="create_notebook" height="250"/><img src="Jupyter.png" alt="jupyter notebook" height="200"/>
  
 3. Install graphic library through pip
 > In this drawing flag task, we will use **graphics.py** library, which is a simple object oriented graphics library designed to make it very easy for novice programmers to experiment with computer graphics in an object oriented fashion. To install graphics.py library, we use package manager **pip**. 
@@ -273,7 +273,7 @@ line.draw(win)
 
 - **Bahamas**
 
-![Bahamas](Bahamas.png). 
+![Bahamas](Bahamas.png) 
 
 We use **Polygon()** to draw polygons, where the polygon corners are defined by parameters. For example, to draw a triangle, we can draw a polygon with three points.
 
