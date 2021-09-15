@@ -1,5 +1,13 @@
 # Software Development 1 
 # Lab 1 -- Programming Flags
+
+Aim: Learn how to draw flags of the world by using just Python code.
+
+To complete this task, we will use **Anaconda** as a platform, in which **Jupytor notebook** is used an interative editing and running application.
+If you are working on a university lab machine, Anaconda has already be installed. For your personal machine, please refer to [Anaconda installation guidance](https://github.com/roehampton/module-content/blob/621b81d640824a6efa486da3628cddf9e794de0a/software-development-1/week-01/lab/Anaconda_installation.md).
+
+After Anaconda is successfully installed, you can start following the step-by-step instructions below to draw flags!
+
 1. Start the **Anaconda Navigator** application. 
 2. Create a **Jupyter notebook** file with Python 3 kernal (ipykernel).
 3. Install graphic library through pip
