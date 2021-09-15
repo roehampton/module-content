@@ -185,7 +185,7 @@ Write code to draw the following flags.
 
 ![image-20210331200754487](image-20210331200754487.png)
 
-## Drawing Rectangles
+## Drawing Circles
 
 18. For some circle-based flags (e.g., Japanese flag as below), we use **Circle()** to draw circles. Circles are defined by a centre point and a radius.
 
@@ -221,7 +221,7 @@ line.setOutline('red')
 line.setWidth(80)
 line.draw(win)
 ```
-### Now You Try -- More Line-based Flags
+### Now You Try -- More Flags with Lines
 
 - **Gambia**
 
