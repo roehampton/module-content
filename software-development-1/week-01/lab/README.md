@@ -96,27 +96,27 @@ rect.draw(france)
 ```
 > Try the red bar by yourself.
 
-Now it's time to try some rectangle-based flags by yourself.
+17. Now it's time to try some rectangle-based flags by yourself.
 
 ![Alt text][Italy]
 ![Alt text][Germany]
 ![Alt text][Switzerland]
 ![Alt text][United Arab Emirates]
 
-For some circle-based flags (e.g., Japanese flag as below), we use **Circle()** to draw circles. Circles are defined by a centre point and a radius.
+18. For some circle-based flags (e.g., Japanese flag as below), we use **Circle()** to draw circles. Circles are defined by a centre point and a radius.
 
 ```
 circle = Circle(Point(100, 100), 50)
 ```
 
-17. Similar to rectangle, we can set the colour fill to the circle, and then draw it on the window.
+Similar to rectangle, we can set the colour fill to the circle, and then draw it on the window.
 
 ```
 circle.setFill(‘red’)
 circle.draw(win)
 ```
 
-For some line-based flags (e.g., Scottish flag as below), we use **Line()**. Each line is defined by two points, and we can set the colour (outline) and width of the line. Of course, it can also be drawn on the window.
+19. For some line-based flags (e.g., Scottish flag as below), we use **Line()**. Each line is defined by two points, and we can set the colour (outline) and width of the line. Of course, it can also be drawn on the window.
 
 ```
 line = Line(Point(0,0), Point(600, 400))
@@ -125,7 +125,22 @@ line.setWidth(80)
 line.draw(win)
 ```
 
-Finally, let's look at 
+20. Finally, let's look at some more complicated flags baseed on polygons (e.g., Bahamas as below).
+
+![Alt text][Bahamas]. 
+
+We use **Polygon()** to draw polygons, where the polygon corners are defined by parameters. For example, to draw a triangle, we can draw a polygon with three points.
+
+```
+tri = Polygon(Point(0,0), Point(200,200), Point(0,400))
+```
+
+Also, the colour can be set by **setFill()**.
+
+```
+tri.setFill('black')
+tri.draw(win)
+```
 
 Now I believe you have got enough confidence to draw more challenging flags. Here some advanced flags are prepared for you to play with.
 
