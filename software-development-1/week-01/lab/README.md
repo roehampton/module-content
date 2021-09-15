@@ -7,9 +7,23 @@ To complete this task, we will use **Anaconda** as a platform, in which **Jupyto
 If you are working on a university lab machine, Anaconda has already be installed. For your personal machine, please refer to [Anaconda installation guidance](https://github.com/roehampton/module-content/blob/dbc9ede68eaef89fdab364832ab92be2f72f797b/software-development-1/week-01/lab/Anaconda_installation.md).
 
 After Anaconda is successfully installed, you can start following the step-by-step instructions below to draw flags!
+## Advice before Starting
 
-1. Start the **Anaconda Navigator** application. 
-2. Create a **Jupyter notebook** file with Python 3 kernal (ipykernel).
+The **computer is stupid**. It needs to know exactly what you mean when you give it instructions. It has no ability to guess. To become a programmer, you have to work on three skills as a beginner:
+
+- **Precision** -- you need to **type instructions exactly as given**. The computer is case sensitive, it will treat uppercase and lowercase letters differently. The computer cannot guess your spelling mistakes. You need to be precise when entering instructions.
+- **Patience** -- you need to be patient when learning to program. You will make mistakes, and the computer will shout at you. Your job is to recognise your errors and start building your programming capability.
+- **Practice** -- you have to **constantly practice**. You cannot write a few lines of code and think you are a programmer. You have to build up a certain type of problem solving skill to talk to the computer and write high-quality software.
+
+## Setting Up Python
+1. Open **Anaconda Navigator** from your Start Menu (Windows), Launchpad (MacOS), or equivalent on Linux. Once started, you will be presented with the following window.
+
+ ![image-20210402214430745](image-20210402214430745.png)
+
+2. Create a **Jupyter notebook** file with Python 3 kernal (ipykernel). 
+
+<img src="create_notebook.png" alt="create_notebook" width="200"/><img src="Jupyter.png" alt="jupyter notebook" width="600"/>
+ 
 3. Install graphic library through pip
 > In this drawing flag task, we will use **graphics.py** library, which is a simple object oriented graphics library designed to make it very easy for novice programmers to experiment with computer graphics in an object oriented fashion. To install graphics.py library, we use package manager **pip**. 
 
@@ -18,12 +32,21 @@ After Anaconda is successfully installed, you can start following the step-by-st
 !pip install graphics.py
 ```
 
-4. After the library is installed, import (almost) everything from graphics.py, which allows using the various objects (variables, classes, methods...) from graphics.py without prefixing them with the module's name.
+4. After the library is installed, we have to do is **ask Python to import our graphics library**, which allows using the various objects (variables, classes, methods...) from graphics.py without prefixing them with the module's name.
  ```
  from graphics import *
  ```
- 
-5. In graphics.py, the graphics are drawn in a window. **GraphWin()** can construct a new graphics window for drawing on the screen. The parameters are optional; the default title is “Graphics Window,” and the default size is 200 x 200 pixels.
+## Creating a Graphics Window in Python 
+
+In graphics.py, the graphics are drawn in a window. Let us perform the following steps:
+
+- Open a graphics window.
+- Set its background to white.
+- Close the graphics window
+
+> This is accomplished with the following lines of code. Enter them *precisely* into Python.
+
+5. **GraphWin()** can construct a new graphics window for drawing on the screen. The parameters are optional; the default title is “Graphics Window,” and the default size is 200 x 200 pixels.
 
 ```
 win = GraphWin()
@@ -41,7 +64,20 @@ win.setBackground('white')
 win.close()
 ```
 
-So far, we are able to create a window, set background colour, and close the window. Next, let's explore more.
+## Graphics Coordinate Systems
+
+Windows have coordinates. `(0, 0)` is the top-left corner. `(w, h)` is the bottom-right corner -- where `w` is the window width and `h` the height.
+
+<img src="screen.png" alt="coordinate" width="200"/>
+
+## Drawing Rectangles
+
+A rectangle has a start point and an end point. We can also set its colour. Let us do the following:
+
+- Create a graphics window called `name` with a size of 600 by 400.
+- Create a rectangle from point (0, 0) to point (100, 200).
+- Set the rectangle colour to blue.
+- Draw the rectangle.
 
 9. Create a window with given name, width and height.
 > As mentioned in step 5, **GraphWin()** can have optional parameters, **GraphWin(title, width, height)**
@@ -75,9 +111,12 @@ rect.draw(win)
 ```
 win.close()
 ```
-
+### Now You Try -- Completing the French Flag
 So far we have learnt how to create rectangle with specific colour. Think about the French flag (as below). How can we  draw it by python?
-![Alt text][French]
+
+<img src="French.png" alt="French" width="200"/>
+
+If you cannot complete this, the following instructions will help you complete the flag.
 
 14. Let's create a window in flag size named "France"
 
@@ -102,14 +141,65 @@ rect = Rectangle(Point(200,0), Point(400, 400)))
 rect.setFill('white')
 rect.draw(france)
 ```
-> Try the red bar by yourself.
+> Try the red bar by yourself. Also, remember to close the window when you are finished.
+
+### Now You Try -- More Flags
 
 17. Now it's time to try some rectangle-based flags by yourself.
 
-![Alt text][Italy]
-![Alt text][Germany]
-![Alt text][Switzerland]
-![Alt text][United Arab Emirates]
+Write code to draw the following flags.
+
+- **Indonesia**
+
+![image-20210331200627218](image-20210331200627218.png)
+
+- **Poland**
+
+![image-20210331200636972](image-20210331200636972.png)
+
+- **Austria**
+
+![image-20210331200649941](image-20210331200649941.png)
+
+- **Gabon**
+
+![image-20210331200704928](image-20210331200704928.png)
+
+- **Yemen**
+
+![image-20210331200713546](image-20210331200713546.png)
+
+- **Mauritius**
+
+![image-20210331200722066](image-20210331200722066.png)
+
+- **Italy**
+
+![image-20210331200734172](image-20210331200734172.png)
+
+- **Mali**
+
+![image-20210331200744304](image-20210331200744304.png)
+
+- **UAE**
+
+![image-20210331200754487](image-20210331200754487.png)
+
+- **Gambia**
+
+![image-20210331200802531](image-20210331200802531.png)
+
+- **Thailand**
+
+![image-20210331200810728](image-20210331200810728.png)
+
+- **Laos**
+
+![image-20210331201016569](image-20210331201016569.png)
+
+- **Maldives**
+
+![image-20210331201122316](image-20210331201122316.png)
 
 18. For some circle-based flags (e.g., Japanese flag as below), we use **Circle()** to draw circles. Circles are defined by a centre point and a radius.
 
