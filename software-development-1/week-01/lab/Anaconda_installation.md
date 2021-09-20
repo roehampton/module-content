@@ -6,7 +6,7 @@ These instructions are adapted from the main Anaconda Installation instructions 
 
 1. Download the 64-bit Graphical Installer for Anaconda from <https://www.anaconda.com/download/#windows>.
 
-   ![image-20210402200458023](image-20210402200458023.png)
+![image-20210402200458023](image-20210402200458023.png)
 
 2. Double-click the installer to launch.
 
@@ -49,3 +49,4 @@ These instructions are adapted from the main Anaconda Installation instructions 
 9. Click Move to Bin.
 
 After Anaconda is successfully installed, you can move back to continue the [flag drawing task](https://github.com/roehampton/module-content/blob/bb98123bccb8f578d1a6096dea9ebf267213ee69/software-development-1/week-01/lab/README.md).
+
