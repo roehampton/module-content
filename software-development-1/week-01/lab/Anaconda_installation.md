@@ -47,3 +47,6 @@ These instructions are adapted from the main Anaconda Installation instructions 
 8. Click Close.
 
 9. Click Move to Bin.
+
+After Anaconda is successfully installed, you can move back to continue the [flag drawing task](https://github.com/roehampton/module-content/blob/bb98123bccb8f578d1a6096dea9ebf267213ee69/software-development-1/week-01/lab/README.md).
+
