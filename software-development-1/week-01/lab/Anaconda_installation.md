@@ -6,7 +6,6 @@ These instructions are adapted from the main Anaconda Installation instructions 
 
 1. Download the 64-bit Graphical Installer for Anaconda from <https://www.anaconda.com/download/#windows>.
 
-<img src="image-20210402200458023.png" alt="image-20210402200458023" width="200"/>
 ![image-20210402200458023](image-20210402200458023.png)
 
 2. Double-click the installer to launch.
