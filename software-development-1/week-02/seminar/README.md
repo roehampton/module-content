@@ -1,4 +1,4 @@
-# Software Development 1 Seminar Workshop 02 -- Pseudocode
+# Software Development 1 Seminar 2 -- Pseudocode
 
 In this seminar, we are going to learn how to solve computational problems by breaking them down to simple steps.
 
