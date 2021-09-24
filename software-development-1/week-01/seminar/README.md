@@ -1,58 +1,68 @@
-The Seminar is about cementing what we have learned in our Lab. Please go through the following questions and exercises: 
+# Software Development 1 Seminar Workshop 01 -- Pseudocode
 
+In this seminar, we are going to learn how to solve computational problems by breaking them down to simple steps.
 
+## Instructions
 
-1. Can you think of examples of fixed program computers?
+Your group have to program a computer to draw various flags. The computer is very simple and only understands the following instruction.
 
+```
+DRAW COLOUR RECTANGLE FROM START TO END
+```
 
-2. What’s the difference between variable x, and string “x"?
+`COLOUR`
 
+`START` and `END` are coordinates in the two-dimensional plane. For example, consider the Ukraine flag.
 
-3. Name three data types and what can they be used for (examples).
+![image-20210331202934366](image-20210331202934366.png)
 
+Let us say that the top left corner is coordinate `(0, 0)` and bottom-right corner is `(600, 400)`. Then, to draw the Ukraine flag we will issue the following commands to the computer.
 
-4. What is an expression made up of? What do expressions do?
+```
+DRAW LIGHT BLUE RECTANGLE FROM (0,0) TO (600, 200)
+DRAW YELLOW RECTANGLE FROM (0, 200) TO (600, 400)
+```
 
+### Now you try
 
-5. What is the difference between an expression and a statement?
+Your group must come up with the instructions to draw the following flags.
 
+- **Monaco**
 
-6. What should the following expression evaluate to?
+![image-20210331203839536](image-20210331203839536.png)
 
-    "hi" + 'hihi' "hello " * 3
-    
-7. Is *socks* a valid variable name? How about *9000*? What’s the difference?
+- **Austria**
 
-8. What functions can be used to get the integer, floating-point
-number, or string version of a value?
+![image-20210331203903372](image-20210331203903372.png)
 
-9. Why does this expression cause an error? How can you fix it?
+- **Armenia**
 
-    'I have eaten ' + 99 + ' burritos.’
-    
-10. In Jupyter, wat happens if you leave out one of the parentheses, or both?
+![image-20210331203914773](image-20210331203914773.png)
 
-11. If you are trying to print a string, what happens if you leave out one of the quotation marks, or both?
+- **Germany**
 
-12. You can use a minus sign to make a negative number like -2. What happens if you put a plus sign before a number? What about 2++2?
+![image-20210331203924428](image-20210331203924428.png)
 
-13. In math notation, leading zeros are okay, as in 02. What happens if you try this in Python?
+- **Sierra Leone**
 
-14. What happens if you have two values with no operator between them?
+![image-20210331203933042](image-20210331203933042.png)
 
-15. We’ve seen that *n = 42* is legal. 
+- **Columbia**
 
-* What about *42 = n*?
+![image-20210331203941828](image-20210331203941828.png)
 
-* How about *x = y = 1*?
+- **Nigeria**
 
-16. In some languages every statement ends with a semicolon, **;**. What happens if you put a semicolon at the end of a Python statement?
-* What if you put a period at the end of a statement?
+![image-20210331203951159](image-20210331203951159.png)
 
-17. In math notation you can multiply *x* and *y* like this: *xy*. What happens if you try that in Python?
+- **Chad**
 
-18. What is the result of the following calculation in Python:
+![image-20210331204005331](image-20210331204005331.png)
 
-        3 + 2 * 9 / 10 -1
+- **Madagascar**
 
-Can you identify the order of precedence of the mathematical operations?
+![image-20210331204014356](image-20210331204014356.png)
+
+- **Benin**
+
+![image-20210331204022849](image-20210331204022849.png)

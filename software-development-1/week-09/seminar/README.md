@@ -1,11 +1,6 @@
-Seminar 9
+**: Roman Numerals** : Create a recursive function that converts a Roman numeral to an integer. Your function should process one or two characters at the beginning of the string, and then call itself recursively on all of the unprocessed characters. Use an empty string, which has the value 0, for the base case. In addition, write a main program that reads a Roman numeral from the user and displays its value.
 
-1. Approximately how many iterations will binary search need to find a value in a list of 512 items?
-2. What do recursions on sequences often use as a base case?
-3. What does an infinite recursion result in?
-4. A palindrome is a word or sentence that contains the same sequence of letters reading it either forwards or backwards. For example is &#39;madam.&quot; Write a recursive function that detects whether a string is a palindrome. The basic idea is to check that the first and last letters of the string are the same letter; if they are, then the entire string is a palindrome if everything between those letters is a palindrome. There are a couple of special cases to check for. If either the first or last character of the string is not a letter, you can check to see if the rest of the string is a palindrome with that character removed. Also, when you compare letters, make sure that you do it in a case-insensitive way.
-Use your function in a program that prompts a user for a phrase and then tells whether or not it is a palindrome. A few words for for testing are: &#39;noon&quot;, &#39;rotator&quot;, &#39;tenet&quot;
 
-5. Write and test a recursive function max to find the largest number in a list. The max is the larger of the first item and the max of all the other items.
-6. Computer scientists and mathematicians often use numbering systems other than base 10. Write a program that allows a user to enter a number and a base and then prints out the digits of the number in the new base. Use a recursive function baseConversion(num, base) to print the digits. Hint: Consider base 10. To get the right most digit of a base 10 number, simply look at the remainder after dividing by 10. For example,153 % 10 is 3. To get the remaining digits, you repeat the process on 15, which is just 153 // 10. This same process works for any base. The only problem is that we get the digits in reverse order (right to left).
-7. Transform our Binary Search code from the lab into a recursive function.
+As the name implies, Roman numerals were developed in ancient Rome. Even after the Roman empire fell, its numerals continued to be widely used in Europe until the late middle ages, and its numerals are still used in limited circumstances today.
+
+Roman numerals are constructed from the letters M, D, C, L, X, V and I which represent 1000, 500, 100, 50, 10, 5 and 1 respectively. The numerals are generally written from largest value to smallest value. When this occurs the value of the number is the sum of the values of all of its numerals. If a smaller value precedes a larger value then the smaller value is subtracted from the larger value that it immediately precedes and that difference is added to the value of the number. 

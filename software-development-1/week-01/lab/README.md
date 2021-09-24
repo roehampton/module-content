@@ -1,229 +1,318 @@
 # Software Development 1 
-# Lab 1 -- Introduction to Programming
+# Lab 1 -- Programming Flags
 
-## The contents of this lab will be carried out on a Jupiter Notebook. Information on using Jupiter notebooks can be found at: https://jupyter.org/
+Aim: Learn how to draw flags of the world by using just Python code.
 
-To create our Jupyter notebooks we will use Anaconda: a free and open-source distribution of the Python. Roehampton's computers should have this installed. You can download a copy for your personal computer at:
-https://www.anaconda.com/products/individual
+To complete this task, we will use **Anaconda** as a platform, in which **Jupytor notebook** is used an interative editing and running application.
+If you are working on a university lab machine, Anaconda has already be installed. For your personal machine, please refer to [Anaconda installation guidance](Anaconda_installation.md).
 
-If installing, follow the prompts from the installer. Once installed, head to the "Anaconda Navigator" shortcut. 
-In the Anaconda Navigator, we will have access to Jupyter Notebooks. As you launch the application, a new window in your browser will open. This is your Jupyter Notebook. Once opened, make sure to save it somewhere you can easily access. Roehampton University provides you with a Microsoft One Drive folder. Create a folder for this class (Software Development 1) and save the Jupyter Notebook as "Lecture_1.ipynb". Each .ipynb file is one notebook, so each time you create a new notebook, a new .ipynb file will be created. 
+After Anaconda is successfully installed, you can start following the step-by-step instructions below to draw flags!
+## Advice before Starting
 
-![Alt text](img_conda2.png?raw=false "Anaconda")
+The **computer is stupid**. It needs to know exactly what you mean when you give it instructions. It has no ability to guess. To become a programmer, you have to work on three skills as a beginner:
 
+- **Precision** -- you need to **type instructions exactly as given**. The computer is case sensitive, it will treat uppercase and lowercase letters differently. The computer cannot guess your spelling mistakes. You need to be precise when entering instructions.
+- **Patience** -- you need to be patient when learning to program. You will make mistakes, and the computer will shout at you. Your job is to recognise your errors and start building your programming capability.
+- **Practice** -- you have to **constantly practice**. You cannot write a few lines of code and think you are a programmer. You have to build up a certain type of problem solving skill to talk to the computer and write high-quality software.
 
-Jupyter Notebooks are an interactive computing environment for Python. Jupyter is an acronym for the programming languages Julia, Python and R. A Jupyter notebook integrates code and its output into a single document that combines visualizations, narrative text, mathematical equations, and other rich media. Jupyter Notebooks are now a major part of the data science workflow. 
+## Setting Up Python
+1. Open **Anaconda Navigator** from your Start Menu (Windows), Launchpad (MacOS), or equivalent on Linux. Once started, you will be presented with the following window.
 
-In this lab, we’ll explore 
-1.  What is Programming (Video/ Exercises)
-2.  Programming Languages (Video/ Exercises)
-3.  Introduction to Python (Video/ Exercises)
+ ![image-20210402214430745](image-20210402214430745.png)
 
-By the end of this lab and its accompanying seminar, you’ll be able to run Python code via Jupyter Notebooks. You’ll have knowledge of programming concepts, programming skills and problem-solving abilities. Our goal is to make you think as a computer scientist so that when you are faced with a challenge, you’ll immediately think:
+2. Create a **Jupyter notebook** file with Python 3 kernal (ipykernel). 
 
-> "How am I going to write a piece of code to help me tackle this?"
+<img src="create_notebook.png" alt="create_notebook" height="250"/><img src="Jupyter.png" alt="jupyter notebook" height="200"/>
+ 
+3. Install graphic library through pip
+> In this drawing flag task, we will use **graphics.py** library, which is a simple object oriented graphics library designed to make it very easy for novice programmers to experiment with computer graphics in an object oriented fashion. To install graphics.py library, we use package manager **pip**. 
 
-A few tips: Practice, practice, practice. You can’t passively absorb programming as a skill. Please view the videos before lecture so that you can maximise our time together. Remember that your instructor is not a mind reader, please tell them when you are struggling. Finally, don’t be afraid to try your code, you won’t break your computer!
 
-Let’s get started.
-### Exercise
-    # Our first Python program, print out "Hello, world"
-    
-    print("Hello, world")
+```
+!pip install graphics.py
+```
 
-fun fact: Brian Kernighan wrote the first "hello, world" program as part of the documentation for the BCPL programming language developed by Martin Richards. BCPL was used while C was being developed at Bell Labs a few years before the publication of Kernighan and Ritchie's C book in 1972.
+4. After the library is installed, we have to do is **ask Python to import our graphics library**, which allows using the various objects (variables, classes, methods...) from graphics.py without prefixing them with the module's name.
+ ```
+ from graphics import *
+ ```
+## Creating a Graphics Window in Python 
 
-## Lesson 1:  What is Programming?
+In graphics.py, the graphics are drawn in a window. Let us perform the following steps:
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=94ff6a2b-948b-4b73-adb2-ac4900c517a5
+- Open a graphics window.
+- Set its background to white.
+- Close the graphics window
 
-To understand this, we need to separate computer from computation. Computation is independent of the way is it is implemented in a computer. Think of the difference between knowing something vs knowing how to do something. For instance, knowing what is your favourite food vs how to make your favourite food. 
+> This is accomplished with the following lines of code. Enter them *precisely* into Python.
 
-    Exercise: Do you know how to make you favourite food? Can you write down a recipe for how to make it?
+5. **GraphWin()** can construct a new graphics window for drawing on the screen. The parameters are optional; the default title is “Graphics Window,” and the default size is 200 x 200 pixels.
 
-A recipe is a description of a set of steps; a sequence of specific instructions in order for you to accomplish an objective. 
-We define computation as the techniques of capturing this process in a mechanical fashion.
+```
+win = GraphWin()
+```
 
-Some of the earliest computers, known as **fixed program computers**, were designed to do just one thing. For instance, early calculators were designed to do only maths. In the 1940’s Dr Alan Turing made the Bombe computer with the sole purpose of breaking German code (cryptography). Trough computing, we want to capture the idea of problem solving.
+6. We can set colour of the background by **setBackground()**.
 
- > Suppose you invent a circuit that reads a circuit diagram and reconfigures itself to act like that that circuit diagram. You would have to invent a machine that takes a recipe, and acts like what is described in that recipe. This is known as an interpreter. 
-     What happens when you change the circuit?
+```
+win.setBackground('white')
+```
 
-This is the idea behind **Stored Program Computers**, the multipurpose device we will be working with. These computers usually have the following elements:
+8. We can close the window by **win.close()**
 
-    Memory-> Control Unit-> ALU-> Programme Counter
-    
-![Alt text](img_stored_program.png?raw=false "Stored Program Computer")
+```
+win.close()
+```
 
-Programming is the process of creating a set of instructions that tell a computer how to perform a task. Programming can be done using a variety of computer programming languages, such as Matlab, Python, and C++
+## Graphics Coordinate Systems
 
-Back in the olden days, computers had physical cards that need punching, etc. 
+Windows have coordinates. `(0, 0)` is the top-left corner. `(w, h)` is the bottom-right corner -- where `w` is the window width and `h` the height.
 
-    Do you know of any of these old physical computing mechanisms? 
-    
-    
-### Exercises
-Let's use Python as a Fixed Program Computer such as a Calculator
+<img src="screen.png" alt="coordinate" width="200"/>
 
-    1. How many seconds are there in 42 minutes 42 seconds?
-    
-    2. How many miles are there in 10 kilometres? 
-    Hint: there are 1.61 kilometres in a mile.
-    
-    3. If you run a 10 kilometres race in 42 minutes 42 seconds, 
-    what is your average pace (time per mile in minutes and seconds)? 
-    What is your average speed in miles per hour?
-    
+## Drawing Rectangles
 
-## Lesson 2: Programming Languages
+A rectangle has a start point and an end point. We can also set its colour. Let us do the following:
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=92cb69a2-0d52-4b23-ae58-ac4900c51714
+- Create a graphics window called `name` with a size of 600 by 400.
+- Create a rectangle from point (0, 0) to point (100, 200).
+- Set the rectangle colour to blue.
+- Draw the rectangle.
 
-To describe recipes, we need a language. So far, we have been using English to describe these recipes. However, to be able to communicate with the computer, we need a different language. Our digital devices understand instructions in 1s and 0s. The basic programming languages take this into account and create basic words or instructions that translate into something the computer can do with those 1s and 0s. We discussed how some of these old computers had tapes and other mechanical mechanisms to handle instructions and data. The first computer languages then needed to translate our commands to something the computer could understand. From these a basic set of instructions, or primitives, were born.
+9. Create a window with given name, width and height.
+> As mentioned in step 5, **GraphWin()** can have optional parameters, **GraphWin(title, width, height)**
 
-> Given a fixed set of primitives (defined then as the most basic instructions for the Stored Program Computers to work) we can program anything. 
+```
+win = GraphWin('name', 600, 400)
+```
 
-1936 Turing showed that with 6 primitives (having to do with the way tapes are being read or written), anything that can be described in a mechanical process, can be programmed with those 6 primitives. Furthermore, he showed that anything that you can do in one programming language you can do in another programming language (Turing compatibility). Fast forward 90 years, the languages have gotten more complex with many more higher-level primitives that more closely resemble our human languages. Square root can be a primitive.
+10. Create a rectangle.
+> Windows have coordinates. (0, 0) is the top-left corner. (*w*, *h*) is the bottom-right corner, where *w* is the window width and *h* the height.
+> A Rectangle has a start point and end point.
 
-We’ll explore some of these modern primitives, how we make them and understand how the affect the flow of control. Like human languages, there are 100s of programming languages including Visual Basic, C, Mathematica, Matlab, C++, Java, Processing and Python. 
+```
+rect = Rectangle(Point(0, 0), Point(100, 200))
+```
 
-We’ll use **python** for this class, but this course is not about **python**. We need to know how to use it, but it’s not about where do the semicolons go in Python. It’s about using Python as a tool to think. We are interested here in learning how to learn, how to design recipe, how to structure recipes, how to do things in ways that can be translated to other languages. Once you know how to think like this, you can then learn another language in a few weeks.
+11. Set the colour fill to the rectangle.
 
-We refer to the *“dimension of language”* when we are asking how close are we to the guts of the machine?
-> *Assembly language* is when you are programming at the level of the primitives, moving one piece of data from one location in memory to the next. 
-> *High level language* is a more recognisable set of actions. For example, when you ask Python to *print* some information, it will literally print in the display the information. 
+```
+rect.setFill('blue')
+```
 
+12. Draw the rectangle (**rect**) to the window (**win**)
 
-When we discuss *General* vs *Targeted* languages, what we want to know is how broad are the applications. Are they very specific or can they be used for many things?
-> Matlab, for instance, is a language targeted to Matrices.
+```
+rect.draw(win)
+```
 
+13. Close the current window
 
-Finally, when we ask whether a language is *Interpreted* vs *Compiled*, we are asking whether the source code goes directly to an interpreter, or if the source code first runs into a checker or compiler and then creates object code. The latter helps catch bugs in the code and converts it into a more efficient sequence of instructions that you then run. It’s not as fast as going directly to the interpreter though. 
+```
+win.close()
+```
+### Now You Try -- Completing the French Flag
+So far we have learnt how to create rectangle with specific colour. Think about the French flag (as below). How can we  draw it by python?
 
-> Therefore, Python is a high level, general purpose, interpreted language.
+<img src="French.png" alt="French" width="200"/>
 
-### Exercises
-Let's use Python to form a recipe to calculate for the following:
+If you cannot complete this, the following instructions will help you complete the flag.
 
-    4. The volume of a sphere with radius r is 4/3 π r^3 . 
-    What is the volume of a sphere with radius 5? 
-    How about radius 3.5? 
-    
-    5. Suppose the cover price of a book is $24.95, but bookstores get a 40% discount. 
-    Shipping costs $3 in the US for the first copy and 75 cents for each additional copy.
-    What is the total wholesale cost for 40 and 60 copies in the US? 
-    In the UK shipping costs £4.50 and £1.90 for each additional copy.
-    Today, 1 US dollar = 0.77 British pounds.
-    What's the total for 40 and 60 copies in the UK? 
-    
-    6. I leave my house at 6:52am. I run:
-       1 mile at an easy pace (8:15 per mile) 
-       3 miles at tempo (7:12 per mile) 
-       1 mile at an easy pace again. 
-       At what time do I get home for breakfast?
-    
+14. Let's create a window in flag size named "France"
 
-## Lesson 3:  Introduction to Python
+```
+france = GraphWin('France', 600, 400)
+```
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=058f6deb-ebd6-4f9f-90eb-ac4900c51768
+The French flag consists of three rectangles with colour blue, white and red.
 
-Python Syntax vs Semantics
-> Syntax says what are the legal expressions in this language (cat, dog, etc)
-> Semantics says how we construct expressions
+15. Draw the blue bar on the window.
 
-*Static Semantics* in Python determine which programs are meaningful; which expressions make sense. Consider for instance: 
-    My desk is Susan
+```
+rect = Rectangle(Point(0, 0), Point(200, 400))
+rect.setFill('blue')
+rect.draw(france)
+```
 
-Does it make sense?
+16. Draw the white and red bars on the window.
 
-    False.
+```
+rect = Rectangle(Point(200,0), Point(400, 400)))
+rect.setFill('white')
+rect.draw(france)
+```
+> Try the red bar by yourself. Also, remember to close the window when you are finished.
 
-*Static Semantics* asks what does the program mean? What’s going to happen when I run it? Thought this, Python checks your syntax, one bug at a time.
+### Try more -- More Rectangle-based Flags
 
-Typical Problems that can arise are: 
-    It could not run, it could loop forever, or it gives you a wrong answer. 
+17. Now it's time to try some rectangle-based flags by yourself.
 
-But the problem is that if the program is complex enough you might not be able to tell! To help tackle this, we need to develop a **good style**: write in a way that allows you to spot problems.
+Write code to draw the following flags.
 
-The goal for this lab session is to have a set of primitives that we combine into complex expressions that we can then abstract and treat as *higher primitives*. For this, we will use a sequence of instructions in this flow of control in order to deduce new information. 
+- **Indonesia**
 
+![image-20210331200627218](image-20210331200627218.png)
 
-Python has different Types of values: 
+- **Poland**
 
-> Strings are **strings**
+![image-20210331200636972](image-20210331200636972.png)
 
-> Numbers can be **integer, floats**
+- **Austria**
 
-> Logical (true or false) are **Boolean**
+![image-20210331200649941](image-20210331200649941.png)
 
-Higher programming languages have a set of operators that expect a certain type of input to give a certain type of output. Let’s explore the typical set of arithmetic operations:
->    5*5
+- **Gabon**
 
->    3+2
+![image-20210331200704928](image-20210331200704928.png)
 
->    7/3
+- **Yemen**
 
+![image-20210331200713546](image-20210331200713546.png)
 
-What do these have in common?
+- **Mauritius**
 
-    Operand operator operand
+![image-20210331200722066](image-20210331200722066.png)
 
-What happens if we do something like “cat”/“tree"?
+- **Italy**
 
-    Error
+![image-20210331200734172](image-20210331200734172.png)
 
-Commands (statements) take a value and ask the computer to do something with it. 
+- **Mali**
 
-    What is the difference between:
-    
-    print (5*4)
-    
-    print (“5*4"")
-    
-    print (“5”*"4”")
+![image-20210331200744304](image-20210331200744304.png)
 
+- **UAE**
 
-Finally, we use Variables to store things
+![image-20210331200754487](image-20210331200754487.png)
 
-    mystringis = (assign or bind to this name the value of this expression)
-    
-We’ll continue exploring variables in the next session.
-    
+## Drawing Circles
 
-## Style Tips
-### Naming
-Variables, functions, methods, packages, modules
+18. For some circle-based flags (e.g., Japanese flag as below), we use **Circle()** to draw circles. Circles are defined by a centre point and a radius.
 
-*lower_case_with_underscores*
+```
+circle = Circle(Point(100, 100), 50)
+```
 
-### Exercises
-We'll explore and expand on some of these concepts in Python via your open Jupyter Notebook. 
+Similar to rectangle, we can set the colour fill to the circle, and then draw it on the window.
 
+```
+circle.setFill(‘red’)
+circle.draw(win)
+```
+### Now You Try -- More Circle-based Flags
 
-    7.What does the variable counter contain after the following code runs? 
+- **Laos**
 
-    counter = 20
-    counter += 1 
-    counter
-    
-    8. Identify what kind of values each one is with type()
-       3 * 4
-       ‘hi’ 
-       -99.1
-       False
-       4 - 6.0
-       3.0 / 6
-       0 + 0
-       "2.0"
-       0.00
-       2**3
-       “My dog ate my homework"
-       7 == 3 + 4
-    
-    9. Search online for the Python documentation for the len() function. 
-    It will be on a web page titled “Built-in Functions.” 
-    Skim the list of other functions Python has. 
-    Look up what the round() function does, and experiment with it.
+![image-20210331201016569](image-20210331201016569.png)
 
+- **Maldives**
 
-FIN 
+![image-20210331201122316](image-20210331201122316.png)
+
+## Drawing Lines
+
+19. For some line-based flags (e.g., Scottish flag as below), we use **Line()**. Each line is defined by two points, and we can set the colour (outline) and width of the line. Of course, it can also be drawn on the window.
+
+![image-20210331201508784](image-20210331201508784.png)
+
+```
+line = Line(Point(0,0), Point(600, 400))
+line.setOutline('red')
+line.setWidth(80)
+line.draw(win)
+```
+### Now You Try -- More Flags with Lines
+
+- **Gambia**
+
+![image-20210331200802531](image-20210331200802531.png)
+
+- **Thailand**
+
+![image-20210331200810728](image-20210331200810728.png)
+
+- **England**
+
+![image-20210331201516891](image-20210331201516891.png)
+
+- **Sweden**
+
+![image-20210331201529442](image-20210331201529442.png)
+
+- **Tonga**
+
+![image-20210331201537892](image-20210331201537892.png)
+
+- **Botswana**
+
+![image-20210331201545872](image-20210331201545872.png)
+
+- **Norway**
+
+![image-20210331201555322](image-20210331201555322.png)
+
+- **Trinidad and Tobago**
+
+![image-20210331201603307](image-20210331201603307.png)
+
+- **United Kingdom**
+
+![image-20210331201610778](image-20210331201610778.png)
+
+- **Greece**
+
+![image-20210331201639938](image-20210331201639938.png)
+
+- **Morocco**
+
+![image-20210331201647538](image-20210331201647538.png)
+
+## Drawing Polygons
+
+20. Finally, let's look at some more complicated flags baseed on polygons (e.g., Bahamas as below).
+
+- **Bahamas**
+
+![Bahamas](Bahamas.png) 
+
+We use **Polygon()** to draw polygons, where the polygon corners are defined by parameters. For example, to draw a triangle, we can draw a polygon with three points.
+
+```
+tri = Polygon(Point(0,0), Point(200,200), Point(0,400))
+```
+
+Also, the colour can be set by **setFill()**.
+
+```
+tri.setFill('black')
+tri.draw(win)
+```
+### Now You Try -- More Polygon-based Flags
+
+- **Jamaica**
+
+![Jamaica](Jamaica.png).
+
+- **Seychelles**
+
+![Seychelles](Seychelles.png).
+
+- **Kuwait**
+
+![Kuwait](Kuwait.png).
+
+Now I believe you have got enough confidence to draw more challenging flags. Here some advanced flags are prepared for you to play with.
+
+- **Vietnam**
+
+![Vietnam](Vietnam.png).
+
+- **Panama**
+
+![Panama](Panama.png).
+
+- **Democratic Republic of Congo**
+
+![Democratic Republic of Congo](DemocraticRepublicofCongo.png).
+
+Good luck and have fun!
