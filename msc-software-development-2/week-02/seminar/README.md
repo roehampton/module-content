@@ -1,4 +1,4 @@
-# Software Development 2 Seminar 02 -- Task Management with Kanban
+# Software Development 2 Seminar 02 -- Task Management with Kanban + getting started with your group
 
 ## Overview of Kanban
 
@@ -27,30 +27,15 @@ Toyota are seen as the key developers of Kanban-like systems.  You can read Toyo
 derivative work: <a href="//commons.wikimedia.org/wiki/User:Jbarta" title="User:Jbarta">Jbarta</a> - This file was derived from:&nbsp;<a href="//commons.wikimedia.org/wiki/File:Kanban_principles.jpg" title="File:Kanban principles.jpg">Kanban principles.jpg</a>:&nbsp;<a href="//commons.wikimedia.org/wiki/File:Kanban_principles.jpg" class="image"></a>, <a href="https://creativecommons.org/licenses/by-sa/2.5" title="Creative Commons Attribution-Share Alike 2.5">CC BY-SA 2.5</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=24883253">Link</a></p>
 
 
-Toyota's Six Rules for Kanban are:
-
-1. Each process issues requests (kanban) to its suppliers as it consumes its supplies.
-2. Each process produces according to the quantity and sequence of incoming requests.
-3. No items are made or transported without a request.
-4. The request associated with an item is always attached to it.
-5. Processes must not send out defective items, to ensure that finished products will be defect-free.
-6. Limiting the number of pending requests makes the process more sensitive and reveals inefficiencies.
-
 ### The Kanban Card
 
 Kanban is well known for using cards.  In a manufacturing environment, a card is a message that informs that a certain material or product needs replaced.  When a material or product is consumed from its location, the card from that location is placed upstream (for example, to a table or board).  At a certain point, when the upstream location is full, new materials or products are sourced and the cards returned downstream.  It seems simple -- and it is -- but this basic concept revolutionised the manufacturing process to being more on-demand based.
 
-### Pull-based Systems
-
-Kanban is also sometimes called a pull-based system.  The reason is that products are pulled through the system based on demand rather than pushed into the system based on capacity.  In affect, it is like there is a string attached to the end of the value stream.  As a customer buys a product, the string is pulled thus releasing production work on the product.
 
 ### Limiting Work-in-Progress (WiP)
 
 Work-in-Progress is a key concept in Kanban. Kanban is popular in software development as it allows us to limit WiP.  In manufacturing, we only produce inventory as items are required.  We stop doing work just to do work.
 
-### Just-in-Time (JiT) Manufacturing
-
-Finally, Kanban allows us to be responsive to market/customer demands.  No longer are we building lots of inventory and hoping to sell it.  We produce enough product to meet demand.  This is the essences of JiT.  You will see this term talked about in trade as well, where JiT product delivery of products is seen as providing the most value.
 
 ## Kanban in Software Development
 
@@ -89,46 +74,6 @@ Kanban boards can be more detailed still.  Below is a final example:
 
 <p><a href="https://commons.wikimedia.org/wiki/File:Sample_Kanban_Board.png#/media/File:Sample_Kanban_Board.png"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Sample_Kanban_Board.png/1200px-Sample_Kanban_Board.png" alt="Sample Kanban Board.png"></a><br>By <a href="//commons.wikimedia.org/w/index.php?title=User:Andycarmichaeluk&amp;action=edit&amp;redlink=1" class="new" title="User:Andycarmichaeluk (page does not exist)">Andy Carmichael</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=55448101">Link</a></p>
 
-### Scrumban
-
-Scrumban (the conjoining of Scrum and Kanban) was originally used as a method to transition from Scrum to Kanban.  However, it is now used as a method in its own right.
-
-Scrumban differs from Scrum in the principles and practices it emphasises (taken from [Wikipedia](https://en.wikipedia.org/wiki/Scrumban)):
-
-- recognizing the important role of organizational management (self-organization remains an objective but within the context of specific boundaries).
-- allowing for specialized teams and functions.
-- applying explicit policies around ways of working.
-- applying the laws of flow and queuing theory.
-- deliberate economic prioritization.
-
-Scrumban also differs from Kanban as it:
-
-- prescribes an underlying software development process framework (Scrum) as its core.
-- is organized around teams.
-- recognizes the value of time-boxed iterations when appropriate.
-- formalizes continuous improvement techniques within specific ceremonies.
-
-Scrumban also allows long-term planning using buckets.  The following image illustrates:
-
-<p><a href="https://commons.wikimedia.org/wiki/File:Bucket_size_planning.jpg#/media/File:Bucket_size_planning.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Bucket_size_planning.jpg" alt="Bucket size planning.jpg"></a><br>By <a href="//commons.wikimedia.org/w/index.php?title=User:Garbanea&amp;action=edit&amp;redlink=1" class="new" title="User:Garbanea (page does not exist)">Garbanea</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=37433093">Link</a></p>
-
-The method is to bring forward ideas into actual work in the Kanban board over time.  This allows the organisation to think about long-term plans over just ideas.
-
-The following video goes into more detail on the Scrumban process:
-
-[![Scrumban: Mixing Agile and Lean](https://img.youtube.com/vi/uaNHFsFz7Yw/0.jpg)](https://www.youtube.com/watch?v=uaNHFsFz7Yw)
-
-- [ ] Watch the video on Scrumban and consider some of the ideas in your team's collaboration process.
-
-## Personal Kanban
-
-Kanban has become popular enough that a *Personal Kanban* movement has sprung up.  The idea is to use the features of Kanban (task board, limiting WiP, etc.) to manage your personal tasks and life.  Personal Kanban also takes ideas such as priority lists to feed through to doing, and long-term task viewing.
-
-You can find out more about Personal Kanban from:
-
-- The [Personal Kanban wiki](http://personalkanban.com/pk/).
-- The [Lifehacker Page on Personal Kanban](https://lifehacker.com/productivity-101-how-to-use-personal-kanban-to-visuali-1687948640).
-- The book *Personal Kanban: Mapping Work/Navigating Life* by Jim Benson and Tonianne DeMaria Barry.
 
 ## Tools
 
@@ -138,13 +83,59 @@ Kanban has seen the rise of a number of tools.  Really, most of these tools just
 - **Jira** provides a fairly substantial Kanban solution (see [here](https://www.atlassian.com/agile/tutorials/how-to-do-kanban-with-jira-software) for a tutorial).  Jira is a large issue tracking piece of software, so works in a manner similar to GitHub under the hood.
 - **Trello** is perhaps the most well known task board solution.  Via extensions it is possible to implement stronger Kanban features, but Trello itself is designed for easy entry for list management.
 
-## Your Task
+## Group Tasks Today
 
-In your team you have to define your initial tasks. We will examine good techniques for doing this later in the module. For now however your team must:
+1. Gather your group together
+2. Decide who will be your Scrum master (ie. faciltates meeting)
+3. Decide who will be your product owner (ie. oversee the documentation of tasks and their journey through the task board)
+4. Draft your code of conduct.  Consider what is important to you and what will keep your project on track.
+5. Decide on a technology that will support your Kanban system. The suggestions above should help.
 
-1. **Decide on a technology that will support your Kanban system. The suggestions above should help.**
-2. **Define your initial tasks and prioritise them. This is the primary job of your Product Owner.**
-3. **Make sure your tasks are small enough to be completable. A task shouldn't take one person more than 1-2 days.**
-4. **Make sure your tasks cover all your current project requirements.**
-5. **Decide how many tasks you will complete each week. This is your Sprint Planning.**
-6. **Make sure the team is now coordinating using their Kanban board.**
+Finally - discuss your idea!!
+
+
+
+## Some help:
+
+### Spotify Engineering Culture
+
+To illustrate how Scrum ideals (and agile principles in general) can work, watch the following video by Spotify:
+
+<iframe width="800" height="600" src="https://www.youtube.com/embed/4GK1NDTWbkY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### FAQs - Scrum Usage in the Module
+
+1. **Do we really need to meet once a day?**
+
+It would be good if you could, but in reality three times a week will probably be enough.  Also, use technology to get around the problem.  Skype or similar can allow you to communicate.  The point is to meet at the same time each day for no more than 10-15 minutes. Use the defined Scrum questions.
+
+2. **We cannot find a time to all meet.  What do we do?**
+
+You need to commit to your team and your learning.  You need to see it as a priority.  But life does get in the way.  Talk to a member of the module team to discuss how to resolve.
+
+3. **How will Scrum be used by the teaching team?**
+
+In two ways:
+
+- The assessment is designed with 3-week Sprints.  Each Sprint end will involve a review with a member of the teaching team that will be assessed.
+- Every lab your team will have a 10-minute standup with a member of the teaching team to check how everything is progressing.
+
+4. **If we are having a standup does that mean I have to attend every lab?**
+
+Yes.  This is for your benefit.
+
+5. **Does my team have to all be in the same lab session?**
+
+Yes.  You should consider this when organising your team.
+
+6. **Does my team have to work on the lab material together?**
+
+Yes.  You are a team and should see your learning in the module as part of the team effort.
+
+7. **We have a problem with a team member.  What should we do?**
+
+Identify quickly and resolve by addressing with the team member.  If there is a still a problem bring it up at the lab standup.  If you have fallen out then ask yourselves if it can be solved.  Try and be professional and courteous as a team.
+
+8. **Can we sack a team member?**
+
+We'd prefer not to, but if this is necessary bring it up at the lab standup.
