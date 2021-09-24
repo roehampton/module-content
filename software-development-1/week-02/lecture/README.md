@@ -2,9 +2,9 @@
 # Lecture 2 -- Introduction to Programming
 
 In this week, we’ll explore 
-1.  What is Programming (Lecture videos/ Lab Exercises)
-2.  Programming Languages (Lecture videos/ Lab Exercises)
-3.  Introduction to Python (Lecture videos/ Lab Exercises)
+1.  What is Programming 
+2.  Programming Languages 
+3.  Introduction to Python
 
 By the end of this week, you’ll have knowledge of programming concepts, programming skills and problem-solving abilities. Our goal is to make you think as a computer scientist so that when you are faced with a challenge, you’ll immediately think:
 
@@ -70,15 +70,15 @@ Finally, when we ask whether a language is *Interpreted* vs *Compiled*, we are a
 Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=058f6deb-ebd6-4f9f-90eb-ac4900c51768
 
 Python Syntax vs Semantics
-> Syntax says what are the legal expressions in this language (cat, dog, etc)
-> Semantics says how we construct expressions
+> Syntax says what are the legal expressions in this language (cat, dog, etc).
+> Semantics says how we construct expressions.
 
 *Static Semantics* in Python determine which programs are meaningful; which expressions make sense. Consider for instance: 
     My desk is Susan
 
 Does it make sense?
 
-    False.
+> False.
 
 *Static Semantics* asks what does the program mean? What’s going to happen when I run it? Thought this, Python checks your syntax, one bug at a time.
 
@@ -107,22 +107,20 @@ Higher programming languages have a set of operators that expect a certain type 
 
 
 What do these have in common?
-
-    Operand operator operand
+> We have an "operand" first, then an "operator", then another "operand".
 
 What happens if we do something like “cat”/“tree"?
-
-    Error
+> Error
 
 Commands (statements) take a value and ask the computer to do something with it. 
 
-    What is the difference between:
+What is the difference between:    
     
     print (5*4)
     
-    print (“5*4"")
+    print ("5*4")
     
-    print (“5”*"4”")
+    print ("5"*"4")
 
 
 Finally, we use Variables to store things
