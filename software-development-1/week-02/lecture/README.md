@@ -1,7 +1,7 @@
 # Software Development 1 
 # Lecture 2 -- Introduction to Programming
 
-## The contents of this lab will be carried out on a Jupiter Notebook. Information on using Jupiter notebooks can be found at: https://jupyter.org/
+## The contents of this lab will be carried out on a Jupyter Notebook. Information on using Jupyter notebooks can be found at: https://jupyter.org/
 
 To create our Jupyter notebooks we will use Anaconda: a free and open-source distribution of the Python. Roehampton's computers should have this installed. You can download a copy for your personal computer at:
 https://www.anaconda.com/products/individual
