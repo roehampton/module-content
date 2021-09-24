@@ -24,7 +24,7 @@ Let us say that the top left corner is coordinate `(0, 0)` and bottom-right corn
 DRAW light_blue rectangle from (0,0) to (600, 200)
 DRAW yellow rectangle from (0, 200) TO (600, 400)
 ```
-> Recall: what we have done during the lab?
+> How we do it Python?
 ```
 rect = Rectangle(Point(0, 0), Point(600, 200))
 rect.setFill('blue')
