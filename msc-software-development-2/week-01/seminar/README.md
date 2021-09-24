@@ -59,6 +59,21 @@ Development with containers - The pages and server-side functionality AND the cl
 
 Lets think of some web sites we use frequently and see what we can find out about the frontend/backend technologies they use, and take an educated guess at how they store and retrieve data.
 
+<hr>
+
+## How will we go about this?
+
+* Next week, we will form our teams.
+* Our teams will use an Agile / scrum methodology to create projects.
+* Your assigments will be the results of 3 week 'sprints'
+* You will maintain a taskboard, and have regular standups
+* You will use professional teamworking methods and tools to specify, organise and develop code
+* Though you might have different roles in the group project, EVERYONE should master the fundamentals of building a database-driven application.
+
+*Please use Moodle to share ideas and start to form teams.*
+
+
+
 
 
 
