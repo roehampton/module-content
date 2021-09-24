@@ -1,35 +1,64 @@
-# Software Development 2 Lab 2 -- Version Control, Classes and Debugging
+# Software Development 2 Lab 2 -- Version Control, HTML forms, CSS and Developer Tools
 
-## Creating a GitHub Account
+>## Pre-class task: Creating a GitHub Account
 
-The whole point of version control is to maintain your code somewhere backed-up and shareable with your team.  We will use *GitHub* as a repository for this module.  First, you will need to create an account on GitHub if you haven't already.  Go to [GitHub](https://github.com/) and **Sign Up**.  Two things to note:
+> Version control software (CVS, Mercurial and SVN are other examples) maintain your code somewhere backed-up and shareable with your team.  Crucially, they give you ways to work independently on code and then 'merge' and 'resolve conflicts' with other team members' code.  Nothing is ever forgotten by the repository!
 
-1. You do not need a paid for account.
-2. If you are a student, GitHub will give you [unlimited private repositories](https://education.github.com/pack).
+>We will use *GitHub* as an online repository for this module.  First, you will need to create an account on GitHub if you haven't already.  Go to [GitHub](https://github.com/) and **Sign Up**.  Two things to note:
 
-Once you have an account, you need to create a repository.  In GitHub, you will see a **+** near the top of the page, which you can select **New repository** from:
+> 1. You do not need a paid for account.
+> 2. If you are a student, GitHub will give you [unlimited private repositories](https://education.github.com/pack).
 
-![GitHub New Repository](github-new-repo.png)
+> Once you have an account, you need to create a repository.  In GitHub, you will see a **+** near the top of the page, which you can select **New repository** from:
 
-This will open a new window.  You need to enter the name for the repository (for example, `sd2`), make sure the repository is **Public** and then select the **Apache 2.0** license type.  **Ensure that a README is added**.  The details are illustrated below:
+> ![GitHub New Repository](github-new-repo.png)
 
-![image-20201227112452665](image-20201227112452665.png)
+> This will open a new window.  You need to enter the name for the repository (for example, `sd2`), make sure the repository is **Public** and then select the **Apache 2.0** license type.  **Ensure that a README is added**.  The details are illustrated below:
 
-Click on **Create repository** and you will be presented with the following:
+> ![image-20201227112452665](image-20201227112452665.png)
 
-![image-20201227112647456](image-20201227112647456.png)
+> Click on **Create repository** and you will be presented with the following: 
 
-## Installing Git -- Mainly for Windows
+> ## Installing Git -- Mainly for Windows
 
-Git is normally installed on MacOS and Linux by default. For Windows do the following:
+> You need to have the git software on your local computer. Git is normally installed on MacOS and Linux by default. For Windows do the following:
 
-1. **Go to Git home page https://git-scm.com/**.
-2. **Download Git**.
-3. **Install Git. During install make sure you select to use Visual Studio Code as the default editor.**
-4. **All other settings can remain as default.**
-5. **Once installed continue with the rest of the lab.**
+> 1.  Go to Git home page https://git-scm.com/**.
+> 2.  Download Git**.
+> 3.  Install Git. During install make sure you select to use Visual Studio Code as the default editor.**
+> 4.  All other settings can remain as default.**
+> 5.  Once installed continue with the rest of the lab.**
 
-## Initial Git Configuration
+## Lab: Git Configuration
+
+## Main concepts of version control
+
+1. **Origin**  : The centralised repository holding everything, probably 'remote' ie. on a server or service somewhere eg. github
+1. **Clone**  : PUll down an entire copy of the repository
+1. **Branch** : Independent opies of the main codebase that you can alter and work on
+1. **Stage**:  Get files ready to commit
+1. **Commit**: Saving a batch of your new work onto your branch with a comment
+1. **Pull or fetch** : Bringing down others changes to your local repository
+1. **Push** : Pushing your changes back into the origin repository
+1. **Merge**: The process of merging your code (probably a branch) with others code
+
+## Other useful terms
+
+1. **Working copy**: The files you are working on right now, probably your branch
+1. **Master branch**: Usually the name of the branch everything merges into in the end
+1. **Fork** : a copy of the master branch that has divergent, unmerged code.
+1. **Hooks** : we won't be using hooks for a while but its good to know they exist. These are actions such as triggering a build on your server that you can program in response to an action in git for example a push to the master branch.  This is the core of 'continuous integration'.
+
+### Distributed version control schematic
+
+![Distributed version control](version-control-fig3.png)
+
+### How branches are organised and merged - example
+
+![Gitflow workflow](gitflow-hotfix-branch-diagram.jpg)
+
+
+
 
 Git commits have a collection of information attached to them, including who created the commit -- their name and email address. We must set this information up when we start using Git. Enter the two following lines into your terminal:
 
@@ -88,235 +117,116 @@ We have now defined our core workflow with Git using Visual Studio Code:
 2. Commit the changes -- **Commit then Commit.**
 3. Push the changes -- **Push**.
 
-**Get used to this process - it will save your code from disaster!**.  We have created a checkpoint where we know our code is working and doing what we expect.  Whenever you do a change -- and make your changes small -- and tested the build works, commit and push.  I will remind you a few more times, but this is a habit for you to form.
+**Get used to this process - it will save your code from disaster!**.  We have created a checkpoint where we know our code is working and doing what we expect.  Whenever you do a change -- and make your changes small -- and tested the build works, commit and push.  
 
-## Object-orientation in JavaScript
 
-JavaScript is an object-oriented language. But what does object-oriented mean? Let us take the [Wikipedia](https://en.wikipedia.org/wiki/Object-oriented_programming) definition (emphasis mine):
-
-> Object-oriented programming (OOP) is a **programming paradigm** based on the concept of **"objects"**, which can **contain data and code**: **data in the form of fields (often known as attributes or properties)**, and **code, in the form of procedures (often known as methods).**
-
-Object-oriented programming (OOP or OO) is a programming paradigm. This just means it is an approach to write programs. For example, you are probably used to *imperative procedural programming*. This is where we build our programs from functions/procedures. Object-orientation is also imperative, but uses objects to construct programs.
-
-OOP has the following terms associated with it:
-
-- **Objects** -- are a collection of data and/or code. Objects are *instances* of classes.
-- **Classes** -- are a description of what data and/or code an object has within it.
-- **Data** -- the attributes or properties of an object. Essentially, the variables *associated* with an object.
-- **Code** -- the procedures, functions, or methods of an object that can be used to manipulate its data.
-
-You've already been using objects in JavaScript -- `document.write()` means call (invoke, use) the `write` method on the `document` object. The `document` object is the web page your JavaScript program was executing on.
-
-> ### JavaScript's History of OOP
->
-> JavaScript is actually an implementation of something called [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript). Until 2015, objects where possible in JavaScript, but not in a manner most programmers would recognise. For example, there was no `class` keyword. ECMAScript 2015 (or ES6) introduced classes and a variety of other language features, making it more similar to Python.
->
-> This means there are many JavaScript tutorials online that ignore classes, and write object-oriented code in a strange and hard to maintain manner. We will be using the language features of ES6 which provides a better OOP experience.
-
-### Classes in JavaScript
-
-To declare a class in JavaScript we use the `class` keyword. For example:
-
-```javascript
-class Foo {
-  // ... contents of the class.
-}
-```
-
-A class needs a `constructor` which is used to create instances of the class. For example:
-
-```javascript
-class Foo {
-  constructor() {
-    // ... define initial variables
-  }
-}
-```
-
-We can then create instances of this class using the `new` keyword:
-
-```javascript
-var foo = new Foo();
-```
-
-We can say that a class has attributes (data) just by listing them in the class:
-
-```javascript
-class Foo {
-  // Attributes
-  value1;
-  value2;
-  
-  constructor() {
-    // ... define values
-  }
-}
-```
-
-And we can pass parameters to the constructor that will set the initial values of these attributes.
-
-```JavaScript
-class Foo {
-  // Attributes
-  value1;
-  value2;
-  
-  // Constructor builds the object
-  constructor(value1, value2) {
-    // Set local values to parameters given.
-    this.value1 = value1;
-    this.value2 = value2;
-  }
-}
-```
-
-The `this` keyword is used to refer to the local object. So saying `this.value1` means `value1` associated with this particular object instance. Let us look at a more concrete example -- a `Student` class:
-
-```javascript
-// A definition of a student
-class Student {
-    // Student ID
-    id;
-    // Student name
-    name;
-
-    // Creates a new instance (object) of type Student
-    constructor(id, name) {
-        // Set the id and name of the object instance
-        this.id = id;
-        this.name = name;
-    }
-}
-
-var student = new Student("001", "Kevin Chalmers");
-```
-
-Let us turn the student example into a more concrete example. **Create `students.html` with the following code:**
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Student List</title>
-        <script src="student.js"></script>
-    </head>
-    <body>
-        <h1>
-            Click the button!
-        </h1>
-        <input type="button" value="Click Me!" onclick="printStudents()">
-        <div id="main"></div>
-    </body>
-</html>
-```
-
-> #### What is a `<div>` Tag?
->
-> A `<div>` tag is used to define a division or a section of your HTML document. A `<div>` can have any other HTML within it. It is a useful method for creating areas of our document we can manipulate independently. For example, we have created a section called `main` here.
-
-Now we need our `student.js` file:
-
-```javascript
-// Tells the browser we want JavaScript to run in strict mode.
-// This means faster code, but JavaScript needs to be cleaner.
-"use strict";
-
-// A definition of a student
-class Student {
-    // Student ID
-    id;
-    // Student name
-    name;
-
-    // Creates a new instance (object) of type Student
-    constructor(id, name) {
-        // Set the id and name of the object instance
-        this.id = id;
-        this.name = name;
-    }
-}
-
-// An array of students.
-var students = [
-    new Student("001", "Kevin Chalmers"), 
-    new Student("002", "Lisa Haskel"), 
-    new Student("003", "Arturo Araujo")];
-
-function printStudents() {
-    // Build text to display
-    var text = "";
-    // Iterate over all the students
-    for (var student of students) {
-        text = text + student.id + ": " + student.name + "<br>";
-    }
-    // Get the main element
-    var main = document.getElementById("main");
-    // Set the innerHTML to text
-    main.innerHTML = text;
-}
-```
-
-> #### `"use strict";`
->
-> `"use strict"` is useful as it tells the browser to have a strict interpretation of our JavaScript code. This means your code must avoid certain issues that lazy JavaScript programmers perform. Our code will be less error-prone, and faster.
-
-> #### `<br>` Tag
->
-> The `<br>` tag is just a line break. We are putting a new line after each student in our output.
-
-**Open the web page file so it is opened in your browser. Click the button to ensure that it works correctly.**
-
-#### STOP -- Commit Your Changes!
-
-If your new web page works as expected it is time to commit your updates to GitHub.
-
-1. Add your files to the commit.
-2. Create the commit. Use the message `Added students.html and students.js files.`
-3. Push your changes to your GitHub repository.
-
-**Once you have committed your changes and pushed them to GitHub:**
-
-1. Close Visual Studio Code.
-2. Delete the folder you were working in. It's OK -- it is stored in GitHub.
-
-## Debugging in the Web Browser
-
-If you've hit any problems with your JavaScript code so far you might be wondering how you find this out. Your web page loads but nothing happens -- what has gone wrong. Thankfully, browsers come with tools to support web development.
-
-**What follows is how we can debug applications using Chrome/Chromium based browsers:**
-
-- Google Chrome
-- Chromium
-- Microsoft Edge
-
-If you are using Safari, the same general idea also works. See here for a brief explanation of accessing the development tools: https://developer.apple.com/safari/tools/.
-
-For Mozzila Firefox, see here: https://developer.mozilla.org/en-US/docs/Tools
-
-### Checking Errors
-
-**To open the Developer Tools press F12.** This will bring up the following window:
-
-![image-20201231140253862](image-20201231140253862.png)
-
-This provides a wealth of information about the running webpage. Of particular note is how it shows errors in your code. For example, the following intentional error has been added to `script3.js` of `third.html` from our previous work.
-
-![image-20201231140952898](image-20201231140952898.png)
-
-The JavaScript is trying to find `my_tex` rather than `my_text`. Note that the error says we don't have `innerHTML` defined on the variable `element`. That is because `element` will be `null` as there is no HTML element found. The Developer Tools have provided an error, and tried to highlight where the problem is. This can be very useful.
-
-### So you want to know more
-
-You **should** follow the [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/) guide provided by Google. We are only introducing the idea of how to open these tools. We will leave the Developer Tools here and expect you to learn them to support your development practice based on which browser you are working in.
 
 ## Exercises
 
 1. You need a repository for your coursework. Someone in your team needs to create this repository in their GitHub account. Follow the instructions at the start of this lab, and ensure there is a `README.md` file and license attached. Once created, make sure you can clone it to your local machine.
 2. Your team should now add some files to your repository. Each team member should add a file called `<name>.txt` where `<name>` is their name. Add some text to the file. Then commit and push the changes. **HINT** -- if someone has already committed a change before you, you will need to pull the changes first before you can push yours.
 3. Once everyone on the team has created their files, make sure everyone pulls the current version of the repository so they are up to date.
-4. Work through the series of tutorials here https://www.katacoda.com/courses/git/.
-5. Work through the following tutorial https://learngitbranching.js.org/.
-6. We are now going to create a merge conflict situation in your team's repository. Two team members need to change the same file. This file will be `README.md`. One team member should add a description of the project, whereas the other should add the members of the team. If you want to use Markdown (the text encoding for `.md` files), see a guide here https://www.markdownguide.org/basic-syntax.
-7. Both team members should commit and push their code. Whoever is second to commit will have to resolve the merge conflict. Use the information gained from the tutorials above to do so.
-8. Each team member should now try and create merge conflicts which they can solve. This is good practice. Merging changes is the biggest hurdle for new Git users.
+
+Later, we will learn how to resolve merge conflicts and more advanced operations with Git.  But now you know the basics!
+
+
+## More frontend skills: HTML forms and using Developer Tools
+
+When we start to work with a more sophisticated backend, we will need to know how to create forms that eventually we will use to send information into the backend server for storage or to make a customised request.  Lets see how to make input forms in HTML. This example shows the three main types of form element for different types of input.
+
+Example:
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+  <h1>HTML Forms example</h1>
+
+  <form action="" method="GET">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+    </div>
+    <div>
+      <label for="mail">E-mail:</label>
+      <input type="email" id="mail" name="email">
+    </div>
+    <div>
+      <label for="msg">Message:</label>
+      <textarea id="msg" name="message"></textarea>
+    </div>
+    <button type="submit">Submit!!</button>
+  </form>
+
+  <p>If you click the "Submit" button, the form-data will be sent back to this page.
+    Usually, the action sends data to a different file with scripts that can process it.</p>
+
+</body>
+
+</html>
+```
+
+## Sending parameters: GET vs POST
+
+Try changing the 'method' attribute from GET to POST. Can you spot the difference?  It is very important to understand the differences: see https://www.w3schools.com/tags/ref_httpmethods.asp.
+
+## Examining and receiving parameters
+
+In your dynamic web application, sending these kinds of variable values to your application either to SELECT or UPDATE data will be a crucial part of your work and you will mostly use HTML forms to pass in this dynamic data.
+
+As well as being able to debug within your programme, you can use Chrome or Firefox developer tools to examine what is going on Eg. In Chrome, open developer tools, choose the network tab, check 'preserve log' and 'disable cache'.  In the 'Headers' section, after you submit the form by GET or POST, you should see the values you send.  Note that the values you send are labelled using the value of the "name" attribute in the HTML form, in this case name, email and message.  See image below...
+
+
+
+>![Form parameters](form-data-dev-tools.png)
+
+
+## A few words about styling:  CSS
+
+You might have noticed how boring our pages look so far! Typically, HTML should only carry information about structure and content.  Styling instructions should be held in linked files called 'cascading style sheets' that apply a look and feel to specified HTML elements.
+
+CSS is an important part of web development, it can get very involved and is fun if you are a visual person.  You need to deal with complexities such as different devices and screen sizes (responsive design), how to implement styles using different web frameworks, and tools that allow you to setup almost programme-like style rules (Sass).  All this is mostly beyond the scope of this module, but its a good set of skills to learn via online courses.  Introduction: https://developer.mozilla.org/en-US/docs/Learn/CSS, but if its an area you are interested in, then you can go a lot deeper in.
+
+For now, lets cheat and connect our pages to an open source online stylesheet called milligram, but doing this will tell us the basics of CSS:
+
+First, link to an external stylesheet, and while we are at it some nicer fonts too.  Add the following between the `<head>` tags:
+
+```html
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+  <!-- CSS Reset -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+  <!-- Milligram CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+  ```
+
+  Reload your form and it should look better.
+
+  Now lets bring the form into a neater container so it doesn't take up the width of the page.  We will do this by wrapping the form in a 'div' tag with a class attribute that will pull in style for a narrower, centered container.  Add the following after the `<body>` tag:
+
+```html
+  <div class="container">
+```
+
+Then close the tag before the </body> tag
+
+```html
+</div>
+</body>
+```
+
+Any better looking?
+
+Finally use developer tools to 'inspect' the styles you have applied, you can manipulate them as well.  You can examine the whole style sheet via the 'sources' tab in developer tools.
+
+>![Inspect CSS](styleinspector.png)
+
 
