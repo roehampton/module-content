@@ -1,4 +1,4 @@
-# Software Development 2 Lab 2 -- Version Control, HTML forms and CSS
+# Software Development 2 Lab 2 -- Version Control, HTML forms, CSS and Developer Tools
 
 >## Pre-class task: Creating a GitHub Account
 
