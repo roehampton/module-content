@@ -92,18 +92,18 @@ The goal for this lab session is to have a set of primitives that we combine int
 
 Python has different Types of values: 
 
-> Strings are **strings**
+* Strings are **strings**
 
-> Numbers can be **integer, floats**
+* Numbers can be **integer, floats**
 
-> Logical (true or false) are **Boolean**
+* Logical (true or false) are **Boolean**
 
 Higher programming languages have a set of operators that expect a certain type of input to give a certain type of output. Let’s explore the typical set of arithmetic operations:
->    5*5
+*    5*5
 
->    3+2
+*    3+2
 
->    7/3
+*    7/3
 
 
 What do these have in common?
