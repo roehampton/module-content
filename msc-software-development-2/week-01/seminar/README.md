@@ -59,6 +59,9 @@ Development with containers - The pages and server-side functionality AND the cl
 
 Lets think of some web sites we use frequently and see what we can find out about the frontend/backend technologies they use, and take an educated guess at how they store and retrieve data.
 
+Use 'developer tools' in your browser to examine the source code. For reference: 
+https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools
+
 <hr>
 
 ## How will we go about this?
