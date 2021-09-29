@@ -40,7 +40,7 @@ Back in the olden days, computers had physical cards that need punching, etc.
 
 ## Lesson 2: Programming Languages
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=92cb69a2-0d52-4b23-ae58-ac4900c51714
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=92cb69a2-0d52-4b23-ae58-ac4900c51714](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=92cb69a2-0d52-4b23-ae58-ac4900c51714)
 
 To describe recipes, we need a language. So far, we have been using English to describe these recipes. However, to be able to communicate with the computer, we need a different language. Our digital devices understand instructions in 1s and 0s. The basic programming languages take this into account and create basic words or instructions that translate into something the computer can do with those 1s and 0s. We discussed how some of these old computers had tapes and other mechanical mechanisms to handle instructions and data. The first computer languages then needed to translate our commands to something the computer could understand. From these a basic set of instructions, or primitives, were born.
 
@@ -67,7 +67,7 @@ Finally, when we ask whether a language is *Interpreted* vs *Compiled*, we are a
 
 ## Lesson 3:  Introduction to Python
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=058f6deb-ebd6-4f9f-90eb-ac4900c51768
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=058f6deb-ebd6-4f9f-90eb-ac4900c51768](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=058f6deb-ebd6-4f9f-90eb-ac4900c51768)
 
 Python Syntax vs Semantics
 > Syntax says what are the legal expressions in this language (cat, dog, etc).
