@@ -31,13 +31,13 @@ number, or string version of a value?
 
 * How about *x = y = 1*?
 
-11. In some languages every statement ends with a semicolon, **;**. What happens if you put a semicolon at the end of a Python statement?
+11 . In some languages every statement ends with a semicolon, **;**. What happens if you put a semicolon at the end of a Python statement?
 * What if you put a period at the end of a statement?
 
-12. In math notation you can multiply *x* and *y* like this: *xy*. What happens if you try that in Python?
+12 . In math notation you can multiply *x* and *y* like this: *xy*. What happens if you try that in Python?
 
-13. What is the result of the following calculation in Python:
+13 . What is the result of the following calculation in Python:
 ```
         3 + 2 * 9 / 10 -1
 ```
-14. Can you identify the order of precedence of the mathematical operations?
+14 . Can you identify the order of precedence of the mathematical operations?
