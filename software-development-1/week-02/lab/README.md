@@ -1,5 +1,5 @@
 # Software Development 1 
-# Lecture 2 -- Introduction to Programming
+# Lab 2 -- Introduction to Programming
 
 ## The contents of this lab will be carried out on a Jupyter Notebook. Information on using Jupyter notebooks can be found at: https://jupyter.org/
 
