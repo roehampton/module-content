@@ -20,7 +20,7 @@ Let's see how to code a Fibonacci sequence in Python and C.
 Python version
 
 ```Python
-ef recur_fibo(n):
+def recur_fibo(n):
    if n <= 1:
        return n
    else:
@@ -28,7 +28,6 @@ ef recur_fibo(n):
 
 nterms = 10
 
-# check if the number of terms is valid
 if nterms <= 0:
    print("Plese enter a positive integer")
 else:
