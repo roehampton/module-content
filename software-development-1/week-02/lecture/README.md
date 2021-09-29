@@ -12,7 +12,7 @@ By the end of this week, you’ll have knowledge of programming concepts, progra
 
 ## Lesson 1:  What is Programming?
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=94ff6a2b-948b-4b73-adb2-ac4900c517a5
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=94ff6a2b-948b-4b73-adb2-ac4900c517a5](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=94ff6a2b-948b-4b73-adb2-ac4900c517a5)
 
 To understand this, we need to separate computer from computation. Computation is independent of the way is it is implemented in a computer. Think of the difference between knowing something vs knowing how to do something. For instance, knowing what is your favourite food vs how to make your favourite food. 
 
@@ -21,7 +21,7 @@ To understand this, we need to separate computer from computation. Computation i
 A recipe is a description of a set of steps; a sequence of specific instructions in order for you to accomplish an objective. 
 We define computation as the techniques of capturing this process in a mechanical fashion.
 
-Some of the earliest computers, known as **fixed program computers**, were designed to do just one thing. For instance, early calculators were designed to do only maths. In the 1940’s Dr Alan Turing made the Bombe computer with the sole purpose of breaking German code (cryptography). Trough computing, we want to capture the idea of problem solving.
+Some of the earliest computers, known as **fixed program computers**, were designed to do just one thing. For instance, early calculators were designed to do only maths. In the 1940’s Dr Alan Turing made the Bombe computer with the sole purpose of breaking German code (cryptography). Through computing, we want to capture the idea of problem solving.
 
  > Suppose you invent a circuit that reads a circuit diagram and reconfigures itself to act like that that circuit diagram. You would have to invent a machine that takes a recipe, and acts like what is described in that recipe. This is known as an interpreter. 
      What happens when you change the circuit?
