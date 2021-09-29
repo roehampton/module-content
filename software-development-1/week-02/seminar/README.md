@@ -3,7 +3,8 @@
 
 1. What should the following expression evaluate to?
 ```
-    "hi" + 'hihi' "hello " * 3
+    "hi" + 'hihi' 
+    "hello " * 3
 ```    
 2. Is *socks* a valid variable name? How about *9000*? What’s the difference?
 
@@ -14,7 +15,7 @@ number, or string version of a value?
 ```
     'I have eaten ' + 99 + ' burritos.’
 ```    
-5. In Jupyter, wat happens if you leave out one of the parentheses, or both?
+5. In Jupyter, what happens if you leave out one of the parentheses, or both?
 
 6. If you are trying to print a string, what happens if you leave out one of the quotation marks, or both?
 
