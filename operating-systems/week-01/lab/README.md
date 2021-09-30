@@ -331,7 +331,7 @@ Extend the program so it also prints a goodbye message. You will need to do the 
 - Set the `bx` register.
 - Call the `print_function`.
 
-### For those who need to know --Explanation of `print_function`
+### For those who need to know -- Explanation of `print_function`
 
 We didn't explain `print_function` above, although those of you who remember assembly enough will know what it is doing. There are some operations we had to do, however.
 

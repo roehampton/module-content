@@ -1,9 +1,5 @@
-; Declare boot section
-section .boot
-; 16-bit code
 bits 16
-; Declare boot label as global
-global boot
+[org 0x7c00]
 
 boot:
     ; Access more than 1 MB of memory
@@ -117,24 +113,10 @@ loop:
     jmp loop
 ; Halt the program
 halt:
-    ; Set stack pointer to kernel_stack_top
-    mov esp, kernel_stack_top
-    ; Declare external kmain function (declared in C++)
-    extern kmain
-    ; Call the kmain function
-    call kmain
     ; Clear interrupt flags
     cli
     ; Halt
     hlt
 
-; Declare .bss (data) section
-section .bss
-; Set memory alignment to 4 bytes
-align 4
-; Declare the bottom of the kernel stack
-kernel_stack_bottom: equ $
-; Reserve 16 KB
-resb 16384
-; Top of kernel stack 16KB from bottom.
-kernel_stack_top:
+; Fill the rest of the disk sector
+times 1024 - ($ - $$) db 0
