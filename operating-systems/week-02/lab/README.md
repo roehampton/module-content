@@ -361,7 +361,16 @@ loop:
 
 ### Complete Code Listing
 
-You can access the complete code listing [here](bootloader4.s){:target="_blank"}. If you want to type this in (it is always good practice to improve your typing skills and attention to detail) then go ahead, or you can just download and run it in the normal fashion.
+You can access the complete code listing [here](bootloader4.s){:target="_blank"}. If you want to type this in (it is always good practice to improve your typing skills and attention to detail) then go ahead, or you can just download, build and run it in the normal fashion. You will get the following output:
+
+![image-20211001090936755](image-20211001090936755.png)
+
+You might not be able to notice the blue text in this image, but it is more obvious when you run it yourself.
+
+### Exercises
+
+1. Change the program so it prints out the `hello` message with white text on a black background (see above if you need a hint).
+2. Now add a goodbye message that prints with yellow text on a blue background. **BONUS** -- can you get the message to print on a new line? **WARNING** -- you cannot just add a new line; VGA memory doesn't work like that.
 
 ## Reading From the Disk
 
@@ -381,272 +390,80 @@ Remember how low-level we are here. We don't have `fread` or similar. We are tal
 
 ### Disk Layout
 
+Disk layout in the world we are working in is based on hard drives (disks) being made of literal **disk** plates that magnetic data was written to and read from. Each disk has two sides, and each side is made up of **tracks** and **sectors**.
 
+- A **track** is essentially a ring on the disk. A disk has multiple tracks on each side.
+- A **sector** is how tracks are divided into smaller pieces. Each track has multiple sectors.
+
+As there are two sides to each plate, this means a plate has two **heads**. Heads are connected together, so we use the terminology **cylinder** to represent the same tracks across all the disk plates. Below is an illustration of the general idea.
+
+![img](550px-Hard_drive_geometry_-_English_-_2019-05-30.svg.png)
+
+To read data from a disk, the operating system has to perform the following operations:
+
+1. Select the disk to read.
+2. Select the cylinder to read.
+3. Select the head to use to read.
+4. Select the sector to read.
+5. Read the number of sectors you require.
+
+As we are working at the lowest level of the machine, we will have to do this.
 
 ### Setting Up the Disk to Read
 
+As always, we have to ask the BIOS to perform our operations for us. BIOS will need to know the values we indicated above. These are set in registers as follows:
 
+| **Register** | **Value**                                                    |
+| ------------ | ------------------------------------------------------------ |
+| `ah`         | Tells BIOS what operating we want to perform -- we use 2 fo read disk sectors. |
+| `al`         | The number of sectors we want to read.                       |
+| `ch`         | The cylinder index to read from.                             |
+| `dh`         | The head index to use to perform the read.                   |
+| `cl`         | The sector index to read from.                               |
+| `dl`         | The disk to read from.                                       |
+| `bx`         | The location in memory to read into.                         |
+
+Once we set all these values, we use interrupt `0x13` to ask the BIOS to perform the operation. Below is the code to perform this operation.
+
+```assembly
+; We are so low level we are reading the disk by sectors
+; Tell BIOS we want to read sectors. Set ah register to 0x2
+mov ah, 0x2
+; Set sectors to read
+mov al, 1
+; Set cylinder index to read from
+mov ch, 0
+; Set head index
+mov dh, 0
+; Set sector index
+mov cl, 2
+; Set disk to read from
+mov dl, [disk]
+; Set target pointer
+mov bx, copy_target
+; Ask the bios to perform the disk read
+int 0x13
+```
+
+The only other thing we will have to do is fill the first disk sector before adding the 32 bit code. You will see this in the complete code.
 
 ### Complete Code
 
-```assembly
-bits 16
-[org 0x7c00]
+You can access the complete code listing [here](bootloader5.s){:target="_blank"}. If you want to type this in (it is always good practice to improve your typing skills and attention to detail) then go ahead, or you can just download, build and run it in the normal fashion. You will get the following output:
 
-boot:
-    ; Access more than 1 MB of memory
-    mov ax, 0x2401
-    int 0x15
-    ; Set VGA text mode to 3
-    mov ax, 0x3
-    int 0x10
-    ; Store the disk index. Currently stored in dl register
-    mov [disk], dl
-    ; We are so low level we are reading the disk by sectors
-    ; Tell BIOS we want to read sectors. Set ah register to 0x2
-    mov ah, 0x2
-    ; Set sectors to read
-    mov al, 1
-    ; Set cylinder index to read from
-    mov ch, 0
-    ; Set head index
-    mov dh, 0
-    ; Set sector index
-    mov cl, 2
-    ; Set disk to read from
-    mov dl, [disk]
-    ; Set target pointer
-    mov bx, copy_target
-    ; Ask the bios to perform the disk read
-    int 0x13
-    ; Clear interrupt flags
-    cli
-    ; Load GDT
-    lgdt [gdt_pointer]
-    ; Activate protected mode
-    mov eax, cr0
-    or eax, 0x1
-    mov cr0, eax
-    ; Set data segment areas
-    mov ax, DATA_SEG
-    mov ds, ax
-    mov es, ax
-    mov fs, ax
-    mov gs, ax
-    mov ss, ax
-    ; Jump to 32 bit code area
-    jmp CODE_SEG:boot2
+![image-20211001094050267](image-20211001094050267.png)
 
-; Global Descriptor Table
-; Don't worry about these values unless you are interested
-gdt_start:
-    dq 0x0
-gdt_code:
-    dw 0xFFFF
-    dw 0x0
-    db 0x0
-    db 10011010b
-    db 11001111b
-    db 0x0
-gdt_data:
-    dw 0xFFFF
-    dw 0x0
-    db 0x0
-    db 10010010b
-    db 11001111b
-    db 0x0
-gdt_end:
+### Exercise
 
-gdt_pointer:
-    ; Size of the GDT structure
-    dw gdt_end - gdt_start
-    ; Location in memory of the GDT structure
-    dd gdt_start
-
-; disk index we store
-disk:
-    db 0x0
-
-; Defines offsets into the GDT structure
-CODE_SEG equ gdt_code - gdt_start
-DATA_SEG equ gdt_data - gdt_start
-
-; Fill first sector
-times 510 - ($ - $$) db 0
-dw 0xaa55
-
-; Now in second disk sector
-copy_target:
-; Set 32 bit code
-bits 32
-; Declare hello message
-hello:
-    db "Welcome to your second disk sector!",0
-boot2:
-    ; Set text to print
-    mov esi, hello
-    ; Set memory to send data to print
-    mov ebx, 0xb8000
-; Loop writing characters
-loop:
-    ; Load next character
-    lodsb
-    ; Check if end of string
-    cmp al, 0
-    ; If end of string jump to halt
-    je halt
-    ; Set text colour to white
-    or eax, 0x0F00
-    ; Load into VGA text buffer
-    mov word [ebx], ax
-    ; Move to next location in text buffer
-    add ebx, 2
-    ; Loop
-    jmp loop
-; Halt the program
-halt:
-    ; Clear interrupt flags
-    cli
-    ; Halt
-    hlt
-
-; Fill the rest of the disk sector
-times 1024 - ($ - $$) db 0
-```
+Update the program to add a third disk sector to read from (**REMEMBER** -- update the number of sectors read). In the third disk sector print an additional message.
 
 ## Getting to C++
 
+Writing an entire operating in assembly would be tedious and error prone. Thankfully, we can jump into C++ very easily from assembly. All we have to do is create a small stack, declare the C++ function we are calling, and call it. This is actually quite simple.
+
+To declare some stack, we use the following assembly code:
+
 ```assembly
-; Declare boot section
-section .boot
-; 16-bit code
-bits 16
-; Declare boot label as global
-global boot
-
-boot:
-    ; Access more than 1 MB of memory
-    mov ax, 0x2401
-    int 0x15
-    ; Set VGA text mode to 3
-    mov ax, 0x3
-    int 0x10
-    ; Store the disk index. Currently stored in dl register
-    mov [disk], dl
-    ; We are so low level we are reading the disk by sectors
-    ; Tell BIOS we want to read sectors. Set ah register to 0x2
-    mov ah, 0x2
-    ; Set sectors to read
-    mov al, 1
-    ; Set cylinder index to read from
-    mov ch, 0
-    ; Set head index
-    mov dh, 0
-    ; Set sector index
-    mov cl, 2
-    ; Set disk to read from
-    mov dl, [disk]
-    ; Set target pointer
-    mov bx, copy_target
-    ; Ask the bios to perform the disk read
-    int 0x13
-    ; Clear interrupt flags
-    cli
-    ; Load GDT
-    lgdt [gdt_pointer]
-    ; Activate protected mode
-    mov eax, cr0
-    or eax, 0x1
-    mov cr0, eax
-    ; Set data segment areas
-    mov ax, DATA_SEG
-    mov ds, ax
-    mov es, ax
-    mov fs, ax
-    mov gs, ax
-    mov ss, ax
-    ; Jump to 32 bit code area
-    jmp CODE_SEG:boot2
-
-; Global Descriptor Table
-; Don't worry about these values unless you are interested
-gdt_start:
-    dq 0x0
-gdt_code:
-    dw 0xFFFF
-    dw 0x0
-    db 0x0
-    db 10011010b
-    db 11001111b
-    db 0x0
-gdt_data:
-    dw 0xFFFF
-    dw 0x0
-    db 0x0
-    db 10010010b
-    db 11001111b
-    db 0x0
-gdt_end:
-
-gdt_pointer:
-    ; Size of the GDT structure
-    dw gdt_end - gdt_start
-    ; Location in memory of the GDT structure
-    dd gdt_start
-
-; disk index we store
-disk:
-    db 0x0
-
-; Defines offsets into the GDT structure
-CODE_SEG equ gdt_code - gdt_start
-DATA_SEG equ gdt_data - gdt_start
-
-; Fill first sector
-times 510 - ($ - $$) db 0
-dw 0xaa55
-
-; Now in second disk sector
-copy_target:
-; Set 32 bit code
-bits 32
-; Declare hello message
-hello:
-    db "Welcome to your second disk sector!",0
-boot2:
-    ; Set text to print
-    mov esi, hello
-    ; Set memory to send data to print
-    mov ebx, 0xb8000
-; Loop writing characters
-loop:
-    ; Load next character
-    lodsb
-    ; Check if end of string
-    cmp al, 0
-    ; If end of string jump to halt
-    je halt
-    ; Set text colour to white
-    or eax, 0x0F00
-    ; Load into VGA text buffer
-    mov word [ebx], ax
-    ; Move to next location in text buffer
-    add ebx, 2
-    ; Loop
-    jmp loop
-; Halt the program
-halt:
-    ; Set stack pointer to kernel_stack_top
-    mov esp, kernel_stack_top
-    ; Declare external kmain function (declared in C++)
-    extern kmain
-    ; Call the kmain function
-    call kmain
-    ; Clear interrupt flags
-    cli
-    ; Halt
-    hlt
-
 ; Declare .bss (data) section
 section .bss
 ; Set memory alignment to 4 bytes
@@ -659,7 +476,30 @@ resb 16384
 kernel_stack_top:
 ```
 
+And then to use this stack and call our C++ function we use the following:
 
+```assembly
+; Set stack pointer to kernel_stack_top
+mov esp, kernel_stack_top
+; Declare external kmain function (declared in C++)
+extern kmain
+; Call the kmain function
+call kmain
+```
+
+We'll return to the assembly shortly. First, we have to write our C++ function.
+
+### `kmain` -- Our Main Kernel Function
+
+Our main kernel function will just print a message in a similar way do how we do things in assembly -- we write some data to a location in memory corresponding to VGA memory.
+
+A C++ compiler can cause us problems when linked to assembly code. C++ can *mangle* names (make them more efficient for C++). We can stop the C++ compiler doing this by declaring a function as externally visible to C as follows:
+
+```c++
+extern "C" <function>
+```
+
+Below is the C++ function we will call:
 
 ```cpp
 extern "C" void kmain()
@@ -679,7 +519,7 @@ extern "C" void kmain()
 }
 ```
 
-
+As we are now using C++ code, we need more than NASM to build our program -- we need to use a C/C++ compiler. As we are on Linux, we will be using `gcc`. We will also need to write a *linker script*. We've added this below, but you will be able to download it.
 
 ```
 ENTRY(boot)
@@ -706,9 +546,50 @@ SECTIONS {
 }
 ```
 
+### Getting it All Working
 
+We have to follow some different steps this time as we are building a mix of assembly and C++.
 
+- Download the assembly for the main bootloader available [here](bootloader6.s){:target="_blank"}.
+- Build the bootloader, **but** using a slightly different command shown below:
 
+```shell
+nasm -f elf32 bootloader6.s -o bootloader6.o
+```
 
+- Download the linker script available [here](linker.ld){:target="_blank"}.
+
+- **Type in the C++ code in a file called `kmain.cpp`.**
+- Build the entire kernel using the following command:
+
+```shell
 gcc -m32 kmain.cpp bootloader6.o -o kernel.bin -nostdlib -fno-pie -ffreestanding -mno-red-zone -fno-exceptions -fno-rtti -Wall -Wextra -Werror -T linker.ld
+```
 
+- Run the program using QEMU:
+
+```shell
+qemu-system-i386 kernel.bin
+```
+
+You should get the following output:
+
+![image-20211001101628396](image-20211001101628396.png)
+
+## Over to You -- Experimenting with the Bootloader
+
+You are now in C++ so can do some more -- so take some time to play around with your bootloader. A couple of points to note:
+
+- You have no C++ standard library. You cannot include standard headers and start acting as if you are in a normal runtime environment. We are a long way from there.
+- You have very limited stack and system management set up. Things could fail easily.
+
+We have finished our journey in bootloading. There is more out there you can examine, but we've covered the basic ideas:
+
+- Setting a boot sector.
+- Set up protected memory.
+- Entered 32-bit mode.
+- Interacted with video graphics display.
+- Read from the disk.
+- Run C++ code.
+
+This is the boot idea for normal desktop/laptop computers running with Intel/AMD processors. ARM has different start up. If you are interested in writing an OS for a Raspberry Pi you can follow this course [Department of Computer Science and Technology – Raspberry Pi: Baking Pi – Operating Systems Development (cam.ac.uk)](https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/os/){:target="_blank"}.

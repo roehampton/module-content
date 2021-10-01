@@ -12,3 +12,4 @@ We will discuss these questions in the class.
 
 5. What is difference between Windows 10 and program that makes your Smart TV to work?
 6. Give five operational functions of an OS? 
+
