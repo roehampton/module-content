@@ -1,5 +1,11 @@
 # Operating Systems Lab 02 -- Bootloading Part 2
 
+<script src="https://cdn.jsdelivr.net/npm/code-line"></script>
+<script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
+<script src="/module-content/script/links.js"></script>
+
+<link rel="stylesheet" href="/module-content/css/block.css">
+
 In this lab we will extend our bootloader so it enters 32-bit protected mode. This is getting towards where a modern operating system starts from. However, we still have to work on 16-bit mode first -- this is how the computer starts.
 
 **NOTE -- we are still working in Visual Studio Code and Linux here.**
