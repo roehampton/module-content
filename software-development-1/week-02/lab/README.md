@@ -3,6 +3,24 @@
 
 ## The contents of this lab will be carried out on a Jupyter Notebook. Information on using Jupyter notebooks can be found at: https://jupyter.org/
 
+1. Open **Anaconda Navigator** from your Start Menu (Windows), Launchpad (MacOS), or equivalent on Linux.
+
+2. Once started, you will be presented with the following window.
+
+   ![image-20210402214430745](../../week-01/lab/image-20210402214430745.png)
+
+3. Click Launch under Jupyter Notebook.
+
+
+## Advice before Starting
+
+The **computer is stupid**. It needs to know exactly what you mean when you give it instructions. It has no ability to guess. To become a programmer, you have to work on three skills as a beginner:
+
+- **Precision** -- you need to **type instructions exactly as given**. The computer is case sensitive, it will treat uppercase and lowercase letters differently. The computer cannot guess your spelling mistakes. You need to be precise when entering instructions.
+- **Patience** -- you need to be patient when learning to program. You will make mistakes, and the computer will shout at you. Your job is to recognise your errors and start building your programming capability.
+- **Practice** -- you have to **constantly practice**. You cannot write a few lines of code and think you are a programmer. You have to build up a certain type of problem solving skill to talk to the computer and write high-quality software.
+
+
 In this lab, we’ll further explore 
 1.  What is Programming
 2.  Programming Languages
@@ -23,7 +41,7 @@ Let’s get started.
 
 > fun fact: Brian Kernighan wrote the first "hello, world" program as part of the documentation for the BCPL programming language developed by Martin Richards. BCPL was used while C was being developed at Bell Labs a few years before the publication of Kernighan and Ritchie's C book in 1972.
 
-## Lesson 1:  What is Programming?
+## Lesson 1 Recap:  What is Programming?
 
 Let's use Python as a Fixed Program Computer such as a Calculator
 
@@ -37,7 +55,7 @@ Let's use Python as a Fixed Program Computer such as a Calculator
     What is your average speed in miles per hour?
     
 
-## Lesson 2: Programming Languages
+## Lesson 2 Recap: Programming Languages
 
 Let's use Python to form a recipe to calculate for the following:
 
@@ -59,7 +77,7 @@ Let's use Python to form a recipe to calculate for the following:
        At what time do I get home for breakfast?
     
 
-## Lesson 3:  Introduction to Python
+## Lesson 3 Recap:  Introduction to Python
 
 We'll explore and expand on some of these concepts in Python via your open Jupyter Notebook. 
 
@@ -87,6 +105,7 @@ We'll explore and expand on some of these concepts in Python via your open Jupyt
     It will be on a web page titled “Built-in Functions.” 
     Skim the list of other functions Python has. 
     Look up what the round() function does, and experiment with it.
+
 
 
 FIN 
