@@ -16,7 +16,8 @@ Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=94ff6a2
 
 To understand this, we need to separate computer from computation. Computation is independent of the way is it is implemented in a computer. Think of the difference between knowing something vs knowing how to do something. For instance, knowing what is your favourite food vs how to make your favourite food. 
 
-    Exercise: Do you know how to make you favourite food? Can you write down a recipe for how to make it?
+    Exercise: Do you know how to make you favourite food? 
+    Can you write down a recipe for how to make it?
 
 A recipe is a description of a set of steps; a sequence of specific instructions in order for you to accomplish an objective. 
 We define computation as the techniques of capturing this process in a mechanical fashion.
