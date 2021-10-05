@@ -80,9 +80,11 @@ Now we need to clone the GitHub project in Visual Studio Code.
 
 ![image-20201227134347876](image-20201227134347876.png)
 
-We need the the location of our repository.  This is the URL of the repository you created, which should be of the form `https:\\github.com\<user-name>\sd2` (or whatever project name you gave).  For example, my repository is [https:\\github.com\kevin-chalmers\sd2](https:\\github.com\kevin-chalmers\sd2).
+We need the the location of our repository.  Find it by going the the github page for the repository, click the down arrow on the green 'code' button, and copy the https:// format URL to your clipboard, as below...
 
-**Click the Clone Repository button and Visual Studio Code will ask for the repository URL at the top of the window**.
+![git-clone](git-clone.png)
+
+**Click the Clone Repository button and Visual Studio Code will ask for the repository URL at the top of the window**.  Paste in the URL you obtained from Github as above.
 
 ![image-20201227134725482](image-20201227134725482.png)
 
@@ -97,15 +99,43 @@ You now have your GitHub repository cloned to the local machine and opened in Vi
 2. **Open the Source Control panel in Visual Studio Code using the button on the left-hand side.**
 3. **You will now see a list of changes. We will just add all of them just now. Click the three dots at the top of the Source Control panel and select Changes then Stage All Changes as shown below.**
 
+As an alternative, do the same thing in a terminal window.  From the top menu, 'terminal', click 'new terminal'. This will open a terminal in VS code.
+
+Use the following command to check if there are new files that need to be 'staged' (ie. made ready for the next commit)
+
+```bash
+
+git status
+```
+
+NB: The git status command is your go-to command to figure out the relationship of files you have in your local 'working' diretory, and the current state of your repository.
+
+You should at this point see the new 'unstaged' files, or be told if there are 'modified' files in your working tree.
+
+To add the files...
+
+```bash
+git add
+```
+
 ![image-20201227141135038](image-20201227141135038.png)
 
 You have now added your existing files to the *Staging Area* of the local Git repository. Next we need to create a commit from these changes. **Click the three dots again and select Commit then Commit. Visual Studio will ask you for a commit message. Enter `First commit, adding initial files.`**
+
+To do the same thing via the terminal:
+
+```bash
+git commit -m 'My meaningful message as this will persist forever!'
+```
+
+HINT: A good commit message will help others understand what you did and why. 
+ANOTHER HINT: if you forget the -m, a text editor will open where you can type a longer message, but this can get complicated if you are not familiar with CLI text editors, so better to ctr C and start again remembering the -m and putting the message inline.
 
 ![image-20201227141500721](image-20201227141500721.png)
 
 We have now created a checkpoint in our code that we can **always** return to.  This is the power of version control.  We are check-pointing our code so we can rewind to previous versions.  As long as you commit often, you can always revert back to a previous version.
 
-Now we need to push these changes to GitHub. **Click the three dots again, and select Push**. You will be asked to log into GitHub. Do so. This will automate most of your work with GitHub.
+Now we need to push these changes to GitHub. **Click the three dots again, and select Push**. You will be asked to log into GitHub. Do so and follow the instructions given. This will keep you authenticated with Github when you use visual studio code.
 
 Refresh the GitHub page.  You should see your files there:
 
