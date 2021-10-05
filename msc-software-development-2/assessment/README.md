@@ -8,22 +8,22 @@ The coursework is worth 100% of the total module mark. Delivery of the coursewor
 
 | **Title**             | **Deadline**      | **Marks** |
 | --------------------- | ----------------- | --------- |
-| Sprint 1              | tbc           | 15%       |
-| Sprint 2              | tbc            | 15%       |
-| Sprint 3              | tbc           | 25%       |
-| Sprint 4              | Assessment Week 2 | 25%       |
-| Individual Reflection | Assessment Week 2 | 20%       |
+| Sprint 1              | 17 October           | 15%       |
+| Sprint 2              | 3 November           | 15%       |
+| Sprint 3              | 2 December           | 25%       |
+| Sprint 4              | 12 January | 25%       |
+| Individual Reflection | 14 January | 20%       |
 
-In this coursework you are tasked with creating a dynamic web application for the smooth and efficient operation of a business of your team's choosing. Hence you are required to specify what type of business you will be building your application for. Your team may want to reuse the ideas from your coursework for Databases.
+In this coursework you are tasked with creating a dynamic web application for the smooth and efficient operation of a business of your team's choosing. Hence you are required to specify what type of business you will be building your application for. 
 
 **Your application must be built using the tools and techniques taught in the module, although there is some flexibility.**
 
-- Your web front-end must use Angular.js. If your team wants to use a different front-end web framework then you must seek permission from the teaching team first.
+- Your web front-end should use PUG. If your team wants to use a different front-end web framework then you must seek permission from the teaching team first.
 - Your web back-end must run via Node.js. This is not negotiable.
-- Your front-end and back-end must communicate via Express.js. If your team wants to use a different routing library then you must seek permission from the teaching team first.
-- Your application must use a database for storage. We will teach you SQLite, but you can use other database systems such as MySQL or a NoSQL system such as MongoDB. You must discuss this choice with the teaching team first.
+- Your front-end and back-end must communicate via Express.js. 
+- Your application must use a database for storage. We will teach you SQLite and MySQL, but you can use other database systems such as a NoSQL system such as MongoDB. You must discuss this choice with the teaching team first.
 - Your application must be version controlled using Git and publicly accessible on GitHub. This is not negotiable.
-- Your application must be deployable as a Docker container. This is not negotiable.
+- Your application must be deployable as a Docker container. 
 
 ### Advice on Application Choice
 
@@ -67,9 +67,9 @@ Each Sprint features a submission (via Moodle) and a review at the next class se
 
 ### Sprint 1
 
-#### Submission: tbc
+#### Submission: 17 October
 
-#### Review Meeting: tbc + 1
+#### Review Meeting: 18 October
 
 The aim of this Sprint is to check that the project workflow is set up for the team. You may choose to meet some of the feature requirements during this delivery but point, but it is not a necessity.
 
@@ -86,9 +86,9 @@ Submission requirements for this Sprint:
 
 ### Sprint 2
 
-#### Submission: tbc
+#### Submission: 3 November
 
-#### Review Meeting: tbc + 1
+#### Review Meeting: 8 November
 
 The aim of this Sprint is to check that you have a set of user requirements defined as user stories and that you have designed initial elements of your application.
 
@@ -96,21 +96,23 @@ Submission requirements for this Sprint:
 
 - Full set of user stories defined for your application idea.
 - User stories tracked appropriately using a tool.
-- Suitable diagrams used to design software, including:
+- Suitable diagrams and documentation used to design software, which may include:
   - Use case diagrams
   - Activity diagrams
   - State diagrams
   - Class diagrams
   - Sequence diagrams
+  - Personas
+  - User flow diagrams
 - Rough designs of the screens (pages) that your application will have and how these flow together. We are looking for wireframes and a high-level overview of how the application flows together. For example, see the following resources:
   - [How to create a user experience flow chart (UX Flow Chart) (startuprocket.com)](https://www.startuprocket.com/articles/how-to-create-a-user-experience-flow-chart-ux-flow-chart)
   - [Mobile Application Design : Paper Prototype Video - YouTube](https://www.youtube.com/watch?v=y20E3qBmHpg)
 
 ### Sprint 3
 
-#### Submission: tbc 
+#### Submission: 2 December
 
-#### Review: tbc + 1
+#### Review: 6 December
 
 The aim of this Sprint is to have a working prototype of your application, with good progress in the technical deliverables of the project.
 
@@ -125,7 +127,7 @@ Submission requirements for this Sprint:
 
 ### Sprint 4
 
-#### Submission: Assessment Week 2
+#### Submission: 12 January
 
 The aim of this Sprint is to deliver the final version of your application. The final version of your application will be pulled automatically from GitHub. The final submission will be assessed based on the following criteria.
 
@@ -137,7 +139,7 @@ The aim of this Sprint is to deliver the final version of your application. The 
 
 ### Individual Reflection
 
-#### Submission: Assessment Week 2
+#### Submission: 14 January
 
 A four page report reflecting on the overall project, including your own contribution, the team's effectiveness, the effectiveness of the roles undertaken by members (e.g., Scrum Master, Product Owner), and the quality of the final deliverable. This reflection should be a maximum of 1000 words.
 
