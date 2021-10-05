@@ -2,9 +2,9 @@
 # Lecture 2 -- Introduction to Programming
 
 In this week, we’ll explore 
-1.  What is Programming (Lecture videos/ Lab Exercises)
-2.  Programming Languages (Lecture videos/ Lab Exercises)
-3.  Introduction to Python (Lecture videos/ Lab Exercises)
+1.  What is Programming 
+2.  Programming Languages 
+3.  Introduction to Python
 
 By the end of this week, you’ll have knowledge of programming concepts, programming skills and problem-solving abilities. Our goal is to make you think as a computer scientist so that when you are faced with a challenge, you’ll immediately think:
 
@@ -12,16 +12,17 @@ By the end of this week, you’ll have knowledge of programming concepts, progra
 
 ## Lesson 1:  What is Programming?
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=94ff6a2b-948b-4b73-adb2-ac4900c517a5
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=94ff6a2b-948b-4b73-adb2-ac4900c517a5](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=94ff6a2b-948b-4b73-adb2-ac4900c517a5)
 
 To understand this, we need to separate computer from computation. Computation is independent of the way is it is implemented in a computer. Think of the difference between knowing something vs knowing how to do something. For instance, knowing what is your favourite food vs how to make your favourite food. 
 
-    Exercise: Do you know how to make you favourite food? Can you write down a recipe for how to make it?
+    Exercise: Do you know how to make you favourite food? 
+    Can you write down a recipe for how to make it?
 
 A recipe is a description of a set of steps; a sequence of specific instructions in order for you to accomplish an objective. 
 We define computation as the techniques of capturing this process in a mechanical fashion.
 
-Some of the earliest computers, known as **fixed program computers**, were designed to do just one thing. For instance, early calculators were designed to do only maths. In the 1940’s Dr Alan Turing made the Bombe computer with the sole purpose of breaking German code (cryptography). Trough computing, we want to capture the idea of problem solving.
+Some of the earliest computers, known as **fixed program computers**, were designed to do just one thing. For instance, early calculators were designed to do only maths. In the 1940’s Dr Alan Turing made the Bombe computer with the sole purpose of breaking German code (cryptography). Through computing, we want to capture the idea of problem solving.
 
  > Suppose you invent a circuit that reads a circuit diagram and reconfigures itself to act like that that circuit diagram. You would have to invent a machine that takes a recipe, and acts like what is described in that recipe. This is known as an interpreter. 
      What happens when you change the circuit?
@@ -40,7 +41,7 @@ Back in the olden days, computers had physical cards that need punching, etc.
 
 ## Lesson 2: Programming Languages
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=92cb69a2-0d52-4b23-ae58-ac4900c51714
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=92cb69a2-0d52-4b23-ae58-ac4900c51714](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=92cb69a2-0d52-4b23-ae58-ac4900c51714)
 
 To describe recipes, we need a language. So far, we have been using English to describe these recipes. However, to be able to communicate with the computer, we need a different language. Our digital devices understand instructions in 1s and 0s. The basic programming languages take this into account and create basic words or instructions that translate into something the computer can do with those 1s and 0s. We discussed how some of these old computers had tapes and other mechanical mechanisms to handle instructions and data. The first computer languages then needed to translate our commands to something the computer could understand. From these a basic set of instructions, or primitives, were born.
 
@@ -67,18 +68,18 @@ Finally, when we ask whether a language is *Interpreted* vs *Compiled*, we are a
 
 ## Lesson 3:  Introduction to Python
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=058f6deb-ebd6-4f9f-90eb-ac4900c51768
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=058f6deb-ebd6-4f9f-90eb-ac4900c51768](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=058f6deb-ebd6-4f9f-90eb-ac4900c51768)
 
 Python Syntax vs Semantics
-> Syntax says what are the legal expressions in this language (cat, dog, etc)
-> Semantics says how we construct expressions
+> Syntax says what are the legal expressions in this language (cat, dog, etc).
+> Semantics says how we construct expressions.
 
 *Static Semantics* in Python determine which programs are meaningful; which expressions make sense. Consider for instance: 
     My desk is Susan
 
 Does it make sense?
 
-    False.
+> False.
 
 *Static Semantics* asks what does the program mean? What’s going to happen when I run it? Thought this, Python checks your syntax, one bug at a time.
 
@@ -92,37 +93,35 @@ The goal for this lab session is to have a set of primitives that we combine int
 
 Python has different Types of values: 
 
-> Strings are **strings**
+* Strings are **strings**
 
-> Numbers can be **integer, floats**
+* Numbers can be **integer, floats**
 
-> Logical (true or false) are **Boolean**
+* Logical (true or false) are **Boolean**
 
 Higher programming languages have a set of operators that expect a certain type of input to give a certain type of output. Let’s explore the typical set of arithmetic operations:
->    5*5
+*    5*5
 
->    3+2
+*    3+2
 
->    7/3
+*    7/3
 
 
 What do these have in common?
-
-    Operand operator operand
+> We have an "operand" first, then an "operator", then another "operand".
 
 What happens if we do something like “cat”/“tree"?
-
-    Error
+> Error
 
 Commands (statements) take a value and ask the computer to do something with it. 
 
-    What is the difference between:
+What is the difference between:    
     
     print (5*4)
     
-    print (“5*4"")
+    print ("5*4")
     
-    print (“5”*"4”")
+    print ("5"*"4")
 
 
 Finally, we use Variables to store things

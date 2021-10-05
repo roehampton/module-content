@@ -1,57 +1,43 @@
-# Software Development 1 Seminar 2 -- Pseudocode
+# Software Development 1 
+# Seminar 2
 
-In this seminar, we are going to learn how to solve computational problems by breaking them down to simple steps.
-
-## Instructions
-
-Your group have to program a computer to draw various flags. The computer is very simple and only understands the following instructions.
-
+1. What should the following expression evaluate to?
 ```
-DRAW COLOUR RECTANGLE FROM START TO END
-DRAW WIDTH THICK COLOUR LINE FROM START TO END
-DRAW WIDTH RADIUS COLOUR CIRCLE AT CENTRE
-DRAW COLOUR POLYGON WITH CORNERS POINT LIST
+    "hi" + 'hihi' 
+    "hello " * 3
+```    
+2. Is *socks* a valid variable name? How about *9000*? What’s the difference?
+
+3. What functions can be used to get the integer, floating-point
+number, or string version of a value?
+
+4. Why does this expression cause an error? How can you fix it?
 ```
+    'I have eaten ' + 99 + ' burritos.’
+```    
+5. In Jupyter, what happens if you leave out one of the parentheses, or both?
 
-The syntax of these instructions are:
+6. If you are trying to print a string, what happens if you leave out one of the quotation marks, or both?
 
-- `COLOUR` is any colour.
-- `START` is a two-dimensional point, e.g., `(0, 0)`.
-- `END` is a two-dimensional point, e.g., `(400, 600)`.
-- `WIDTH` is a number.
-- `CENTRE` is a two-dimensional point, e.g., `(100, 100)`.
-- `POINT LIST` is a list of points, e.g., `(10, 20), (20, 20), (20, 10)`.
+7. You can use a minus sign to make a negative number like -2. What happens if you put a plus sign before a number? What about 2++2?
 
-With these four instructions, write the instructions to instruct the computer to draw the following flags.
+8. In math notation, leading zeros are okay, as in 02. What happens if you try this in Python?
 
-- **Bangladesh**
+9. What happens if you have two values with no operator between them?
 
-![image-20210402172042011](image-20210402172042011.png)
+10. We’ve seen that *n = 42* is legal. 
 
-- **Palau**
+* What about *42 = n*?
 
-![image-20210402172049501](image-20210402172049501.png)
+* How about *x = y = 1*?
 
-- **Niger**
+11 . In some languages every statement ends with a semicolon, **;**. What happens if you put a semicolon at the end of a Python statement?
+* What if you put a period at the end of a statement?
 
-![image-20210402172056019](image-20210402172056019.png)
+12 . In math notation you can multiply *x* and *y* like this: *xy*. What happens if you try that in Python?
 
-- **Maldives**
-
-![image-20210402172104223](image-20210402172104223.png)
-
-- **Kuwait**
-
-![image-20210402172114184](image-20210402172114184.png)
-
-- **Saint Lucia**
-
-![image-20210402172122268](image-20210402172122268.png)
-
-- **Brazil**
-
-![image-20210402172134657](image-20210402172134657.png)
-
-- **Seychelles**
-
-![image-20210402172143639](image-20210402172143639.png)
+13 . What is the result of the following calculation in Python:
+```
+        3 + 2 * 9 / 10 -1
+```
+14 . Can you identify the order of precedence of the mathematical operations?

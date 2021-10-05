@@ -1,42 +1,111 @@
 # Software Development 1 
-# Lab 2 -- 
+# Lab 2 -- Introduction to Programming
 
-6. What should the following expression evaluate to?
+## The contents of this lab will be carried out on a Jupyter Notebook. Information on using Jupyter notebooks can be found at: https://jupyter.org/
 
-    "hi" + 'hihi' "hello " * 3
+1. Open **Anaconda Navigator** from your Start Menu (Windows), Launchpad (MacOS), or equivalent on Linux.
+
+2. Once started, you will be presented with the following window.
+
+   ![image-20210402214430745](../../week-01/lab/image-20210402214430745.png)
+
+3. Click Launch under Jupyter Notebook.
+
+
+## Advice before Starting
+
+The **computer is stupid**. It needs to know exactly what you mean when you give it instructions. It has no ability to guess. To become a programmer, you have to work on three skills as a beginner:
+
+- **Precision** -- you need to **type instructions exactly as given**. The computer is case sensitive, it will treat uppercase and lowercase letters differently. The computer cannot guess your spelling mistakes. You need to be precise when entering instructions.
+- **Patience** -- you need to be patient when learning to program. You will make mistakes, and the computer will shout at you. Your job is to recognise your errors and start building your programming capability.
+- **Practice** -- you have to **constantly practice**. You cannot write a few lines of code and think you are a programmer. You have to build up a certain type of problem solving skill to talk to the computer and write high-quality software.
+
+
+In this lab, we’ll further explore 
+1.  What is Programming
+2.  Programming Languages
+3.  Introduction to Python
+
+By the end of this lab and its accompanying seminar, you’ll be able to run Python code via Jupyter Notebooks. You’ll have knowledge of programming concepts, programming skills and problem-solving abilities. Our goal is to make you think as a computer scientist so that when you are faced with a challenge, you’ll immediately think:
+
+> "How am I going to write a piece of code to help me tackle this?"
+
+A few tips: Practice, practice, practice. You can’t passively absorb programming as a skill. Please view the videos before lecture so that you can maximise our time together. Remember that your instructor is not a mind reader, please tell them when you are struggling. Finally, don’t be afraid to try your code, you won’t break your computer!
+
+Let’s get started.
+### Warm-up
+
+    # Our first Python program, print out "Hello, world"
     
-7. Is *socks* a valid variable name? How about *9000*? What’s the difference?
+    print("Hello, world")
 
-8. What functions can be used to get the integer, floating-point
-number, or string version of a value?
+> fun fact: Brian Kernighan wrote the first "hello, world" program as part of the documentation for the BCPL programming language developed by Martin Richards. BCPL was used while C was being developed at Bell Labs a few years before the publication of Kernighan and Ritchie's C book in 1972.
 
-9. Why does this expression cause an error? How can you fix it?
+## Lesson 1 Recap:  What is Programming?
 
-    'I have eaten ' + 99 + ' burritos.’
+Let's use Python as a Fixed Program Computer such as a Calculator
+
+    1. How many seconds are there in 42 minutes 42 seconds?
     
-10. In Jupyter, wat happens if you leave out one of the parentheses, or both?
+    2. How many miles are there in 10 kilometres? 
+    Hint: there are 1.61 kilometres in a mile.
+    
+    3. If you run a 10 kilometres race in 42 minutes 42 seconds, 
+    what is your average pace (time per mile in minutes and seconds)? 
+    What is your average speed in miles per hour?
+    
 
-11. If you are trying to print a string, what happens if you leave out one of the quotation marks, or both?
+## Lesson 2 Recap: Programming Languages
 
-12. You can use a minus sign to make a negative number like -2. What happens if you put a plus sign before a number? What about 2++2?
+Let's use Python to form a recipe to calculate for the following:
 
-13. In math notation, leading zeros are okay, as in 02. What happens if you try this in Python?
+    4. The volume of a sphere with radius r is 4/3 π r^3 . 
+    What is the volume of a sphere with radius 5? 
+    How about radius 3.5? 
+    
+    5. Suppose the cover price of a book is $24.95, but bookstores get a 40% discount. 
+    Shipping costs $3 in the US for the first copy and 75 cents for each additional copy.
+    What is the total wholesale cost for 40 and 60 copies in the US? 
+    In the UK shipping costs £4.50 and £1.90 for each additional copy.
+    Today, 1 US dollar = 0.77 British pounds.
+    What's the total for 40 and 60 copies in the UK? 
+    
+    6. I leave my house at 6:52am. I run:
+       1 mile at an easy pace (8:15 per mile) 
+       3 miles at tempo (7:12 per mile) 
+       1 mile at an easy pace again. 
+       At what time do I get home for breakfast?
+    
 
-14. What happens if you have two values with no operator between them?
+## Lesson 3 Recap:  Introduction to Python
 
-15. We’ve seen that *n = 42* is legal. 
+We'll explore and expand on some of these concepts in Python via your open Jupyter Notebook. 
 
-* What about *42 = n*?
+    7.What does the variable counter contain after the following code runs? 
 
-* How about *x = y = 1*?
+    counter = 20
+    counter += 1 
+    counter
+    
+    8. Identify what kind of values each one is with type()
+       3 * 4
+       ‘hi’ 
+       -99.1
+       False
+       4 - 6.0
+       3.0 / 6
+       0 + 0
+       "2.0"
+       0.00
+       2**3
+       “My dog ate my homework"
+       7 == 3 + 4
+    
+    9. Search online for the Python documentation for the len() function. 
+    It will be on a web page titled “Built-in Functions.” 
+    Skim the list of other functions Python has. 
+    Look up what the round() function does, and experiment with it.
 
-16. In some languages every statement ends with a semicolon, **;**. What happens if you put a semicolon at the end of a Python statement?
-* What if you put a period at the end of a statement?
 
-17. In math notation you can multiply *x* and *y* like this: *xy*. What happens if you try that in Python?
 
-18. What is the result of the following calculation in Python:
-
-        3 + 2 * 9 / 10 -1
-
-Can you identify the order of precedence of the mathematical operations?
+FIN 

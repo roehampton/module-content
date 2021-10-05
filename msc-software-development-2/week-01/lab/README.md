@@ -200,9 +200,17 @@ Second page.
  **NOTE**: Make sure you have a very good understanding of 'absolute' and 'relative' paths for images (and other files.)  A common form of errors and other headaches are incorrectly referenced links.  If you are not already familiar with absolute and relative paths, study this page: https://www.w3schools.com/html/html_filepaths.asp.  You should almost always use relative paths as this makes your web pages portable across different servers and domains.
 <hr>
 
+### Extension task
+
+Find out about the HTML standard and the additional tags that have been introduced. Answer the following questions:
+
+1. Why were these new tags introduced?
+2. Is HTML5 a semantic or syntactic innovation?
+3. What is microdata and how is this used by search engines?
+
 ### So you want to know more
 
-We don't aim to teach you HTML as part of this module. HTML is quite a simple concept once you understand the idea of tagging sections of a text file to present it in a particular manner in the browser.
+We don't aim to teach you HTML as part of this module. HTML is quite a simple concept once you understand the idea of tagging sections of a text file to present it in a particular manner in the browser, but there is good and bad markup, and a knowledge of web standards such as HTML5 is essential for a web professional.
 
 One of the best places to learn web development for free is [w3schools](https://www.w3schools.com/).
 
