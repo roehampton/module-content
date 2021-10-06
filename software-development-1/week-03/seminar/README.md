@@ -7,22 +7,21 @@ In this seminar, we are going to learn how to solve computational problems by br
 Your group have to program a computer to draw various flags. The computer is very simple and only understands the following instructions.
 
 ```
-DRAW COLOUR RECTANGLE FROM START TO END
-DRAW WIDTH THICK COLOUR LINE FROM START TO END
-DRAW WIDTH RADIUS COLOUR CIRCLE AT CENTRE
-DRAW COLOUR POLYGON WITH CORNERS POINT LIST
+Draw COLOUR rectangle from POINT to POINT
+Draw COLOUR WIDTH line from POINT to POINT
+Draw COLOUR circle with RADIUS at POINT
+Draw COLOUR polygon with POINT_LIST
 ```
 
-The syntax of these instructions are:
+The variables(which are also syntax) in these instructions are:
 
 - `COLOUR` is any colour.
-- `START` is a two-dimensional point, e.g., `(0, 0)`.
-- `END` is a two-dimensional point, e.g., `(400, 600)`.
 - `WIDTH` is a number.
-- `CENTRE` is a two-dimensional point, e.g., `(100, 100)`.
-- `POINT LIST` is a list of points, e.g., `(10, 20), (20, 20), (20, 10)`.
+- `RADIUS` is a number.
+- `POINT` is a two-dimensional point, e.g., `(100, 100)`.
+- `POINT_LIST` is a list of points, e.g., `(10, 20), (20, 20), (20, 10)`.
 
-With these four instructions, write the instructions to instruct the computer to draw the following flags.
+With these four instructions, write the pseudocode and flowchart to instruct the computer to draw the following flags (pick up three of them, and try to use *conditional*).
 
 - **Bangladesh**
 
