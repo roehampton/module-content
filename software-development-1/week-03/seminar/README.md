@@ -1,8 +1,9 @@
-# Software Development 1 Seminar 3 -- Pseudocode
+# Software Development 1 Seminar 3 -- Pseudocode & Flowchart
 
 In this seminar, we are going to learn how to solve computational problems by breaking them down to simple steps.
 
-## Instructions
+
+###  Exercise 1: Let's do flags again.
 
 Your group have to program a computer to draw various flags. The computer is very simple and only understands the following instructions.
 
@@ -56,14 +57,13 @@ With these four instructions, write the pseudocode and flowchart to instruct the
 ![image-20210402172143639](image-20210402172143639.png)
 
 
-###  Exercise: Classifying Triangles 
+###  Exercise 2: Classifying Triangles 
 A triangle can be classified based on the lengths of its sides as equilateral, isosceles or scalene: 
 
 - All three sides of an equilateral triangle have the same length. 
 - An isosceles triangle has two sides that are the same length, and a third side that is a different length. 
 - If all of the sides have different lengths, then the triangle is scalene.
 
-Task: Write a program in pseudocode that reads the lengths of the three sides of a triangle from the user. Then display a message that states the triangle’s type. 
-
+Task: Write a program in pseudocode/flowchart that reads the lengths of the three sides of a triangle from the user. Then display a message that states the triangle’s type. 
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
