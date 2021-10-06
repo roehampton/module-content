@@ -11,7 +11,8 @@ By the end of this lab, you will know what is the basic syntax and semantics of 
 
 
 ## Lesson 1: What are the syntax and semantics of a programming language?
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=177f276a-4380-442e-bb28-ac4f008f8f9a
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=177f276a-4380-442e-bb28-ac4f008f8f9a]
+(https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=177f276a-4380-442e-bb28-ac4f008f8f9a)
 
 
 In this lesson we&#39;ll go in more depth through the syntax and semantics of a programming language. Specifically, we&#39;ll talk about processes and how we use them to deduce new kinds of information. To **write recipes or programs** , we need
@@ -124,7 +125,8 @@ This could create all sorts of bugs and complications, so to avoid this we need 
 Where can we use variables? Well, pretty much anywhere we can use the value! In technical terms: **Any place it is legal to use the value.**
 
 ### Lesson 2: Semantics of Python
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=66611393-d3cf-4cd1-ba6f-ac4f008f8f43
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=66611393-d3cf-4cd1-ba6f-ac4f008f8f43]
+(https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=66611393-d3cf-4cd1-ba6f-ac4f008f8f43)
 
 We know that we can create an expression that allows us to calculate a value, or just get a value. We can then name and store these values in variables, but we really want to store them because we want to use them later, to manipulate them. For this we have **Statements** : **legal expressions (commands) that python can interpret**. We&#39;ve used a couple of **commands** like **print() , + , \* , and = (assignment).**
 
@@ -210,7 +212,8 @@ Since min and max are the names of functions in Python we should not use those n
 
 ## Lesson 3: Syntax & Semantics of Python
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=409562a6-a401-43ee-9623-ac4f008f8f52
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=409562a6-a401-43ee-9623-ac4f008f8f52]
+(https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=409562a6-a401-43ee-9623-ac4f008f8f52)
 
 
 Now we know we can write expressions, perform operations, get out values and store them away. However, so far we have only worked with &quot; **straight Line programs**&quot;: programs which executes the sequence of instructions one by one.
