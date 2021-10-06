@@ -11,8 +11,7 @@ By the end of this lab, you will know what is the basic syntax and semantics of 
 
 
 ## Lesson 1: What are the syntax and semantics of a programming language?
-Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=177f276a-4380-442e-bb28-ac4f008f8f9a]
-(https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=177f276a-4380-442e-bb28-ac4f008f8f9a)
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=177f276a-4380-442e-bb28-ac4f008f8f9a](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=177f276a-4380-442e-bb28-ac4f008f8f9a)
 
 
 In this lesson we&#39;ll go in more depth through the syntax and semantics of a programming language. Specifically, we&#39;ll talk about processes and how we use them to deduce new kinds of information. To **write recipes or programs** , we need
