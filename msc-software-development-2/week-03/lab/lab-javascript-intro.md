@@ -168,6 +168,115 @@ Here we are dynamically adding our variable value to the div we have defined wit
 
 See if you can get the name to be added into the heading instead (HINT: You will need to use `document.getElementsByTagName("h1")[0].innerHTML = name;`  to target the H1 HTML - Can you guess why the array index [0] is needed?
 
+### Your Second JavaScript Enabled Web Page -- Event driven programming
+
+Javascript is good for creating interactive user interfaces, ie. it can respond to user actions
+
+In this example we will add a button to our page. Unlike in our HTML forms example the click on the button fires a javascript function.
+
+Save the following HTML code as `second.html`.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buttons!</title>
+    <script src="script2.js"></script>
+  </head>
+  <body>
+    <h1>
+      Click the button!
+    </h1>
+    <input type="button" value="Click Me!" onclick="msg()">
+  </body>
+</html>
+```
+
+As covered in the HTML forms tutorial, we are using the `<input>` element to get information from the user. We have defined three attributes:
+
+- `type` is the type of input element. We are using a button, so we set this to `button`.
+- `value` is the text on the button. We've set this to `Click Me!`.
+- `onclick` is the code that will be run when we click the button. This is an *event* that our JavaScript will respond to. It will execute the `msg` function.
+
+We need to implement the `msg` function. This can be done in a seperate file, or in the head section of our HTML document.  To make it easy, add it to the head section of the second.html file.  Remember to surround it in script tags.
+
+```javascript
+function msg() {
+    document.write("You clicked the button!");
+}
+```
+
+**Save everything and then open the HTML document in your browser.** When you click the button the web page will be replaced with `You clicked the button!`
+
+> **EXERCISE** add a second button to the HTML page. When this button is clicked, it should display the message `Not that button!`
+
+### Manipulating HTML Elements
+
+OK, so far we've done the following:
+
+* Displayed a message in the window.
+* Reacted to a button press.
+
+Let's go back to what we know about manipulating an HTML element that exists on the web page so that we can make our page more dynamic and interactive.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Changing Web Page!</title>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <h1>
+      Click the button!
+    </h1>
+    <input type="button" value="Click me!" onclick="change()">
+    <p id="my_text">
+      Hello, world!
+    </p>
+  </body>
+</html>
+
+```
+##### Understanding the id attribute
+
+Javascript uses the 'id' attribute in HTML to identify a unique part of a page that it should act upon or 'target'.
+
+In the above example, our `<p>` element has the attribute `id` set to `my_text`. 
+
+To show how Javascript can target this part of the page by using the id, add this function to your document head section, in between the empty 'script' tags.  
+
+```javascript
+function change() {
+     document.getElementById("my_text").innerHTML = "You clicked me";
+}
+```
+
+In your body section, double-check that your button is calling the 'change' function.
+
+**Save all the files and open the HTML document in your browser.** You can click the button and the text of the `<p>` element will change.
+
+To recap: our function is looking at the HTML page structure, finding the element with ID my_text, and then setting the HTML value of the element found to the string "you clicked me".  Note that you can include more HTML tags in the string - try and put the word 'clicked' in bold.
+
+## Save your work into GIT
+
+Save everything from the lab into your git repository (make sure you have one for the labs, separate from your groupwork)
+Try:
+
+```bash
+git add <names of your files>
+git commit -m "starting javascript"
+git push
+```
+
+## Programming constructs in Javascript
+
+Lets find out more about how to write programs in Javascript - you will find it similar but different to Python.  You will especially notice that Javascript uses punctuation (curly braces, brackets, semicolons) to delineate blocks of code, whereas Python uses indentation.  Visual studio code will help you ensure that you have correct syntax - matching brackets and braces, for example.
+
+
 #### Conditionals -- Selection
 
 JavaScript provides `if` conditional statements that operate the same as Python. The general structure of a JavaScript `if` statement is as follows:
@@ -288,7 +397,7 @@ Output numbers 1 to 20, this time using a while loop
 
 #### Functions
 
-Functions in JavaScript are also similar to Python:
+As we have seen, functions in JavaScript are also similar to Python:
 
 ```javascript
 function myfunction(parameters) {
@@ -310,111 +419,55 @@ Comments in HTML are as follows...
 ```
 
 
-### Your Second JavaScript Enabled Web Page -- Event driven programming
+### Save your work into GIT
 
-Javascript is good for creating interactive user interfaces, ie. it can respond to user actions
+Save everything from the lab into your git repository.
+Try:
 
-In this example we will add a button to our page. Unlike in our HTML forms example the click on the button fires a javascript function.
-
-Save the following HTML code as `second.html`.
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Buttons!</title>
-    <script src="script2.js"></script>
-  </head>
-  <body>
-    <h1>
-      Click the button!
-    </h1>
-    <input type="button" value="Click Me!" onclick="msg()">
-  </body>
-</html>
+```bash
+git add <names of your files>
+git commit -m "starting javascript"
+git push
 ```
 
-As covered in the HTML forms tutorial, we are using the `<input>` element to get information from the user. We have defined three attributes:
 
-- `type` is the type of input element. We are using a button, so we set this to `button`.
-- `value` is the text on the button. We've set this to `Click Me!`.
-- `onclick` is the code that will be run when we click the button. This is an *event* that our JavaScript will respond to. It will execute the `msg` function.
+### Objects and properties
 
-We need to implement the `msg` function. This can be done in a seperate file, or in the head section of our HTML document.  To make it easy, add it to the head section of the second.html file.  Remember to surround it in script tags.
+You may have wondered about the dot syntax throughout this lab sheet, for example:
 
 ```javascript
-function msg() {
-    document.write("You clicked the button!");
-}
+document.write('hello world')
 ```
 
-**Save everything and then open the HTML document in your browser.** When you click the button the web page will be replaced with `You clicked the button!`
+We will do more about object orientated programming in a few weeks, but its good to start building your understanding now.
 
-> **EXERCISE** add a second button to the HTML page. When this button is clicked, it should display the message `Not that button!`
+In this example:
 
-### Manipulating HTML Elements
+`document` is an object, and Javascript under the hood has defined a 'method', ie a function that can act upon that project that takes a string parameter - in this case 'hello world'.
 
-OK, so far we've done the following:
+An object can also have 'properties' which are variables inside the object may also be able to be accessed via the dot syntax.
 
-* Displayed a message in the window.
-* Reacted to a button press.
+Objects can be understood as custom data structures that both hold values AND may also have functionality via their methods. Objects are defined by what we call 'classes'.  Understanding objects and how to define them is a fundamental part of good code design.  
 
-Let's go back to what we know about manipulating an HTML element that exists on the web page so that we can make our page more dynamic and interactive.
+### Summary
 
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>My Changing Web Page!</title>
-    <script>
-
-    </script>
-  </head>
-  <body>
-    <h1>
-      Click the button!
-    </h1>
-    <input type="button" value="Click me!" onclick="change()">
-    <p id="my_text">
-      Hello, world!
-    </p>
-  </body>
-</html>
-```
-##### Understanding the id attribute
-
-Javascript uses the 'id' attribute in HTML to identify a unique part of a page that it should act upon or 'target'.
-
-In the above example, our `<p>` element has the attribute `id` set to `my_text`. 
-
-To show how Javascript can target this part of the page by using the id, add this function to your document head section.  In your body section, ensure that your button is now calling the 'change' function.
-
-```javascript
-function change() {
-     document.getElementById("my_text").innerHTML = "You clicked me";
-}
-```
-**Save all the files and open the HTML document in your browser.** You can click the button and the text of the `<p>` element will change.
-
-Our two lines of code do the following:
-
-To recap: our function is looking at the HTML page structure, finding the element with ID my_text, and then setting the HTML value of the element found to the string "you clicked me".  Note that you can include more HTML tags in the string - try and put the word 'clicked' in bold.
 
 Well done! You've actually covered a good amount of how we can program web pages:
 
 - Setting events.
 - Getting elements by their `id`.
 - Changing elements.
+- Understanding how variables, conditionals and loops are implemented in Python
+- Understanding objects, properties and methods
 
 ### Homework
 
-#### 1. Javascript
+#### 1. More javascript
 
 This exercise combines the parts we've learned so far. Create a web page with some text in a paragraph element and with a button. When the user clicks the button, it should change the colour of the text in the paragraph to red. 
 
 HINTS:
-Locate the HTML element in the DOM using the same method you used in the 
+Locate the HTML element in the DOM using the same method you used above. 
 
 Then, you can use this code to change the *style* of an HTML element to set its colour to `red`.
 
@@ -422,16 +475,16 @@ Then, you can use this code to change the *style* of an HTML element to set its 
 element.style['color'] = "red";
 ```
 
-Then add a second button that will change the text colour to blue.
+Now add a second button that will change the text colour to blue.
 
 #### 2. Git
 
-Save everything from the homework and lab into your git repository.
-Try:
+Save everything from the homework into your git repository.
+
 
 ```bash
 git add <names of your files>
-git commit -m "starting javascript"
+git commit -m "homework exercise"
 git push
 ```
 
