@@ -6,19 +6,21 @@
 
 int main(int argc, char **argv)
 {
-    pid_t childA = fork();
-    pid_t childB = fork();
+    // Create a process childA
+    // *** COMPLETE ME ***
+    // Create a process childB
+    // *** COMPLETE ME ***
     if (childA > 0 && childB > 0)
     {
         int status;
         printf("Parent running....\n");
         printf("Waiting for child B....\n");
         // Wait for B to finish first
-        waitpid(childB, &status, 0);
+        // *** COMPLETE ME ***
         printf("Child B exited....\n");
         printf("Waiting for child A....\n");
         // Wait for A to finish
-        waitpid(childA, &status, 0);
+        // *** COMPLETE ME ***
         printf("Child A exited....\n");
         printf("Parent exiting....\n");
         exit(EXIT_SUCCESS);

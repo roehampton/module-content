@@ -4,22 +4,19 @@
 
 int main(int argc, char **argv)
 {
-    pid_t pid = fork();
+    // Create a process using fork
+    // *** COMPLETE ME ***
     if (pid > 0)
     {
         // Print numbers 0 to 10
-        for (int i = 0; i <= 10; ++i)
-        {
-            printf("Parent %d\n", i);
-        }
+        // e.g., "Parent 0"
+        // *** COMPLETE ME ***
     }
     else if (!pid)
     {
         // Print numbers 0 to 10
-        for (int i = 0; i <= 10; ++i)
-        {
-            printf("=====>Child %d\n", i);
-        }
+        // e.g., "=====>Child 0"
+        // *** COMPLETE ME ***
     }
     else if (pid == -1)
     {

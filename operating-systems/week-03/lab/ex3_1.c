@@ -5,9 +5,9 @@
 int main(int argc, char **argv)
 {
     // Get the process ID
-    pid_t pid = getpid();
+    // *** COMPLETE ME ***
     // Get the parent process ID
-    pid_t parent = getppid();
+    // *** COMPLETE ME ***
     // Print the process ID
     printf("My pid=%d\n", pid);
     // Print the parent process ID

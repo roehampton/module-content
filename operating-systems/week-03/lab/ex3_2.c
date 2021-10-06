@@ -4,7 +4,9 @@
 
 int main(int argc, char **argv)
 {
-    pid_t pid = fork();
+    // Create a process
+    // *** COMPLETE ME ***
+    // Continue based on which process is running.
     if (pid > 0)
     {
         printf("I'm the parent of pid=%d\n", pid);
