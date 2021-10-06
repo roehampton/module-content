@@ -1,556 +1,494 @@
-# Software Development 2 Lab 03 -- More Object-orientation and Events
+# Software Development 2 Lab 03 -- Fundamentals of Javascript
 
-## Cloning Your Repo
+## Introduction to JavaScript
 
-At the end of the last lab we deleted the local version of our repository. This isn't a problem -- we already had it saved to GitHub. We just need to clone it again. The steps to do this where:
+HTML isn't programming. There is no execution -- sequence, selection, or iteration. HTML describes a document structure and CSS adds styling to it: its a way of publishing content, similar to a book or magazine.
 
-1. **Open Visual Studio Code.**
-2. **Make sure no folder is currently open. We can do this by using File then Close Folder from the main menu.**
-3. **Click on the Source Control button on the left-hand side of the Visual Studio Code window.**
-4. **Your window should now look like this.**
+So how do we make web pages dynamic - responding to the user and providing personalised content?
 
-![image-20201227134347876](image-20201227134347876.png)
+JavaScript is that main way that the 'front end' web is programmed ie, that dynamic and user-interactive features are implemented (eg. complex animations, clickable buttons, popup menus). Truly dynamic features such as personalisation rely on the communication between the frontend (browser) and backend (server).
+. 'Backend' programming languages used extensively for the web include PHP, Java and Python.  
 
-We need the the location of our repository.  This is the URL of the repository you created, which should be of the form `https:\\github.com\<user-name>\sd2` (or whatever project name you gave).  For example, my repository is [https:\\github.com\kevin-chalmers\sd2](https:\\github.com\kevin-chalmers\sd2).
+Lets review the schematic we looked at in week 1 - we see js (javascript) on the client side and node.js - a serverside platform for building backend applications in Javascript.
 
-**Click the Clone Repository button and Visual Studio Code will ask for the repository URL at the top of the window**.
+> ![image](./Slide3.jpg "Production")
 
-![image-20201227134725482](image-20201227134725482.png)
+Javascript is commonly seen as a progaramming langauge for the front-end, ie. the code is executed in the browser.  However, this module focuses on using JavaScript for both front-end (web page or client-side) and back-end (server-side) programming - a combination that is becoming increasingly common.
 
-1. **Press return, and Visual Studio Code will ask you where you want to save the repository. Pick somewhere sensible.**
+## Beginning Javascript
 
-2. **Visual Studio Code will ask you if you want to open the repository. Choose to do so.**
-
-You now have your GitHub repository cloned to the local machine and opened in Visual Studio Code.
-
-## Methods
-
-So far we have looked at the following ideas with objects:
-
-- Defined classes using the `class` keyword.
-- Defined a `constructor` for a class.
-- Created objects (class instances) using the `new` keyword.
-- Added attributes to a class.
-- Set attributes of an object in the `constructor` using the `this` keyword.
-
-So far, we have covered the data aspect of an object. Let us now look at the code aspect by defining some methods. Update `students.js` to the following:
+Let us look at an example of some JavaScript:
 
 ```javascript
-// Tells the browser we want JavaScript to run in strict mode.
-// This means faster code, but JavaScript needs to be cleaner.
-"use strict";
-
-// A definition of a student
-class Student {
-    // Student ID
-    id;
-    // Student name
-    name;
-
-    // Creates a new instance (object) of type Student
-    constructor(id, name) {
-        // Set the id and name of the object instance
-        this.id = id;
-        this.name = name;
-    }
-
-  	// Returns student details as a HTML table row.
-    tableRow() {
-        return `<tr><td>${this.id}</td><td>${this.name}</td></tr>`;
-    }
-}
-
-// An array of students.
-var students = [
-    new Student("001", "Kevin Chalmers"), 
-    new Student("002", "Lisa Haskel"), 
-    new Student("003", "Arturo Araujo")];
-
-function printStudents() {
-    // Build html for table.
-    var html = 
-        `<table border="1">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-            </tr>`;
-    // Iterate over all the students
-    for (var student of students) {
-        html += student.tableRow();
-    }
-    // End html table.
-    html += `</table>`
-    // Get the main element
-    var main = document.getElementById("main");
-    // Set the innerHTML to html
-    main.innerHTML = html;
-}
+document.write("Hello, world!");
 ```
 
-The changes we have made are the addition of `tableRow` method to `Student`, and a rewrite of the `printStudents` function.
+This simply adds the text `Hello, world!` to a web page. `document` is the web page that the JavaScript is running on.  The dot denotes that we will method that we will run on the document and the "Hello World!" is the parameters we pass to the write function.
 
-> ### HTML Tables
+JavaScript is similar to Python and other C like languages. As we start building some web pages with JavaScript code you will see what we mean.
+
+The HTML DOM (Document Object Model)
+
+Front-end javascript works by identifying a part of the DOM structure of an HTML page, and acting on that.  Thats why we need the reference to 'document' which is the top-level element in the DOM.
+
+Having a good understanding of the DOM, ie. the heirachical structure of an HTML page will help you with Javascript.
+
+![image](https://www.w3schools.com/js/pic_htmltree.gif)
+
+Image from W3 Schools
+
+### Your First JavaScript Enabled Web Page
+
+There are various ways to use JavaScript in your web page. We are going to split our JavaScript code into a separate file from our HTML document. You can embed JavaScript into a web page, but it does not allow easy reuse of JavaScript.
+
+> **Create a new file called `script1.js` and save it in the same folder as your HTML files.** 
+> **Copy the JavaScript code below into this file.**
+
+```javascript
+document.write("Hello, world!");
+```
+
+
+To add the script to a HTML file we use the `<script>` element. Create an html file with the following.  Note that the script tag goes in the 'head' section of the document.  Note also the relative path, as we discussed in lab 1.
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Changing Web Page!</title>
+        <script src="script1.js"></script>
+    </head>
+    <body>
+    </body>
+</html>
+```
+
+**Make sure you have saved the changes to all files.** Then open the HTML file  in your browser and you should see `Hello, world!` displayed on the page - this is being generated by the javascript file - there is no 'hello world' in your HTML file.
+
+> #### The `<script>` Tag
 >
-> HTML supports tables using the following tags.
+> We use `<script>` to import a script into our web page. There are two main ways we can do this.
 >
-> - `<table>` denotes the table HTML element. We can set properties such as the `border`.
-> - `<tr>` denotes a table row.
-> - `<th>` is a table header.
-> - `<td>` is table data, or a single table cell.
-
-**STOP -- take your time now to ensure you understand how the HTML for the table is generated. Write it out by hand to ensure you know.**
-
-**COMMIT** -- commit and push your code changes once everything works.
-
-### Now you try
-
-Can you extend the `printStudents()` function so that is also prints a table with the name first and id second. That is:
-
-| **Name**       | **ID** |
-| -------------- | ------ |
-| Kevin Chalmers | 001    |
-| Lisa Haskel    | 002    |
-| Arturo Araujo  | 003    |
-
-**The current table should also still be displayed above this table.** **HINT** -- you will need another method in the `Student` class.
-
-**STOP, COMMIT** -- commit and push your changes to GitHub.
-
-Now, add a `programme` attribute to the `Student` class that stores the name of the student's programme. Update your programme so that it displays the two tables with the programme information:
-
-- Table 1 -- ID, Name, Programme
-- Table 2 -- Name, ID, Programme
-
-**HINT** -- you will need to update the following parts of your programme:
-
-- Add a new attribute to the `Student` class.
-- Update the constructor so the programme name can be set.
-- Update the two methods for getting the `Student` data as a row.
-- Update the `Student` array creation to provide the programme names. The names of the programmes don't matter.
-
-Finally, add yourself to the array of `Student`.
-
-**STOP, COMMIT** -- commit and push your changes to GitHub.
-
-## Private Attributes and Methods
-
-**WARNING -- this feature is not support in Safari web browsers.** If you are a MacOS user who only uses Safari you have two choices:
-
-- Install a Chrome/Chromium based browser (recommended). For example, Google Chrome, Microsoft Edge, or Chromium.
-- Install Mozilla Firefox.
-- Don't implement this section, although we will use private members in our Node.js code later in the module.
-
-JavaScript supports private attributes and methods. These are attributes and methods only accessible from within the object itself. We denote a private member with a `#`:
-
-```javascript
-class Foo {
-  // A private attribute
-  #value1;
-  
-  // A private method
-  #method1() {
-  
-	}
-}
-```
-
-Let us look at an example by extending our student programme. Update your `student.js` file to the following:
-
-```javascript
-// Tells the browser we want JavaScript to run in strict mode.
-// This means faster code, but JavaScript needs to be cleaner.
-"use strict";
-
-// A definition of a programme
-class Programme {
-    // Programme code
-    #code;
-    // Programme name
-    #name;
-
-    // Creates a new instance of type Programme
-    constructor(code, name) {
-        this.#code = code;
-        this.#name = name;
-    }
-}
-
-// A definition of a student
-class Student {
-    // Student ID
-    #id;
-    // Student name
-    #name;
-    // Student programme
-    #programme;
-
-    // Creates a new instance (object) of type Student
-    constructor(id, name, programme) {
-        // Set the id and name of the object instance
-        this.#id = id;
-        this.#name = name;
-        this.#programme = programme;
-    }
-
-    tableRow() {
-        return `<tr><td>${this.#id}</td><td>${this.#name}</td><td>${this.#programme.#name}</td></tr>`;
-    }
-}
-
-// An array of students.
-var students = [
-    new Student("001", "Kevin Chalmers", new Programme("001", "Software Engineering")), 
-    new Student("002", "Lisa Haskel", new Programme("002", "Computing")), 
-    new Student("003", "Arturo Araujo", new Programme("003", "Physics"))];
-
-function printStudents() {
-    // Build html for table.
-    var html = `
-        <table border="1">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Programme</th>
-            </tr>
-    `;
-    // Iterate over all the students
-    for (var student of students) {
-        html += student.tableRow();
-    }
-    // End html table.
-    html += `</table>`
-    // Get the main element
-    var main = document.getElementById("main");
-    // Set the innerHTML to html
-    main.innerHTML = html;
-}
-```
-
-There are a few things we have done here:
-
-1. Declared a new class `Programme` that contains information about a programme.
-2. Set the attributes to private. **NOTE** -- we have to use `this.#name` to access the attribute. This is because the `#` forms part of the attribute name.
-3. Updated `Student` so that its attributes are private.
-4. Added a `#programme` attribute to `Student`.
-5. Updated `tableRow()` to try and get the name from `#programme`. **NOTE** -- this will not work, meaning our programme won't work.
-6. Updated the `students` array creation to pass a `Programme` object.
-
-**Now reload your `students.html` file and click the button. Nothing will happen.**
-
-The attributes of `Programme` and `Student` are private and cannot be accessed outside the object. Let us look at a feature of JavaScript which will allow us to access these private variables.
-
-## Getters and Setters
-
-JavaScript classes support special methods known as getters and setters. These allow getting and setting attributes of an object. We use the keywords `get` and `set` to do so.
-
-```javascript
-class Foo {
-  #value;
-  
-  constructor(value) {
-    this.#value = value;
-  }
-  
-  // Get value
-  get value() {
-    return this.#value;
-  }
-
-	// Set value
-	set value(value) {
-    this.#value = value;
-  }
-}
-
-// Create Foo object.
-var foo = new Foo(5);
-// Get value
-var val = foo.value;
-// Set value
-foo.value = 10;
-```
-
-Let us now update our `student.js` file to have getters and setters for `Programme`:
-
-```javascript
-// A definition of a programme
-class Programme {
-    // Programme code
-    #code;
-    // Programme name
-    #name;
-
-    // Creates a new instance of type Programme
-    constructor(code, name) {
-        this.#code = code;
-        this.#name = name;
-    }
-
-    // Get code
-    get code() {
-        return this.#code;
-    }
-
-    // Set code
-    set code(value) {
-        this.#code = value;
-    }
-
-    // Get name
-    get name() {
-        return this.#name;
-    }
-
-    // Set name
-    set name(value) {
-        this.#name = value;
-    }
-}
-```
-
-And finally we need to update `tableRow()` of `Student` to the following:
-
-```javascript
-tableRow() {
-    return `<tr><td>${this.#id}</td><td>${this.#name}</td><td>${this.#programme.name}</td></tr>`;
-}
-```
-
-Now, reload your `students.html` web page and click the button. It should now work again.
-
-**STOP, COMMIT** -- commit and push your changes to GitHub.
-
-> ### Why Have Getters and Setters?
+> 1. Setting the `src` attribute to point to the file we want to import.
+> 2. Putting the code between the opening and closing `<script>` tags.
 >
-> OK, why did we do through this process when we could have just left our attributes public. Getters and setters have a number of benefits, but in particular they allow:
+> For example, in the example above, we could have written the following directly into our HTML page:
 >
-> - Public getters allow access to an attribute while stopping it being updated outside the object.
-> - Getters and setters can have additional code, which can, for example, check that the correct value is being set.
+> ```html
+> <script>
+> document.write("Hello, world!");
+> </script>
+> ```
+>
+> `<script>` tags can be placed anywhere in your HTML document. As we've placed our `<script>` tag at the top of the page, it is processed there, which means `Hello, world!` appears at the top of the page.
+>
+> **EXERCISE** Add some text and markup to the body section of your html file, and try putting the code above in the `<script>` tag in the body of the page and see what happens.
+>
+> Your HTML document can also have multiple `<script>` tags.
+>
+> **EXERCISE** Try adding the `<script>` tag in multiple places in your HTML file to see what happens.
 
-### Now you try
+### More on JavaScript Code
 
-Add getters and setters for the `Student` class. Have ones for all the attributes.
+JavaScript has many similarities to Python. It is an interpreted language (you don't have to compile code) and it is dynamically typed (variables can change type). As such, many of ideas you know from Python will work in JavaScript. Let us look at various elements in JavaScript here as a reference point.
 
-**STOP, COMMIT** -- commit and push your changes to GitHub.
+#### Variables
 
-## References
+Variables in JavaScript are declared with the `var` keyword.
 
-Most object-orientated languages, including JavaScript and Python, use referencing of objects. Referencing means that we don't actually hold a copy of an object, but a reference to it.
+(You may also see the 'let' keyword used.  They differ in how the variable has scope - see [Link](https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var) for an explanation.)
 
-This is very similar to the idea of storing data in memory locations. A reference is a location that our object is stored in. We can copy that location to other variables and attributes. Therefore, an object can be manipulated in multiple locations. Below is an example.
-
-```javascript
-class Foo {
-  value;
-  
-  constructor(value) {
-    this.value = value;
-  }
-}
-
-var foo1 = new Foo(5);
-var foo2 = new Foo(6);
-var foo3 = foo1;
-
-// Displays 5
-console.log(foo3.value);
-// Change value to 7
-foo1.value = 7;
-// Displays 7
-console.log(foo3.value);
-// Change foo3 to reference foo2
-foo1 = foo2;
-// Displays 6
-console.log(foo3.value);
-```
-
-Let us extend our `students.js` file to work with references to shared programmes.
+For example:
 
 ```javascript
-"use strict";
-
-class Programme { 
-  // As before
-}
-
-class Student {
-  // As before
-}
-
-// Dictionary of Programmes
-var programmes = {
-    "Comp": new Programme("001", "Computing"),
-    "SoftEng": new Programme("002", "Software Engineering"),
-    "Phys" : new Programme("003", "Physics")
-};
-
-// An array of students.
-var students = [
-    new Student("001", "Kevin Chalmers", programmes["SoftEng"]), 
-    new Student("002", "Lisa Haskel", programmes["Comp"]), 
-    new Student("003", "Arturo Araujo", programmes["Phys"]),
-    new Student("004", "Foo Bar", programmes["Comp"])];
-
-// Change the name of Comp programme to Computer Science
-programmes["Comp"].name = "Computer Science";
-
-// Rest of code as before.
+var name = "Lisa";
+var age = 21;
+var teacher = true; // Notice all lowercase true
 ```
 
-**Reload your web page and click the button. You should see all instances of Computing have been changed to Computer Science in the table.**
+Apart from requiring the `var` keyword, variables in JavaScript work much the same as Python.
 
-**STOP, COMMIT** -- commit and push your code changes to GitHub.
+#### Sequence
+
+As Python and any *imperative* language, JavaScript statements are executed in order. 
+
+#### Syntax
+
+Unlike Python which has stripped out a lot of constructs like semi colons, brackets and braces, and have replaced these markers with whitespace, JavaScript statements all end in a semi-colon -- `;`, and curly braces {} are used to delineate code 'blocks'.
+
+**Exercise** - Javascript variables and syntax
+
+Write your own code about yourself, along the lines of the following. Add some additional attributes and change the output.  Notice how we are concatentating strings and also how to ouput text we need to specify where in the DOM we are writing to, in this case, its the document.
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Changing Web Page!</title>
+</head>
+
+<body>
+    <script>
+        var name = "Lisa";  // string type
+        var age = 21;  //Number type
+        var teacher = true; // Boolean type: Notice all lowercase true
+        document.write('Name ' + name + '<br>');  // + is used for string concatentation
+        document.write('Age ' + age + '<br>');  // Try using + with another number and see what happens!
+        document.write('Is teacher? ' + teacher);
+    </script>
+</body>
+
+</html>
+```
+#### Debugging
+
+**Exercise**  Javascript debugging - the console
+Add the following line anywhere INSIDE the script tags:
+
+```javascript
+   console.log(name);
+```
+Run the code, open developer tools, click the console tag and you should see the value of your name variable shown.  Use `console.log()` throughout your code for debugging.
+
+#### Targetting parts of the HTML page
+
+One of the main reasons we use javascript in web pages is that it can find and interact with HTML elements on the page.  Javascript builds a tree-like model of your html page and your code can use this to dynamically change elements.  
+
+**Exercise** Target an element in the DOM
+
+Add the following to the body section of the HTML page you have created above.
+
+```html
+<h1>page heading</h1>
+    <div id="content"></div>
+    <script>document.getElementById("content").innerHTML = name;</script>
+```
+Here we are dynamically adding our variable value to the div we have defined with our id of content.
+
+See if you can get the name to be added into the heading instead (HINT: You will need to use `document.getElementsByTagName("h1")[0].innerHTML = name;`  to target the H1 HTML - Can you guess why the array index [0] is needed?
+
+### Your Second JavaScript Enabled Web Page -- Event driven programming
+
+Javascript is good for creating interactive user interfaces, ie. it can respond to user actions
+
+In this example we will add a button to our page. Unlike in our HTML forms example the click on the button fires a javascript function.
+
+Save the following HTML code as `second.html`.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buttons!</title>
+    <script src="script2.js"></script>
+  </head>
+  <body>
+    <h1>
+      Click the button!
+    </h1>
+    <input type="button" value="Click Me!" onclick="msg()">
+  </body>
+</html>
+```
+
+As covered in the HTML forms tutorial, we are using the `<input>` element to get information from the user. We have defined three attributes:
+
+- `type` is the type of input element. We are using a button, so we set this to `button`.
+- `value` is the text on the button. We've set this to `Click Me!`.
+- `onclick` is the code that will be run when we click the button. This is an *event* that our JavaScript will respond to. It will execute the `msg` function.
+
+We need to implement the `msg` function. This can be done in a seperate file, or in the head section of our HTML document.  To make it easy, add it to the head section of the second.html file.  Remember to surround it in script tags.
+
+```javascript
+function msg() {
+    document.write("You clicked the button!");
+}
+```
+
+**Save everything and then open the HTML document in your browser.** When you click the button the web page will be replaced with `You clicked the button!`
+
+> **EXERCISE** add a second button to the HTML page. When this button is clicked, it should display the message `Not that button!`
+
+### Manipulating HTML Elements
+
+OK, so far we've done the following:
+
+* Displayed a message in the window.
+* Reacted to a button press.
+
+Let's go back to what we know about manipulating an HTML element that exists on the web page so that we can make our page more dynamic and interactive.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Changing Web Page!</title>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <h1>
+      Click the button!
+    </h1>
+    <input type="button" value="Click me!" onclick="change()">
+    <p id="my_text">
+      Hello, world!
+    </p>
+  </body>
+</html>
+
+```
+##### Understanding the id attribute
+
+Javascript uses the 'id' attribute in HTML to identify a unique part of a page that it should act upon or 'target'.
+
+In the above example, our `<p>` element has the attribute `id` set to `my_text`. 
+
+To show how Javascript can target this part of the page by using the id, add this function to your document head section, in between the empty 'script' tags.  
+
+```javascript
+function change() {
+     document.getElementById("my_text").innerHTML = "You clicked me";
+}
+```
+
+In your body section, double-check that your button is calling the 'change' function.
+
+**Save all the files and open the HTML document in your browser.** You can click the button and the text of the `<p>` element will change.
+
+To recap: our function is looking at the HTML page structure, finding the element with ID my_text, and then setting the HTML value of the element found to the string "you clicked me".  Note that you can include more HTML tags in the string - try and put the word 'clicked' in bold.
+
+## Save your work into GIT
+
+Save everything from the lab into your git repository (make sure you have one for the labs, separate from your groupwork)
+Try:
+
+```bash
+git add <names of your files>
+git commit -m "starting javascript"
+git push
+```
+
+## Programming constructs in Javascript
+
+Lets find out more about how to write programs in Javascript - you will find it similar but different to Python.  You will especially notice that Javascript uses punctuation (curly braces, brackets, semicolons) to delineate blocks of code, whereas Python uses indentation.  Visual studio code will help you ensure that you have correct syntax - matching brackets and braces, for example.
+
+
+#### Conditionals -- Selection
+
+JavaScript provides `if` conditional statements that operate the same as Python. The general structure of a JavaScript `if` statement is as follows:
+
+```javascript
+if (condition) {
+  // block of code to run when condition is true
+}
+```
+
+There are two things to note that are different to Python:
+
+- The condition **must** be surrounded by parentheses, e.g., `(age == 21)` not `age == 21`.
+- JavaScript requires curly brackets `{ ... }` to denote which code to execute if the `if` statement is `true`. This is different to Python's use of indentation. 
+
+An `else` branch can also be defined:
+
+```javascript
+if (condition) {
+  // block of code to run when condition is true
+}
+else {
+  // block of code to run when condition is false
+}
+```
+
+JavaScript doesn't have `elif` as Python, and so the `else if` must be written out in full.
+
+```javascript
+if (condition) {
+  // block of code to run when first condition is true
+}
+else if (condition) {
+  // block of code to run when second condition is true
+}
+else {
+  // block of code to run when both conditions are false
+}
+```
+
+JavaScript also supports a `switch` statement. If you've not used a `switch` statement, it checks the value of a variable and then runs the appropriate code block. For example:
+
+```javascript
+switch (age) {
+  case 20:
+    // block of code to run when age == 20
+    break;
+  case 21:
+    // block of code to run when age == 21
+   	break;
+  default:
+    // block of code to run when otherwise
+}
+```
+
+You can find out more about JavaScript `switch` statements [here](https://www.w3schools.com/js/js_switch.asp).
+
+**Exercise** Conditionals in Javascript
+
+Write javascript code for the following.  First use if, else if, else. Then rewrite using a switch.  (Set up a single variable for the student year, and change its value to test the code - we will make this more complicated later)
+
+A student can be in year 1, 2, or 3.
+Write your code such that if the student year is 1, the output is 'You are in year 1', if 2, you are in year 2 and so on.
+
+
+#### Loops -- Iteration
+
+JavaScript supports a number of different loops (ie. programming constructs that allow you to do the same action repeatedly).  Lets concentrate on the for and the while.
+
+(Full details here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+
+##### `for` Loops
+
+JavaScript has three different for loops. The first one is normally used to iterate across a range of numbers, ie to run a specified number of times.  This is a typical construction in most imperitive programming languages.
+
+The for loop has three parts (in the brackets)
+
+1. The starting state (var i=0)
+2. The condition or test to see if the loop should run (i < 10)
+3. The 'post statement' that is run at the end of the code block, usually an incremented value that will control the loop.
+
+```javascript
+for (var i = 0; i < 10; i++) {
+  // block of code to run 10 times
+}
+```
+
+**Exercise** For loop
+Write a for loop that outputs numbers 1 to 20.
+
+
+The second type of `for` loop allows you to iterate over a 'collection' ie. a data structure of many elements, It is the same as Python's `for value in collection` loop. For example:
+
+```javascript
+var names = ["Lisa", "Arturo", "Kimia", "Kevin"]; // Creating an array of strings
+for (var name of names) {
+  document.write(name + "<br>");
+}
+```
+
+This will add each name to the HTML document. `<br>` is the HTML tag for inserting a new line.
+
+Finally, JavaScript has a `for (var in object)` loop. This loop iterates through the properties of an object. We're going to examine object-orientation in this module, and will return to this `for` loop then.
+
+##### `while` Loops
+
+JavaScript provides two `while` loops. The first one you will be familiar with:
+
+```javascript
+while (condition) {
+  // block of code to run while condition is true.
+}
+```
+
+**Exercise**  While loop
+Output numbers 1 to 20, this time using a while loop
+
+
+#### Functions
+
+As we have seen, functions in JavaScript are also similar to Python:
+
+```javascript
+function myfunction(parameters) {
+  // code to execute
+  return value;
+}
+```
+
+Apart from using `function` to declare a function, and using curly brackets to define the start and end of the function, everything is the same in JavaScript and Python.
+
+#### Comments
+
+Comments in JavaScript start with `//`. Anything prefaced with this will not be executed. But bear in mind that HTML comments are different, so make sure javascript comments are all within the 'script' tags
+
+Comments in HTML are as follows...
+
+```html
+<!--  comment here   -->
+```
+
+
+### Save your work into GIT
+
+Save everything from the lab into your git repository.
+Try:
+
+```bash
+git add <names of your files>
+git commit -m "starting javascript"
+git push
+```
+
+
+### Objects and properties
+
+You may have wondered about the dot syntax throughout this lab sheet, for example:
+
+```javascript
+document.write('hello world')
+```
+
+We will do more about object orientated programming in a few weeks, but its good to start building your understanding now.
+
+In this example:
+
+`document` is an object, and Javascript under the hood has defined a 'method', ie a function that can act upon that project that takes a string parameter - in this case 'hello world'.
+
+An object can also have 'properties' which are variables inside the object may also be able to be accessed via the dot syntax.
+
+Objects can be understood as custom data structures that both hold values AND may also have functionality via their methods. Objects are defined by what we call 'classes'.  Understanding objects and how to define them is a fundamental part of good code design.  
+
+### Summary
+
+
+Well done! You've actually covered a good amount of how we can program web pages:
+
+- Setting events.
+- Getting elements by their `id`.
+- Changing elements.
+- Understanding how variables, conditionals and loops are implemented in Python
+- Understanding objects, properties and methods
+
+### Homework
+
+#### 1. More javascript
+
+This exercise combines the parts we've learned so far. Create a web page with some text in a paragraph element and with a button. When the user clicks the button, it should change the colour of the text in the paragraph to red. 
+
+HINTS:
+Locate the HTML element in the DOM using the same method you used above. 
+
+Then, you can use this code to change the *style* of an HTML element to set its colour to `red`.
+
+```javascript
+element.style['color'] = "red";
+```
+
+Now add a second button that will change the text colour to blue.
+
+#### 2. Git
+
+Save everything from the homework into your git repository.
+
+
+```bash
+git add <names of your files>
+git commit -m "homework exercise"
+git push
+```
 
 ### So you want to know more
 
-Understanding references is a key concept in most object-oriented languages. The following links will further explain how referencing works in JavaScript: https://javascript.info/object-copy
+This module focuses on JavaScript, so we will cover much more code. But if you want to do more, [Tutorialspoint](https://www.tutorialspoint.com/javascript/index.htm) also has a JavaScript tutorial.
 
-## Events and Callbacks
-
-In Lab 01 we used events from buttons to call JavaScript functions. For example, we have:
-
-```html
-<input type="button" value="Click Me!" onclick="msg()">
-```
-
-We have also seen where we pass a function as a parameter to another function:
-
-```javascript
-server.listen(port, hostname, function() {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
-```
-
-One of JavaScript's strengths is the ability to write *asynchronous* programmes. We pass functions as parameters (such as for an event) and these functions are called when a process is finished. Think about the two scenarios above:
-
-- We don't know for sure when the user will click the button. We just set up which function should be called when the button is clicked. We have to wait for the user. This would block the program if we wrote code that waited for the user, as we have done for user input on the command line.
-- We don't know for sure when a server will start. There is a lot of background operations that have to occur. Rather than wait for the server to start, we say which code we want to run when it has started.
-
-These functions are often called *callback* functions. They are run when another function completes. This allows asynchronous behaviour as we don't fully know when functions and operations will be called. This is especially true with events. *We have to write code that will run when events occur (like a button press)*. Our code must reflect this behaviour -- we cannot write blocking functions that cause our applications to stop when an event occurs.
-
-HTML provides a wealth of different events that we write JavaScript functions for. The most common (taken from [TutorialsPoint](https://www.w3schools.com/js/js_events.asp)) are:
-
-| Event         | Description                                        |
-| :------------ | :------------------------------------------------- |
-| `onchange`    | An HTML element has been changed                   |
-| `onclick`     | The user clicks an HTML element                    |
-| `onmouseover` | The user moves the mouse over an HTML element      |
-| `onmouseout`  | The user moves the mouse away from an HTML element |
-| `onkeydown`   | The user pushes a keyboard key                     |
-| `onload`      | The browser has finished loading the page          |
-
-Let us update our `students.html` file so that the table of students is displayed when the page is loaded. **Update `students.html` to the following:**
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Student List</title>
-        <script src="student.js"></script>
-    </head>
-    <body onload="printStudents()">
-        <h2>Students</h2>
-        <div id="main"></div>
-    </body>
-</html>
-```
-
-**Reload the webpage -- it should now display the table of students automatically.**
-
-**STOP, COMMIT** -- commit and push your changes to GitHub.
-
-### Adding New Students
-
-Let us now update our web application so we can add new students to the table. **First, update `students.html` to the following:**
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Student List</title>
-        <script src="student.js"></script>
-    </head>
-    <body onload="printStudents()">
-        <h2>Add New Student</h2>
-        <table>
-            <tr>
-                <td>ID</td>
-                <td><input id="studentID" type="text"></td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td><input id="studentName" type="text"></td>
-            </tr>
-            <tr>
-                <td>Programme</td>
-                <td><input id="studentProgramme" type="text"></td>
-            </tr>
-        </table>
-        <input type="button" value="Add Student" onclick="addStudent()">
-        <h2>Students</h2>
-        <div id="main"></div>
-    </body>
-</html>
-```
-
-We are using a table to layout a small form that will allow us to enter the student ID, name, and programme. We use `<input type="text">` for text boxes. Each text box is given an `id` which will allow us to lookup the details in the text boxes. We also have a button that will call `addStudent()` when it is clicked. **Add the following `addStudent()` function to the bottom of `student.js`:**
-
-```javascript
-function addStudent() {
-    // Get the value in the student ID textbox.
-    var id = document.getElementById("studentID").value;
-    // Get the value in the student name textbox.
-    var name = document.getElementById("studentName").value;
-    // Get the value in the student programme textbox.
-    var programme = document.getElementById("studentProgramme").value;
-    // Clear the textboxes
-    document.getElementById("studentID").value = "";
-    document.getElementById("studentName").value = "";
-    document.getElementById("studentProgramme").value = "";
-    // Create the student object
-    // We lookup the programme from the programmes dictionary.
-    var student = new Student(id, name, programmes[programme]);
-    // Add student to the students array
-    students.push(student);
-    // Redisplay the table
-    printStudents();
-}
-```
-
-This function follows five steps:
-
-1. It gets the value contained in the text boxes.
-2. It clears the values of the text boxes.
-3. It creates a new `Student` object from the values in the text boxes. **NOTE** -- the programme is used as a lookup value.
-4. The new `Student` is added to the `students` array.
-5. `printStudents()` is called again, redisplaying the table of students.
-
-**Reload the `students.html` web page. You should now be able to add a new student to the table.**
-
-**STOP, COMMIT** -- once this is working, commit and push the code.
-
-### Now you try
-
-Add the necessary updates to `students.html` and `student.js` so you can also add a new programme. Make sure you test your application so you know it is working.
-
-**REMEMBER** -- once you have done this, commit and push your changes.
-
-## A Bit of Reflection
-
-We have come quite far in our journey with HTML and JavaScript. There is a structure to what we are doing:
-
-- We define our **user interface** in HTML.
-- We execute JavaScript code when **events** happen.
-- JavaScript updates the interface based on events and data.
-- Data is represented by objects, and updated via JavaScript.
-
-Understanding how information and control flows from one part of our web application to another is an important idea to understand. Try drawing a diagram to understand what is going on.
-
-## Exercises
-
-**REMEMBER TO COMMIT AFTER EVERY EXERCISE.**
-
-1. Create a `Module` object which represents a module for a `Programme`. A `Module` has a `code` and a `name`. These attributes must be private with getters and setters.
-2. Now update `Programme` so it has an array of `Module` associated with it. This should be a private attribute. Add at least three modules to each `Programme` object. **NOTE** -- if you can, try and share modules between programmes. Remember the information on references.
-3. Display the programme information in a table, with the programme ID, name, and list of modules (code and name).
-4. Finally, update the webpage so you can add a new module. Test your webpage to make sure you can add new modules, and add modules to programmes.
