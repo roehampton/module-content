@@ -2,15 +2,18 @@
 
 ## Introduction to JavaScript
 
-HTML isn't programming. There is no execution -- sequence, selection, or iteration. HTML describes a document structure and CSS adds styling to it. So how do we program the web?
+HTML isn't programming. There is no execution -- sequence, selection, or iteration. HTML describes a document structure and CSS adds styling to it: its a way of publishing content, similar to a book or magazine.
 
-JavaScript is that main way that the 'front end' web is programmed ie, that dynamic and user-interactive features are implemented (eg. complex animations, clickable buttons, popup menus). Truly dynamic features such as personalisation rely on the communication between the frontend (browser) and backend (server). 'Backend' programming languages used extensively for the web include PHP, Java and Python.  
+So how do we make web pages dynamic - responding to the user and providing personalised content?
+
+JavaScript is that main way that the 'front end' web is programmed ie, that dynamic and user-interactive features are implemented (eg. complex animations, clickable buttons, popup menus). Truly dynamic features such as personalisation rely on the communication between the frontend (browser) and backend (server).
+. 'Backend' programming languages used extensively for the web include PHP, Java and Python.  
 
 Lets review the schematic we looked at in week 1 - we see js (javascript) on the client side and node.js - a serverside platform for building backend applications in Javascript.
 
 > ![image](./Slide3.jpg "Production")
 
-However, this module focuses on using JavaScript for both front-end (web page or client-side) and back-end (server-side) programming - a combination that is becoming increasinly common.
+Javascript is commonly seen as a progaramming langauge for the front-end, ie. the code is executed in the browser.  However, this module focuses on using JavaScript for both front-end (web page or client-side) and back-end (server-side) programming - a combination that is becoming increasingly common.
 
 ## Beginning Javascript
 
@@ -22,15 +25,29 @@ document.write("Hello, world!");
 
 This simply adds the text `Hello, world!` to a web page. `document` is the web page that the JavaScript is running on.  The dot denotes that we will method that we will run on the document and the "Hello World!" is the parameters we pass to the write function.
 
-Front-end javascript works by identifying a part of the DOM structure of an HTML page, and acting on that.  Thats why we need the reference to document.
-
 JavaScript is similar to Python and other C like languages. As we start building some web pages with JavaScript code you will see what we mean.
+
+The HTML DOM (Document Object Model)
+
+Front-end javascript works by identifying a part of the DOM structure of an HTML page, and acting on that.  Thats why we need the reference to 'document' which is the top-level element in the DOM.
+
+Having a good understanding of the DOM, ie. the heirachical structure of an HTML page will help you with Javascript.
+
+![image](https://www.w3schools.com/js/pic_htmltree.gif)
+
+Image from W3 Schools
 
 ### Your First JavaScript Enabled Web Page
 
 There are various ways to use JavaScript in your web page. We are going to split our JavaScript code into a separate file from our HTML document. You can embed JavaScript into a web page, but it does not allow easy reuse of JavaScript.
 
-> **Create a new file called `script1.js` and save it in the same folder as your HTML files. Use the the JavaScript code from above.**
+> **Create a new file called `script1.js` and save it in the same folder as your HTML files.** 
+> **Copy the JavaScript code below into this file.**
+
+```javascript
+document.write("Hello, world!");
+```
+
 
 To add the script to a HTML file we use the `<script>` element. Create an html file with the following.  Note that the script tag goes in the 'head' section of the document.  Note also the relative path, as we discussed in lab 1.
 
@@ -55,7 +72,7 @@ To add the script to a HTML file we use the `<script>` element. Create an html f
 > 1. Setting the `src` attribute to point to the file we want to import.
 > 2. Putting the code between the opening and closing `<script>` tags.
 >
-> For example, for two, we could have written the following directly into our HTML page:
+> For example, in the example above, we could have written the following directly into our HTML page:
 >
 > ```html
 > <script>
@@ -65,7 +82,7 @@ To add the script to a HTML file we use the `<script>` element. Create an html f
 >
 > `<script>` tags can be placed anywhere in your HTML document. As we've placed our `<script>` tag at the top of the page, it is processed there, which means `Hello, world!` appears at the top of the page.
 >
-> **EXERCISE** Add some text and markup to your html file, and try putting the `<script>` tag in the body of the page and see what happens.
+> **EXERCISE** Add some text and markup to the body section of your html file, and try putting the code above in the `<script>` tag in the body of the page and see what happens.
 >
 > Your HTML document can also have multiple `<script>` tags.
 >
@@ -140,7 +157,7 @@ One of the main reasons we use javascript in web pages is that it can find and i
 
 **Exercise** Target an element in the DOM
 
-Add the following to the body section of your HTML page
+Add the following to the body section of the HTML page you have created above.
 
 ```html
 <h1>page heading</h1>
@@ -365,8 +382,13 @@ Let's go back to what we know about manipulating an HTML element that exists on 
   </body>
 </html>
 ```
+##### Understanding the id attribute
 
-This time, our `<p>` element has the attribute `id` set to `my_text`. This is this HTML elements unique identifier that means our JavaScript can get the element from the web page. Add this function to your document head section and ensure that your button is now calling the 'change' function.
+Javascript uses the 'id' attribute in HTML to identify a unique part of a page that it should act upon or 'target'.
+
+In the above example, our `<p>` element has the attribute `id` set to `my_text`. 
+
+To show how Javascript can target this part of the page by using the id, add this function to your document head section.  In your body section, ensure that your button is now calling the 'change' function.
 
 ```javascript
 function change() {
@@ -389,7 +411,12 @@ Well done! You've actually covered a good amount of how we can program web pages
 
 #### 1. Javascript
 
-This exercise combines the parts we've learned so far. Create a web page with some text in a paragraph element and with a button. When the user clicks the button, it should change the colour of the text in the paragraph to red. As some help, once you have got the HTML element, you can use this code to change the *style* of an HTML element to set its colour to `red`.
+This exercise combines the parts we've learned so far. Create a web page with some text in a paragraph element and with a button. When the user clicks the button, it should change the colour of the text in the paragraph to red. 
+
+HINTS:
+Locate the HTML element in the DOM using the same method you used in the 
+
+Then, you can use this code to change the *style* of an HTML element to set its colour to `red`.
 
 ```javascript
 element.style['color'] = "red";
