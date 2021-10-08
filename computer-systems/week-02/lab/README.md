@@ -19,13 +19,13 @@ This lab aims to implement simple logic circuits. The software used is Logic.ly 
 
 ## Work Environment
 
-When you start Logic.ly, a blank canvas screen is provided for defining circuits.
+When you start Logic.ly, a tool box is shown on the left side of the window and a blank canvas on the right side as an editing surface.
 
 ![Logic.ly starting window](logic.ly.png)
 
-There is a menu for handling project-specific tasks such as creating new diagrams and file management. To create a new logic gate diagram select **File**, **New**, and the **Gate Diagram**.
+From the tool box It is easy to add,delete and connect switches and gates.Logic.ly gives the flexiblity for components to be draged and droped onto the editable blank surface.Hence manipulate as desired.Click on label tool to be able to lable you input and output.
 
-![Creating new gate diagram with Logic.ly](logic-friday-new-gate.png)
+![Creating new gate diagram with Logic.ly](logic.ly-tool-box.png)
 
 This will open the logic gate components window at the bottom-right of the main window.
 
