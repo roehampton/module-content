@@ -21,7 +21,7 @@ This lab aims to implement simple logic circuits. The software used is Logic.ly 
 
 When you start Logic.ly, a tool box is shown on the left side of the window and a blank canvas on the right side as an editing surface.
 
-![Logic.ly starting window](logic.ly.png)
+![Logic.ly starting window](Logic.ly.png)
 
 From the tool box It is easy to add,delete and connect switches and gates.Logic.ly gives the flexiblity for components to be draged and droped onto the editable blank surface.Hence manipulate as desired.Click on label tool to be able to lable you input and output.
 
@@ -29,27 +29,27 @@ From the tool box It is easy to add,delete and connect switches and gates.Logic.
 
 This will open the logic gate components window at the bottom-right of the main window.
 
-![Logic gate component window](logic-friday-components.png)
+![Logic gate component window](logic.ly-components-design-sample.png)
 
 The components we can create are:
 
-- **NAND**, **NOR**, **AND**, and **OR** gates. The 2-In, 3-In, and 4-In prefix defines the number of inputs the gates will take.
-- An **Inverter** which is the **NOT** gate.
-- A 2-In **XOR** gate.
-- Constant 0 or 1 values.
-- Inputs and outputs.
-- Wires (the button next to **Cancel**).
+##- **NAND**, **NOR**, **AND**, and **OR** gates. The 2-In, 3-In, and 4-In prefix defines the number of inputs the gates will take.
+##- An **Inverter** which is the **NOT** gate.
+##- A 2-In **XOR** gate.
+##- Constant 0 or 1 values.
+##- Inputs and outputs.
+##- Wires (the button next to **Cancel**).
 
 ## Finding a Truth Table
 
-We will now examine the truth table for an **AND** gate.
+##We will now examine the truth table for an **AND** gate.
 
-1. **Add a 2-in AND gate to the canvas.**
-2. **Add an Input to the canvas to the left of the AND gate. For the Variable Name leave it as default (A).**
-3. **Add a second Input to the canvas below the other Input. For the Variable Name leave it as default (B).**
-4. **Connect the two Inputs to the AND gate using a wire.**
-5. **Add an Output to the canvas to the right of the AND gate. For the Variable Name leave it as default (F0).**
-6. **Connect the AND gate to the Output using a wire.**
+##1. **Add a 2-in AND gate to the canvas.**
+##2. **Add an Input to the canvas to the left of the AND gate. For the Variable Name leave it as default (A).**
+##3. **Add a second Input to the canvas below the other Input. For the Variable Name leave it as default (B).**
+##4. **Connect the two Inputs to the AND gate using a wire.**
+##5. **Add an Output to the canvas to the right of the AND gate. For the Variable Name leave it as default (F0).**
+##6. **Connect the AND gate to the Output using a wire.**
 
 Your diagram should look something like this:
 
