@@ -53,11 +53,11 @@ We will now examine the truth table for an **AND** gate.
 
 Your diagram should look something like this:
 
-![AND diagram](and-diagram.png)
+![AND diagram](And-diagram.png)
 
 Now, **click the Submit button on the Components Window.** The logic diagram will be analysed and the equation and truth table generated. Your screen will look something like this:
 
-![Analysis of AND gate](logic-friday-and-analysis.png)
+![Analysis of AND gate](.png)
 
 At the moment, only the 1 (true) outputs are shown on the truth table on the left. In the menu, **select Truthtable** then **Show all rows.** The full truth table will be shown.
 
