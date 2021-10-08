@@ -27,18 +27,19 @@ From the tool box It is easy to add,delete and connect switches and gates.Logic.
 
 ![Creating new gate diagram with Logic.ly](logic.ly-tool-box.png)
 
-This will open the logic gate components window at the bottom-right of the main window.
+The logic.ly platform opens up with two seperate area as shown above.The left hand side which is the tool box area has different segements which are the input controls, output control components, Logic gates, flip-flops components and others.
 
-![Logic gate component window](logic.ly-components-design-sample.png)
+![Logic.ly essential](toggle switch-component.png)
 
-The components we can create are:
+In order to creat any logic design with logic.ly we have to always use the toggle switch component every time we want to indicate the input:This anable users turn **ON** and **OFF** the switches.
 
-##- **NAND**, **NOR**, **AND**, and **OR** gates. The 2-In, 3-In, and 4-In prefix defines the number of inputs the gates will take.
-- An **Inverter** which is the **NOT** gate.
-- A 2-In **XOR** gate.
-- Constant 0 or 1 values.
-- Inputs and outputs.
-- Wires (the button next to **Cancel**).
+![Creating new AND gate diagram with Logic.ly](AND-gate-diagram.png)
+Drag and drop the toggle switch.
+Use the label tool to define the number of input and there names such 2input **A** **B**.
+Then drag the AND operation from the logic gate control session on the tool box.
+Wires then together with the toggle switch
+final drag the output bulb
+Experiment by on and offing the switches at different intervals and record your output using the lable component.
 
 ## Finding a Truth Table
 
