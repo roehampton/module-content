@@ -15,17 +15,17 @@
 
 
 
-This lab aims to implement simple logic circuits. The software used is Log.ly The focus is to learn how to design the circuits, find the truth table for the gates, and simulate the combination of gates.
+This lab aims to implement simple logic circuits. The software used is Logic.ly The focus is to learn how to design the circuits, find the truth table for the gates, and simulate the combination of gates.
 
 ## Work Environment
 
-When you start Log.ly, a blank canvas screen is provided for defining circuits.
+When you start Logic.ly, a blank canvas screen is provided for defining circuits.
 
-![Log.ly starting window](logic-friday-start.png)
+![Logic.ly starting window](logic.ly.png)
 
 There is a menu for handling project-specific tasks such as creating new diagrams and file management. To create a new logic gate diagram select **File**, **New**, and the **Gate Diagram**.
 
-![Creating new gate diagram with Log.ly](logic-friday-new-gate.png)
+![Creating new gate diagram with Logic.ly](logic-friday-new-gate.png)
 
 This will open the logic gate components window at the bottom-right of the main window.
 
