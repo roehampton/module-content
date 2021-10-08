@@ -19,7 +19,7 @@ This lab aims to implement simple logic circuits. The software used is Log.ly Th
 
 ## Work Environment
 
-When you start Logic Friday, a blank canvas screen is provided for defining circuits.
+When you start Log.ly, a blank canvas screen is provided for defining circuits.
 
 ![Log.ly starting window](logic-friday-start.png)
 
