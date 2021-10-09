@@ -14,7 +14,7 @@ MathJax = {
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
 
-This lab aims to implement complex logic circuits. The implementations include the Half Adder, Full Adder, Four Bit Parallel Adder, and Carry Look Ahead Adder. At the end of the lesson, you will be able to design complex multiple output circuits. We are again using Logic Friday.
+This lab aims to implement complex logic circuits. The implementations include the Half Adder, Full Adder, Four Bit Parallel Adder, and Carry Look Ahead Adder. At the end of the lesson, you will be able to design complex multiple output circuits. We are again using Logic.ly platform.
 
 ## Derive Equation from Logic Circuit
 
@@ -37,7 +37,7 @@ First, identify the components for the circuit. In this case, it is 3 AND gates 
 
 Your diagram should look something like this:
 
-![Logic Friday logic diagram](logic-friday-diagram.png)
+![Logic.ly logic diagram](logic-friday-diagram.png)
 
 The equation for this diagram is:
 
@@ -53,9 +53,9 @@ Remember the half-adder lets us add two binary digits ($A$ and $B$) and output t
 
 ![Half-adder](half-adder.png)
 
-It involves one XOR gate and one AND gate. **Draw this now in Logic Friday**. It should look something like this:
+It involves one XOR gate and one AND gate. **Draw this now in Logic.ly platform**. It should look something like this:
 
-![Logic Friday half-adder](logic-friday-half-adder.png)
+![Logic.ly half-adder](logic-friday-half-adder.png)
 
 **Show the truth table and ensure it is giving the output you expect.**
 
@@ -65,7 +65,7 @@ The full-adder extends the half-adder by letting us add two binary digits while 
 
 ![Full-adder logic diagram](full-adder.png)
 
-1. **Draw the full-adder in Logic Friday.**
+1. **Draw the full-adder in Logic.ly.**
 2. **Check the truth table and confirm your full-adder is behaving as expected.**
 3. **Define the equation for $S$ and $C_{out}$ from the diagram.**
 
