@@ -19,19 +19,19 @@ This lab aims to implement simple logic circuits. The software used is Logic.ly 
 
 ## Work Environment
 
-When you start Logic.ly, a tool box is shown on the left side of the window and a blank canvas on the right side as an editing surface.
+When you start Logic.ly, a startup platform shows with, tool box showing on the left side of the window and a blank canvas on the right side as an editing surface.
 
 ![Logic.ly starting window](Logic.ly.png)
 
-From the tool box It is easy to add,delete and connect switches and gates.Logic.ly gives the flexiblity for components to be draged and droped onto the editable blank surface.Hence manipulate as desired.Click on label tool to be able to lable you input and output.
+From the tool box It is easy to add,delete and connect switches,gates and other devices. Logic.ly gives users the flexiblity for components to be dragged and dropped onto the editable blank surface.Hence manipulate as desired.Use the label tool to write and define input and output features.
 
 ![Creating new gate diagram with Logic.ly](logic.ly-tool-box.png)
 
-The logic.ly platform opens up with two seperate area as shown above.The left hand side which is the tool box area has different segements which are the input controls, output control components, Logic gates, flip-flops components and others.
+The logic.ly platform opens up with two seperate area as shown above.The left hand side which is the tool box area has different segments which are the input controls, output control components, Logic gates, flip-flops components and others.
 
 ![Logic.ly essential](toggle switch-component.png)
 
-In order to creat any logic design with logic.ly we have to always use the toggle switch component every time we want to indicate the input:This anable users turn **ON** and **OFF** the switches.
+In order to create any logic design with logic.ly we have to always use the toggle switch component every time we want to indicate the input:This enable users turn **ON** and **OFF** the switches.
 
 ![Creating new AND gate diagram with Logic.ly](AND-gate-diagram.png)
 Drag and drop the toggle switch.
@@ -39,7 +39,7 @@ Use the label tool to define the number of input and there names such 2input **A
 Then drag the AND operation from the logic gate control session on the tool box.
 Wires then together with the toggle switch
 final drag the output bulb
-Experiment by on and offing the switches at different intervals and record your output using the lable component.
+Experiment by swtiching on and off the switches at different intervals and record your output using the label component.
 
 ## Finding a Truth Table
 
