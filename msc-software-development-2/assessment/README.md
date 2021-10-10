@@ -76,8 +76,8 @@ The aim of this Sprint is to check that the project workflow is set up for the t
 Submission requirements for this Sprint:
 
 - An overview of your application idea your team want to design and develop.
-- The business questions that you will cover in your system.
 - The purpose of the application.
+- The business questions that you will cover in your system.
 - Initial set of tasks identified for the completion of the task.
 - Checklist of technical requirements:
   - [ ] GitHub project for coursework created.
