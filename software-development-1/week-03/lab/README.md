@@ -31,7 +31,7 @@ Executing the input statement caused Python to print out the prompt **Enter your
 
 Lesson 3 Recap: When the user input is a number, we need a slightly more complicated form of input statement: 
 
-       <variable> = srt(input(<prompt>)) 
+       <variable> = str(input(<prompt>)) 
 
 Here, we have used casting from an integer number into a string. That way, we ensure that whatever we are given by the user can be stored in our variable as a string type. We can then write a program that takes the first, middle and last names and displays the initials. By adding the extra casting into string, we ensure that any name, even the controversial X Æ A-12 (the name of Grimes's kid), can be read.
 
@@ -57,9 +57,7 @@ Determine if a letter is a vowel or a consonant.
     letter = input("Enter a letter: ")
     
     # Classify the letter and report the result 
-    if letter == "a" or letter == "e" or \ 
-    letter == "i" or letter == "o" or \
-    letter == "u": 
+    if letter == "a" or letter == "e" or letter == "i" or letter == "o" or letter == "u": 
       print("It’s a vowel.") 
     elif letter == "y": 
       print("Sometimes it’s a vowel... Sometimes it’s a consonant.") 
