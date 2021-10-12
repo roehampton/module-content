@@ -1,6 +1,6 @@
 # Queues
 
-## Code your algorithm to convert a positive integer to its binary representation using a queue
+## Provide an algorithm to convert a positive integer to its binary representation using a queue
 To make your life easier, you can, for example, use the collections library from Python
 
 ``` Python
