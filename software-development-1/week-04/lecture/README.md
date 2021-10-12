@@ -10,7 +10,7 @@ By the end of this lab you will know how to abstract problem data into a computa
 
 ## Lesson 1 : Iterative Programs : While
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=17e105b1-4f19-415f-9f97-ac5601034022
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=17e105b1-4f19-415f-9f97-ac5601034022](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=17e105b1-4f19-415f-9f97-ac5601034022)
 
 
 Our goal here is to build recipes: Take problems and break them down into a sequence of steps: computational instructions that allow us to capture that process.
@@ -52,7 +52,7 @@ For simple branching programs, like the ones we in the last session, the time it
 
 ## Lesson 2 : Debugging the Code
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=85bce52d-614c-4056-b3bd-ac5601033fb7
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=85bce52d-614c-4056-b3bd-ac5601033fb7](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=85bce52d-614c-4056-b3bd-ac5601033fb7)
 
 We have discussed that Python will tell you if your syntax is wrong (there&#39;s no excuse for hand in in coursework with bad syntax). However, Python won&#39;t give you much help in Semantics. To tackle this, you need to develop **Good Style** to catch these bugs. One of the best way to catch these bugs is to &quot;simulate&quot; the code: pick a set of values that will give you a rough idea of what you&#39;ll get, and walk through the code with them. This will be helpful specially in making sure that we won&#39;t loop forever. Some programmers prefer to put print statements at various places.
 
@@ -105,7 +105,7 @@ The takeaway is that, to debug, you really need to make sure of two things: **Do
 
 
 ## Lesson 3: Common code patterns: For
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=68dbbff2-8db5-43e1-af86-ac5601033fd9
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=68dbbff2-8db5-43e1-af86-ac5601033fd9](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=68dbbff2-8db5-43e1-af86-ac5601033fd9)
 
 Imagine you have a collection of numbers, and you want to go through every single one of these numbers. If you want to go through each element of data at a time, luckily there is a very useful construct to help us called the &quot;for&quot; loop.
 
