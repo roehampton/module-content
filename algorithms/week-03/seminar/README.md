@@ -2,10 +2,21 @@
 
 ## Provide an algorithm to convert a positive integer to its binary representation using a queue
 
-## Binary to Decimal
+## Going from Decimal base to binary base (and vice versa)
 
+Watch: https://youtu.be/a2FpnU9Mm3E
+
+The first five decimal numbers have the following binary equivalence
+Decimal : 1        2         3        4          5
+
+Binary :    1       10       11     1000      101
+
+A -not that easy- algorithm to comvert numbers from decimal to binary, is using a stack
 
 ## Algorithm
+Input:  An integer number n in base 10
+Output: A binary representation of n
+
 1. Create an empty Queue – this will be used to generate the binary numbers
 2. Create an empty List/ Array – this will be used to hold the results , i.e, the list of generated binary numbers till n
 3. Enqueue “1” in the queue
