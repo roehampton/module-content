@@ -1,7 +1,7 @@
 # Queues
 
 ## Code your algorithm to convert a positive integer to its binary representation using a queue
-1. To make your life easier, you can, for example, use the collections library from Python
+To make your life easier, you can, for example, use the collections library from Python
 
 ``` Python
 from collections import deque
