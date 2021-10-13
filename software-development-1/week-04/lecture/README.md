@@ -61,28 +61,28 @@ For instance, for salt example, let&#39;s say that my taste in salt is 10 spoons
     salt_taste = 10
     # we set the variable that will count up to a desired value
     salt= 0 
-    while salt < salt_taste :
+    while salt <= salt_taste :
     	print(“add another spoon of salt”)
     	salt= salt+1
 
+What's the problem here? It stops at ```salt = 11```. It doesn't stop at the right place! If you don't do the test, you are going to get wrong answers, or worse, loop forever, spiralling out of control, eating all the resources, overheating your computer, beating children and kicking puppies.
 
-What&#39;s the problem here? It stops at 9. It doesn&#39;t stop at the right place! If you don&#39;t do the test, you are going to get wrong answers, or worse, loop forever, spiralling out of control, eating all the resources, overheating your computer, beating children and kicking puppies.
 
-I could have used prints as well to spot the error, for instance:
-
+I could have used prints as well to spot potential error, for instance:
+```
     salt_taste = 10
     salt= 0
     while salt < salt_taste :
-    	print(salt); # Our debugging printout
     	print(“add another spoon of salt”)
     	salt= salt+1
+        print(salt); # Our debugging printout
+```
 
-
-. Including this extra print at the start of the loops allows me to see how many times the loop has ran. It would show I&#39;ve only done this 9 times, so I can spot the error and correct it:
+ Including this extra print at the start of the loops allows me to see how many times the loop has ran. So I can spot the error and correct it:
 
     salt_taste = 10
     salt= 0
-    while salt <= salt_taste : # Corrected test
+    while salt < salt_taste : # Corrected test
     	print(“add another spoon of salt”)
     	salt= salt+1
 
