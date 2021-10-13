@@ -43,9 +43,9 @@ To write these kinds of recipe structures, we use a visualization tool called a 
 
 ![Alt text](flowchart.png?raw=false "Flowchart Example")
 
-Start is represented by a rounded rectangle, variables are in a square box, tests are in a diamond, print in trapezoid and ends with a box that says stop
+Start and end are represented by circles (or rounded rectangles), processes (such as variable assignments) are in a square box, decisions are in a diamond, input/output in parallelogram.
 
-Flowcharts leet us see where the loop is along with all the components and help make sure it&#39;s contained and doesn&#39;t spiral out of control, eating all the resources, overheating your computer, beating children and kicking puppies (in the right hardware embodiment this is a possibility. Final Project?)
+Flowcharts let us see where the loop is along with all the components and help make sure it&#39;s contained and doesn&#39;t spiral out of control, eating all the resources, overheating your computer, beating children and kicking puppies (in the right hardware embodiment this is a possibility. Final Project?)
 
 For simple branching programs, like the ones we in the last session, the time it takes to run (complexity of the program) is finite, bounded by the number of instructions you have. But looping programs have a complexity that depends on the test that we are making: how many times am I cycling to get to the answer? If I put in a loop inside the loop, then the complexity starts increasing non-linearly. In your career, you&#39;ll find that there are classes of computation that inherently much more complex, but in the meantime, the takeaway here is that you have all you need to start writing your own recipes. But like Shakespeare learning words and sentences, we&#39;ll have to practice a lot to be able to write code functionally and beautifully.
 
