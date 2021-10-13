@@ -1,5 +1,5 @@
 # Software Development 1
-# Lab 4 -- Common code patterns
+# Lecture 4 -- Common code patterns
 
 In this lab, we’ll explore:
 1. Iterative Programs : While
