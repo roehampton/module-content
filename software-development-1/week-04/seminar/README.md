@@ -14,7 +14,7 @@ For example, if the user entered 10 the output should be 55 (1+2+3+4+5+6+7+8+9+1
          name = input() 
          print('Thank you!') 
 ```
-3. Write a program to display only those numbers from a list ```numbers = [12, 75, 150, 180, 145, 525, 50]``` that satisfy the following conditions
+3. Design a program to display only those numbers from a list ```numbers = [12, 75, 150, 180, 145, 525, 50]``` that satisfy the following conditions
 
 - The number must be divisible by five
 - If the number is greater than 150, then skip it and move to the next number
