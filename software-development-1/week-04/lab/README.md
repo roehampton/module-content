@@ -1,20 +1,6 @@
 # Software Development 1 
 # Lab 4
 
-In this seminar we&#39;ll go through some exercises to reinforce what we learned about common code patterns
-
-1. a) Write down a flow chart for the following program:
-
-       if name == 'Alice':
-       print('Hi, Alice.')
-
-
-b) compare it to the flowchart of:
-
-    if name == 'Alice':
-      print('Hi, Alice.')
-    else:
-     print('Hello, stranger.')
 
 
 
@@ -31,8 +17,16 @@ b) compare it to the flowchart of:
        if spam < 5:
            print('Hello, world.')
            spam = spam + 1
-
-
+4. Print the following pattern
+Write a program to print the following number pattern using a loop.
+```
+1
+1      2
+1      2      3
+1      2      3      4
+1      2      3      4      5      
+1      2      3      4      5      6
+```
 4. Consider the list **spam = [&#39;cat&#39;, &#39;bat&#39;, &#39;rat&#39;, &#39;elephant&#39;]**. Which is the 0th element? How about the 3rd? What happens when you try to access the element 1000? What happens when you try to access a negative index like **spam[-1]?**
 
 
