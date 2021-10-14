@@ -23,7 +23,7 @@ Write a program to print the following number pattern using a loop.
 1      2      3      4      5      6
 ```
 
-3.  Use while loop to create a program for the following flowchart:
+4. Write a program for the following for flowchart:
 
 ![Alt text](img_5.png?raw=false "Flowchart Exercise 5")
 
