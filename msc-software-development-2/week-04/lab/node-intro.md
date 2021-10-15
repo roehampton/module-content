@@ -192,11 +192,12 @@ You can install it by running the following in the terminal in the root folder o
 npm install express
 ```
 
-So what is Express.js? It provides RESTful interfaces.
+So what is Express.js? It is an industry standard framework for building web applications.  It can receive requests, forward it to the correct logic and send back a response.  It can be used with a templating engine to provide a full stack web application, or can be used to build REST APIs.
 
 ## RESTful Interfaces
 
-REST stands for [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer). This is a software architecture for web services that is driven by URLs. We interact with our web service by accessing a URL with a particular HTTP message type:
+REST stands for [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer). This is a software architecture for web services that is driven by structured  URLs. 
+We interact with our web service by accessing a URL with a particular HTTP message type:
 
 - `GET` will return data from the web service. This is the standard HTTP message used when we get a webpage.
 - `POST` sends data to the web service. This is the HTTP message used when you send data from a webpage, such as in a form.
@@ -287,6 +288,38 @@ Note that the parts of the URL prefaced with a ':' are dynamic, ie. the name you
 
 Try running the above code but put a colon before the 'hello' in the route.  Examine the console output and explain what has now happened.
 
+### Improving your development environment
+
+Reloading the node server each time you change your file isn't going to be a good development experience.  There are npm packages that can automatically watch for changed files and reload for you in the background.  The 'nodemon' package seems to work well for Linux and mac. Try 'supervisor' windows 10.
+
+For windows, install the package:
+
+```bash
+npm install supervisor -g
+```
+
+Now start your script with
+
+```bash
+supervisor express-server.js
+```
+
+For other platforms
+
+install the package:
+
+```bash
+npm install nodemon -g
+```
+
+Now start your script with
+
+```bash
+nodemon express-server.js
+```
+
+
+
 ### Now you try
 
 Add the following end point URLs to the application:
@@ -294,6 +327,8 @@ Add the following end point URLs to the application:
 - `/test` will display `Welcome to the test page!`
 - `/student/:id/:name` should display a table with the submitted student ID and name. **HINT** -- you will have to construct the string in the response to be HTML.
 
-## Next steps
+## Coming next...
 
-Later, we will connect a database to our express application and use the dynamic routes to create, retrieve, update and delete information in the database ie. we will have everything we need to create a simple 'CRUD' web application.
+Later, we will connect a database to our express application and use the dynamic routes to create, retrieve, update and delete information in the database.  We will also look at how the presentation (ie. HTML generation) can be improved but kept seperate from business logic by using a templating system and MVC (Model View Controller) architecture.
+
+ie. we will have everything we need to create a simple 'CRUD' web application using some best pratices in software design.
