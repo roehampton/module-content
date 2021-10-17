@@ -7,16 +7,18 @@ void* sleeper(void *arg)
 {
     // Cast the argument to the right type
     int duration = (int)arg;
-    pthread_t tid = pthread_self();
+    // Get the current thread
+    // *** COMPLETE ME ***
     // Wake up every duration
     for (int i = 0; i < 10; ++i)
     {
         printf("%lu awake!\n", tid);
         printf("%lu going to sleep\n", tid);
-        sleep(duration);
+        // Sleep for duration seconds
+        // *** COMPLETE ME ***
     }
     // Exit the thread
-    pthread_exit(NULL);
+    // *** COMPLETE ME ***
 }
 
 int main(int argc, char **argv)
@@ -24,12 +26,14 @@ int main(int argc, char **argv)
     pthread_t t1;
     pthread_t t2;
     // Create thread 1 - sleeps 2 seconds
-    pthread_create(&t1, NULL, sleeper, (void*)2);
+    // *** COMPLETE ME ***
     // Create thread 2 - sleeps 3 seconds
-    pthread_create(&t2, NULL, sleeper, (void*)3);
+    // *** COMPLETE ME ***
     // Join the threads
     void *status;
-    pthread_join(t1, &status);
-    pthread_join(t2, &status);
+    // Join thread 1
+    // *** COMPLETE ME ***
+    // Join thread 2
+    // *** COMPLETE ME ***
     return 0;
 }

@@ -3,21 +3,21 @@
 #include <pthread.h>
 
 // Thread function
-void* do_work(void *arg)
+void* do_work()
 {
     printf("I'm a thread!\n");
     // Exit the thread
-    pthread_exit(NULL);
+    // *** COMPLETE ME ***
 }
 
 int main(int argc, char **argv)
 {
     pthread_t thread;
-    // Create a thread
-    pthread_create(&thread, NULL, do_work, NULL);
+    // Create a thread using the do_work function
+    // *** COMPLETE ME ***
     printf("I'm the main program!\n");
     void *status;
     // Join the thread
-    pthread_join(thread, &status);
+    // *** COMPLETE ME ***
     return 0;
 }

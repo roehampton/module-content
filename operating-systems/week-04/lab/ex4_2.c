@@ -3,14 +3,14 @@
 #include <pthread.h>
 
 // Print thread ID
-void* print_id(void *arg)
+void* print_id()
 {
     // Get the thread ID
-    pthread_t tid = pthread_self();
+    // *** COMPLETE ME ***
     // Print the thread ID
     printf("My ID is %lu\n", tid);
     // Exit the thread
-    pthread_exit(NULL);
+    // *** COMPLETE ME ***
 }
 
 int main(int argc, char **argv)
@@ -21,7 +21,8 @@ int main(int argc, char **argv)
     // Launch 100 threads
     for (int i = 0; i < 100; ++i)
     {
-        pthread_create(&threads[i], NULL, print_id, NULL);
+        // Create thread i in the array using print_id
+        // *** COMPLETE ME ***
     }
     // Print a message
     printf("I'm the main program!\n");
@@ -29,7 +30,8 @@ int main(int argc, char **argv)
     void *status;
     for (int i = 0; i < 100; ++i)
     {
-        pthread_join(threads[i], &status);
+        // Join thread i in the array
+        // *** COMPLETE ME ***
     }
     return 0;
 }
