@@ -22,5 +22,5 @@ How do you print it on screen? How do you print many of these onscreen?
 3. Write a function that takes three numbers as parameters and returns the median value of those parameters as its result. Include a main program that reads three values from the user and displays their median. Tip: The median value is the middle of the three values when they are sorted into ascending order. It can be found using if statements, or with a little bit of mathematical creativity.  
 
 
- 
+4. A function that generates a random password. The password should have a random length of between 7 and 10 characters. Each character should be randomly selected from positions 33 to 126 in the ASCII table. Your function will not take any parameters. It will return the randomly generated password as its only result. Calling the program should display the randomly generated password. Tip: You will probably find the *chr* function helpful when completing this exercise. Detailed information about this function is available online.
 
