@@ -1,4 +1,4 @@
-# Computer Systems Lab 12 -- Capturing Network Traffic with Wireshark
+# Computer Systems Lab 6 -- Capturing Network Traffic with Wireshark
 
 The aim of this laboratory session is to understand Internet network data traffic. This lesson will be conducted using Wireshark. It can be downloaded from https://www.wireshark.org/download.html.
 
