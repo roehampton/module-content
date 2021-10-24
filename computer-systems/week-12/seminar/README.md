@@ -1,4 +1,4 @@
-# Computer Systems Seminar 12 -- More Networking
+# Computer Systems Seminar 6 -- More Networking
 
 1. Differentiate between IPv4 and IPv6.
 2. What is the maximum number of devices that can be connected by IPv4? 
