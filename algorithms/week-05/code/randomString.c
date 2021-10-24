@@ -1,4 +1,4 @@
-# Adapted from https://www.geeksforgeeks.org/program-generate-random-alphabets/
+// Adapted from https://www.geeksforgeeks.org/program-generate-random-alphabets/
 #include <bits/stdc++.h>
 using namespace std;
  
