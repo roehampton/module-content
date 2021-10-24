@@ -1,3 +1,4 @@
+# Adapted from https://pynative.com/python-generate-random-string/
 import random
 
 # Random string of length 5
