@@ -1,277 +1,434 @@
-# Software Development 2 Lab 05 -- Express.js
+# Introduction to Object Orientated Programming
 
-OK, we have a webpage that we can display data in our browser. We are also able to get data from a SQLite database in a Node.js application. How do we get the data from Node.js to our webpage? For this, we will use another Node.js library -- Express.js. You can install it by running the following in the terminal in the root folder of your repository:
+In this lab we will look at how you can design and organise your code by using Object Orientated principles.
 
-```shell
-npm install express
-```
+We will use javascript in the backend (using node.js/ express.js) as this will help you to build a good structure for your server-side code which organises the data which will be pulled from the database (we will connect to a database in next weeks lab).
 
-So what is Express.js? It provides RESTful interfaces.
+The emphasis in this lab is on learning the basics of OOP that apply to all languages that support OOP.
 
-## RESTful Interfaces
+## Preparation
 
-REST stands for [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer). This is a software architecture for web services that is driven by URLs. We interact with our web service by accessing a URL with a particular HTTP message type:
+>Ensure that you have the express.js code from last weeks lab up and running.  ie.
 
-- `GET` will return data from the web service. This is the standard HTTP message used when we get a webpage.
-- `POST` sends data to the web service. This is the HTTP message used when you send data from a webpage, such as in a form.
-- `DELETE` allows deletion of data in the web service.
+>Your express-server.js file that contains the following:
 
-The approach we take is to declare URLs that will have a function called when our server receives a request. Let us build a first Express.js application. **Enter this code as `express_server.js`:**
+```Javascript
 
-```javascript
 // Import express.js
 const express = require("express");
 
 // Create express app
 var app = express();
 
-// Create a get for root - /
+// Create a route for root - /
 app.get("/", function(req, res) {
-    res.send("Hello world!");
+    res.send("Hellox world!");
 });
 
-// Start server on port 3000
-app.listen(3000);
-```
-
-Here we have defined the `/` (root folder) to respond with `Hello world!`. **Now run this programme with the following:**
-
-```shell
-node express_server.js
-```
-
-**Open your browser, and go to `127.0.0.1:3000`**. You should see `Hello world!` displayed.
-
-Let us expand this application to listen on some other URLs. **Shutdown the server with CTRL-C and update `express-server.js` to the following:**
-
-```javascript
-// Import express.js
-const express = require("express");
-
-// Create express app
-var app = express();
-
-// Create a get for root - /
-app.get("/", function(req, res) {
-    res.send("Hello world!");
-});
-
-// Create a get for /goodbye
+// Create a route for /goodbye
+// Responds to a 'GET' request
 app.get("/goodbye", function(req, res) {
     res.send("Goodbye world!");
 });
 
-// Create a get for /hello/<name> with name provided by user
+// Create a dynamic route for /hello/<name>, where name is any value provided by user
+// At the end of the URL
+// Responds to a 'GET' request
 app.get("/hello/:name", function(req, res) {
     // req.params contains any parameters in the request
-    res.send("Hello " + req.params.name);
+    // We can examine it in the console for debugging purposes
+    console.log(req.params);
+    //  Retrieve the 'name' parameter and use it in a dynamically generated page
+    res.send("Hellox " + req.params.name);
 });
 
 // Start server on port 3000
-app.listen(3000);
-```
-
-There are now three URLs you can visit:
-
-- `127.0.0.1:3000` will display `Hello world!`.
-- `127.0.0.1:3000/goodbye` will display `Goodbye world!`.
-- `127.0.0.1:3000/hello/<name>` will display `Hello <name>` for any value of `<name>`. Try your own name.
-
-### Now you try
-
-Add the following end point URLs to the application:
-
-- `/test` will display `Welcome to the test page!`
-- `/student/<id>/<name>` will display a table with the student ID and name. **HINT** -- you will have to construct the string in the response to be HTML.
-
-## JSON -- JavaScript Object Notation
-
-So we can now get data information from our Node.js server. How do we send our database information? That is actually quite easy as JavaScript supports easy sending of data using JavaScript Object Notation (JSON). **First, let us create a new JavaScript file -- `db_server.js`:**
-
-```javascript
-// Import SQLite library.
-// Use verbose mode to give more detailed error outputs
-const sqlite3 = require("sqlite3").verbose();
-
-// Connect to the database.
-// Function is callback when connection completed.
-// err is any error message that occurs
-let db = new sqlite3.Database("students.db", function(err) {
-    // If an error, print it out.
-    if (err) {
-        return console.error(err.message);
-    }
-    console.log("Connected to students database.");
+app.listen(3000,function(){
+    console.log(`Server running at http://127.0.0.1:3000/`);
 });
-
-// Import express.js
-const express = require("express");
-
-// Create express app
-var app = express();
-
-// Add static files location
-app.use(express.static("static"));
-
-// Create a get for /student
-app.get("/student/:id", function(req, res) {
-    var sql = `
-        SELECT * FROM Students
-        WHERE id = ${req.params.id}`;
-    db.get(sql, function(err, row) {
-        if (err) {
-            return console.error(err.message);
-        }
-        res.json(row);
-    });
-});
-
-// Create a get for /students
-app.get("/students", function(req, res) {
-    var sql = "SELECT * FROM Students";
-    db.all(sql, function(err, rows) {
-        if (err) {
-            return console.error(err);
-        }
-        res.json(rows);
-    });
-});
-
-// Start server on port 3000
-app.listen(3000);
 ```
+Preparation Tasks:
 
-Note that we are going to server static files again from the `/static` folder. **Create that folder in your repository now.**
+1. Please rename the ```express-server.js``` file to ```app.js```  As this is a more standarised structure for express.
+2. Ensure you can run the application from the terminal using EITHER
 
-Everything else you have seen before, except what we do in `app.get`. Here, we execute the SQL as normal using `get` (as we are getting a single student). The callback function now sets `res.json(row)`. **Now run the program with `node db_server.js` in the Visual Studio Code terminal. Then connect to `127.0.0.1:3000/student/1` to see the JSON returned. It should look like this**:
+```nodemon app.js```
 
-```json
-{"id":1,"name":"Kevin Chalmers"}
-```
+OR 
 
-And that is it. It is that easy to send our data back. This will also work for multiple rows of data -- just use `res.json(rows)`. So, to get all students we can add the following endpoint:
+```supervisor app.js```
 
-### Now you try
+3. Check that you can access 'Hello world' at http://127.0.0.1:3000/
+4. Check that you can update your code and trigger a reload so you can see your changes immediately by changing the out put to 'Hello x' (you should see the server reload in your console in response to your saving the file)
 
-Add the following endpoints to the application with appropriate SQL queries:
 
-- `/programme/<id>` to get a programme of a given id.
-- `/programmes` to get all programmes.
-- `/module/<code>` to get a module of a given code.
-- `/modules` to get all modules.
+## Object-orientation in JavaScript
 
-## Putting it All Together -- Reading JSON
+JavaScript is an object-oriented language. 
 
-We've come very far in this lab -- we've connected to our database, created a RESTful front end, and returned JSON data to our web page. Now we need to get this JSON data into our client web application so we can display it as a table. There are many ways we can do this, and we will use a particular method later in the module. For the moment, we are going to use another common JavaScript library -- jQuery. We won't explain much about jQuery here as we are only going to use one part of it. jQuery is essentially a library that allows easier manipulation of webpages.
+In OOP, your objects are designed to model entities or objects in the real world.
 
-**First, create the following`students.html` file in the `static` folder**:
+Remember the following:
 
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Student List</title>
-        <script src=https://code.jquery.com/jquery-3.5.1.js></script>
-        <script src="student.js"></script>
-    </head>
-    <body onload="printStudents()">
-        <h2>Students</h2>
-        <div id="main"></div>
-    </body>
-</html>
-```
+ * Classes are the code that define objects​: objects are specific **instances of** classes
 
-This is very similar to our last `students.html` file but with the inclusion of jQuery. **Now add `student.js` to the `static` folder with the following content:**
+ * Classes contain both Data (properties) and behaviour (functions/methods) ​
 
-```javascript
-// Tells the browser we want JavaScript to run in strict mode.
-// This means faster code, but JavaScript needs to be cleaner.
-"use strict";
+ * Classes should be modelled on real-world entities or concepts​
 
-// A definition of a student
+ * The 'black box' principle – the implementation within a class can be changed so long as the inputs and outputs remain the same.  This supports maintainability​
+
+ * Re-usability – classes can be re-used throughout your programme and exported into others.  Inheritance and abstraction can be used to make the code even more re-usable
+
+You've already been using objects in JavaScript -- `document.write()` means call (invoke, use) the `write` method on the `document` object. The `document` object is the web page your JavaScript program was executing on.
+
+> ### JavaScript's History of OOP
+>
+> JavaScript is actually an implementation of something called [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript). Until 2015, objects where possible in JavaScript, but not in a manner most programmers would recognise. For example, there was no `class` keyword. ECMAScript 2015 (or ES6) introduced classes and a variety of other language features, making it more similar to Python and Java, for example.
+>
+> This means there are many JavaScript tutorials online that ignore classes, and write object-oriented code in a strange and hard to maintain manner. We will be using the language features of ES6 which provides a better OOP experience.
+
+### Classes in JavaScript
+
+To declare a class in JavaScript we use the `class` keyword. For example:
+
+```js
 class Student {
-    // Student ID
-    #id;
-    // Student name
-    #name;
-
-    // Creates a new instance (object) of type Student
-    constructor(id, name) {
-        // Set the id and name of the object instance
-        this.#id = id;
-        this.#name = name;
-    }
-
-    tableRow() {
-        return `<tr><td>${this.#id}</td><td>${this.#name}</td></tr>`;
-    }
+  // ... contents of the class.
 }
+```
+Note: that class names usually start with a capital letter. This is a style convention, preferred, but not imposed by the language.  Languages and indeed individual companies set style guides for example: https://google.github.io/styleguide/jsguide.html.
 
-function printStudents() {
-    $.getJSON("/students", function(result) {
-        // Create array of students
-        var students = [];
-        // Iterate over data returned
-        for (var row of result) {
-            var student = new Student(row.id, row.name);
-            students.push(student);
-        }
-        // Build html for table.
-        var html = `
-        <table border="1">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-            </tr>
-        `;
-        // Iterate over all the students
-        for (var student of students) {
-            html += student.tableRow();
-        }
-        // End html table.
-        html += `</table>`
-        // Get the main element
-        var main = document.getElementById("main");
-        // Set the innerHTML to html
-        main.innerHTML = html;
-    });
+
+You will usually put the class definition in a file with the same name as the class, but in lower case.  You can also tidy your codebase by putting your class definition in a directory called 'models'.  We are calling it models because we are loosly using the MVC (Model View Controller) design pattern in which the 'models' contain code related to data, the 'views' handle presentation and the 'controller' mediates between the two.  Currently, the app.js file is your controller, and we will add views later on.
+
+### Getting started...
+
+1. Create a directory in the same directory as your app.js file called 'models'
+2. Inside the models directory, create a file called student.js
+
+Now you can begin writing your Student class.
+
+A class needs a `constructor` which is used to create instances of the class. For example:
+
+```js
+class Student {
+  constructor() {
+    // ... define initial variables
+  }
 }
 ```
 
-We've simplified the `Student` class to just work with an ID and name. Then our changes are just to `printStudents()`:
 
-- We use `$.getJSON` to get the JSON document from the server. `$` is how we access jQuery functions. We use the URL `/students` as this is the endpoint we have created.
-- When the data is returned, the function is called filling the `result` parameter. This is our JavaScript.
-- We create an empty array to store the students.
-- We then iterate across every `row` in the `result` parameter. `result` will contain a JSON array of data, so we can use a `for ... of` loop here.
-- We then create a `Student` object from the `row` data -- `id` and `name`.
-- We then add the `Student` to the `students` array.
-- The rest of the function works as before.
 
-**Open your browser and go to `127.0.0.1/students` to see the result. You should get the table of students from the database.**
+We define the attributes (properties) (data) of the class by listing them in the class definition.  Depending on the languge, we may or may not set a data type and we may be able to set default values that will be present in every object (instance of the class, remember)
 
-![image-20201231132828594](image-20201231132828594.png)
+```js
+class Student {
+  // Attributes
+  firstName;
+  lastName;
+  courseId;
+  
+  constructor() {
+  }
+}
+```
 
-## Summary
+Add this code to your student.js file
 
-We've gone far in this lab, through RESTful interfaces with Express.js, to displaying our returned JSON data using jQuery. This is a lot of web technology we have covered, but you are now using close to a full-stack of technology. We are now doing the following:
+### Using your class definition
 
-- Displaying HTML webpages in our browser (user-interface).
-- Reacting to events in our HTML with JavaScript (client controller).
-- Sending data between the server and client using JSON.
-- Providing a RESTful interface to our server using Express.js in Node.js (application/business logic).
-- Accessing data using an SQLite database via Node.js (data layer).
+To run your code you need to do the following:
 
-Next lab we will build a new project from scratch to go over these ideas once again.
+1. Add the following to the end of your ```students.js``` file.  
 
-## So you want to know more
+```js
+module.exports =  {
+      Student
+  }
+```
 
-TutorialsPoint also provides an Express.js tutorial: https://www.tutorialspoint.com/expressjs/index.htm.
+You will use this technique frequently... this tells your node.js application that your Student code (module, in other words) is ready and available for use throughout your application.  You use this technique for functions as well as classes.
 
-## Exercises
+1. In your ```app.js``` file, add the following line near the top. This tells makes the code for your Student class available to your app.js file:
 
-1. Add the necessary code to display the table of programmes on the webpage.
-2. Add the necessary code to display the table of modules on the webpage.
-3. Create a new webpage -- `module_search.html` -- which has a text box allowing getting a single module based on it's code.
-4. Do the same for a student.
-5. Do the same for a programme.
+
+```js
+const { Student } = require('./models/student.js');
+```
+
+2. Now you can use the code you have written to create and examine an object created from the Student class.  Add the following additional code to your root route in app.js
+
+```js
+app.get("/", function(req, res) {
+
+    // Instantiate a Student object using the student class definition
+    var student1 = new Student();
+    
+    // Examine the object you have created
+    console.log(student1);
+    
+    // Send some output to the browser - doesn't matter what it is right now
+    res.send("Hello world!");
+});
+
+```
+
+Save your changes, check in your terminal window that nodemon or supervisor has detected your changes and reloaded, then reload http://localhost:3000.  The web page should look the same, but you should see the following in your VS studio code console.
+
+```bash
+[nodemon] restarting due to changes...
+[nodemon] starting `node app.js`
+Server running at http://127.0.0.1:3000/
+Student {
+  firstName: undefined,
+  lastName: undefined,
+  courseId: undefined
+}
+```
+
+**Well done** You have created your first class, made it available to your application, instantiated an object using your class definition and examined it in the console.
+
+
+## Building your Student class
+
+
+
+Our class becomes a lot more useful if we add parameters to the constructor that will set the initial values of our attributes.  This will also help us understand the relationship between a class (a template or blueprint for our object) and our object (a specific instance of a given class )
+
+```js
+class Student {
+  // Attributes
+  firstName;
+  lastName;
+  courseId;
+  
+  constructor(firstName, lastName, courseId) {
+  
+	  this.firstName = firstName;
+	  this.lastName = lastName;
+	  this.courseId = courseId;
+  }
+}
+```
+
+The `this` keyword is used to refer to the local object, ie. the very object we are defining, So writing `this.firstName(firstName)` means...
+Assign the value of the argument supplied to the function firstName, and assign it to the object property called firstName.  
+
+*Note that in this case the name of the parameter and the class property match, but they don't have to, as this.firstName and firstName are completely different variables.
+
+
+#### Your task
+Go back to your app.js file and amend your root route to do the following:
+
+1. Create an object called Student1 with firstName Lisa and lastName Haskel and courseId 1,
+2. Create a second object called Student2 with firstName Kevin and lastName Chalmers and courseId 2.
+3. Use console.log() to examine both of your objects.
+4. Observe how you can access the attributes of your class directly using the dot notation.  Try the following:
+
+```js
+console.log(student1.firstName);  
+```
+
+5. Now add the student1.firstName to the browser output so you will see Hello and the the firstname of Student1.
+
+### Methods
+
+So far we have looked at the following ideas with objects:
+
+- Defined classes using the `class` keyword.
+- Defined a `constructor` for a class.
+- Created objects (class instances) using the `new` keyword.
+- Added attributes to a class.
+- Set attributes of an object in the `constructor` using the `this` keyword.
+
+So far, we have covered the data aspect of an object. Classes become much more interesting when we add behaviour that uses that data. Remember that we use our classes to model real-world things and their behaviour to make our code more understandable.
+
+Methods are very much like functions ie. re-usable sections of code that can be passed parameters.  
+
+Lets add a method to our student class to return a formatted version of a student's name.
+
+Add the method inside the body of the class, underneath the constructor:
+
+```js
+ getFormattedName() {
+        return this.firstName + ' ' + this.lastName;
+    }
+```
+
+Now go back to your app.js file and use this method to output some student names to the browser.
+
+**Exercise:** Add an additional attribute to your Student class called Year of Birth.  Write a method to return the current age of the student.
+
+### Referencing classes within other classes
+
+You start to see the power of OOP when you see how an object can be an attribute of another object.
+
+Imagine a student records system that wants to print a register which consists of a list of expected students plus a teachers name and room number. We could implement this by having a class called Lesson, where one of its attributes is an array of Students.  OOP encourages us to take a design led approach, so lets do a diagram before we try any implementation.  See the below:
+
+![Image](./class-lesson.png)
+
+
+**Your task**
+Implement the Lesson class as shown here.
+In the addStudents method, you should push a student object onto the students array in the lesson class.
+
+In your app.js file, write some code that will
+
+1. create a lesson object with a teachers name and room number
+2. populate the students attribute of the Lesson object with student objects
+3. Finally, create a register by printing out the lesson teacher, room number and all students
+
+[Solution here](./solution.md)
+
+
+### Public and private modifiers
+
+Serverside JavaScript supports private attributes and methods. These are attributes and methods only accessible from within the object itself. We denote a private member with a `#`.
+
+The reason for this is the OOP principles of 'ecapsulation' and the 'black box'.  We want to control how other parts of your program access the attributes and methods so we can continually improve their internal implementation if we want to.
+
+
+```js
+class Example {
+  // A private attribute
+  #value1;
+  
+  // A private method
+  #method1() {
+  
+	}
+}
+```
+
+Let us look at an example by extending our student class. Update your `student.js` file to the following:
+
+```js
+
+class Student {
+    // Attributes
+    #firstName;
+    #lastName;
+    #courseId;
+    
+    constructor(firstName, lastName, courseId) {
+    
+        this.#firstName = firstName;
+        this.#lastName = lastName;
+        this.#courseId = courseId;
+    }
+
+    getFormattedName() {
+        return this.#firstName + ' ' + this.#lastName;
+    }
+  }
+
+  module.exports = {
+      Student
+  }
+```
+
+In this way, we have ensured that the only way other parts of our program can access the names of our students is via the getFormattedName() method.  This helps us enforce consistency and quality.
+
+## Getters and Setters
+
+JavaScript classes support special methods known as getters and setters. These allow getting and setting attributes of an object while keeping them private within the class.  This is part of the principle of encapsulation.
+
+We use the keywords `get` and `set` to do so.
+
+```js 
+class Example {
+  #value;
+  
+  constructor(value) {
+    this.#value = value;
+  }
+  
+  // Get value
+  get value() {
+    return this.#value;
+  }
+
+	// Set value
+	set value(value) {
+    this.#value = value;
+  }
+}
+
+// Create Example object.
+var example = new Example(5);
+// Get value
+var val = example.value;
+// Set value
+example.value = 10;
+```
+
+We can update our `student.js` file to have getters and setters:
+
+```js
+
+class Student {
+    // Attributes
+    #firstName;
+    #lastName;
+    #courseId;
+    
+    constructor(firstName, lastName, courseId) {
+    
+        this.#firstName = firstName;
+        this.#lastName = lastName;
+        this.#courseId = courseId;
+    }
+
+    getFormattedName() {
+        return this.#firstName + ' ' + this.#lastName;
+    }
+
+    get firstName() {
+        return this.#firstName;
+    }
+
+    get lastName() {
+        return this.#lastName
+    }
+
+    set firstName(firstName) {
+        this.#firstName = firstName;
+    }
+
+    set lastName(lastName) {
+        this.#lastName = lastName;
+    }
+  }
+
+
+
+  module.exports = {
+      Student
+  }
+```
+
+Now in our code that uses the class we can do the following
+
+```js
+// use the getter
+ output += '<p>' + student.firstName + '</p>';
+ 
+// use the setter: make the firstname john
+student.firstName = 'john';
+ 
+```
+
+
+> ### Why Have Getters and Setters?
+>
+> OK, why did we do through this process when we could have just left our attributes public. Getters and setters have a number of benefits, but in particular they allow:
+>
+> - Public getters allow access to an attribute while stopping it being updated outside the object.
+> - Getters and setters can have additional code, which can, for example, check that the correct value is being set.
+
+### Now you try
+
+Make the attributes privat and write getters and setters for the `Lesson` class. 
+
