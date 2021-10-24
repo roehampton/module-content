@@ -1,4 +1,4 @@
-# Computer Systems Lab 11 -- Networking Fundamentals
+# Computer Systems Lab 5 -- Networking Fundamentals
 
 The aim of this laboratory session is to introduce you to the basics of network configuration and file sharing.
 
@@ -110,9 +110,13 @@ Press CTRL+C to stop the redisplay. If this parameter is omitted, netstat prints
 
 ### Exercise
 
-** Using Cisco Packet Tracer** Create a simple point to point Topology.
-Assign IP address and subnet mask to the network.
-Use ping to observe the communication flow
- 
+** Using Cisco Packet Tracer** 
+- Create a simple point to point Topology.
+
+- Assign IP address and subnet mask to the network.
+
+- Use ping to observe the communication flow
+
+- Display your simulation result.
 
  
