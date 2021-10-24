@@ -106,8 +106,13 @@ Parameter:
 
 - r Displays the contents of the IP routing table. This is equivalent to the route print command. Interval Redisplays the selected information every Interval seconds.
 
-Press CTRL+C to stop the redisplay. If this parameter is omitted, netstat prints the selected information only once. 
+Press CTRL+C to stop the redisplay. If this parameter is omitted, netstat prints the selected information only once.
 
+### Exercise
+
+** Using Cisco Packet Tracer** Create a simple point to point Topology.
+Assign IP address and subnet mask to the network.
+Use ping to observe the communication flow
  
 
  
