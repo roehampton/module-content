@@ -1,4 +1,4 @@
-# Computer Systems Seminar 11 -- Networking Fundamentals
+# Computer Systems Seminar 5 -- Networking Fundamentals
 
 1. What is the difference between computer network and a Bluetooth network?
 2. Which topology that is used for Internet connection with a single hub?
