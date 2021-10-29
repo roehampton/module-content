@@ -1,7 +1,7 @@
 # Software Development 1 
 # Lecture 6 -– Data Manipulation in Python
 
-In this lab we will explore:
+In this week we will explore:
 
 1. How to manipulate objects in lists
 2. Python-specific syntax: Indentation of Code Blocks
