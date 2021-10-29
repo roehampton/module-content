@@ -1,5 +1,5 @@
 # Software Development 1 
-# Lab 6 -– Data Manipulation in Python
+# Lecture 6 -– Data Manipulation in Python
 
 In this lab we will explore:
 
