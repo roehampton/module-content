@@ -8,7 +8,7 @@ In this lab we will explore:
 3. Importing Functions
 
 ## Lesson 1: Lists
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=632a1366-d6ca-4ba6-a24d-ac6301617611
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=632a1366-d6ca-4ba6-a24d-ac6301617611](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=632a1366-d6ca-4ba6-a24d-ac6301617611)
 
 We have seen the basic recipe structures:
 
@@ -146,7 +146,7 @@ Example: Let&#39;s tackle odd numbers. Odd numbers are whole numbers that cannot
 
 ## Lesson 2: Blocks in Python
 
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b9ba9f64-0c2a-4b74-9d9c-ac6400a13435
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b9ba9f64-0c2a-4b74-9d9c-ac6400a13435](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b9ba9f64-0c2a-4b74-9d9c-ac6400a13435)
 
 
 We have seen the basic data and recipe structures. These are things common to all programming languages. However there are things we need to remember that are python specific. Python code is easy to read: the language was designed with that specific goal in mind. Guido van Rossum, the language&#39;s creator, wanted to create a powerful programming tool that produced code that was easy to maintain, which meant code created in Python has to be easy to read, too. For this he implemented **indentation** to demarcate a block of code, which Python programmers prefer to call **suite**. If you come from a &quot;curly- braced language&quot; like java or c++ you might struggle with indentation _at first_, but you&#39;ll get used to it in no time.
@@ -190,7 +190,7 @@ Technically, the number of spaces needed for indentation is up to you as a progr
 
 The full Style guide, as coined by the creators of Python, can be found at:
 
-https://www.python.org/dev/peps/pep-0008/
+[https://www.python.org/dev/peps/pep-0008/](https://www.python.org/dev/peps/pep-0008/)
 
 
 So now you know about indentation and how this delineates block in python. In the next session we need to get creative.
@@ -252,7 +252,7 @@ Functions are inside modules inside the standard library. Don&#39;t worry about 
 
 
 
-The Python documentation has all the answers on the standard library. Here&#39;s the kicking-off point: https://docs.python.org/3/library/index.html.
+The Python documentation has all the answers on the standard library. Here&#39;s the kicking-off point: [https://docs.python.org/3/library/index.html.](https://docs.python.org/3/library/index.html.)
 
 The standard library isn&#39;t the only place you&#39;ll find excellent importable modules to use with your code. The Python community also supports a thriving collection of third-party modules, some of which we&#39;ll explore later in the course. If you want a preview, check out the community-run repository: _http://pypi.python.org_.
 
@@ -284,6 +284,6 @@ Example: is this an odd minute?
         print("Not an odd minute.")
 
 
-You can explore this library at: https://docs.python.org/3/library/
+You can explore this library at: [https://docs.python.org/3/library/](https://docs.python.org/3/library/)
 
 FIN
