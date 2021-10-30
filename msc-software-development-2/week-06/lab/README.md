@@ -1,497 +1,302 @@
-# Software Development 2 Lab 06 -- Starting a Project from Scratch and Introducing Angular.js
+# Software Development 2: Using MySQL with node.js
 
-## Creating a New Git Repository
+## Prerequisites
 
-In GitHub, you will see a **+** near the top of the page, which you can select **New repository** from:
+Follow this screencast to get your development environment up and running:
 
-![GitHub New Repository](github-new-repo.png)
+https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=6f290a6b-ba94-4729-9632-adcf00ac336e
 
-This will open a new window.  You need to enter the name for the repository (`student-database`), make sure the repository is **Public** and then select the **Apache 2.0** license type.  **Add a .gitignore and select Node.** **Ensure that a README is added**.This details are illustrated below:
+## Understanding asynchronous javascript
 
-![image-20201231143414340](image-20201231143414340.png)
+Before you embark on using node.js to connect to a database you need to understand the basics of an important feature of javascript - synchronous and asynchronous function calls.
 
-Click on **Create repository** and you will be presented with the following:
+In most procedural code where you can be sure that your code will run in sequence, line by line. This can lead to frustration as tasks that take longer to run will delay other code from executing.
 
-![image-20201231143543703](image-20201231143543703.png)
+However, Javascript while is traditionally 'single-threaded', ie runs code line by line, also has the ability to run code asynchronously, ie with multiple tasks running at the same time. This makes javascript fast and therefore desirable for a web programming language.
 
-## Cloning Your Project in Visual Studio Code
+However, you now need to be careful how you write your code.  You need to be aware of which code has a dependency on values set in your program.  For example, there are times when you need the return value of a function in order to proceed with the next step in you program.  One such example of this is a call to a database.  The call can be relatively slow, but we need to tell our application to wait for the database result to continue with certain steps.  Meanwhile however, some other steps are not dependent on the result and may proceed.
 
-Now we need to clone the GitHub project in Visual Studio Code. 
+Study this article and its links for more information.
 
-1. **Open Visual Studio Code.**
-2. **Make sure no folder is currently open. We can do this by using File then Close Folder from the main menu.**
-3. **Click on the Source Control button on the left-hand side of the Visual Studio Code window.**
-4. **Your window should now look like this.**
+[MDN article on Asychronous javascript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
 
-![image-20201227134347876](image-20201227134347876.png)
+### Callbacks and Promises
 
-We need the the location of our repository.  This is the URL of the repository you created, which should be of the form `https:\\github.com\<user-name>\student-database` (or whatever project name you gave).  For example, my repository is [https:\\github.com\kevin-chalmers\student-database](https:\\github.com\kevin-chalmers\student-database).
+There are a number of different styles of writing asynchronous code which you may encounter.  We will use the most uptodate style which makes use of 'Promises'.
 
-**Click the Clone Repository button and Visual Studio Code will ask for the repository URL at the top of the window**.
+_"Essentially, a Promise is an object that represents an intermediate state of an operation — in effect, a promise that a result of some kind will be returned at some point in the future. There is no guarantee of exactly when the operation will complete and the result will be returned, but there is a guarantee that when the result is available, or the promise fails, the code you provide will be executed in order to do something else with a successful result, or to gracefully handle a failure case."_
 
-![image-20201227134725482](image-20201227134725482.png)
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises
 
-1. **Press return, and Visual Studio Code will ask you where you want to save the repository. Pick somewhere sensible.**
+Older styles of javascript uses 'callbacks' which can result in confusing, highly nested code.
 
-2. **Visual Studio Code will ask you if you want to open the repository. Choose to do so.**
+In newer versions of javascript there are three language constructs which we will use to implement asynchronous code with promises: 
 
-You now have your GitHub repository cloned to the local machine and opened in Visual Studio Code. 
+__async__ functions.  If a function or method definition is prefaced with the work __async__ then the progam knows that the function will likely contain code that must return a result before the next line is executed.
 
-## Initialising the Project with `npm`
+__await__ keyword.  This keyword indicates that the value needs to be obtained before the next code is executed.  A 'Promise' is returned in the interim
 
-`npm` is more than just a package manager -- it can also manage our project for us, helping to launch our applications effectively. To do this, we can ask `npm` to initialise a project. **In the Visual Studio Code terminal run the following command:**
+Try typing the following lines into your browser's JS console:
 
-```shell
-npm init
+```js
+function hello() { return "Hello" };
+hello();
 ```
 
-This will now walk you through the process of setting up your project. **When prompted, enter the following**:
+But what if we turn this into an async function? Try the following:
 
-- `package name` -- just press return to accept the default `student-database`.
-- `version` -- enter whatever you want, although `0.0.2` is probably the most accurate.
-- `description` -- enter `Student database application written in JavaScript.`
-- `entry point` -- enter `main.js`.
-- `test command` -- just press return for now.
-- `git repository` -- press return to accept the default which will be your repository URL.
-- `keyword` -- enter `JavaScript, Node.js, Express.js, SQLite, Angular.js`
-- `author` -- enter your name.
-- `license` -- enter `Apache-2.0`,
-- Press return to accept the details.
-
-`npm` will have created a new file `package.json` which contains this information for us. **Open this file now in Visual Studio Code.** At about line 6 you should see the following code:
-
-```json
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+```js
+async function hello() { return "Hello" };
+hello();
 ```
+In the second version, a Promise is returned (in this case it is immediately fulfilled as the code does not take time to execute)
 
-**Modify `package.json` to also include a `start` script as follows:**
+Within an async function, the 'await' keyword will be found: 'await' can ONLY be used within functions with the async keyword, and can be called on any function that returns a promise.
 
-```json
-  "scripts": {
-    "start": "node main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-```
+Using _await_ tells your program to only continue once the Promise has been resolved.
 
-**Save updated `package.json` file.** We will now be able to start our application using `npm start`. This will become useful later.
+__.then()__ 
 
-**STOP, COMMIT** -- add the `package.json` file to your GitHub repository.
+If you need to make sure that your code calling an async function only executes when the fully 'resolved' value of the promise is returned, you can use a .then() block.
 
-### Installing Project Dependencies
-
-Let us now add our project dependencies. **Run the following in the Visual Studio Code terminal**:
-
-```shell
-npm install sqlite3
-npm install express
-```
-
-This will have updated your `package.json` file and created a `package-lock.json` file. **Commit these changes to your repository.**
-
-## Creating a Folder Structure
-
-We are now going to create our folder structure for our project. You can add files and folders in Visual Studio Code. The structure we want to have is:
-
-- application
-  - app.js
-- data
-  - data.js
-- static
-  - index.html
-  - index.js
-- .gitignore
-- LICENSE
-- main.js
-- package-lock.json
-- package.json
-- README.md
-
-We will look at each of these files in term shortly. **Commit these changes to GitHub.**
-
-## Adding the Database
-
-We will just use the database we have already created. **Copy `students.db` and `students.sql` to the `data` folder of your project.**
-
-### Updating `.gitignore`
-
-Our `.gitignore` file currently only works for Node.js files. We still need to tell Git to ignore our database file. To do this, **open `.gitignore` in Visual Studio Code and add `*.db` to the end.
-
-**STOP, COMMIT** -- we have now got ourselves back to the position we were in at the end of the last lab (more or less). **If you want to learn about how we can automate the version control of our database read the Git Hooks section next, otherwise skip over it. Warning -- it is an advanced topic.**
-
-### Git Hooks
-
-**WARNING** -- this is a slightly advanced topic, and isn't necessary to manage your database. You can just do it manually as described previously.
-
-We can ask Git to automate the dump, delete, recreate process for us using *Git Hooks.* A Git Hook is just code that is run before or after particular events occur in your repo, such as committing and merging.
-
-When you created a Git repository, Git created some hidden files to manage the repository. These are in a hidden `.git` folder within the root directory of your folder. Within this folder, there is a `hooks` folder which contains any hooks we have defined.
-
-Let us create a pre-commit hook. **In Windows, the easiest thing to do is open Git Bash from the start menu.** Linux and MacOS can do this from the standard terminal. **Change directory in the command prompt to your Git repository folder, and then run the following in the command prompt:**
-
-```shell
-nano .git/hooks/pre-commit
-```
-
-Enter the following into the file:
-
-```shell
-#!/bin/bash
-rm data/students.sql
-sqlite3 data/students.db .dump > data/students.sql
-git add data/students.sql
-```
-
-**Use CTRL-O to save the file, and then CTRL-X to exit.** We have now created a script that will do the following just before a commit is finalised:
-
-* Deletes any existing `students.sql` file.
-* Dumps `students.db` into `students.sql`.
-* Adds `students.sql` to the Git commit.
-
-As Git checks for differences, this will have no effect if the database has not been updated since the last commit.
-
-**Now run the following command**:
-
-```shell
-nano .git/hooks/post-merge
-```
-
-The contents for this file are:
-
-```shell
-#!/bin/bash
-rm data/students.db
-cat data/students.sql | sqlite3 data/students.db
-```
-
-**Use CTRL-O to save the file, then CTRL-X to exit.** We have created a script that will run after a merge (the end of a pull) that does the following:
-
-* Deletes the existing `students.db` file.
-* Creates a new `students.db` file from `students.sql`.
-
-**If you are on MacOS or Linux you will need to make these files executable.** This is done as follows:
-
-```shell
-chmod +x .git/hooks/pre-commit
-chmod +x .git/hooks/post-merge
-```
-
-**NOTE** -- these scripts are not shared in your repository. You will need to set them up on each machine you are working on for them to work effectively.
-
-## Our Basic Starting Application
-
-Let us put together our starting application. It is much the same as our last one.
-
-### `index.html`
-
-This will be the main home page of our website. At the moment, we will just use the existing `students.html` code given below.
+See the following example:
 
 ```html
-<!DOCTYPE html>
+
 <html>
-    <head>
-        <title>Student List</title>
-        <script src="index.js"></script>
-    </head>
-    <body onload="printStudents()">
-        <h2>Students</h2>
-        <div id="main"></div>
-    </body>
+<script>
+
+async function hello(mystring) {
+    var ret = await Promise.resolve('hello');
+    return mystring;
+}
+
+// The hello function is called, 
+// when its return value is ready, ie. the promise is resolved,
+// the function in the 'then' block is called
+// note that the return value can be used in the .then blocks
+
+hello('lisa').then(mystring => {alert(mystring)});
+
+</script>
 </html>
 ```
 
-> #### Why `index.html`?
->
-> `index.html` is the standard webpage your browser will look for. For example, if you go to www.google.com your browser will actually try to get www.google.com/index.html. Your web browser will just not tell you about it.
+Because getting data from a database is one of the more time consuming operations, we will use async functions and promises in our code to ensure that we have the values we need for certain code blocks, while still being able to execute non-dependent blocks of code.
 
-### `index.js`
 
-`index.js` will communicate with our web service. At the moment, it will just add `Hello World!` to the `main` `<div>`. We will do more later.
+Examples taken from : 
+[MDN article on callbacks and promises](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing)
 
-```javascript
-"use strict";
+## Your first database driven application
 
-function printStudents() {
-    var main = document.getElementById("main");
-    main.innerHTML = "Hello, world!";
-}
-```
+You will have built your environment from the Docker starter recipe which makes a lot of things simple for you!
 
-### `app.js`
+### Checklist 1:  Getting your environment running
 
-Our `app.js` file will manage our Express.js interface. At the moment, it will just return `Hello, world!` on the `/students` endpoint and serve the webpages in the `static` directory.
+* Can you run ```docker-compose up``` without error
+Can you access http://127.0.0.1:3000 without error and see the words 'hello world'?
+ * With your containers running, can you alter this block of test code in app/app.js, save, then reload the browser and see your changes? (HINT: watch the console)
 
-```javascript
-"use strict";
-
-// Import express library.
-const express = require("express");
-
-// Create express application.
-var app = express();
-
-// Add static files location
-app.use(express.static("static"));
-
-// Add /students endpoing
-app.get("/students", function(req, res) {
+```js
+app.get("/", function(req, res) {
     res.send("Hello world!");
 });
-
-// Start listening on port 3000
-app.listen(3000, function(err) {
-    if (err) {
-        return console.error(err.message);
-    }
-    console.log("Server started.");
-});
 ```
+ * Can you access phpmyadmin at http://127.0.0.1:8081 and log in using your credentials set in your .env file?
+ 
+### Checklist 2: Check your understanding
 
-### `data.js`
+  * __Visit the file services/db.js.  Note the following:__ 
+ 
+   1. we require the dotenv package which is able to read configuration from the .env file
+   2. We require the mysql2 package (which has some more advanced features that the mysql npm package, specifically the part that works with Promises) see: https://www.npmjs.com/package/mysql2
+   3. We use the mysql configuration to create a 'pool' of connections
+   4. A utility async function query() is supplied that will handle sending a query to the database and returning rows as the result. (This function is a wrapper around the Mysql2 provided execute function which itself provides useful utilities such as prepared statements and releasing a connection back to the pool).
+   
+```js
+// Utility function to query the database
+async function query(sql, params) {
+  const [rows, fields] = await pool.execute(sql, params);
 
-`data.js` will manage the connection to our database. At the moment, it will just connect to the database and do nothing else. The code is below:
-
-```javascript
-"use strict";
-
-// Import SQLite library.
-// Use verbose mode to give more detailed error outputs
-const sqlite3 = require("sqlite3").verbose();
-
-// Connect to the database.
-// Function is callback when connection completed.
-// err is any error message that occurs
-let db = new sqlite3.Database("students.db", function(err) {
-    // If an error, print it out.
-    if (err) {
-        return console.error(err.message);
-    }
-    console.log("Connected to students database.");
-});
-```
-
-### `main.js`
-
-`main.js` is our main code file. It's job will be to start our application and connect it to our database. However, at the moment, we are not connecting these together. We will just run the application and data layers independently, as follows:
-
-```javascript
-"use strict";
-
-// Include the app.js and data.js files.
-// This will run the code.
-const app = require("./application/app");
-const data = require("./data/data.js");
-```
-
-You should now be able to run your application. **Use `npm start` in the Visual Studio Code terminal and you should receive the following output:**
-
-```javascript
-> student-database@0.0.2 start /Users/kevin/Repositories/student-database
-> node main.js
-
-Server started.
-Connected to students database.
-```
-
-**Go to the following URLs to see if it works:**
-
-- `127.0.0.1:3000`
-- `127.0.0.1:3000\students`
-
-**Remember to commit and push your changes. This is your final reminder.**
-
-## Getting Started with Angular.js
-
-So far, we have spent a lot of time on the back-end (server-side) part of our application, using Node.js, Express.js and SQLite. Our front-end (client-side) webpage is a bit basic. We will now start using a front-end web framework -- Angular.js.
-
-> ### What is Angular.js?
->
-> Angular.js is a web framework supported by Google. It uses a technique called *model-view-controller* (which we will cover later in the module) to support development.
->
-> **WARNING** -- Angular.js is not Angular. Although strongly related, Angular uses Typescript (a superset of JavaScript) as a language. We are staying with JavaScript and using the Angular.js library instead.
-
-### Your First Angular.js Application
-
-Let us see what Angular.js can do. **Modify your `index.html` file to the following**:
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>AngularJS First Application</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
-    </head>
-    <body>
-        <h1>Sample Application</h1>
-        <div ng-app = "">
-            <p>Enter your Name: <input type="text" ng-model="name"></p>
-            <p>Hello <span ng-bind="name"></span>!</p>
-        </div>
-    </body>
-</html>
-```
-
-**Reload `127.0.0.1:3000` and you should be able to enter your name in the text box and immediately see it appear in the hello message.**
-
-OK, how does this work? Angular.js uses a model-view-controller. For the model part, we can name certain values and bind them to other areas. So, we have:
-
-- `<input type="text" ng-model="name">` means the data in the text box has been given the model ID `name`.
-- `<span ng-bind="name">` means we have created a `<span>` (just a part of text -- a span of characters) which contains the model data with ID `name`.
-- We then create a `<div>` with the property `ng-app` (we can just set it to `""`). This tells the Angular.js library where to look for certain Angular.js HTML elements.
-
-So we just tag parts of our HTML with Angular.js elements and it takes care of the rest. We have so far introduced the following:
-
-- `ng-app` used on a `<div>` to denote an Angular.js application section.
-- `ng-model` used to denote a value with an ID.
-- `ng-bind` used to bind a value of given ID.
-
-#### Now you try
-
-Extend this application so you have another text box for an age and display `You are <age> years old.`
-
-### Angular.js Controllers
-
-In a model-view-controller system, the controller is responsible for managing our model (the data). We can declare controllers in Angular.js and then use this controller to, for example, set some values. **Update `index.html` to the following**.
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>AngularJS Controller</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
-        <script src="index.js"></script>
-    </head>
-    <body>
-        <h2>AngularJS Sample Application</h2>
-        <div ng-app = "mainApp" ng-controller = "studentController">
-            <p>ID: {{ "{{ student.id "}}}} </p>
-            <p>Name: {{ "{{ student.name "}}}}</p>
-        </div>
-    </body>
-</html>
-```
-
-We have done four new things here:
-
-- We have included `index.js` again. We will use this for our JavaScript code.
-- We have given our `ng-app` a name -- `mainApp`. 
-- We have defined the `ng-controller` for the `mainApp` -- `studentController`. This we will declare in the `index.js` file.
-- We are using `{{ "{{ student.id "}}}}` and `{{ "{{ student.name "}}}}` to bind the values of `student` to these parts of our HTML file. This is equivalent to having `ng-bind`. Whatever the current values of `student.id` and `student.name` are will appear here.
-
-**Now update `index.js` to the following:**
-
-```javascript
-"use strict";
-
-// Definition of Student type
-class Student {
-    // ID of the student
-    id;
-    // Name of the student
-    name;
-
-    // Creates a new Student object
-    constructor(id, name) {
-        this.id = id;
-        this.name = name;
-    }
+  return rows;
 }
+```
+   
+  * __Visit the app.js file. Note the following__
+  
+   1. Note that we require the db.js file to set up the database connection
+   2. Check that each of the routes already defined work as expected. Make sure you understand every line of code.
+   3. Does the route http://127.0.0.1 work?  If not, can you work out why?  ( we will fix it in the next section )
+  
 
-// Get's the mainApp section of the HTML document
-var mainApp = angular.module("mainApp", []);
+### Checklist 3: Saving your code
 
-// Creates the controller for the main application.
-mainApp.controller("studentController", function($scope) {
-  	// Sets a new model value -- student.
-    $scope.student = new Student("001", "Kevin Chalmers");
+You should ensure that you have a git repository to save the code you develop today.
+
+1. When you open a terminal and type ```git status``` you should receive a message saying 'not a git repository'. If your directory is still connected to the docker-recipes directory, remove the .git directory.
+2. You should now follow the instructions in the page linked below to start a new respository and upload it to github
+
+[Github documentation - a new repository from existing files](https://docs.github.com/en/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line#adding-a-project-to-github-without-github-cli)
+
+3. Regularly commit and push your work during this lab
+
+
+### Getting started: Creating a database and testing your connection from your node.js app
+
+We won't be able to start writing code that uses the database until we have some data to work with.  
+
+
+1. Go to PhpMyadmin. Make sure there is a database created called 'test_database'. If there is not, create one, and add this to the .env file which should look something like this...
+
+```
+MYSQL_HOST=localhost
+MYSQL_USER=admin
+MYSQL_PASS=password
+MYSQL_ROOT_PASSWORD=pass1234
+MYSQL_DATABASE=test_database
+MYSQL_ROOT_USER=root
+DB_CONTAINER=db
+DB_PORT=3306
+```
+
+2. In phpmyadmin, create a table called test_table
+Populate it with some values by creating some columns (the structure tab)
+And adding some values (the insert tab)
+
+2. Now visit http://127.0.0.1:3000/db_test
+Do you see the values you inserted?
+
+3. Make sure you understand every line of code in the relevant part of app.js. Here is the code with a few extra annotations.
+
+```js
+// Create a route for testing the db
+app.get("/db_test", function(req, res) {
+
+    // Prepare an SQL query that will return all rows from the test_table
+    var sql = 'select * from test_table';
+    
+    // Use the db.query() function from services/db.js to send our query
+    // We need the result to proceed, but
+    // we are not inside an async function we cannot use await keyword here.
+    // So we use a .then() block to ensure that we wait until the 
+    // promise returned by the async function is resolved before we proceed
+    db.query(sql).then(results => {
+    
+        // Take a peek in the console
+        console.log(results);
+        
+        // Send to the web pate
+        res.send(results)
+    });
 });
 ```
 
-The `Student` class declaration is our simple one from before. The more interesting part is the second half of the code.
+### Adding some more data to the database
 
-We first get the `mainApp` by using `angular.module`. This will give us the `mainApp` object.
+Populate your database by adding the following data via SQL queries. You can do this in bulk straight into phpmyadmin. 
 
-Once we have the `mainApp` object, we define the `studentController` by calling the `mainApp.controller` method. The controller is just a function, taking one parameter -- `$scope`. **This is our key parameter as it defines what our `mainApp` can interact with to automate Angular.js sites.** For example, we define `$scope.student`. This is then seen as a model value `student` in our Angular.js HTML. Thus, in `index.html`, `{{ "{{ student.id "}}}}` is replaced with `001` and `{{ "{{ student.name "}}}}` is replaced with `Kevin Chalmers`. **Reload `127.0.0.1:3000` and you will see the new page.**
+  * Click onto test_database in the left sidebar
+  * Click SQL in the tabs along the top
+  * Paste the following into the SQL window and click 'go'
+  * You will see the tables and data being created
 
-#### Now you try
-
-Update `index.html` and `index.js` so a second student's details are also shown under the first student's details.
-
-### Responding to Events
-
-To end our initial introduction to Angular.js, let us look at how we can respond to events. This is much the same as we do in standard JavaScript and HTML, although we set Angular.js events rather than standard HTML ones. **Update `index.html` to the following:**
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>AngularJS Controller</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.js"></script>
-        <script src="index.js"></script>
-    </head>
-    <body>
-        <h2>AngularJS Sample Application</h2>
-        <div ng-app = "mainApp" ng-controller = "studentController">
-            <p>ID: {{ "{{ student.id "}}}}</p>
-            <p>Name: {{ "{{ student.name "}}}}</p>
-            <p><input type="button" value="Click Me!" ng-click="update()"></p>
-        </div>
-    </body>
-</html>
+```sql
+CREATE TABLE Modules (
+code VARCHAR(10) PRIMARY KEY,
+name VARCHAR(50) NOT NULL);
+INSERT INTO Modules VALUES('CMP020C101','Software Development 1');
+INSERT INTO Modules VALUES('CMP020C102','Computer Systems');
+INSERT INTO Modules VALUES('CMP020C103','Mathematics for Computer Science');
+INSERT INTO Modules VALUES('CMP020C104','Software Development 2');
+INSERT INTO Modules VALUES('CMP020C105','Computing and Society');
+INSERT INTO Modules VALUES('CMP020C106','Databases');
+INSERT INTO Modules VALUES('PHY020C101','Physics Skills and Techniques');
+INSERT INTO Modules VALUES('PHY020C102','Mathematics for Physics');
+INSERT INTO Modules VALUES('PHY020C103','Computation for Physics');
+INSERT INTO Modules VALUES('PHY020C106','Introduction to Astrophysics');
+CREATE TABLE Programmes (
+id VARCHAR(8) PRIMARY KEY,
+name VARCHAR(50));
+INSERT INTO Programmes VALUES('09UU0001','BSc Computer Science');
+INSERT INTO Programmes VALUES('09UU0002','BEng Software Engineering');
+INSERT INTO Programmes VALUES('09UU0003','BSc Physics');
+CREATE TABLE Programme_Modules(
+programme VARCHAR(8) NOT NULL,
+module VARCHAR(10) NOT NULL,
+FOREIGN KEY (programme) REFERENCES Programmes(id),
+FOREIGN KEY (module) REFERENCES Modules(code));
+INSERT INTO Programme_Modules VALUES('09UU0001','CMP020C101');
+INSERT INTO Programme_Modules VALUES('09UU0001','CMP020C102');
+INSERT INTO Programme_Modules VALUES('09UU0001','CMP020C103');
+INSERT INTO Programme_Modules VALUES('09UU0001','CMP020C104');
+INSERT INTO Programme_Modules VALUES('09UU0001','CMP020C105');
+INSERT INTO Programme_Modules VALUES('09UU0001','CMP020C106');
+INSERT INTO Programme_Modules VALUES('09UU0002','CMP020C101');
+INSERT INTO Programme_Modules VALUES('09UU0002','CMP020C102');
+INSERT INTO Programme_Modules VALUES('09UU0002','CMP020C103');
+INSERT INTO Programme_Modules VALUES('09UU0002','CMP020C104');
+INSERT INTO Programme_Modules VALUES('09UU0002','CMP020C105');
+INSERT INTO Programme_Modules VALUES('09UU0002','CMP020C106');
+INSERT INTO Programme_Modules VALUES('09UU0003','PHY020C101');
+INSERT INTO Programme_Modules VALUES('09UU0003','PHY020C102');
+INSERT INTO Programme_Modules VALUES('09UU0003','PHY020C103');
+INSERT INTO Programme_Modules VALUES('09UU0003','PHY020C106');
+CREATE TABLE Students(
+id INT PRIMARY KEY,
+name VARCHAR(50) NOT NULL);
+INSERT INTO Students VALUES(1,'Kevin Chalmers');
+INSERT INTO Students VALUES(2,'Lisa Haskel');
+INSERT INTO Students VALUES(3,'Arturo Araujo');
+INSERT INTO Students VALUES(4,'Sobhan Tehrani');
+INSERT INTO Students VALUES(100,'Oge Okonor');
+INSERT INTO Students VALUES(200,'Kimia Aksir');
+CREATE TABLE Student_Programme(
+id INT,
+programme VARCHAR(8),
+FOREIGN KEY (id) REFERENCES Students(id),
+FOREIGN KEY (programme) REFERENCES Programmes(id));
+INSERT INTO Student_Programme VALUES(1,'09UU0002');
+INSERT INTO Student_Programme VALUES(2,'09UU0001');
+INSERT INTO Student_Programme VALUES(3,'09UU0003');
+INSERT INTO Student_Programme VALUES(4,'09UU0001');
 ```
 
-The only difference here is that we have created a new button and set `ng-click` to `update()`. So, rather than set `onclick` we set `ng-click` for Angular.js. The `update()` function has to be declared within the `mainApp` scope. We do this in the `index.js`. **Update `index.js` to the following:**
+You should now see tables listed in test_database, populated with values
 
-```javascript
-"use strict";
+Finally, you are ready to build some database-driven web pages!!
 
-// Definition of Student type
-class Student {
-    // ID of the student
-    id;
-    // Name of the student
-    name;
 
-    // Creates a new Student object
-    constructor(id, name) {
-        this.id = id;
-        this.name = name;
-    }
-}
+### Beginning a database-driven app for students, programmes and modules
 
-// Get's the mainApp section of the HTML document
-var mainApp = angular.module("mainApp", []);
+You will now work through the following tasks.  The first set are worked through for you in the provided video. 
 
-// Creates the controller for the main application.
-mainApp.controller("studentController", function($scope) {
-  	// Sets a new model value -- student.
-    $scope.student = new Student("001", "Kevin Chalmers");
-    // Sets the update() function for the scope. Used by the button.
-    $scope.update = function() {
-        // Update the student value in the scope
-        $scope.student.id = "002";
-        $scope.student.name = "Lisa Haskel";
-    }
-});
-```
+#### Worked tasks
 
-The only addition here is we set `$scope.update` to equal to a `function` where we change the values of the `student` model value.
+1. Provide JSON output listing all students
+2. Provide an HTML formatted output listing all students in a table where each student is linked to a single-student page
+3. Create a single-student page which lists a student name, their programme and their modules
 
-**Reload `127.0.0.1:3000` and click the button to see the result.**
+See the screencast for the worked example:
+[Worked tasks screencast](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d52ae6e3-d16f-43d8-83bc-add100d52764)
 
-## So you want to know more
+#### Independent tasks
 
-We will be covering more Angular.js through the module, but if you want to get stuck in now there are a few resources that you will find useful:
+1. Provide a JSON output of all programmes
+2. Provide a HTML formatted output of all programmes in a table, where each programme is linked to a single-programme page
+3. Create a single-programme page showing the programme title and listing all modules for the programme
+4. Provide a JSON output of all modules
+5. Provide a HTML formatted output of all modules in a table, where each module is linked to a single-module page
+6. Provide a single-module page showing a module title, its programme and all the students for that module.
 
-- TutorialsTeacher -- https://www.tutorialsteacher.com/angularjs/angularjs-tutorials.
-- TutorialsPoint -- https://www.tutorialspoint.com/angularjs/index.htm
-- w3schools -- https://www.w3schools.com/angular/
 
-It is always a good idea to practice and develop your skills with other tutorials, and Angular.js is a useful technology to learn if web development interests you.
+### Considering best practices
 
-## Exercises
+The worked example here is messy but it is useful as it provides a simple solution that introduces the most important principles all in one place, but this is not professional standard code.
 
-1. Expand the current `index.html` and `index.js` files so that you have an array of `Student` and display them in a table. You should have at least five students.
-2. Now modify the table so that each cell is actually a text box displaying the current values of the `Student` array. **HINT** -- remember we used `ng-model` rather than `ng-bind` for the text box.
-3. Finally, add a button to each table row. When clicked, a button should reset the data in that row to its original setting.
+Next week we will 'refactor' this code to provide a cleaner solution.  Can you think of ways we can use the following to improve our code:
+
+ * Custom classes
+ * Async functions and the await keyword
+ * Separation of presentation and functionality (hint: we will use the Pug templating system to do this)
+  * Adherence to accepted coding standards
