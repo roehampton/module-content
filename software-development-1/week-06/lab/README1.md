@@ -5,18 +5,18 @@
 
 
 ```
-# Initialize data and total
-data = [2.71, 3.14, 1.41, 1.62] 
-total = 0
+    # Initialize data and total
+    data = [2.71, 3.14, 1.41, 1.62] 
+    total = 0
 
-# Total the values in data
-for value in data: 
+    # Total the values in data
+    for value in data: 
     total = total + value
     # Display the total
     print("The total is", total)
  ```  
    
-Explain in your own words how this loop works   
+ Explain in your own words how this loop works   
         
 2. We have seen that the *len* function can be used with the *range* function to make a collection of integers that includes all of the indices for a list. This is accomplished by passing the length of the list as the only argument to range. A subset of the indices can be constructed by providing a second argument to range. Make a program that demonstrates this by using a for loop to iterate through all of data’s indices, except the first, to identify the position of the largest element in data.
 
