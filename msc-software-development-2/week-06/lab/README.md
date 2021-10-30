@@ -8,13 +8,13 @@ https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=6f290a6b-ba94-4
 
 ## Understanding asynchronous javascript
 
-Before you embark on using node.js to connect to a database you need to understand the basics of an important feature of javascript - synchronous and asynchronous function calls.
+Before you embark on using node.js to connect to a database you need to understand the basics of an important feature of javascript - synchronous and asynchronous code.
 
-In most procedural code where you can be sure that your code will run in sequence, line by line. This can lead to frustration as tasks that take longer to run will delay other code from executing.
+In most procedural code, you can be sure that your code will run simply in sequence, proceeding line by line, with the next line being executed when the one before has finished executing. This leads to predictable results, but can also lead to frustration as tasks that take a long time may delay other code from executing.
 
-However, Javascript while is traditionally 'single-threaded', ie runs code line by line, also has the ability to run code asynchronously, ie with multiple tasks running at the same time. This makes javascript fast and therefore desirable for a web programming language.
+However, Javascript has the ability to run code asynchronously, ie with multiple tasks running at the same time. This makes javascript fast and therefore desirable for a web programming language.
 
-However, you now need to be careful how you write your code.  You need to be aware of which code has a dependency on values set in your program.  For example, there are times when you need the return value of a function in order to proceed with the next step in you program.  One such example of this is a call to a database.  The call can be relatively slow, but we need to tell our application to wait for the database result to continue with certain steps.  Meanwhile however, some other steps are not dependent on the result and may proceed.
+However, because of this, you need to be careful how you write your code.  You will need to be aware of dependencies on values set in your program, and ensure you write your code so that the values you need are definately complete.  For example, there are many times when you need the return value of a function in order to proceed with the next step in your program.  One such example of this is a call to a database.  A database call can be relatively slow, so we need to tell our application to wait for the database result before it continues with certain steps.  Meanwhile however, some other steps are not dependent on the result and may proceed synchonously, ie. while we are still waiting for the result of earlier operations. this substantially speeds up our programme.
 
 Study this article and its links for more information.
 
@@ -22,7 +22,7 @@ Study this article and its links for more information.
 
 ### Callbacks and Promises
 
-There are a number of different styles of writing asynchronous code which you may encounter.  We will use the most uptodate style which makes use of 'Promises'.
+There are a number of different styles of writing asynchronous code in Javascript which you may encounter.  We will use the most uptodate style which makes use of 'Promises'.
 
 _"Essentially, a Promise is an object that represents an intermediate state of an operation — in effect, a promise that a result of some kind will be returned at some point in the future. There is no guarantee of exactly when the operation will complete and the result will be returned, but there is a guarantee that when the result is available, or the promise fails, the code you provide will be executed in order to do something else with a successful result, or to gracefully handle a failure case."_
 
@@ -90,7 +90,7 @@ Examples taken from :
 
 ## Your first database driven application
 
-You will have built your environment from the Docker starter recipe which makes a lot of things simple for you!
+By following the steps in the [screencast](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=6f290a6b-ba94-4729-9632-adcf00ac336e), you will have built your environment from my Docker starter recipe which makes a lot of things simple for you!  You will also have the necessary libraries installed and some code that manages the connection to your database.
 
 ### Checklist 1:  Getting your environment running
 
