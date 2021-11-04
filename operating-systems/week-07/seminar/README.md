@@ -5,3 +5,4 @@
 - What is I/O management?
 - Differentiate between Programmed mode and Polling mode
 - Differentiate between interrupt mode and direct memory access?
+
