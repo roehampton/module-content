@@ -52,6 +52,8 @@ Approach developing this program over several weeks based on what you know. Do s
 
 ## Submission Requirements
 
+**Your code must be submitted in Moodle by the deadline provided.** The submission must be your own work. **If it is suspected that your submission is not your own work then your work will be referred for an academic misconduct investigation.**
+
 You are required to submit the following four files only:
 
 - The Linux kernel module source file.
@@ -59,3 +61,23 @@ You are required to submit the following four files only:
 - The client application source file.
 - A readme detailing the application and how it works, including any assumptions you have made during development.
 
+**All submissions must be demonstrated to the module tutor. If you fail to demonstrate your assessment it will result in a mark of zero.**
+
+## Marking Scheme
+
+The following rubric will be used:
+
+| **Criteria**                                                 | **Excellent**                                                | Good                                                         | **Satisfactory**                                             | **Unsatisfactory**                                           | **Not Attempted**                                            |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Solution** the completeness of the code to meet the specification given. | A running solution meeting all the specification.            | A running solution that meets the majority of the specification. | A running solution that only meets about 50% of the specifications. | A running solution but lacks much of the specification.      | Solution doesn’t run or does not meet the specifications defined. |
+| **Correctness** ability to create code that reliably produces correct answers or appropriate results. | Program produces correct answers or appropriate results for all inputs tested. | Program produces correct answers or appropriate results for the majority of inputs. | Program produces correct answers or appropriate results for about 50% of all inputs. | Program approaches correct answers or appropriate results for most inputs but can contain miscalculations. | Program does not produce correct answers or appropriate results for most inputs. |
+| **Logic** ability to use correct program structures appropriate to the problem domain. | Program logic is correct with no known boundary errors, and no redundant or contradictory conditions. | Program logic is correct contains minor boundary errors, redundant conditions, or contradictory conditions. | Program logic is mostly correct but contains some boundary error, redundant conditions, or contradictory condition. | Program logic is on the right track but shows no recognition of boundary conditions (such as < vs. <=). | Program contains some conditions that specify the opposite of what is required (less than vs. greater than), confuse Boolean AND/OR operators, or lead to infinite loops. |
+| **Robustness** ability of the program to handle unexpected input and error conditions correctly as evidenced via testing. | Program handles erroneous or unexpected input gracefully; action is taken without surprising the user. | Program handles almost all erroneous or unexpected input gracefully without surprising the user. | All obvious error conditions are checked for and appropriate action is taken. | Some obvious error conditions are checked for and some sort of action is taken. | Program often fails or fails completely. Boundary conditions are not tested for. |
+| **Error freedom** removal of all errors existing within the current program. | All errors removed such that the program will compile and run under all conditions. | All obvious errors are removed but there are some smaller issues not rectified. Program will compile and run. | Most obvious errors are removed but there are some. Program will compile and run. | Some obvious errors fixed (about 50%) but some still exist. Program will compile and run. | Program either fails to compile, or if it does then it fails to run or has serious errors when running. |
+| **Clarity** ability to format and document code for human consumption (Good Style) | Program contains appropriate documentation for all major functions, variables, or non-trivial algorithms. Formatting, indentation, and other white space aids readability. Readme is clear and describes program submission. | Program is mostly documented. Indentation and other formatting is appropriate. Readme documents how the program works. | Program contains some documentation on major functions, variables, or nontrivial algorithms. Indentation and other formatting is appropriate. Readme generally describes the submission. | Program contains some documentation (at least the student’s name and program’s purpose) but has occasionally misleading indentation. Readme is very brief. | Program contains no documentation, or grossly misleading indentation. No readme or an improper readme provided. |
+
+### Academic Misconduct
+
+All submissions will be processed through a code plagiarism tool. If signs of misconduct are found, all students involved will be contacted to discuss further steps. Please see here for information on academic integrity at the university <https://portal.roehampton.ac.uk/information/Pages/Academic-Integrity.aspx>.
+
+Our guiding principle is that academic integrity and honesty are fundamental to the academic work you produce at the University of Roehampton. You are expected to complete coursework which is your own and which is referenced appropriately. The university has in place measures to detect academic dishonesty in all its forms. If you are found to be cheating or attempting to gain an unfair advantage over other students in any way, this is considered academic misconduct and you will be penalised accordingly. Please don’t do it.
