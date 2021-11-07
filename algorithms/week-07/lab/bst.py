@@ -1,6 +1,6 @@
-''' Python
+``` Python
+#Adapted from 
 # Binary Search Tree operations in Python
-
 
 # Create a node
 class Node:
@@ -103,4 +103,5 @@ print("\nDelete 10")
 root = deleteNode(root, 10)
 print("Inorder traversal: ", end=' ')
 inorder(root)
-'''
+```
+
