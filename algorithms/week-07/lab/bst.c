@@ -1,6 +1,4 @@
-''' C
-  
-  
+``` C
 // Adapted from https://www.programiz.com/dsa/binary-search-tree   
 #include <stdio.h>
 #include <stdlib.h>
@@ -75,4 +73,5 @@ int main() {
   inorder(root);
 
 }
-'''
+```
+
