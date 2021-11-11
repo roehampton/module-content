@@ -1,385 +1,304 @@
-# Software Development 2 Lab 07 -- Docker
+# Software Development 2: Using MySQL with node.js
 
-## Getting Started with Docker
+(Note this is a repleat of week 6 lab)
 
-We will step away from JavaScript for a while to use Docker.  Docker will support our deployment to ensure we run in the same configuration wherever we execute our code.  This ensures we do not have conflicts between what works on our development machine and the deployment machine.
+## Prerequisites
 
-### Checking if Docker is Installed and Working
+Follow this screencast to get your development environment up and running:
 
-The simplest method to check if Docker is installed on your system is to open a terminal (or Powershell in Windows) and issue the following command:
+https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=6f290a6b-ba94-4729-9632-adcf00ac336e
 
-```shell
-docker --version
+## Understanding asynchronous javascript
+
+Before you embark on using node.js to connect to a database you need to understand the basics of an important feature of javascript - synchronous and asynchronous code.
+
+In most procedural code, you can be sure that your code will run simply in sequence, proceeding line by line, with the next line being executed when the one before has finished executing. This leads to predictable results, but can also lead to frustration as tasks that take a long time may delay other code from executing.
+
+However, Javascript has the ability to run code asynchronously, ie with multiple tasks running at the same time. This makes javascript fast and therefore desirable for a web programming language.
+
+However, because of this, you need to be careful how you write your code.  You will need to be aware of dependencies on values set in your program, and ensure you write your code so that the values you need are definately complete.  For example, there are many times when you need the return value of a function in order to proceed with the next step in your program.  One such example of this is a call to a database.  A database call can be relatively slow, so we need to tell our application to wait for the database result before it continues with certain steps.  Meanwhile however, some other steps are not dependent on the result and may proceed synchonously, ie. while we are still waiting for the result of earlier operations. this substantially speeds up our programme.
+
+Study this article and its links for more information.
+
+[MDN article on Asychronous javascript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous)
+
+### Callbacks and Promises
+
+There are a number of different styles of writing asynchronous code in Javascript which you may encounter.  We will use the most uptodate style which makes use of 'Promises'.
+
+_"Essentially, a Promise is an object that represents an intermediate state of an operation — in effect, a promise that a result of some kind will be returned at some point in the future. There is no guarantee of exactly when the operation will complete and the result will be returned, but there is a guarantee that when the result is available, or the promise fails, the code you provide will be executed in order to do something else with a successful result, or to gracefully handle a failure case."_
+
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises
+
+Older styles of javascript uses 'callbacks' which can result in confusing, highly nested code.
+
+In newer versions of javascript there are three language constructs which we will use to implement asynchronous code with promises: 
+
+__async__ functions.  If a function or method definition is prefaced with the work __async__ then the progam knows that the function will likely contain code that must return a result before the next line is executed.
+
+__await__ keyword.  This keyword indicates that the value needs to be obtained before the next code is executed.  A 'Promise' is returned in the interim
+
+Try typing the following lines into your browser's JS console:
+
+```js
+function hello() { return "Hello" };
+hello();
 ```
 
-If installed you will get a response as follows:
+But what if we turn this into an async function? Try the following:
 
-```shell
-Docker version 19.03.13, build 4484c46d9d
+```js
+async function hello() { return "Hello" };
+hello();
+```
+In the second version, a Promise is returned (in this case it is immediately fulfilled as the code does not take time to execute)
+
+Within an async function, the 'await' keyword will be found: 'await' can ONLY be used within functions with the async keyword, and can be called on any function that returns a promise.
+
+Using _await_ tells your program to only continue once the Promise has been resolved.
+
+__.then()__ 
+
+If you need to make sure that your code calling an async function only executes when the fully 'resolved' value of the promise is returned, you can use a .then() block.
+
+See the following example:
+
+```html
+
+<html>
+<script>
+
+async function hello(mystring) {
+    var ret = await Promise.resolve('hello');
+    return mystring;
+}
+
+// The hello function is called, 
+// when its return value is ready, ie. the promise is resolved,
+// the function in the 'then' block is called
+// note that the return value can be used in the .then blocks
+
+hello('lisa').then(mystring => {alert(mystring)});
+
+</script>
+</html>
 ```
 
-To check if Docker is working correctly use the following command:
+Because getting data from a database is one of the more time consuming operations, we will use async functions and promises in our code to ensure that we have the values we need for certain code blocks, while still being able to execute non-dependent blocks of code.
 
-```shell
-docker run hello-world
+
+Examples taken from : 
+[MDN article on callbacks and promises](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing)
+
+## Your first database driven application
+
+By following the steps in the [screencast](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=6f290a6b-ba94-4729-9632-adcf00ac336e), you will have built your environment from my Docker starter recipe which makes a lot of things simple for you!  You will also have the necessary libraries installed and some code that manages the connection to your database.
+
+### Checklist 1:  Getting your environment running
+
+* Can you run ```docker-compose up``` without error
+Can you access http://127.0.0.1:3000 without error and see the words 'hello world'?
+ * With your containers running, can you alter this block of test code in app/app.js, save, then reload the browser and see your changes? (HINT: watch the console)
+
+```js
+app.get("/", function(req, res) {
+    res.send("Hello world!");
+});
+```
+ * Can you access phpmyadmin at http://127.0.0.1:8081 and log in using your credentials set in your .env file?
+ 
+### Checklist 2: Check your understanding
+
+  * __Visit the file services/db.js.  Note the following:__ 
+ 
+   1. we require the dotenv package which is able to read configuration from the .env file
+   2. We require the mysql2 package (which has some more advanced features that the mysql npm package, specifically the part that works with Promises) see: https://www.npmjs.com/package/mysql2
+   3. We use the mysql configuration to create a 'pool' of connections
+   4. A utility async function query() is supplied that will handle sending a query to the database and returning rows as the result. (This function is a wrapper around the Mysql2 provided execute function which itself provides useful utilities such as prepared statements and releasing a connection back to the pool).
+   
+```js
+// Utility function to query the database
+async function query(sql, params) {
+  const [rows, fields] = await pool.execute(sql, params);
+
+  return rows;
+}
+```
+   
+  * __Visit the app.js file. Note the following__
+  
+   1. Note that we require the db.js file to set up the database connection
+   2. Check that each of the routes already defined work as expected. Make sure you understand every line of code.
+   3. Does the route http://127.0.0.1 work?  If not, can you work out why?  ( we will fix it in the next section )
+  
+
+### Checklist 3: Saving your code
+
+You should ensure that you have a git repository to save the code you develop today.
+
+1. When you open a terminal and type ```git status``` you should receive a message saying 'not a git repository'. If your directory is still connected to the docker-recipes directory, remove the .git directory.
+2. You should now follow the instructions in the page linked below to start a new respository and upload it to github
+
+[Github documentation - a new repository from existing files](https://docs.github.com/en/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line#adding-a-project-to-github-without-github-cli)
+
+3. Regularly commit and push your work during this lab
+
+
+### Getting started: Creating a database and testing your connection from your node.js app
+
+We won't be able to start writing code that uses the database until we have some data to work with.  
+
+
+1. Go to PhpMyadmin. Make sure there is a database created called 'test_database'. If there is not, create one, and add this to the .env file which should look something like this...
+
+```
+MYSQL_HOST=localhost
+MYSQL_USER=admin
+MYSQL_PASS=password
+MYSQL_ROOT_PASSWORD=pass1234
+MYSQL_DATABASE=test_database
+MYSQL_ROOT_USER=root
+DB_CONTAINER=db
+DB_PORT=3306
 ```
 
-If Docker is working correctly you should get the following output:
+2. In phpmyadmin, create a table called test_table
+Populate it with some values by creating some columns (the structure tab)
+And adding some values (the insert tab)
 
-```shell
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-0e03bdcc26d7: Pull complete
-Digest: sha256:1a523af650137b8accdaed439c17d684df61ee4d74feac151b5b337bd29e7eec
-Status: Downloaded newer image for hello-world:latest
+2. Now visit http://127.0.0.1:3000/db_test
+Do you see the values you inserted?
 
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
+3. Make sure you understand every line of code in the relevant part of app.js. Here is the code with a few extra annotations.
 
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-    (amd64)
- 3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
+```js
+// Create a route for testing the db
+app.get("/db_test", function(req, res) {
 
-To try something more ambitious, you can run an Ubuntu container with:
- $ docker run -it ubuntu bash
-
-Share images, automate workflows, and more with a free Docker ID:
- https://hub.docker.com/
-
-For more examples and ideas, visit:
- https://docs.docker.com/get-started/
+    // Prepare an SQL query that will return all rows from the test_table
+    var sql = 'select * from test_table';
+    
+    // Use the db.query() function from services/db.js to send our query
+    // We need the result to proceed, but
+    // we are not inside an async function we cannot use await keyword here.
+    // So we use a .then() block to ensure that we wait until the 
+    // promise returned by the async function is resolved before we proceed
+    db.query(sql).then(results => {
+    
+        // Take a peek in the console
+        console.log(results);
+        
+        // Send to the web pate
+        res.send(results)
+    });
+});
 ```
 
-The output explains what Docker actually did when you issued the command.  We will cover aspects of these steps in the following sections.
+### Adding some more data to the database
 
-If Docker is installed and working skip to [Basic Docker Usage](#basic-docker-usage).  If not, continue reading.
+Populate your database by adding the following data via SQL queries. You can do this in bulk straight into phpmyadmin. 
 
-#### Installing Docker
+  * Click onto test_database in the left sidebar
+  * Click SQL in the tabs along the top
+  * Paste the following into the SQL window and click 'go'
+  * You will see the tables and data being created
 
-Installing Docker on Linux is easy - you should find it in your package manager.  For example, with Ubuntu use:
-
-```shell
-sudo apt install docker
+```sql
+CREATE TABLE Modules (
+code VARCHAR(10) PRIMARY KEY,
+name VARCHAR(50) NOT NULL);
+INSERT INTO Modules VALUES('CMP020C101','Software Development 1');
+INSERT INTO Modules VALUES('CMP020C102','Computer Systems');
+INSERT INTO Modules VALUES('CMP020C103','Mathematics for Computer Science');
+INSERT INTO Modules VALUES('CMP020C104','Software Development 2');
+INSERT INTO Modules VALUES('CMP020C105','Computing and Society');
+INSERT INTO Modules VALUES('CMP020C106','Databases');
+INSERT INTO Modules VALUES('PHY020C101','Physics Skills and Techniques');
+INSERT INTO Modules VALUES('PHY020C102','Mathematics for Physics');
+INSERT INTO Modules VALUES('PHY020C103','Computation for Physics');
+INSERT INTO Modules VALUES('PHY020C106','Introduction to Astrophysics');
+CREATE TABLE Programmes (
+id VARCHAR(8) PRIMARY KEY,
+name VARCHAR(50));
+INSERT INTO Programmes VALUES('09UU0001','BSc Computer Science');
+INSERT INTO Programmes VALUES('09UU0002','BEng Software Engineering');
+INSERT INTO Programmes VALUES('09UU0003','BSc Physics');
+CREATE TABLE Programme_Modules(
+programme VARCHAR(8) NOT NULL,
+module VARCHAR(10) NOT NULL,
+FOREIGN KEY (programme) REFERENCES Programmes(id),
+FOREIGN KEY (module) REFERENCES Modules(code));
+INSERT INTO Programme_Modules VALUES('09UU0001','CMP020C101');
+INSERT INTO Programme_Modules VALUES('09UU0001','CMP020C102');
+INSERT INTO Programme_Modules VALUES('09UU0001','CMP020C103');
+INSERT INTO Programme_Modules VALUES('09UU0001','CMP020C104');
+INSERT INTO Programme_Modules VALUES('09UU0001','CMP020C105');
+INSERT INTO Programme_Modules VALUES('09UU0001','CMP020C106');
+INSERT INTO Programme_Modules VALUES('09UU0002','CMP020C101');
+INSERT INTO Programme_Modules VALUES('09UU0002','CMP020C102');
+INSERT INTO Programme_Modules VALUES('09UU0002','CMP020C103');
+INSERT INTO Programme_Modules VALUES('09UU0002','CMP020C104');
+INSERT INTO Programme_Modules VALUES('09UU0002','CMP020C105');
+INSERT INTO Programme_Modules VALUES('09UU0002','CMP020C106');
+INSERT INTO Programme_Modules VALUES('09UU0003','PHY020C101');
+INSERT INTO Programme_Modules VALUES('09UU0003','PHY020C102');
+INSERT INTO Programme_Modules VALUES('09UU0003','PHY020C103');
+INSERT INTO Programme_Modules VALUES('09UU0003','PHY020C106');
+CREATE TABLE Students(
+id INT PRIMARY KEY,
+name VARCHAR(50) NOT NULL);
+INSERT INTO Students VALUES(1,'Kevin Chalmers');
+INSERT INTO Students VALUES(2,'Lisa Haskel');
+INSERT INTO Students VALUES(3,'Arturo Araujo');
+INSERT INTO Students VALUES(4,'Sobhan Tehrani');
+INSERT INTO Students VALUES(100,'Oge Okonor');
+INSERT INTO Students VALUES(200,'Kimia Aksir');
+CREATE TABLE Student_Programme(
+id INT,
+programme VARCHAR(8),
+FOREIGN KEY (id) REFERENCES Students(id),
+FOREIGN KEY (programme) REFERENCES Programmes(id));
+INSERT INTO Student_Programme VALUES(1,'09UU0002');
+INSERT INTO Student_Programme VALUES(2,'09UU0001');
+INSERT INTO Student_Programme VALUES(3,'09UU0003');
+INSERT INTO Student_Programme VALUES(4,'09UU0001');
 ```
 
-For Windows, use the installation instructions found [here](https://docs.docker.com/docker-for-windows/install-windows-home/) if you have Windows 10 Home (most likely) or [here](https://docs.docker.com/docker-for-windows/install/) if you have Windows 10 Professional.  For MacOS, the install instructions are [here](https://docs.docker.com/docker-for-mac/install/).  **Ensure that the Docker service has started**.  See the relevant instructions.  On some systems, Docker is not running at the start.
+You should now see tables listed in test_database, populated with values
 
-To test that Docker has been installed correctly, run the following command from the shell:
+Finally, you are ready to build some database-driven web pages!!
 
-```shell
-docker run hello-world
-```
 
-Which should produce output similar to:
+### Beginning a database-driven app for students, programmes and modules
 
-```shell
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-0e03bdcc26d7: Pull complete
-Digest: sha256:1a523af650137b8accdaed439c17d684df61ee4d74feac151b5b337bd29e7eec
-Status: Downloaded newer image for hello-world:latest
+You will now work through the following tasks.  The first set are worked through for you in the provided video. 
 
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-```
+#### Worked tasks
 
-### Basic Docker Usage
+1. Provide JSON output listing all students
+2. Provide an HTML formatted output listing all students in a table where each student is linked to a single-student page
+3. Create a single-student page which lists a student name, their programme and their modules
 
-Docker works by providing application containers.  Several container images already exist for our use: go to [Docker Hub](https://hub.docker.com/) and search to see the available options.  This means we can launch applications easily via Docker, including infrastructure services like web servers and databases.
+See the screencast for the worked example:
+[Worked tasks screencast](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d52ae6e3-d16f-43d8-83bc-add100d52764)
 
-#### Pulling Docker Images
+#### Independent tasks
 
-To get started, let us pull a web server.  Nginx is a common lightweight web server that will illustrate the basic steps.  First, we must `pull` a Docker image from the server to our local repository (machine):
+1. Provide a JSON output of all programmes
+2. Provide a HTML formatted output of all programmes in a table, where each programme is linked to a single-programme page
+3. Create a single-programme page showing the programme title and listing all modules for the programme
+4. Provide a JSON output of all modules
+5. Provide a HTML formatted output of all modules in a table, where each module is linked to a single-module page
+6. Provide a single-module page showing a module title, its programme and all the students for that module.
 
-```shell
-docker pull nginx
-```
 
-This will pull the `nginx` image, which allows us to instantiate (run) it locally as a container.  We can also specify which version of Nginx we want by adding a *tag*:
+### Considering best practices
 
-```shell
-docker pull nginx:latest
-```
+The worked example here is messy but it is useful as it provides a simple solution that introduces the most important principles all in one place, but this is not professional standard code.
 
-This will pull the latest Nginx version image, which is the default behaviour of `pull`.  See the Nginx image page on [Docker Hub](https://hub.docker.com/_/nginx/) for more details.
+Next week we will 'refactor' this code to provide a cleaner solution.  Can you think of ways we can use the following to improve our code:
 
-#### Starting Docker Containers
-
-Once we have an image in our local repository, we can start it as a container.  To do this we use the `run` command:
-
-```shell
-docker run nginx
-```
-
-You will notice that nothing happened, and the command line is waiting.  Using `run` in this way is not recommended.  Press **Ctrl-C** to stop the running container.
-
-Docker containers should be started as detached processes.  We do this using the `-d` flag.  Furthermore, for Nginx we need to open up a port for the web server.  We do this using the `-p` flag.  Let us try again and use these new flags:
-
-```shell
-docker run -d -p 8080:80 nginx
-```
-
-We have run the Nginx server as a detached container, and mapped the local machine's port 8080 to the port 80 of the Nginx web server.  If you don't know, port 80 is the default port a web server operates on.  When you issue this command you will get a hash code value out.  Mine was:
-
-```shell
-c147e0b0386f50bc62c39ddeb422633aae6104093f28aa1bfc98fc18243c860b
-```
-
-But is a web server running?  We can test that by opening up a web browser and going to `localhost:8080` or `127.0.0.1:8080`.
-
-![Nginx Running](nginx-running.png)
-
-If you see the Nginx welcome screen congratulations!  You are up and running with your first container.
-
-#### Stopping Containers
-
-It is easy to forget which containers are running on your system.  To check, use the following command:
-
-```shell
-docker ps
-```
-
-You will get an output similar to the following:
-
-```shell
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
-c147e0b0386f        nginx               "nginx -g 'daemon of…"   14 minutes ago      Up 14 minutes       0.0.0.0:8080->80/tcp   thirsty_pasteur
-```
-
-There is quite a bit of information here, but what we are interested in is the `CONTAINER ID` (`c147e0b0386f`) and the `NAMES` (`thirsty_pasteur`).  Either of these identifiers we can use to stop the container.  We do so with the `stop` command:
-
-```shell
-docker stop c147e0b0386f
-```
-
-Executing `docker ps` again will now provide empty output:
-
-```shell
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS
-```
-
-And you can test that the web server is stopped by going to `localhost:8080` although you might have to hit refresh to ensure the cached version is not used.
-
-#### Removing Containers
-
-Although the container has stopped it has not been removed from your system.  To list containers on the local system run `ps` with the `-a` flag:
-
-```shell
-docker ps -a
-```
-
-You will get output similar to the following:
-
-```shell
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
-c147e0b0386f        nginx               "nginx -g 'daemon of…"   28 minutes ago      Exited (0) 2 seconds ago                        thirsty_pasteur
-08b4881360f1        nginx               "nginx -g 'daemon of…"   28 minutes ago      Exited (0) 28 minutes ago                       hopeful_johnson
-ce91ec7aa627        hello-world         "/hello"                 38 minutes ago      Exited (0) 38 minutes ago                       modest_mestorf
-```
-
-These are the three containers we have started so far: two `nginx` (one detached, one not) and `hello-world`.  To remove a container we use the `rm` command:
-
-```shell
-docker rm modest_mestorf
-```
-
-If you want a container to be automatically removed when stopped, we can use the `--rm` flag when starting a container:
-
-```shell
-docker run -d --rm -p 8080:80 nginx
-```
-
-When `stop` is called on this container it will be automatically removed from the local system.
-
-#### Docker Commands Covered
-
-Below are the Docker commands we have covered so far.
-
-| Docker Command                                | Description                                                  |
-| --------------------------------------------- | ------------------------------------------------------------ |
-| `docker pull <name>`                          | *Pulls the named Docker image from the server to the local repository allowing it to be instantiated.* |
-| `docker run <name>`                           | *Starts running an instance of the image `name` as a container.* |
-| `docker run -d <name>`                        | *Starts running an instance of the image `name` as a detached container.* |
-| `docker run -d -p <local>:<container> <name>` | *Starts a container, mapping the local port `local` to the container port `container`*. |
-| `docker run -d --rm <name>`                   | *Starts running an instance of `name` which will be automatically removed when the container is stopped.* |
-| `docker ps`                                   | *Lists running containers.*                                  |
-| `docker ps -a`                                | *Lists all containers.*                                      |
-| `docker stop <id>`                            | *Stops the container with the given `id` which is the `CONTAINER ID` or `NAME`.* |
-| `docker rm <id>`                              | *Removes a container from the local system.*                 |
-
-### Writing Dockerfiles
-
-Our aim with Docker is to run our applications within containers.  To do this, we need to create our own Docker images, which we do by writing a **Dockerfile**.  A Dockerfile specifies the set-up for a image which we can create containers from, and the syntax is simple.  Writing Dockerfiles falls into *infrastructure as code* since we can define our execution infrastructure in code files (Dockerfiles).
-
-To start, create a new folder called `test-dockerfile` in the file-system (**not** in your current repository) and open the terminal (Powershell, command prompt) in that folder.  Now create a file called `Dockerfile` and use the following:
-
-```docker
-FROM ubuntu:latest
-CMD ["echo", "'It worked!'"]
-```
-
-We have defined two items for our Docker image:
-
-1. It uses the latest Ubuntu image as its parent (base).  This is the `FROM` statement.
-2. It executes `echo 'It worked!'` whenever the container is started.  This is the `CMD` statement.
-
-To build our image we use the following (from the directory that `Dockerfile` is saved):
-
-```shell
-docker build -t test-dockerfile .
-```
-
-The command tells docker to *build* an image (`build`), with the name `test-dockerfile` (`-t` means we are providing a name), and to use the current directory (`.`).  So the command format is:
-
-```shell
-docker build -t <name> <folder>
-```
-
-When executed you will get the following output:
-
-```shell
-[+] Building 0.2s (5/5) FINISHED
- => [internal] load build definition from Dockerfile  0.0s
- => => transferring dockerfile: 91B                   0.0s
- => [internal] load .dockerignore                     0.0s
- => => transferring context: 2B                       0.0s
- => [internal] load metadata for docker.io/library/u  0.0s
- => [1/1] FROM docker.io/library/ubuntu:latest        0.1s
- => => resolve docker.io/library/ubuntu:latest        0.0s
- => exporting to image                                0.0s
- => => exporting layers                               0.0s
- => => writing image sha256:cb80098a871d1974cb4faf42  0.0s
- => => naming to docker.io/library/test-dockerfile    0.0s
-```
-
-OK, let us run an instance of our image.
-
-```shell
-docker run --rm test-dockerfile
-```
-
-And you should have the received the following output:
-
-```shell
-It worked!
-```
-
-If so, congratulations!  You have created and run your first personal Docker image.  We will look at further Dockerfile commands as we need them.  Let us get back to Visual Studio Code.
-
-## Docker in Visual Studio Code
-
-Thankfully, there is a Docker extension for Visual Studio Code.  To install, **Extensions tab by clicking the Extensions button on the left-hand side of the Visual Studio Code window.**
-
-![image-20210103184815286](image-20210103184815286.png)
-
-**Enter Docker to search for the Docker extension, and then Click Install.**
-
-![image-20210103185027153](image-20210103185027153.png)
-
-You will notice that a new button has appeared on the left-hand side. This is the Docker tab. **Click on the Docker button now to open the Docker panel.**
-
-![image-20210103185312328](image-20210103185312328.png)
-
-Here you can see a list of containers and images that are available in Docker. At the moment this should be almost empty if not empty. But we have now
-
-## Deploying Our Application to Docker in Visual Studio
-
-We are almost there.  It has been a long process to get to this stage, and it may seem we have not done any software development, which we haven't.  We have setup many processes which means our software development task will be easier.  Trust me!  The process might have been long in this lab but we have made our lives substantially easier in the future.  Let us finish our process by deploying our application to a Docker image and running it.
-
-To finish our process we need to create a Dockerfile in Visual Studio Code for our current project.  **Add a new file called `Dockerfile` to your project in the root directory of your repository.**
-
-```dockerfile
-# Base image to use
-FROM node:latest
-
-# Create application directory
-WORKDIR /usr/src/app
-
-# Install application dependencies
-# Copy across project configuration information
-COPY package*.json ./
-
-# Ask npm to install the dependencies
-RUN npm install
-
-# Copy across all our files
-COPY . .
-
-# Expose our application port (3000)
-EXPOSE 3000
-
-# On start, run the application using npm
-ENTRYPOINT ["npm", "start"]
-```
-
-We are using a few new directives here:
-
-1. We now use the `node` image as our base image since we are building a Node.js application.
-2. `WORKDIR` states where we want Docker to execute programs from in the container - the *working directory*.  This is `/usr/src/app`.
-3. `COPY` will copy a file or folder from the source on the local machine to the destination in the Docker image.  First, we copy the `package.json` files. This is so we can install the package dependencies.
-4. `RUN` will run a command during the image building process. So, we are asking Docker to run `npm install` during image creation. `npm install` looks at the `package.json` files and installs any packages that are required -- in our case `express` and `sqlite3`.
-5. Next we copy all the files to the working directory (`COPY . .`). We actually don't want all files so we will tell Docker which files to ignore.
-6. `EXPOSE` opens a port of the container. Containers by default cannot open ports themselves and we have to expose them during image creation. As our application uses port 3000 we have to expose it.
-7. `ENTRYPOINT` tells Docker what to execute when the container is created.  That is, run `npm start` which will run our application.
-
-**Now add a new file `.dockerignore` with the following contents:**
-
-```shell
-.git
-node_modules
-npm-debug.log
-```
-
-This tells Docker to ignore these files and folders. We don't need Docker to copy our `.git` folder of the `node_modules` folder. `nom-debug.log` can be generated during debugging so we'll just add it now.
-
-OK, moment of truth. **In Visual Studio Code's terminal enter the following to build your image:**
-
-```shell
-docker build -t studentdatabase .
-```
-
-**And then we can run your application using the following in the terminal:**
-
-```shell
-docker run -d --rm -p 5000:3000 studentdatabase
-```
-
-This will run your application in Docker which you can visit at `127.0.0.1:5000` (as we are redirecting local port 5000 to container port 3000). **Make sure it works and if not retrace your steps and make sure your Dockerfile is correct and that your application works normally.**
-
-**Now add the Dockerfile to our Git repository and push to GitHub.**
-
-And you are done.  A lot of work just to run your application again but we are in a good position to carry on in the next lab.  And just one final check for those of you who are interested.  Our created image exists in our local repository.  You can check this by using the `docker images` command:
-
-```shell
-docker images
-```
-
-You will get an output as follows:
-
-```shell
-REPOSITORY                                             TAG       IMAGE ID       CREATED          SIZE
-studentdatabase                                        latest    485f8ba3c92a   15 minutes ago   959MB
-nginx                                                  latest    ae2feff98a0c   2 weeks ago      133MB
-vsc-computersystems-a94657a644b8b60e02417e4836ae85c0   latest    ccdd54b1126c   6 weeks ago      601MB
-<none>                                                 <none>    dc0294214b52   6 weeks ago      131MB
-mysql                                                  latest    8e85dd5c3255   2 months ago     544MB
-test-dockerfile                                        latest    cb80098a871d   3 months ago     72.9MB
-ubuntu                                                 latest    9140108b62dc   3 months ago     72.9MB
-hello-world                                            latest    bf756fb1ae65   12 months ago    13.3kB
-```
-
-The top image is the one IntelliJ just created.  We can create a new instance by using the `IMAGE ID`.  For example, if I run:
-
-```shell
-docker run --rm 485f8ba3c92a
-```
-
-The application will run again. 
-
-We can share this image on Dockerhub (or via private Docker repositories) so others can run our application easily. You have effectively created your first application that someone else can easily run on their computer without installing a collection of programming tools.
-
+ * Custom classes
+ * Async functions and the await keyword
+ * Separation of presentation and functionality (hint: we will use the Pug templating system to do this)
+  * Adherence to accepted coding standards
