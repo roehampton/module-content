@@ -1,5 +1,3 @@
-Quicksort Python to sort words
-```Python
 def partition(arr, low, high):
     i = (low-1)         # index of smaller element
     pivot = arr[high]     # pivot
@@ -28,4 +26,3 @@ print('Unsorted: ',arr)
 n = len(arr)
 quickSort(arr, 0, n-1)
 print('Sorted',arr)
-```
