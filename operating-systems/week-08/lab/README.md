@@ -1,4 +1,4 @@
-# Operating Systems Lab 09 -- Kernel Module Programming 3: Character Device Drivers
+# Operating Systems Lab 08 -- Kernel Module Programming 3: Character Device Drivers
 
 <script src="https://cdn.jsdelivr.net/npm/code-line"></script>
 <script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
