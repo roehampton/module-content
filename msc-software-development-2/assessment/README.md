@@ -114,16 +114,17 @@ Submission requirements for this Sprint:
 
 #### Review: 6 December
 
-The aim of this Sprint is to have a working prototype of your application, with good progress in the technical deliverables of the project.
+The aim of this Sprint is to have a working prototype of your application, showing good progress in the technical deliverables of the project, and providing a proof of concept for your idea.
 
-Submission requirements for this Sprint:
+##### Submission requirements for this Sprint:
 
 - Updated task board of user stories showing progress in the technical deliverables.
+- Github repository showing work from all members of the team
 - Implementation progress towards final version of application:
-  - Integration with a database
-  - Access to data using URLs (RESTful)
-  - Application can be deployed as Docker container.
-  - GitHub repository practice.
+  - Database design
+  - Database implementation with pre-filled data
+  - HTML pages available generated from PUG, perhaps with some static content
+  - At least some dynamic content being pulled from your database to your templates via Pug - concentrate on views of your data and don't worry about adding/updating for now.
 
 ### Sprint 4
 
@@ -131,10 +132,10 @@ Submission requirements for this Sprint:
 
 The aim of this Sprint is to deliver the final version of your application. The final version of your application will be pulled automatically from GitHub. The final submission will be assessed based on the following criteria.
 
-- Overall application quality.
+- Overall application quality and success at meeting the aims set out during the design process
 - Metrics from GitHub. Also used to assess individual contribution.
-- Code quality including comments.
-- Application containerised with Docker.
+- Code quality including comments and the use of OOP and MVC design techniques
+- Application deployable using a docker-compose file, data can be provided separately
 - Final version of the task board and project requirements met.
 
 ### Individual Reflection
@@ -173,8 +174,8 @@ A four page report reflecting on the overall project, including your own contrib
 | **User story tracking** suitable documentation and tracking of user stories using a suitable task board. | All user stories are on task board, with suitable tracking of story progress including assignment of tasks to individuals. | Most user stories are on task board, and generally tracking of progress is being undertaken but some gaps in areas, for example assignment of people. | User stories are not clearly tracked in all instances, and detail is missing in areas, such as the assignment of people to stories. | User stories are not tracked, or the level of tracking is very limited. |
 | **Technical progress** the degree of progress the team has made in the delivery of their technical requirements. | Excellent progress made towards delivering a final version of the product based on the current project and capabilities of the team. | Team has made satisfactory progress towards delivering their final product version based on the current project and capabilities of the team. | Team has not made satisfactory progress towards delivering their final product version based on the current project and capabilities of the team. | No progress made, or progress is minimal at best.            |
 | **Database integration** the completeness of the database implementation and integration into the application. | Database has been fully designed and implemented to support the project. All necessary data for the project has been entered. | Database has been fully designed and implemented to support the project. Only minimal data added at this point. | Database is not yet fully designed and implemented. Therefore, only minimal data is available. | Database has not been designed and implemented, or has very minimal design and implementation. |
-| **RESTful interfaces** the completeness of the RESTful interfaces implemented to support the project. | RESTful endpoints fully defined and implemented using an appropriate library. All endpoints return correct data from the database. | RESTful endpoints fully defined and implemented using an appropriate library. Endpoints don't all return correct data from the database. | Not all RESTful endpoints fully defined and implemented. Endpoints don't return correct data from database. | No RESTful endpoints defined, or very minimal set produced with no connection to the database. |
-| **Docker deployment** the completeness of the Docker configuration to run the necessary application. | Dockerfile defined that incorporates all the necessary components. package.json file fully defines how to install and run the application. | Dockerfile defined that incorporates most of the necessary components. package.json file exists but does not include everything to fully install and run the application. | Basic Dockerfile defined. package.json exists but does not include everything to fully install and run the application. | No Dockerfile defined. package.json not defined or is just the basic initial one. |
+| **Template development** the progress of the templates and understanding of how they integrate with the backend| Templates for all features developed and dynamic data pulling through| Some templates developed with some dynamic data correctly pulling through | Not all templates fully defined and implemented. Templates don't show correct data from database. | No templates defined, or very minimal set produced with no connection to the database. |
+| **OOP and design patterns** the progress of developing models and controllers to that use well-designed, mostly object orientated code| All features implemented using well designed MVC style code and an excellent understanding of OOP shown | Most code is MVC developed using some OOP | The application works, but MVC and OOP are not used | No code has been produced that mediates between the database and the templates |
 | **GitHub repository practice** evidence of team collaboration and good practice in GitHub. | Obvious evidence that the team is collaborating well, everyone is committing to the project, and commits are frequent and small. | Evidence that the team is collaborating, and in general everyone is committing to the project. Commits are not always frequent and small. | Some evidence of the team collaborating. Not as clear that the whole team is committing to the project. Commit practice needs work. | No or little evidence of the team collaborating. Team is not using GitHub universally. Commit practice is non-existent or poor. |
 | **Team collaboration** the evidence of the team functioning and working collaboratively to complete the work defined. | Clear evidence that the team is working collaboratively on the project as evidenced in the deliverables, the task board and GitHub repository. | Evidence that the team is generally working collaboratively although the task board and GitHub repository indicate that there are some inconsistencies between team members work. | Evidence provided doesn't indicate that the team is collaborating very effectively to deliver the project. | No evidence indicating that the team is working together, or the level of collaboration is insufficient to support successful project delivery. |
 
