@@ -177,6 +177,8 @@ __Using the same way of working, you can build models for Programmes and Modules
 
 Here is the class diagram for this example.
 
+![image](./full-class-diagram.png)
+
 Test yourself by 
 
 1. Creating a Programme class 
