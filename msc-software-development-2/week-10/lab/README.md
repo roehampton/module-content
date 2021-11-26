@@ -80,7 +80,8 @@ AFTER name
 You need to go into the student.pug template and add the HTML form.  
 Add the following to the bottom of the students.pug template
 
-``` h2 Add a note about this student
+``` 
+h2 Add a note about this student
     form(action='/add-note', method='POST')
         input(type='hidden' name='id' value=student.id)
         textarea(name='note' rows=6 cols=50)
