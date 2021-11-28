@@ -9,7 +9,8 @@ In this lab we will explore:
 
 
 ## Lesson 1: Recursion
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=74469649-369b-457e-901b-ac7900c7ea65
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=74469649-369b-457e-901b-ac7900c7ea65]
+(https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=74469649-369b-457e-901b-ac7900c7ea65)
 
 
 We have explored many aspects of functions and we have seen that you can call a function from within a function.
@@ -86,7 +87,8 @@ Is there a way to capture the essence of this calculation we are constantly repe
 
 
 ## Lesson 2: Recursive Functions in Python
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e4424dce-2529-4143-96ed-ac7900c7ead5
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e4424dce-2529-4143-96ed-ac7900c7ead5]
+(https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e4424dce-2529-4143-96ed-ac7900c7ead5)
 
 
 Looking at the calculation of _5!_, you will notice something interesting: it divides into subproblems that are just smaller versions of the original. If we remove the 5 from the front, what remains is a calculation of _4!_ . 
@@ -141,7 +143,8 @@ The takeaway is that a recursive function is one that calls itself. The function
 
 
 ## Lesson 3: Handling Errors and Exceptions
-Video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=a9f46841-85f3-488f-aae9-ac7900c7ea9a
+Video: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=a9f46841-85f3-488f-aae9-ac7900c7ea9a]
+(https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=a9f46841-85f3-488f-aae9-ac7900c7ea9a)
 
 
 Right now, getting an error, or _exception_, in your Python program means the entire program will crash. You don&#39;t want this to happen in real-world programs. Instead, you want the program to detect errors, handle them, and then continue to run.
