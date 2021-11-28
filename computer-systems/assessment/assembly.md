@@ -4,7 +4,7 @@ Part 1 of the coursework is worth 40% of the total coursework mark.
 
 Part 1 of the coursework focuses on assembly programming. This coursework meets the module learning outcome *Write assembly code segments.* You will submit an assembly code file to complete this coursework.
 
-The aim of this coursework is for you to write an assembly program using `NASM` that outputs the timetables from 1 to 13. The output should be:
+## Question 1: write an assembly program using `NASM` that outputs the timetables from 1 to 13. The output should be:
 
 ```
      1   2   3   4   5   6   7   8   9  10  11  12  13
@@ -27,6 +27,8 @@ Code requirements:
 
 - **Your assembly code must calculate each timetable value.** That is, to output the value of 10 * 7 your program must undertake that calculation. **Simply printing a stored string of results will provide a mark of 0.**
 - **Your assembly code must use `nam` as an assembler. Not doing so will result in a mark of 0.**
+
+## Question 2: Write a program that can check if a number is divisible by 2 and 8. The program should print numbers in a loop. Remember to draw a flowchart or state machine representation of your program.
 
 ## Submission Requirements
 
