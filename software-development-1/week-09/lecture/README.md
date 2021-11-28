@@ -55,7 +55,7 @@ We can implement a program to compute factorials using a simple loop that accumu
 
 
 Obviously, the tricky part here is in the second step.
- To compute the factorial we can decompose the process: To calculate **the factorial of 5, or 5!,** we first multiply (4) = 20. Then we take that result and do another multiplication: 20(3) = 60. This result is multiplied by 2: 6(2) = 120. Finally, we multiply this result by 1: 120(1) = 120.
+To compute the factorial we can decompose the process: To calculate **the factorial of 5, or 5!,** we first multiply (4) = 20. Then we take that result and do another multiplication: 20(3) = 60. This result is multiplied by 2: 6(2) = 120. Finally, we multiply this result by 1: 120(1) = 120.
 
 Do you notice a pattern? We are doing repeated multiplications. Every time we multiply, we keep track of the product. This is called an accumulator pattern because we build up, or accumulate, a final value piece by piece. This common accumulator algorithm is as follows:
 
