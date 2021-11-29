@@ -4,10 +4,10 @@
 - In what ways is using a name server better than using static host tables?
 - The lower layers of the OSI network model provide datagram service, with no delivery guarantees for messages. A transport-layer protocol such as TCP is used to provide reliability. Discuss the advantages and disadvantages of supporting reliable message delivery at the lowest possible layer.
 - Determine the IP addresses of the following host names:
-  - <www.roehampton.ac.uk>
-  - <www.apple.com>
-  - <www.microsoft.com>
-  - <www.google.com>
-  - <www.ietf.org>
+  - www.roehampton.ac.uk
+  - www.apple.com
+  - www.microsoft.com
+  - www.google.com
+  - www.ietf.org
 - What are the advantages and the disadvantages of making the computer network transparent to the user?
 
