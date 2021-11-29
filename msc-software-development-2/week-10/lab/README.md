@@ -7,53 +7,47 @@ In this lab, we look at the other three functions of a CRUD system: create, upda
 
 In order to get data from the user and send it into our applications, we need to use HTML forms.  We looked at these back in in lab 2.  This was the HTML for our example form, and we also looked at the difference between the two methods for sending user data into the backend: GET and POST.
 
-```html
-<!DOCTYPE html>
-<html>
+In this lab we will start by building forms to obtain user data using pug, then we will build more routes in our express applications and in our models to alter the data in the database accordingly.
 
-<head>
+### Pre-requisites
 
-</head>
+This lab takes up after labs 8 and 9.  In particular, you will need to ensure that the /single-student/:id route is working as per lab 9, and the code looks like this and you have all the Modules and Programmes models completed.
 
-<body>
-
-  <h1>HTML Forms example</h1>
-
-  <form action="" method="GET">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name">
-    </div>
-    <div>
-      <label for="mail">E-mail:</label>
-      <input type="email" id="mail" name="email">
-    </div>
-    <div>
-      <label for="msg">Message:</label>
-      <textarea id="msg" name="message"></textarea>
-    </div>
-    <button type="submit">Submit!!</button>
-  </form>
-
-  <p>If you click the "Submit" button, the form-data will be sent back to this page.
-    Usually, the action sends data to a different file with scripts that can process it.</p>
-
-</body>
-
-</html>
+```javascript
+// Task 3 single student page
+app.get("/single-student/:id", function (req, res) {
+    var stId = req.params.id;
+    // Create a student class with the ID passed
+    var student = new Student(stId);
+    student.getStudentName().then(
+        Promise => {
+            student.getStudentProgramme().then(Promise => {
+                student.getStudentModules().then(Promise => {
+                    res.render('student', { student: student });
+                });
+            });
+        });
+});
 ```
 
-In this lab we will start by building forms to obtain user data using pug, then we will build more routes in our express applications and in our models to alter the data in the database accordingly.
+All the additional code you should have after lab 09 is here: 
+
+https://roehampton.github.io/module-content/msc-software-development-2/week-09/lab/solutions-lab09.html
+
+Please check this works, then you are ready to go.
+
 
 ### Example 1: Adding a note to a student
 
 #### Specification
 
+Before starting, lets make sure we have a specification for the new feature we are going to build.
+
 ##### User story
 
 __As an admin I'd like to add a note to a students page with a summary of their progress so that lecturers can see an overview of the student at a glance__
 
-##### Task list
+##### Task list (from the user story)
 
    * Add a column to the student table to store the note
    * Add a textarea form field to the student template for the user to enter the note
@@ -119,7 +113,7 @@ app.post('/add-note', function (req, res) {
 });
 ```
 
-This code receives the form submission, retrieves the parameters, prints them to the console for you to check and then returns a message to the user.  Rough and ready for now but tells us whats needed.
+This code receives the form submission (POST method), retrieves the parameters, prints them to the console for you to check and then returns a message to the user.  Rough and ready for now but tells us whats needed.
 
 
 4. __Add to the backend code so that the new data is stored and updated in the model__
@@ -198,7 +192,7 @@ async getStudentDetails() {
 
 5. __Add to the student template so that the new field can be displayed to the user__
 
-First lets amend app.js, single-student route to call our new getStudentDetails function
+First lets amend app.js, single-student route _app.get('/single-student/:id_ to call our new getStudentDetails function
 
 All you need to do is change...
 
@@ -214,7 +208,7 @@ to
     student.getStudentDetails().then( 
 ```
 
-Now we add to the pug template to pull through the student note
+Now we add a new line to the pug template to pull through the student note
 
 In student.pug, add the following line:
 
