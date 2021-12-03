@@ -133,8 +133,8 @@ The aim of this Sprint is to have a working prototype of your application, showi
 The aim of this Sprint is to deliver the final version of your application. The final version of your application will be pulled automatically from GitHub. The final submission will be assessed based on the following criteria.
 
 - Overall application quality and success at meeting the aims set out during the design process
-- Metrics from GitHub. Also used to assess individual contribution.
-- Code quality including comments and the use of OOP and MVC design techniques
+- Metrics from GitHub: used to assess individual contribution.
+- Code quality including the use of OOP and MVC design techniques
 - Application deployable using a docker-compose file, data can be provided separately
 - Final version of the task board and project requirements met.
 
@@ -142,7 +142,28 @@ The aim of this Sprint is to deliver the final version of your application. The 
 
 #### Submission: 14 January
 
-A four page report reflecting on the overall project, including your own contribution, the team's effectiveness, the effectiveness of the roles undertaken by members (e.g., Scrum Master, Product Owner), and the quality of the final deliverable. This reflection should be a maximum of 1000 words.
+Your individual reflection should contain the following sections:
+
+1. Introduction
+   * Short description of the project
+2. Design process
+   * What design techniques did you use? 
+   * Which ones did you find the most useful for yourself (a) as an individual and (b) for the group
+3. Development
+   * What did you personally contribute to the project?  
+   * How happy were you with your own contribution?
+   * Is there anything you would have liked to have done more of?
+   * What did you find easy?
+   * What did you find difficult?
+   * What would you do differently next time?
+4. Teamwork
+   * How well do you think you worked as a team?
+   * What did you learn about teamwork from this project?
+   * What percentage of the overall work for the project would you estimate that you personally did?
+5. Reflection
+   * In a job interview, if you were asked 'tell me about your msc group project?', in a nutshell, what might you say that you    learned and what you achieved?
+   * What would you like to do more of following this project?
+    
 
 ## Marking Scheme
 
