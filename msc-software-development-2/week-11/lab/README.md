@@ -32,7 +32,7 @@ Stop your containers, run the following and then run docker-compose up --build
 
 ```
 npm install express-session
-npm install bcrypt
+npm install bcryptjs
 ```
 
 #### Create a table to hold user information with unique ids that can be be foreign keys to the Students table.
@@ -209,7 +209,7 @@ async getIdFromEmail() {
 Add this to the top of user.js. This provides us with tools to encrypt and compare passwords.
 
 ```
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 ```
 
