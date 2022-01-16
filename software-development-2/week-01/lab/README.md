@@ -1,4 +1,4 @@
-# Software Development 2 Lab 01 -- Getting Started with C
+# Software Development 2 Lab 01 -- Getting Started with C++
 
 <script src="https://cdn.jsdelivr.net/npm/code-line"></script>
 <script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
@@ -6,288 +6,510 @@
 
 <link rel="stylesheet" href="/module-content/css/block.css">
 
-These tutorials are designed to teach you a number of C Programming principles with sophisticated topics and examples. The goal of each problem is not to solve that specific problem, but to exercise a certain set of skills, or to practice solving a certain type of problem. 
+These tutorials are designed to teach you several C++ principles with sophisticated topics and examples. C++  is a general-purpose, high-level, compiled language. C++ is widely used in applications, operating systems, games development, and embedded system development. Its influence is seen in most modern programming languages. 
 
-C programming language is a general purpose, high level language that was originally developed by Dennis MacAlistair Ritchie in Bell Labs. In essence, Dennis MacAlistair Ritchie was an American computer scientist. Nowadays, the C language is widely used in application, operating system, and embedded system development, and its influence is seen in most modern programming languages. 
+> **What does compiled mean?**
+>
+> Python is an interpreted language. That is, you write some code and then run it. If there are any mistakes, the program only fails when it tries to run code that is in error.
+>
+> C++ (and most common languages) are compiled. A program will first check the program and convert it into machine code. If there are errors in the program, it won't compile. There is no way of running a program that won't compile.
 
-Most importantly, during the 1980s, C gradually gained popularity. It has become one of the most widely used programming languages with C compilers from various vendors available for the majority of existing computer architectures and operating systems. C has been standardized by the American National Standards Institute (ANSI) since 1989 (ANSI C) and by the International Organization for Standardization (ISO). As of September 2020, C is the most popular programming language. Why? Many of the C projects that exist today were started decades ago:
-
-- The UNIX operating system’s development started in 1969, and its code was rewritten in C in 1972. The C language was actually created to move the UNIX kernel code from assembly to a higher-level language, which would do the same tasks with fewer lines of code.
-
-- Oracle database development started in 1977, and its code was rewritten from assembly to C in 1983. It became one of the most popular databases in the world.
-
-- In 1985 Windows 1.0 was released. Although Windows source code is not publicly available, it’s been stated that its kernel is mostly written in C, with some parts in assembly. Linux kernel development started in 1991, and it is also written in C.
-
-There are many ways you can develop in C and C++. Today there are three main compilers:
+There are many ways you can develop in C++. Today there are three main compilers:
 
 - GNU Compiler Collection – `gcc`
 - `clang`
 - Microsoft C/C++ Compiler – `cl`
 
-We are going to focus on using Microsoft’s compiler although you can use any compiler. The C and C++ we use is a standard. How you compile programs will be different.
+We will use Microsoft’s compiler, although you can use any compiler. The C++ we use is a standard. How you compile programs will be different.
 
-If your machine is not setup with Visual Studio Code and a C/C++ compiler, use either of the following instructions. You only need go as far running the first built program:
+## Writing Your First C++ Application
 
-- [Microsoft C/C++](https://code.visualstudio.com/docs/cpp/config-msvc){:target="_blank"}
-- [Linux](https://code.visualstudio.com/docs/cpp/config-linux){:target="_blank"}
-- [MacOS](https://code.visualstudio.com/docs/cpp/config-clang-mac){:target="_blank"}
+***TODO***
 
-From now on, we will provide instructions only for Microsoft C/C++ on Windows 10. Once you are setup, perform the following steps:
+C++ program begins inside a function called `main`. A function is simply a collection of commands that do *something*. The `main` function is always called when the program first executes. We can call other functions from `main`, whether they be written by us or by others or use built-in language features. To access the standard functions of your compiler, you need to include a header with the `#include` directive. Our first program is *Hello, World!*.
 
-1. Open the Developer Command Prompt for VS.
+***TODO***
 
-2. In the command prompt, change to your user folder; e.g., cd C:\Users\student\.
+```c++
+#include <iostream>
 
-3. Now create a new folder where you will undertake your work; e.g., mkdir sd2.
-
-4. Change into your new folder, e.g., cd sd2.
-
-5. Now start Visual Studio Code from this folder by typing code ..
-
-**You will always have to start Visual Studio Code in this manner, so it sees the Microsoft C/C++ tools. This is just how Microsoft have set this up.**
-
-We are now ready to learn some C. 
-
-In this instance, now we are going to learn and apply C language. Throughout the below exercises we will examine a number of different programming exercises to perform a variety of tasks.
-
-C program begins inside a function called `main`. A function is simply a collection of commands that do *something*. The `main` function is always called when the program first executes. From main, we can call other functions, whether they be written by us or by others or use built-in language features. To access the standard functions that comes with your compiler, you need to include a header with the `#include` directive. What this does is effectively take everything in the header and paste it into your program. Let’s look at a working program below:
-
-```c
-#include <stdio.h>
+using std::cout;
+using std::endl;
 
 int main(int argc, char **argv)
 {
-	printf("I am alive! Beware.\n");
-	return 0;
+    cout << "Hello, world!" << endl;
+    return 0;
 }
 ```
 
-The `#include` is a **preprocessor** directive that tells the compiler to put code from the header called `stdio.h` into our program before actually creating the executable. By including header files, you can gain access to many different functions both the printf and getchar functions are included in `stdio.h`.
+**NOTE** -- all executable code lines end with a semi-colon (`;`). This is important. If you forget a semi-colon, your program will fail to compile.
 
-The next important line is `int main(int arc, char **argv)`. This is the start of our main application. The C compiler expects the main part to have the name main. We also define two incoming parameters – `argc` and `argv` which are the command line parameters (`argc` is the number, and `argv` the actual parameters). The line tells the compiler that there is a function named `main`, and that the function returns an integer, hence `int`. The *curly braces* (`{` and `}`) signal the beginning and end of functions and other code blocks. 
+**NOTE** -- a function body starts with a `{` and ends with a `}`.
 
-The `printf` function is the standard C way of displaying output on the screen. The quotes tell the compiler that you want to output the literal string as-is (almost). The `\n` sequence is actually treated as a single character that stands for a newline. The actual effect of `\n` is to move the cursor on your screen to the next line. Notice the semicolon: it tells the compiler that you are at the end of a command, such as a function call. You will see that the semicolon is used to end many lines in C.
+What does this program do?
 
-Finally, at the end of the program, we return a value from main to the operating system by using the return statement. This return value is important as it can be used to tell the operating system whether our program succeeded or not. A return value of `0` means success.
+- Line 1, we `#include` the `iostream` library. `iostream` means *input-output streams*. It allows us to use objects that output messages to the screen and input messages from the user.
+- Line 3 states `using std::cout`. `std` is the *standard library*. The more important part is `cout` which is the default *character output* (the command line). This is what we will use to print a message to the screen.
+- Line 4 states `using std::endl`. `endl` is the *end-of-line* character that prints a new line.
+- Line 6 is the start of our main program. It has the signature `int main(int argc, char **argv)`:
+  - `int` at the start is the *return type* of the main program. An `int` (*integer*) is a number.
+  - `main` is the name of the function. Our main program must be called `main`.
+  - `int argc` is a number that refers to the number of command-line arguments provided to the program. It is at least one -- the name of the program.
+  - `char **argv` is the actual command-line arguments. We will return to what `char **` meand much later in the module.
 
-The final brace closes off the function. You should try compiling this program and running it.
+- Line 8 is how we print a message to the command line. We send the message `Hello, world!` using `<<` to the `cout` object, followed by the endline character `endl`.
+- Line 9 returns `0` (effectively *OK*) from the program.
 
-**Now you need to do by yourself – write your first C program and print your name, your address and your home city.** 
+## Reading Input From the User
 
-**If you use the `printf` function without writing `#include <stdio.h>` What will happen ?** 
+We've performed the most straightforward program -- outputting to the command line. The next important thing we need is reading from the command line. We do so using the `cin` object.
 
-## C Data Types
+**TODO**
 
-In C programming, data types are declarations for variables. This determines the type and size of data associated with variables. In this lesson, you will learn about basic data types such as int, float, char etc. in C programming. The types in C can be classified as follows:
+1. **Create a new project for the below code.**
+2. **Set your new project to the startup project.**
+3. **Enter the code below.**
+4. **Run and test your program. Document your output.**
 
-![img](clip_image001.png)
+```c++
+#include <iostream>
+#include <string>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
+
+int main(int argc, char **argv)
+{
+    string name;
+    cout << "Enter your name: ";
+    cin >> name;
+    cout << "Hello " << name << endl;
+    return 0;
+}
+```
+
+As you can see, this program is very similar to the last one:
+
+- Line 1 includes the `iostream` library.
+- Line 2 includes the `string` library -- `string` is not a foundational type, unlike Python.
+- Lines 4 to 7, we define our `using` statements for the objects we want: `cout`, `cin` (*character input* -- reads from the command line), `endl`, and `string`.
+- Line 9 defines our main program. **Try and remember what the signature means -- then look back to check.**
+- In line 11, we declare a new variable of type `string` called `name`.
+  - This is how we define variables in C++: `type variable-name;`. Unlike in Python, where you only require the name.
+- In line 12, we output a prompt to enter the user's name.
+- In line 13, we read the user's name into the `name` variable. `cin` (character input) is streaming the user input into (`>>`) the `name` variable. **This is how user input works in C++.**
+- Line 14, we output `Hello` followed by the entered name.
+- In line 15, we return `0` (OK) from the program.
+
+### Your Task
+
+Extend the input program to check if the name entered is *Kevin*. To do so, we need an `if` statement. In C++, an `if` statement is:
+
+```c++
+if (test)
+{
+    // Do something
+}
+```
+
+To check if our entered `name` value is `Kevin,` we can perform the following test:
+
+```c++
+if (name == "Kevin")
+{
+    // Do something
+}
+```
+
+Update the program to output `Another Kevin!` if the name entered is *Kevin*.
+
+## C++ Data Types
+
+**Typing is one of the most important concepts in programming.** C++ is a *statically typed language*. In C++, a variable must have a data type. A variable must contain a value based on the type it has been declared with. This is unlike Python, where a variable can change type. For example:
+
+- An `int` can only contain numbers. It cannot be a string; e.g., "hello".
+- A `bool` can only contain `true` or `false,` not 54423.
+- Etc.
+
+C++ types are broken down as follows:
+
+- Fundamental types:
+  - `void` (no type).
+  - `nullptr_t` (pointer to nothing).
+  - Arithmetic types:
+    - `float`, `double`, etc. -- numbers with a decimal point (e.g., 5.4334).
+    - Integral (whole number) types:
+      - `bool` for `true` and `false`.
+      - `char` for a character, e.g., 'a', '5', etc.
+      - Integers of various sizes (e.g., `int`, `signed short`).
+  - Compound types (more on these later in the module):
+    - References.
+    - Pointers.
+    - Arrays.
+    - Functions.
+    - Enumerations.
+    - Classes.
+
+For now, we are most interested in the foundational types, starting with the *Integers*.
 
 ### Integer Types
 
-Following table gives you details about standard integer types with its storage sizes and value ranges:
+Integers come in different types based on two criteria:
 
-![img](clip_image002.png)
+- The size of the integer in bytes -- the more bytes, the greater the range of values that can be stored.
+- Signing -- can the integer store negative numbers (`signed`) or only positive numbers (`unsigned`). The default is `signed`.
 
-**![img](clip_image003.png)**
+Combined, these criteria determine the greatest and smallest value that the integer can store.
 
-To get the exact size of a type or a variable on a particular platform, you can use the sizeof operator. The expressions `sizeof(type)` yields the storage size of the object or type in bytes. Following is an example to get the size of int type on any machine:
+- 8 bits (1 byte) = 2<sup>8</sup> (2 * 2 * 2 * 2 * 2 * 2 * 2 *2 = 256) possible values.
+- 16 bits (2 bytes) = 2<sup>16</sup> (65,536) possible values.
+- 32 bits (4 bytes) = 2<sup>32</sup> (4,294,967,296 -- over 4 billion) possible values.
+- 64 bits (8 bytes) = 2<sup>64</sup> (18,446,744,073,709,551,616 -- over 18 quintillion or 18 billion billion) possible values.
 
-```c
-#include <stdio.h>
-#include <limits.h>
+C++ integer sizes are not 100% uniform, but in a standard Microsoft C++ compiler, the following sizes and minimum and maximum values are available.
+
+| **Type**             | **Size** | **Value range**                                         |
+| -------------------- | -------- | ------------------------------------------------------- |
+| `char`               | 1 byte   | -128 to 127                                             |
+| `unsigned char`      | 1 byte   | 0 to 255                                                |
+| `short`              | 2 bytes  | -32,768 to 32,767                                       |
+| `unsigned short`     | 2 bytes  | 0 to 65535                                              |
+| `int`                | 4 bytes  | -2,147,483,648 to 2,147,483,647                         |
+| `unsigned int`       | 4 bytes  | 0 to 4,294,967,295                                      |
+| `long`               | 4 bytes  | -2,147,483,648 to 2,147,483,647                         |
+| `unsigned long`      | 4 bytes  | 0 to 4,294,967,295                                      |
+| `long long`          | 8 bytes  | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
+| `unsigned long long` | 8 bytes  | 0 to 18,446,744,073,709,551,615                         |
+
+> **Why is `char` a Number?**
+>
+> Although we mentioned that `char` represents a character, a character is defined by ASCII (American Standard Code for Information Interchange), where a number is used for characters. You can read more about ([ASCII - Wikipedia](https://en.wikipedia.org/wiki/ASCII)).
+
+To get the exact size of a type or a variable on a particular platform, you can use the sizeof operator. The expression `sizeof(type)` yields the storage size of the object or type in bytes.
+
+1. **Create a new project for the below code.**
+2. **Set your new project to the startup project.**
+3. **Enter the code below.**
+4. **Run and test your program. Document your output.**
+
+```c++
+#include <iostream>
+
+using std::cout;
+using std::endl;
 
 int main(int argc, char **argv)
 {
-	printf("Storage size for int : %d \n", sizeof(int));
-	return 0;
+    cout << "Size of short: " << sizeof(short) << " bytes" << endl;
+    cout << "Size of int: " << sizeof(int) << " bytes" << endl;
+    cout << "Size of long: " << sizeof(long) << " bytes" << endl;
+    cout << "Size of long long: " << sizeof(long long) << " bytes" << endl;
+    return 0;
 }
 ```
 
-**When you compile and execute the above program, what this program will produce the result?**
+When run, you should get the following output.
+
+```shell
+Size of short: 2 bytes
+Size of int: 4 bytes
+Size of long: 4 bytes
+Size of long long: 8 bytes
+```
 
 ### Floating-Point Types
 
-Following table gives you details about standard floating-point types with storage sizes and value ranges and their precision:     **![img](clip_image004.png)**
+Floating-point data types are numbers with a decimal point, e.g., 3.14159. C++ provides three different floating-point types:
 
-The header file `float.h` defines macros that allow you to use these values and other details about the binary representation of real numbers in your programs. Following example will print storage space taken by a `float` type and its range values:
+- `float` -- the primary floating-point type commonly used.
+- `double` -- larger than `float`, allowing more precision (more numbers after the decimal point).
+- `long double` -- larger than `double`.
 
-```c
-#include <stdio.h>
-#include <float.h>
+The following program will let you see how many bytes each floating-point type uses.
+
+1. **Create a new project for the below code.**
+2. **Set your new project to the startup project.**
+3. **Enter the code below.**
+4. **Run and test your program. Document your output.**
+
+```c++
+#include <iostream>
+
+using std::cout;
+using std::endl;
 
 int main(int argc, char **argv)
 {
-  printf("Storage size for float : %d\n", sizeof(float));
-	printf("Minimum float positive value: %E\n", FLT_MIN);
-	printf("Maximum float positive value: %E\n", FLT_MAX);
-	printf("Precision value: %d\n", FLT_DIG);
-	return 0;
-} 
+    cout << "Size of float: " << sizeof(float) << " bytes" << endl;
+    cout << "Size of double: " << sizeof(double) << " bytes" << endl;
+    cout << "Size of long double: " << sizeof(long double) << " bytes" << endl;
+    return 0;
+}
 ```
 
-**When you compile and execute the above program, what this program will produce the result?**
+### C++ Functions and the `void` Type
 
-### `sizeof()` Function in C Language
+The `void` type specifies that no specific type is available. It is used in three kinds of situations:
 
-Finally, we will run this below code and learn more about data types 
+- Functions return void -- the function doesn't return a value.
+- Function arguments as void -- the function does not accept any parameters. Generally, we don't add this.
+- Pointers to void -- in this instance, we have a pointer to a block of memory that we don't know the type of. We will return to pointers much later in the module.
 
- ```c
-#include <stdio.h>
-#include <limits.h>
+Staying with functions, let us write a program that introduces C++ functions.
+
+1. **Create a new project for the below code.**
+2. **Set your new project to the startup project.**
+3. **Enter the code below.**
+4. **Run and test your program. Document your output.**
+
+```c++
+#include <iostream>
+#include <string>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
+
+void print_name(string name)
+{
+    cout << "Hello " << name << endl;
+}
+
+string get_name()
+{
+    string name;
+    cout << "Enter your name: ";
+    cin >> name;
+    return name;
+}
 
 int main(int argc, char **argv)
 {
-	int a; 
-  char b; 
-  float c; 
-  double d;
-	printf("Storage size for int data type: %d\n", sizeof(a));
-	printf("Storage size for char data type: %d\n", sizeof(b));
-	printf("Storage size for float data type: %d\n", sizeof(c));
-	printf("Storage size for double data type: %d\n", sizeof(d));
+    string name = get_name();
+    print_name(name);
+    return 0;
+}
+```
+
+Let us consider some of these lines of code.
+
+- Line 9 defines the `print_name` function. It has the following signature:
+  - `void` is the return type -- therefore, it does not return anything.
+  - `print_name` is the name of the function we use to call it.
+  - The function takes one parameter -- `string name`. The parameter is called `name` and is of type `string`.
+- Line 14 defines the `get_name` function. It has the following signature:
+  - `string` is the return type.
+  - `get_name` is the name of the function we use to call it.
+  - The function takes no parameters.
+- Line 24 calls the `get_name` function, using it to set the variable `name`.
+- Line 25 calls the `print_name` function, passing `name` as a parameter.
+
+#### Your Task
+
+Add a third method `check_name` that returns true if the name is Kevin and false otherwise. Use the value returned from the function to print `Another Kevin!` if necessary. To help, the signature of the function should be:
+
+```c++
+bool check_name(string name)
+{
+    // Your code here.
+}
+```
+
+## C++ Variables
+
+A variable declaration in C++ looks as follows:
+
+```c++
+type name;
+```
+
+For example:
+
+```c++
+int number;
+float length;
+string name;
+```
+
+That is:
+
+- We **must** define the type of the variable.
+- We **must** give the variable a name.
+
+The *type* defines how much memory a variable will use. This is used during compilation, so our program knows what resources are required. Each variable in C++ has a specific type, which determines the size and layout of the variable's memory; the range of values stored within that memory; and the set of operations that can be applied to the variable. The name of a variable can be composed of letters, digits, and the underscore character. It must begin with either a letter or an underscore. Upper and lowercase letters are distinct because C++ is case-sensitive.
+
+### Variable Declarations in C++
+
+In C++, we must declare variables before we use them. It is pretty common to declare your necessary variables at the start of a function, although it isn't required. The following program will illustrate.
+
+1. **Create a new project for the below code.**
+2. **Set your new project to the startup project.**
+3. **Enter the code below.**
+4. **Run and test your program. Document your output.**
+
+```c++
+#include <iostream>
+#include <string>
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
+
+int main(int argc, char **argv)
+{
+    char charValue;
+    short shortValue;
+    int intValue;
+    float floatValue;
+    string stringValue;
+
+    cout << "Enter a char: ";
+    cin >> charValue;
+    cout << "You entered: " << charValue << endl;
+    cout << "Enter a short: ";
+    cin >> shortValue;
+    cout << "You entered: " << shortValue << endl;
+    cout << "Enter an int: ";
+    cin >> intValue;
+    cout << "You entered: " << intValue << endl;
+    cout << "Enter a float: ";
+    cin >> floatValue;
+    cout << "You entered: " << floatValue << endl;
+    cout << "Enter a string: ";
+    cin >> stringValue;
+    cout << "You entered: " << stringValue << endl;
+
+    return 0;
+}
+```
+
+> **`cin` is (Somewhat) Clever**
+>
+> `cin` will generally know how to read in that value based on its type. So, we can read in an `int`, `float`, `string`, etc., reasonably easily. C++ is unlike some other languages where you must convert the input string to the correct type (e.g., through parsing).
+
+An example run of this program is.
+
+```shell
+Enter a char: a
+You entered: a
+Enter a short: 45
+You entered: 45
+Enter an int: 10000000
+You entered: 10000000
+Enter a float: 45.034
+You entered: 45.034
+Enter a string: hello
+You entered: hello
+```
+
+#### Your Tasks
+
+1. Try and enter values that are different from the expected types and document what happens. For example:
+   - Enter `abc` for `char` rather than a single character.
+   - Enter `2000000` for `short` (a greater value than it can store).
+   - Enter `45.034` for `int`.
+   - Enter `hello` for `float`.
+   - Can you think about what we might have to do to avoid these issues (hint -- it is what you have to do in Python).
+2. What happens when you remove one of the variable definitions (e.g., line 14) and try and run the program?
+
+## C++ Arithmetic Operators
+
+An arithmetic operator performs mathematical operations such as addition, subtraction, multiplication, division etc., on numerical values (constants and variables). C++ supports the basic arithmetic operators you will be familiar with from Python.
+
+- `+` for addition.
+- `-` for subtraction.
+- `*` for multiplication.
+- `\` for division.
+- `%` to get the remainder from a division.
+
+Below is a program that demonstrates each of these operations.
+
+1. **Create a new project for the below code.**
+2. **Set your new project to the startup project.**
+3. **Enter the code below.**
+4. **Run and test your program. Document your output.**
+
+```c++
+#include <iostream>
+
+using std::cout;
+using std::endl;
+
+int main(int argc, char **argv)
+{
+	int a = 9;
+    cout << "a = " << a << endl;
+    int b = 4;
+    cout << "b = " << b << endl;
+    int c = a + b;
+    cout << "a + b = " << c << endl;
+    c = a - b;
+    cout << "a - b = " << c << endl;
+	c = a * b;
+    cout << "a * b = " << c << endl;
+    c = a / b;
+    cout << "a / b = " << c << endl;
+	c = a % b;
+    cout << "Remainder of a / b = " << c << endl;
 	return 0;
+}
+```
+
+Your output should be as follows. **Double check you have the correct output**:
+
+```shell
+a = 9
+b = 4
+a + b = 13
+a - b = 5
+a * b = 36
+a / b = 2
+Remainder of a / b = 1
+```
+
+### Summing User Input
+
+As a final example this week, let us write a program that reads input from the user and sums the input numbers until the user enters zero.
+
+1. **Create a new project for the below code.**
+2. **Set your new project to the startup project.**
+3. **Enter the code below.**
+4. **Run and test your program. Document your output.**
+
+ ```c++
+#include <iostream>
+
+using std::cout;
+using std::cin;
+using std::endl;
+
+int main(int argc, char **argv)
+{
+    int sum = 0;
+    int num = -1;
+    while (num != 0)
+    {
+        cout << "Enter a number: ";
+        cin >> num;
+        sum += num;
+    }
+    cout << "Total: " << endl;
+    return 0;
 }
  ```
 
-**When you compile and execute the above program, what this program will produce the result?**
+> **`while` Loop in C++**
+>
+> A `while` loop in C++ is similar to Python. We state `while (condition),` and the program will run the code until the condition is false. In the example above, we use the condition `num != 0` -- *num is not equal to zero*.
 
-We can use the `sizeof()` operator to check the size of a variable. See the following C program for the usage of the various data types:
+### Your Task
 
-```c
-#include <stdio.h>
+Write C++ programs that do the following and describe the result:
 
-int main(int argc, char **argv)
-{
-	int a = 1;
-  char b = 'G';
-  double c = 3.14;
-
-  printf(“Hello World ! \n”);**
-	// printing the variables defined above along with their sizes
-	printf("Hello! I am a character. My value is %c and my size is %lu bytes.\n", b, sizeof(char));
-	// can use sizeof(b) above as well
-	printf("Hello! I am an integer. My value is %d and my size is %lu bytes.\n", a, sizeof(int));
-	// can use sizeof(a) above as well
-	printf("Hello! I am a double floating point variable. My value is %lf and my size is %lu bytes.\n", c, sizeof(double));
-	// can use sizeof(c) above as well
-	printf("Bye! See you soon. :)\n");
-	return 0;
-}
-```
-
-**When you compile and execute the above program, what this program will produce the result?**
-
-### The `void` Type
-
-The `void` type specifies that no value is available. It is used in three kinds of situations:
-
-![img](clip_image005.png)
-
-The `void` type may not be understood to you at this point, so let us proceed and we will cover these concepts in the upcoming lessons. 
-
-## C Variables
-
-Variable is nothing but a name given to a storage area that our programs can manipulate. Each variable in C has a specific type, which determines the size and layout of the variable's memory; the range of values that can be stored within that memory; and the set of operations that can be applied to the variable. The name of a variable can be composed of letters, digits, and the underscore character. It must begin with either a letter or an underscore. Upper and lowercase letters are distinct because C is case-sensitive. Based on the basic types explained previously, there will be the following basic variable types:
-
-![img](clip_image006.png)
-
-C programming language also allows to define various other types of variables, which we will cover in subsequent chapters like Enumeration, Pointer, Array, Structure, Union, etc. For this lesson, let us study only basic variable types.
-
-## Variable Definition in C
-
-```c
-#include <stdio.h>
-
-int main(int argc, char **argv)
-{
-	/* c program to print value of a variable */ 
-  int age = 33;
-	printf("I am %d years old.\n", age);
-}
-```
-
-**When you compile and execute the above program, what this program will produce the result?**
-
-Try the following example, where variables have been declared at the top, but they have been defined and initialised inside the main function.
-
-```c
-#include <stdio.h>
-
-// Variable declaration:
-/* Extern is a keyword in C programming language which is used to declare a global variable that is a variable without any memory assigned to it. It is used to declare variables and functions in header files. Extern can be used access variables across C files */
-
-extern int a, b;
-extern int c;
-extern float f;
-
-int main (int argc, char **argv)
-{
-	/* variable definition: */
-	int a, b;
-	int c;
-	float f;
-	/* actual initialization */
-	a = 10;
-	b = 20;
-	c = a + b;
-	printf("value of c: %d\n", c);
-	f = 70.0/3.0;
-	printf("value of f: %f\n", f);
-	return 0;
-}
-```
-
-**When you compile and execute the above program, what this program will produce the result?** 
-
-## C Arithmetic Operators
-
-An arithmetic operator performs mathematical operations such as addition, subtraction, multiplication, division etc on numerical values (constants and variables).
-
-**![img](clip_image007.png)**
-
-```c
-#include <stdio.h>
-
-int main(int argc, char **argv)
-{
-	int a = 9, b = 4, c;
-	c = a+b;
-	printf("a+b = %d\n", c);
-	c = a-b;
-	printf("a-b = %d\n", c);
-	c = a*b;
-	printf("a*b = %d\n", c);
-	c = a/b;
-	printf("a/b = %d\n", c);
-	c = a%b;
-	printf("Remainder when a divided by b = %d\n", c);
-	return 0;
-}
-```
-
-**When you compile and execute the above program, what this program will produce the result?**
-
-**Using arithmetic operators write a program in C to add the digits of a number taken from the user.**
-
- ```c
-#include <stdio.h>
-
-int main(int argc, char **argv)
-{
-	int x,y,a1,a2,a3,a4,z,sum;
-	printf("Enter the number");
-	scanf("%d", &x);
-	y=x%10;
-	a1=y;
-  y=x/10;
-	a2=y%10;
-	a3=((y/10)%10);
-	z=y/10;
-	a4=z/10;
-	sum=a1+a2+a3+a4;
-	printf("sum=%d",sum);
-	return 0;
-}
- ```
-
-**When you compile and execute the above program, what this program will produce the result?**
+1. A program that divides an integer by zero and prints the result.
+2. A program that reads in a number from the user and increments a counter by one if the number is greater than zero and decrements a counter by one if the number is less than zero. The program should loop until zero is entered, and then it should display the value of the counter and exit.
