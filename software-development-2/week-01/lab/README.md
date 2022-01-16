@@ -24,7 +24,9 @@ We will use Microsoft’s compiler, although you can use any compiler. The C++ w
 
 ## Writing Your First C++ Application
 
-***TODO***
+**Watch the following video to get started with Visual Studio 2019.**
+
+<iframe src="https://roehampton.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=65764892-d620-443e-9c13-ae1f016cf16a&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
 C++ program begins inside a function called `main`. A function is simply a collection of commands that do *something*. The `main` function is always called when the program first executes. We can call other functions from `main`, whether they be written by us or by others or use built-in language features. To access the standard functions of your compiler, you need to include a header with the `#include` directive. Our first program is *Hello, World!*.
 
