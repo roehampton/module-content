@@ -28,9 +28,13 @@ We will use Microsoft’s compiler, although you can use any compiler. The C++ w
 
 <iframe src="https://roehampton.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=65764892-d620-443e-9c13-ae1f016cf16a&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
-C++ program begins inside a function called `main`. A function is simply a collection of commands that do *something*. The `main` function is always called when the program first executes. We can call other functions from `main`, whether they be written by us or by others or use built-in language features. To access the standard functions of your compiler, you need to include a header with the `#include` directive. Our first program is *Hello, World!*.
+C++ program begins inside a function called `main`. A function is simply a collection of commands that do *something*. The `main` function is always called when the program first executes. We can call other functions from `main`, whether they be written by us or by others or use built-in language features. To access the standard functions of your compiler, you need to include a header with the `#include` directive. Our first program is *Hello, World!*
 
-***TODO***
+**Watch the following video on how to enter and build a C++ program in Visual Studio 2019.**
+
+<iframe src="https://roehampton.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=4eb63b1c-239a-471c-b674-ae1f0175e3c7&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+**Now enter and run the following program.**
 
 ```c++
 #include <iostream>
@@ -44,6 +48,10 @@ int main(int argc, char **argv)
     return 0;
 }
 ```
+
+If you want to follow along entering this program, watch the following video:
+
+<iframe src="https://roehampton.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=28a53f84-be88-4577-a312-ae1f017c6faf&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
 **NOTE** -- all executable code lines end with a semi-colon (`;`). This is important. If you forget a semi-colon, your program will fail to compile.
 
@@ -67,7 +75,9 @@ What does this program do?
 
 We've performed the most straightforward program -- outputting to the command line. The next important thing we need is reading from the command line. We do so using the `cin` object.
 
-**TODO**
+**What the following video on how to create a new project in Visual Studio 2019.**
+
+<iframe src="https://roehampton.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=03e17189-7d33-4479-9f03-ae1f017e739e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
 1. **Create a new project for the below code.**
 2. **Set your new project to the startup project.**
