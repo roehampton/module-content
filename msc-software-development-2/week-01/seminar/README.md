@@ -49,6 +49,8 @@ Think of some problems you would like to solve that you think a database-driven 
 
 ## How will we go about this?
 
+* This week, we will start sharing ideas
+* We will also put together a project timeline
 * Next week, we will form our teams.
 * Our teams will use an Agile / scrum methodology to create projects.
 * Your assigments will be the results of 3 week 'sprints'
