@@ -290,7 +290,7 @@ int main(int argc, char **argv)
         string str;
         cout << "Enter data: ";
         cin >> str;
-        // Equivalent to line 4 in Pythong
+        // Equivalent to line 4 in Python code
         data.push_back(str);
     }
     cout << "Sorting..." << endl;
@@ -299,7 +299,7 @@ int main(int argc, char **argv)
     // Equivalent to line 6 in Python code
     for (string str : data)
     {
-        // Equivalent to line 7 in Python
+        // Equivalent to line 7 in Python code
         cout << str << endl;
     }
     return 0;
@@ -322,13 +322,52 @@ int main(int argc, char **argv)
 > - **Condition** -- loops while the condition is true; `i < 10`. The loop will keep going until `i` is 10 or greater.
 > - **Change** -- what happens at the end of each loop; `++I` means increment (add one to) `i`.
 >
-> The second type of 
+> `for (int i = 0; i < 10; ++i)` is equivalent to `for i in range(0, 9):` in Python. But as we are not using `i` in our application we can just write `for i in range(10):` (which goes from 1 to 10 rather than 0 to 9).
+>
+> The second type of `for` loop in C++ is across a collection, such as a `vector`. This takes the form:
+>
+> `for (type name : collection)`
+>
+> For example, we can use:
+>
+> `for (string str : data)`
+>
+> Each iteration through the loop will set `str` to the next value in the collection. This is equivalent to `for str in data:` in Python.
+
+> **Comparing C++ and Python Code**
+>
+> One thing we hope you are noticing is how similar Python and C++ code can be when it comes to actual executing code. Yes, C++ requires more imports, setup, type declarations, etc. But this is due to the age of the language as well as it being statically typed. Fundamentally, the program is the same -- **and you should start recognising this.** Most problems are solvable in the same way with different programming languages. Start thinking about how to solve the general problem rather than implementation details for a specific language.
 
 #### Your Task
 
-Modify the above program so you read in `int` rather than a `string` (you only)
+Modify the above program so you read in `int` rather than a `string` (you only need to change a few lines). Reflect on the what you would have to do in Python to make this work. Do you think the change to C++ is easier to understand than that for Python.
 
 ### Dictionaries
+
+The other data store you would have used in Python is the dictionary, denoted by curly brackets `{ }`. For example, we can create a Python dictionary program as follows:
+
+```python
+lecturers = { }
+lecturers["Software Development 2"] = "Kevin"
+lecturers["Software Development 1"] = "Arturo"
+lecturers["Databases"] = "Wei"
+lecturers["Computer Systems"] = "Oge"
+for first, second in lecturers.items():
+    print(first, " ", second)
+```
+
+In C++, we have to use a `unordered_map` type to act as a dictionary. It has two type parameters -- *one for the key*, and *one for the value*. Therefore, we would declare an `unordered_map` as follows:
+
+```c++
+unordered_map<string, string> data;
+```
+
+Let us look at an example.
+
+1. **Create a new project for the below code.**
+2. **Set your new project to the startup project.**
+3. **Enter the code below.**
+4. **Run and test your program. Document your output.**
 
 ```cpp
 #include <iostream>
@@ -342,22 +381,77 @@ using std::unordered_map;
 
 int main(int argc, char **argv)
 {
+    // Equivalent to line 1 in Python code
     unordered_map<string, string> lecturers;
+    // Equivalent to lines 2 to 5 in Python code
     lecturers["Software Development 2"] = "Kevin";
     lecturers["Software Development 1"] = "Arturo";
     lecturers["Databases"] = "Wei";
     lecturers["Computer Systems"] = "Oge";
+    // Equivalent to line 6 in Python code
     for (auto entry : lecturers)
     {
+        // Equivalent to line 7 in Python code
         cout << entry.first << " " << entry.second << endl;
     }
     return 0;
 }
 ```
 
+> **The `auto` Keyword**
+>
+> On line 19 of the C++ code we use a new keyword -- `auto`. What does this do?
+>
+> `auto` means we will let the compiler work out the type for us. This can be *extremely useful* when types get complicated. For example, the type of `entry` above is actually:
+>
+> ```c++
+> pair<const string, string>
+> ```
+>
+> Which is quite a lot to type out, and we'd have to explain what a `pair` is, and why the first parameter is `const`. `auto` makes our life easier. **However, `auto` is not dynamic typing -- it is compile-time typing and still static.**
 
+### How Does Generic Typing Work in C++? Creating a Generic Typed Function
 
-### Creating a Generic Typed Function
+So how does generic typing work in C++? We have to declare something as using a `template`, declare a type as a variable, and then use it accordingly. For example:
+
+```c++
+template<typename T>
+T my_function(T value)
+{
+    // ...
+}
+```
+
+Here we have declared `my_function` as taking a type parameter `T` which is used as the return type of the function and for one of the parameter. If we were to call the function with `float` as the type:
+
+```c++
+float num = my_function<float>(5.0f);
+```
+
+Then the compiler will generate the following code:
+
+```c++
+float my_function(float value)
+{
+    // ...
+}
+```
+
+If we used `string`:
+
+```c++
+string my_function(string value)
+{
+    // ...
+}
+```
+
+And so on. The compiler generates the code we need. Below is an example.
+
+1. **Create a new project for the below code.**
+2. **Set your new project to the startup project.**
+3. **Enter the code below.**
+4. **Run and test your program. Document your output.**
 
 ```c++
 #include <iostream>
@@ -375,23 +469,35 @@ T my_add(T left, T right)
 
 int main(int argc, char **argv)
 {
-    auto num = my_add(5, 4);
+    auto num = my_add<int>(5, 4);
     cout << "num = " << num << endl;
-    auto str = my_add(string("Hello, "), string("world!"));
+    auto str = my_add<string>(string("Hello, "), string("world!"));
     cout << "str = " << str << endl;
-    auto num2 = my_add(5.0f, 10.0f);
+    auto num2 = my_add<float>(5.0f, 10.0f);
     cout << "num2 = " << num2 << endl;
-    auto logic = my_add(true, false);
+    auto logic = my_add<bool>(true, false);
     cout << "logic = " << logic << endl;
     return 0;
 }
 ```
 
-
+> **Why Does `bool` Print as `1`?**
+>
+> Basically, `bool` is still a number. The general rule is:
+>
+> - `false` is `0`
+> - `true` is not `0`, and normally `1`
+>
+> So `true + false` is just `1 + 0 = 1`.
 
 ## Longer Example -- Generate Random Numbers
 
+Let us now look at a longer example using generic types and `auto` -- random number generation. Random number generation in C++ is quite complex, but that is because the C++ standard library provides lots of control on how random numbers are generated.
 
+1. **Create a new project for the below code.**
+2. **Set your new project to the startup project.**
+3. **Enter the code below.**
+4. **Run and test your program. Document your output.**
 
 ```c++
 #include <iostream>
@@ -430,3 +536,19 @@ int main(int argc, char **argv)
     return 0;
 }
 ```
+
+There are three lines of interest here:
+
+- **Line 12** creates a `random_device`. This is a link to hardware on the computer that can generate random numbers, if available. The `random_device` will generate random numbers, but they will range from 0.0 to 1.0 (and the possible values inbetween).
+- **Line 13** creates a `uniform_int_distribution` ranging from 1 to 50. This is used to convert the random number (range 0.0 to 1.0) to a number between 1 and 50. It is uniform as it ensures that the numbers are evenly spread across the range 1 to 50.
+- **Line 14** generates the random number. We use `distribution(random)` to use the `random_device` to give a random number to the `uniform_int_distribution` which converts the value to between 1 and 50.
+
+## Your Task
+
+For the end of lab exercise, you will extend the random number generation program to run a lottery simulation. The program will do the following:
+
+1. It will generate six random numbers between 1 and 50 and store them in a `vector`. Each of the six random numbers should be unique -- no duplicates in the `vector`.
+2. It will sort the `vector`.
+3. It will then ask the user to input their six numbers ensuring no duplicates are entered.
+4. The program will then check how many numbers the user has as a match to the randomly selected numbers, and output this number to the command line (e.g., `You matched 3 numbers`).
+5. The program will loop, asking the user for numbers, until the user enters 0.
