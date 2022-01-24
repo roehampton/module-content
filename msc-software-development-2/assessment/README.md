@@ -66,9 +66,9 @@ Each Sprint features a submission (via Moodle) and a review at the next class se
 
 ### Sprint 1
 
-#### Submission: 17 October
+#### Submission: 4 Feb
 
-#### Review Meeting: 18 October
+#### Review Meeting: 7 Feb
 
 The aim of this Sprint is to check that the project workflow is set up for the team, that you are ready to work together and have an outline of your project objectives.
 
@@ -85,9 +85,9 @@ Links to your github repo and taskboard should be in your documentation submitte
 
 ### Sprint 2
 
-#### Submission: 3 November
+#### Submission: 4 March
 
-#### Review Meeting: 8 November
+#### Review Meeting: 7 March
 
 The aim of this Sprint is to check that you have a set of user requirements defined as user stories and that you have designed initial elements of your application.
 
@@ -109,9 +109,9 @@ Submission requirements for this Sprint:
 
 ### Sprint 3
 
-#### Submission: 2 December
+#### Submission: tbc
 
-#### Review: 6 December
+#### Review:tbc
 
 The aim of this Sprint is to have a working prototype of your application, showing good progress in the technical deliverables of the project, and providing a proof of concept for your idea.
 
@@ -127,7 +127,7 @@ The aim of this Sprint is to have a working prototype of your application, showi
 
 ### Sprint 4
 
-#### Submission: 12 January
+#### Submission:tbc
 
 The aim of this Sprint is to deliver the final version of your application. The final version of your application will be pulled automatically from GitHub. The final submission will be assessed based on the following criteria.
 
@@ -139,7 +139,7 @@ The aim of this Sprint is to deliver the final version of your application. The 
 
 ### Individual Reflection
 
-#### Submission: 14 January
+#### Submission: tbc
 
 Your individual reflection should contain the following sections:
 
