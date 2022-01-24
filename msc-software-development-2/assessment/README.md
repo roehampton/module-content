@@ -8,11 +8,11 @@ The coursework is worth 100% of the total module mark. Delivery of the coursewor
 
 | **Title**             | **Deadline**      | **Marks** |
 | --------------------- | ----------------- | --------- |
-| Sprint 1              | 17 October           | 15%       |
-| Sprint 2              | 3 November           | 15%       |
-| Sprint 3              | 2 December           | 25%       |
-| Sprint 4              | 12 January | 25%       |
-| Individual Reflection | 14 January | 20%       |
+| Sprint 1              | 4 Feb          | 15%       |
+| Sprint 2              | 4 March           | 15%       |
+| Sprint 3              | tbc           | 25%       |
+| Sprint 4              | tbc | 25%       |
+| Individual Reflection | tbc | 20%       |
 
 In this coursework you are tasked with creating a dynamic web application for the smooth and efficient operation of a business of your team's choosing. Hence you are required to specify what type of business you will be building your application for. 
 
@@ -21,9 +21,9 @@ In this coursework you are tasked with creating a dynamic web application for th
 - Your web front-end should use PUG. If your team wants to use a different front-end web framework then you must seek permission from the teaching team first.
 - Your web back-end must run via Node.js. This is not negotiable.
 - Your front-end and back-end must communicate via Express.js. 
-- Your application must use a database for storage. We will teach you SQLite and MySQL, but you can use other database systems such as a NoSQL system such as MongoDB. You must discuss this choice with the teaching team first.
-- Your application must be version controlled using Git and publicly accessible on GitHub. This is not negotiable.
-- Your application must be deployable as a Docker container. 
+- Your application must use a MYSQL database for storage. 
+- Your application must be version controlled using Git. This is not negotiable.
+- Your application must be deployable using Docker. 
 
 ### Advice on Application Choice
 
@@ -56,9 +56,8 @@ dates tbc
 
 
 
-Each Sprint features a submission (via Moodle) and a review at the next class session. Each group will be given **10 minutes maximum** for the review. Your group will be **allocated a time for the code review.** The details of the individual review points are below. These meetings **must be attended** at the **stated time.** Guidelines for review attendance:
+Each Sprint features a submission (via Moodle) and a review at the next class session. Each group will be given 10 minutes* for the review. The details of the individual review points are below. These meetings **must be attended**. Guidelines for review attendance:
 
-- **Being late** for the meeting or **not being ready** when the meeting starts will result in the grade for the review being capped at 50%.
 - **Not attending** the meeting will mean the review will be marked at 0%.
 
 **All team members** should attend the review, however commitments and other considerations will be taken into account. **Individual attendance at reviews will be monitored** to ensure the team is contributing collectively to the project.
@@ -71,18 +70,18 @@ Each Sprint features a submission (via Moodle) and a review at the next class se
 
 #### Review Meeting: 18 October
 
-The aim of this Sprint is to check that the project workflow is set up for the team. You may choose to meet some of the feature requirements during this delivery but point, but it is not a necessity.
+The aim of this Sprint is to check that the project workflow is set up for the team, that you are ready to work together and have an outline of your project objectives.
 
 Submission requirements for this Sprint:
 
 - An overview of your application idea your team want to design and develop.
 - The purpose of the application.
-- The business questions that you will cover in your system.
-- Initial set of tasks identified for the completion of the task.
-- Checklist of technical requirements:
+- The intended users of the application identified and explored via at least 2 'personas'.
+- The technical foundations for teamwork established ie:
   - [ ] GitHub project for coursework created.
   - [ ] Task board created.
   - [ ] Code of Conduct defined.
+Links to your github repo and taskboard should be in your documentation submitted.
 
 ### Sprint 2
 
@@ -123,7 +122,7 @@ The aim of this Sprint is to have a working prototype of your application, showi
 - Implementation progress towards final version of application:
   - Database design
   - Database implementation with pre-filled data
-  - HTML pages available generated from PUG, perhaps with some static content
+  - HTML pages available generated from PUG, showing static content
   - At least some dynamic content being pulled from your database to your templates via Pug - concentrate on views of your data and don't worry about adding/updating for now.
 
 ### Sprint 4
