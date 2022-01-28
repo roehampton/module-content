@@ -6,6 +6,8 @@
         "iterator": "cpp",
         "string": "cpp",
         "string_view": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "limits": "cpp",
+        "iomanip": "cpp"
     }
 }
