@@ -4,18 +4,27 @@ Use your seminar time to work with your team and prepare for the Sprint 1 hand-i
 
 The brief for Sprint 1 is:
 
-Idea well defined and suitable for a CRUD application
-  * Purpose is well defined
-  * Business questions are well defined
-  * Initial tasks defined
-  * Code of conduct included
-  * Github repo and task board created 
+The aim of this Sprint is to check that the project workflow is set up for the team, that you are ready to work together and have an outline of your project objectives.
 
-Remember... 'Less is more' !!  If you can describe your project succinctly, you will better be able to build it!
+Submission requirements for this Sprint:
+
+- An overview of your application idea your team want to design and develop.
+- The purpose of the application 
+- The intended users of the application identified and explored via at least 2 'personas'.
+- The technical foundations for teamwork established ie:
+  - [ ] GitHub project for coursework created.
+  - [ ] Task board created.
+  - [ ] Code of Conduct defined.
+Links to your github repo and taskboard should be in your documentation submitted.
+
+
+__Remember... 'Less is more' !!  If you can describe your project succinctly, you will better be able to build it!__
 
 
 
 ## Activity
+
+Firstly, in your groups decide who is facilitating the  meeting today.
 
 #### 1. Personas and Scenarios
 
@@ -41,29 +50,29 @@ You should aim for a single sentance for the purpose of the format...
 
 'The purpose of this application is to provide a platform where...'
 
-#### 3. Business Questions
+You can then add detail with some 'how can we...' questions. Use the wishes that you have identified in your personas to formulate these questions.
 
-Three or four business questions should cover you project:
+__How can we... questions__
+
+Three or four 'how can we...' questions should cover the purposes of your project. Questions in this format are often used by designers. _They are useful becuase they focus on the problem that needs solving rather than jump into a solution too early on._
 
 Example:
 
 (For my case study - coffee shop rating site)
 
-1. How can people find good coffee shops in a particular town?
-2. How can keen coffee drinkers rate coffee shops?
-3. How can coffee drinkers keep track of coffee shops they have visited before?
+1. How can we help people find good coffee shops in a particular town?
+2. How can we enable keen coffee drinkers to rate coffee shops?
+3. How can we enable coffee drinkers keep track of coffee shops they have visited before?
 
-#### 4. Outline tasks
+#### 3. Outline tasks
 
-These should be generic at this point eg - look ahead in the programme schedule and get a sense of the shape of the project.  Use your task board.
+These should be generic at this point. Look ahead in the programme schedule and get a sense of the shape of the project.  Use your task board.
 
  * Write user stories
  * Create wireframes
  * Testing/evaluation plan 
 ... etc
 
-#### 5. Appoint your product owner
 
-The product owner 'owns' the backlog - they will ultimately decide if a feature is going to be implemented or not.  They will use your personas and business questions to assess any changed or additional requirements further down the agile development process.
 
 
