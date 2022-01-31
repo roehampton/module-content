@@ -290,13 +290,13 @@ To avoid the confusion that can occur with C++ number types, new number data typ
 | **Type**   | **Size (bytes)** | **Minimum Value** | **Maximum Value** |
 | ---------- | ---------------- | ----------------- | ----------------- |
 | `uint8_t`  | 1                | 0                 | $2^8 - 1$         |
-| `int8_t`   | 1                | $-2^7 - 1$        | $2^7 - 1$         |
+| `int8_t`   | 1                | $-2^7$            | $2^7 - 1$         |
 | `uint16_t` | 2                | 0                 | $2^{16} - 1$      |
-| `int16_t`  | 2                | $-2^{15} - 1$     | $2^{15} - 1$      |
+| `int16_t`  | 2                | $-2^{15}$         | $2^{15} - 1$      |
 | `uint32_t` | 4                | 0                 | $2^{32} - 1$      |
-| `int32_t`  | 4                | $-2^{31} - 1$     | $2^{31} - 1$      |
+| `int32_t`  | 4                | $-2^{31}$         | $2^{31} - 1$      |
 | `uint64_t` | 8                | 0                 | $2^{64} - 1$      |
-| `int64_t`  | 8                | $-2^{63} - 1$     | $2^{63} - 1$      |
+| `int64_t`  | 8                | $-2^{63}$         | $2^{63} - 1$      |
 
 ## Strings
 
@@ -485,10 +485,10 @@ On line 23 we print the size of `studen`.  Based on what we know about the value
 - the `name` value is a `string` which is 24 bytes in size
 - the `address` value is a `string` which is 24 bytes in size
 
-Thus our `student` value should be 52 bytes in size.  But what does running the application tell us:
+Thus our `student` value should be 52 bytes in size.  And this is what we will see when running the program(**on a Windows machine -- macOS and Linux may be different**).
 
 ```shell
-Size of student struct is 56 bytes
+Size of student struct is 52 bytes
 id: 1234
 name: Kevin Chalmers
 address: School of Arts
@@ -498,7 +498,12 @@ Building complex data types that represent our real world data is very important
 
 ## Case Study -- Combining What We Know
 
+Below is an extended example using many techniques we have used so far. The comments in the code help explain what is happening.
 
+1. **Create a new project for the below code.**
+2. **Set your new project to the startup project.**
+3. **Enter the code below.**
+4. **Run and test your program. Document your output.**
 
 ```c++
 #include <iostream>
@@ -516,6 +521,7 @@ using std::setfill;
 using std::string;
 using std::vector;
 
+// Our student datatype
 struct student
 {
     unsigned int id;
@@ -523,6 +529,7 @@ struct student
     string address;
 };
 
+// Prints a student.
 void print_student(student s)
 {
     cout << setw(12) << setfill('0') << s.id << setfill(' ');
@@ -531,31 +538,40 @@ void print_student(student s)
     cout << endl;
 }
 
+// Reads student data.
 student read_student()
 {
     student s;
     string tmp;
     cout << "Enter id: ";
+    // Read line from keyboard into temp string
     getline(cin, tmp);
+    // Convert temp string to int and set student id
     s.id = stoi(tmp);
     cout << "Enter name: ";
+    // Read line from keyboard into student name
     getline(cin, s.name);
     cout << "Enter address: ";
+    // Read line from keyboard into student address
     getline(cin, s.address);
     return s;
 }
 
 int main(int argc, char **argv)
 {
+    // A list of students
     vector<student> students;
+    // Fill list of students with 10 students
     for (int i = 0; i < 10; ++i)
     {
         students.push_back(read_student());
     }
+    // Print table header
     cout << setw(12) << "ID Number";
     cout << setw(30) << "Name";
     cout << setw(40) << "Address";
     cout << endl;
+    // Print list of students
     for (auto s : students)
     {
         print_student(s);
@@ -564,10 +580,15 @@ int main(int argc, char **argv)
 }
 ```
 
+> **What is `setfill`?**
+>
+> `setfill` tells `cout` how to fill the space required from a call to `setw`. For example, if we want to fill a space with `0` we use `setfill(0)`. If we use `setw(4)` and `setfill('0')` and `cout << 5;` the output will be `0005` (leading zeros).
 
+> **What is `getline`?**
+>
+> `getline` will 
 
 ## Exercises
 
 1. Write an application that adds 1 to the maximum value of the standard data types and subtracts 1 from the minimum.  Your application should print out the values that you have after performing these operations.
-2. Write an application that has a menu system using an `enum` and `switch` statement which provides the ability to enter a student's details, print the student's details, or exit the system.  Your application should only have one student variable in existence.  It should just overwrite the existing details when a new student is entered.
-3. Develop another menu based application which asks the user if they want to print out a triangle, a Christmas tree, or their name surrounded by stars.  It should prompt the user for the size of the triangle / tree or their name based on the choice selected.  You should use functions to simplify your application.
+2. Write a program that stores data on modules and prints them out (i.e., similar to our case study program). 
