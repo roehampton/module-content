@@ -1,50 +1,42 @@
-# Computational Thinking Seminar 05 -- Pseudocode
+8. Computational Thinking Seminar 04 -- Flowcharts
 
-These tutorials are designed to teach you a number of techniques. As all of you know a Pseudocode is an informal high-level description of the operating principle of a computer program or other algorithm. Pseudocode is not actual programming language. It uses short phrases to write code for programs before you actually create it in a specific language. In computer science, pseudocode is a plain language description of the steps in an algorithm or another system. Pseudocode often uses structural conventions of a normal programming language but is intended for human reading rather than machine reading.
-
-Most importantly, pseudocode is another useful method for designing software and this is a program outline in text form that can be entered directly into the source code editor as a set of general statements that describe each major block, which would be defined as functions and procedures in a high-level language. 
-
-## Exercises 
-
-1. Write a pseudocode which generates first 50 items of the Fibonacci series:
-
-   Note: Fibonacci series is defined as a sequence of numbers in which the first two numbers are 1 and 1, or 0 and 1, depending on the selected beginning point of the sequence, and each subsequent number is the sum of the previous two. 
-
-   **How to Generate Fibonacci Series?**
-
-   ![img](clip_image001.png)
-
- 
-
-2. Write a pseudocode of printing even numbers between 1 to 100
-
-   Note: Any integer that can be divided exactly by 2 is an even number.
-
+   These tutorials are designed to teach you a number of techniques. As all of you know a flowchart is a type of diagram that represents a workflow or process which is a picture of the separate steps of a process in sequential order. In essence, a flowchart can also be defined as a diagrammatic representation of an algorithm, a step-by-step approach to solve a task. Moreover, flowchart shows the steps as boxes of various kinds, and their order by connecting the boxes with arrows. 
+   
+   Most importantly, flowcharts help programmers develop the most efficient coding because they can clearly see where the data is going to end up. Flowcharts help programmers figure out where a potential problem area is and helps them with debugging or cleaning up code that is not working. Now we are going to implement our knowledge. 
+   
+   ## Exercises
+   
+   1. Draw a flowchart which generates first 50 items of the Fibonacci series:
+   
+      Note: Fibonacci series is defined as a sequence of numbers in which the first two numbers are 1 and 1, or 0 and 1, depending on the selected beginning point of the sequence, and each subsequent number is the sum of the previous two. 
+   
+      **How to Generate Fibonacci Series?**
+   
+      ![img](clip_image001-3778289.png)
+   
+   2. Draw a flowchart of printing even numbers between 9 and 100
+   
+      Note: Any integer that can be divided exactly by 2 is an even number.
+   
       Example of even number  2, 4, 6, 8, 10, . . . 
-
-3. Write a pseudocode to print all the odd numbers from 1 to 100
-
-   Note: Odd numbers are whole numbers that cannot be divided exactly into pairs. Odd numbers, when divided by 2, leave a remainder of 1. 1, 3, 5, 7, 9, 11, 13, 15 … are sequential odd numbers.
-
-4. Write a pseudocode describes an algorithm which will accept two numbers from the keyboard and calculate the sum and product displaying the answer on the monitor screen. 
-
-5. How the selection control structure is used in a program: 
-
-   Write a pseudocode where a user chooses the options for multiplying the    numbers or adding them or subtracting.
-
-6. Compound Logical Operators scenarios:
-
-   Write a pseudocode is to input an examination mark and test it for the award    of a grade. The mark is a whole number between 1 and 100. Grades are awarded according to the following criteria:
-
-   - \> = 80 Distinction
-   - \> = 60 Merit
-   - \> = 40 Pass
-   -  < 40 fail
-
-7. The case statement or if … else statements scenarios: 
-
-   Write a pseudocode solution which outputs a message (e.g., insurance is not available, insurance is double, insurance is normal, insurance is medically dependent, and entry invalid) to the monitor screen describing the insurance available according to a category input by the user.
-
-8. Write a pseudocode with the below scenarios: 
-
-   A small start-up software developer company needs to create a program that will calculate the pay of its employees. For the third version of the program, the company wants the program to accept an employee’s name, the number of hours that the employee worked, and the hourly pay rate. The program will then calculate the gross pay, display the employee’s name, number of hours worked, pay rate, and gross pay, but also calculate and display the net pay of the person after taxes have been calculated and deducted.
+   
+   3. Draw a flowchart for an Order-Filling Process which will involve Credit Cheek, Inventory check, Production, Shipment and finally Billing. 
+   
+      Note: Order-Filling is the process of receiving goods, then processing and delivering orders to customers. The process starts with a customer placing an order and ends once they receive it. 
+   
+   4. Design a flowchart for traffic light scenario.
+   
+      Note: A good driver will always follow the traffic laws. Let us assume you are a car driver starting from your home and approaching the traffic light. Design a flowchart for the traffic light rules.
+   
+   5. Design a flowchart for the ATM system for withdrawal of cash-based scenario:
+   
+      Note: An automated teller machine (ATM) is an electronic banking outlet that   allows customers to complete basic transactions without the aid of a branch representative or teller. Anyone with a credit card or debit card can access cash at most ATMs.
+   
+   6. Draw a flowchart to illustrate each of the following scenarios:
+   
+      An online banking application allows users to perform a number of operations on their bank account. The following description covers the actions of the system once the user has logged in and selected an account. A menu will be displayed with the options Show Balance, Show Transactions, Transfer Money, and home. The options will work as follows:
+   
+      - Show Balance will retrieve the balance from the database and display it on the page.
+      - Show transactions will retrieve a transaction from the database and display it on the page, this will continue until there are no more transactions to display.
+      - Transfer money will prompt the user for the sort code and account number of the account they are transferring to. It will then ask for the amount. If the amount is <= 0 then the user will be prompted again. Once an amount has been entered then the details of the transfer will be displayed (account details and amount) and the user will be asked to confirm that they want the transfer to go ahead. If they confirm that the transfer is to go ahead then the transfer details will be sent to the bank’s main server.
+      - Home will redirect the user to the bank’s home page. Produce a flowchart that describes the displaying of the menu and the actions of the 4 options. 
