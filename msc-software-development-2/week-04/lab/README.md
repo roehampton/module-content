@@ -116,9 +116,12 @@ server.listen(port, hostname, function() {
 1. First simply change the server to respond with `Hello, <name>` where `<name>` is your name.  Note you will need to start and stop the server for your change to run in the browser.
 2. Now Modify the line `res.end("Hello, world!");` to `res.end("Hello, " + req.url);` and then go to the URL `127.0.0.1:3000/<name>` where `<name>` is your name. Try a different name.  Can you read the server code to explain what has happened?
 
+### Troubleshoot
+If your connection to localhost:3000 times out, you may have a firewall issue. Check any windows firewall or other antivirus you might be running.
+
 ### Serving Static Web Pages
 
-This server isn't very useful as we need to reload it with each amendment. But it did get us started.  Lets move on by creating a more useful webserver that can keep running and 'serve' any file in its directory.  Again we'll use a library or 'package' that is part of node.js to do this.
+This server isn't very useful as we need to reload it with each amendment. But it did get us started.  Lets move on by creating a more useful webserver that can keep running and 'serve' any file in a specified directory.  Again we'll use a library or 'package' that is part of node.js to do this.
 
 
  **First, run the following in the Visual Studio Code terminal.**
@@ -127,7 +130,11 @@ This server isn't very useful as we need to reload it with each amendment. But i
 npm install node-static
 ```
 
-`npm` is the *Node Package Manager*. We are asking it to install the `node-static` library. This allows us to enter the following program, `static.js` (below). **Make sure this file is created and ran from the same location as your HTML files**:
+`npm` is the *Node Package Manager*. We are asking it to install the `node-static` library. 
+
+ __Then, create a directory called 'static' at the same level as this file__ This directory is where you can put your statically 'served' files.
+
+Now, enter the following program, `static.js` (below). 
 
 ```javascript
 // Import the node-static library
@@ -138,7 +145,7 @@ const http = require("http");
 // This creates a static file server for on the directory __dirname
 // __dirname is the directory the Node application is working in.
 // Similar to cwd (Current Working Directory)
-var file = new(static.Server)(__dirname);
+var file = new(static.Server)(__dirname + '/static');
 
 // The hostname and port the server will listen on.
 var hostname = "127.0.0.1";
@@ -162,27 +169,82 @@ server.listen(port, hostname, function() {
 node static.js
 ```
 
-Now you access your previous HTML files from this module by using, for example, the following URL `127.0.0.1:3000/first.html`.
+Now you access any static HTML files that you place in the static directory. You can move over examples from previos labs.  For example, if you create an HTML file ```static/first.html``` , you will able to access it via the following URL `127.0.0.1:3000/first.html`.
 
-You will need to ensure that the html files you want to serve are in the same directory as your static.js file.
 
-#### Now you try
+#### Exercise
 
 Without restarting the Node.js server we just started, create a new file -- `test.html` -- and add some HTML content to it. You should be able to immediately access this file in your web browser using `127.0.0.1:3000/test.html`.
 
-#### So you want to know more
 
-The main Node.js documentation is available at https://nodejs.org/en/docs/. TutorialsPoint also provides a [Node.js tutorial](https://www.tutorialspoint.com/nodejs/index.htm). We will cover many of these ideas in the module, but additional resources are always useful.
 
 ## More Exercises
 
-1. Update the Node.js server so it prints to the console the URL requested.
-2. Update the Node.js server so that if the URL `/roehampton` is requested, the server returns `Hello from Roehampton!`. **HINT** -- use an `if` statement to test the value of URL. Remember to add `res.end();` to complete the response.
-3. Update the Node.js server so that if the URL `/roehampton` is requested, the server will redirect the browser to Roehampton's website. **HINT** -- the status code for a redirect is 302, and you will need to set the `Location` using `res.setHeader`.
+Going back to your ```server.js``` file:
 
+1. Update the Node.js server so it prints to the console the URL requested. **HINT**: the ```req``` parameter has a property called 'url' which will contain the path after the `/`.  Examine it by adding a line:
+
+```
+console.log(req.url)
+```
+
+2. Update the Node.js server so that if the URL `/roehampton` is requested, the server returns `Hello from Roehampton!`. **HINT** -- use an `if` statement to test the value of URL. Remember to add `res.end();` to complete the response.
+3. Update the Node.js server so that if the URL `/roehampton` is requested, the server will redirect the browser to Roehampton's website. **HINT** -- the status code for a redirect is 302, and you will need to set the `Location` using `res.setHeader`.  
+
+References:
+Node.js. http library: https://nodejs.org/api/http.html
+https://ckmobile.medium.com/how-to-redirect-users-browser-url-to-a-different-page-in-nodejs-2d812aa7f7b4
+
+### Improving your development environment
+
+Reloading the node server each time you change your file isn't going to be a good development experience.  There are npm packages that can automatically watch for changed files and reload for you in the background.  The 'supervisor' package seems to work on our our platforms. A well-known alternative is 'nodemon'
+
+Install the package:
+
+```bash
+npm install supervisor -g
+```
+
+Now start your script with
+
+```bash
+supervisor server.js
+```
+
+OR try:
+
+install the package:
+
+```bash
+npm install nodemon -g
+```
+
+Now start your script with
+
+```bash
+nodemon express-server.js
+```
+
+### Troubleshoot:
+
+In case you receive messages telling you you cannot install packages globally (the -g flag), try 
+
+```
+sudo npm install supervisor -g
+```
+
+or
+
+```
+npm install nodemon --save-dev
+```
+
+without this - you will then have to install supervisor for each project you start.
+
+ 
 # Dynamic routes: Express.js
 
-We can now create web pages and make them interactive with javascript and HTML forms. We can also run a webserver to receive requests, route them to the correct file and return an appropriate response.
+We now know how to create web pages and make them interactive with javascript and HTML forms. We can also run a webserver to receive requests, route them to the correct file and return an appropriate response.
 
 To take this to the next stage, we will use another Node.js library -- Express.js. This will enable use to create more sophisticated 'routes' ie. paths to files or functions, with more sophisticated functionality that can process dynamic input and produce output accordingly.
 
@@ -230,6 +292,17 @@ app.listen(3000,function(){
 Here we have defined the `/` (root folder) to respond with `Hello world!`. **Now run this programme with the following:**
 
 ```shell
+supervisor express_server.js
+```
+OR
+
+```shell
+nodemon express_server.js
+```
+
+OR
+
+```shell
 node express_server.js
 ```
 
@@ -239,7 +312,7 @@ node express_server.js
 
 To build up an application we will get Express to listen on some other URLS, in other words, we will create 'routes' for our requests and give back different responses according to the requested route.
 
-**Shutdown the server with CTRL-C and update `express-server.js` to the following:**
+Add the additional functions below to create the 'goodbye' route and the dynamic route. Here is the whole file:
 
 ```javascript
 // Import express.js
@@ -276,6 +349,9 @@ app.listen(3000,function(){
 });
 ```
 
+__If you are running supervisor or nodemon, you will see these programs automatically stop and restart your webserver so that you code will be updated dynamically.__
+
+
 There are now three URLs you can visit:
 
 - `127.0.0.1:3000` will display `Hello world!`.
@@ -287,37 +363,6 @@ There are now three URLs you can visit:
 Note that the parts of the URL prefaced with a ':' are dynamic, ie. the name you provide is just a label - think of it as a variable name - for a dynamic value.  These parameters are the available via the req.params variable.
 
 Try running the above code but put a colon before the 'hello' in the route.  Examine the console output and explain what has now happened.
-
-### Improving your development environment
-
-Reloading the node server each time you change your file isn't going to be a good development experience.  There are npm packages that can automatically watch for changed files and reload for you in the background.  The 'nodemon' package seems to work well for Linux and mac. Try 'supervisor' windows 10.
-
-For windows, install the package:
-
-```bash
-npm install supervisor -g
-```
-
-Now start your script with
-
-```bash
-supervisor express-server.js
-```
-
-For other platforms
-
-install the package:
-
-```bash
-npm install nodemon -g
-```
-
-Now start your script with
-
-```bash
-nodemon express-server.js
-```
-
 
 
 ### Now you try
@@ -332,3 +377,7 @@ Add the following end point URLs to the application:
 Later, we will connect a database to our express application and use the dynamic routes to create, retrieve, update and delete information in the database.  We will also look at how the presentation (ie. HTML generation) can be improved but kept seperate from business logic by using a templating system and MVC (Model View Controller) architecture.
 
 ie. we will have everything we need to create a simple 'CRUD' web application using some best pratices in software design.
+
+#### So you want to know more
+
+The main Node.js documentation is available at https://nodejs.org/en/docs/. TutorialsPoint also provides a [Node.js tutorial](https://www.tutorialspoint.com/nodejs/index.htm). We will cover many of these ideas in the module, but additional resources are always useful.
