@@ -10,7 +10,7 @@ Start the session by asking the students to write down the top three things they
 
 ## Introduction
 
-
+The point of this seminar is to have students visualise computation. They already did this in part when playing Light Bot. Now we will do it using 
 
 ### What is a Flowchart?
 
@@ -52,6 +52,95 @@ flowchart TD;
     stop((Stop))
     start --> id1 --> id2 --> id3 --> id4 --> id5 --> id6 --> stop
 </div>
+
+
+
+## More Examples
+
+
+
+### Egg Boiling
+
+
+
+<div class="mermaid">
+    flowchart TD;
+    	start([Start])
+    	id1(Fill the saucepan with water)
+    	id2(Turn on the hob to high heat)
+    	id3(Put the saucepan on the hob)
+		id4(Wait for the water to boil)
+		id5(Add egg to water)
+		id6(Wait for one minute)
+		id7(Remove saucepan from the hob)
+		id8(Wait for six minutes)
+		id9(Remove egg from water)
+    	stop((Stop))
+    	start --> id1 --> id2 --> id3 --> id4
+    	id4 --> id5 --> id6 --> id7 --> id8 --> id9
+    	id9 --> stop
+</div>
+
+
+
+### Travel
+
+
+
+## Conditionals
+
+
+
+Username check
+
+
+
+<div class="mermaid">
+    flowchart TD;
+    	start([Start])
+    	id1(Read in username)
+    	id2{username = "Kevin"}
+    	id3(Display access granted)
+    	id4(Display access denied)
+    	stop((Stop))
+    	start --> id1
+    	id1 -- Yes --> id3 --> stop
+    	id1 -- No --> id4 --> stop
+</div>
+
+
+
+
+
+Accept friend request
+
+
+
+Travel
+
+
+
+## Loops
+
+
+
+Average age -- introduce variables
+
+
+
+Numbers divisible by seven
+
+
+
+Problem to work through
+
+
+
+## Lab
+
+
+
+Drawing flow charts.
 
 
 
