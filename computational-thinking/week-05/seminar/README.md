@@ -42,14 +42,14 @@ flowchart TD;
 
 <div class="mermaid">
 flowchart TD;
-    start(Start)
+    start([Start])
     id1[Stand up]
     id2[Turn 180]
     id3[Step forward]
     id4[Turn 180]
     id5[Step forward]
     id6[Sit down]
-    stop(Stop)
+    stop((Stop))
     start --> id1 --> id2 --> id3 --> id4 --> id5 --> id6 --> stop
 </div>
 
