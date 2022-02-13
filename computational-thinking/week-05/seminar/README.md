@@ -18,7 +18,13 @@ graph TD;
     C-->D;
 </div>
 
-
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
 
 8. Computational Thinking Seminar 04 -- Flowcharts
 
