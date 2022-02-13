@@ -104,8 +104,8 @@ Username check
     	id4(Display access denied)
     	stop((Stop))
     	start --> id1
-    	id1 -- Yes --> id3 --> stop
-    	id1 -- No --> id4 --> stop
+    	id1 -->|Yes| id3 --> stop
+    	id1 -->|No| id4 --> stop
 </div>
 
 
