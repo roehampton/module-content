@@ -18,13 +18,33 @@ graph TD;
     C-->D;
 </div>
 
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
+### What is a Flowchart?
+
+
+
+1. Stand up.
+2. Turn 180.
+3. Step forward.
+4. Turn 180.
+5. Step forward.
+6. Sit down.
+
+<div class="mermaid">
+flowchart TD;
+    id1(Stand up)
+    id2(Turn 180)
+    id3(Step forward)
+    id4(Turn 180)
+    id5(Step forward)
+    id6(Sit down)
+    id1 --> id2 --> id3 --> id4 --> id5 --> id6
+</div>
+
+
+
+
+
+
 
 8. Computational Thinking Seminar 04 -- Flowcharts
 
