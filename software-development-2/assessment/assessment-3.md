@@ -4,7 +4,7 @@
 
 This is coursework two of Software Development 2. This coursework is worth 20% of the module total mark.
 
-Your organisation wants to ensure that the data it receives from users is correct. They have developed some command line tools in C++, but they want to explore how to undertake input validation. They have asked you to right a test program that will accept four pieces of information from a user:
+Your organisation wants to ensure that the data it receives from users is correct. They have developed some command line tools in C++, but they want to explore how to undertake input validation. They have asked you to write a test program that will accept four pieces of information from a user:
 
 - Their name.
 - Their date of birth.
