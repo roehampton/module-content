@@ -10,11 +10,11 @@ Start the session by asking the students to write down the top three things they
 
 ## Introduction
 
-The point of this seminar is to have students visualise computation. They already did this in part when playing Light Bot. Now we will do it using 
+The point of this seminar is to have students visualise computation. They already did this in part when playing Light Bot. Now we will do it using flowcharts.
 
 ### What is a Flowchart?
 
-
+A flowchart is just a way to visualise computation. Explore the following example.
 
 1. Stand up.
 2. Turn 180.
@@ -33,6 +33,17 @@ flowchart TD;
     id6(Sit down)
     id1 --> id2 --> id3 --> id4 --> id5 --> id6
 </div>
+```mermaid
+flowchart TD;
+    id1(Stand up)
+    id2(Turn 180)
+    id3(Step forward)
+    id4(Turn 180)
+    id5(Step forward)
+    id6(Sit down)
+    id1 --> id2 --> id3 --> id4 --> id5 --> id6
+```
+
 
 
 
