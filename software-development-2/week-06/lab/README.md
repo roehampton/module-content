@@ -1018,4 +1018,3 @@ Our aim in this unit was to give you an understanding of how C code converts to 
 4. **For the Brave** -- Write an application, using inline assembly as much as possible, that prompts the user for their name and reads in the result using `fgets`.  This is not as simple as it sounds.
 5. **For the Brave** -- Write an application, using inline assembly as much as possible, that works on an array of 10 integers.  The application will have two `for` loops.  The first loop will set the value of the numbers in the array from 0 to 9.  The second `for` loop will print the entries and sum the total.  At the end of the second `for` loop the total should be displayed.
 
-
