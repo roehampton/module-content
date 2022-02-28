@@ -105,18 +105,19 @@ Add another example on accepting a friend request in social media:
 <div class="mermaid">
   flowchart TD;
   		start([Start])
-    	id1(Receive friend request)
-    	id2{Know requester?}
-      id3{Like requester?}
-    	id4(Accept request)
-    	id5(Ignore request)
-    	stop((Stop))
-    	start --> id1 --> id2
-    	id2 -->|Yes| id3
-      id3 -->|Yes| id4 --> stop
-      id3 -->|No| id5
-    	id2 -->|No| id5 --> stop
+        id1(Receive friend request)
+        id2{Know requester?}
+        id3{Like requester?}
+        id4(Accept request)
+        id5(Ignore request)
+        stop((Stop))
+        start --> id1 --> id2
+        id2 -->|Yes| id3
+        id3 -->|Yes| id4 --> stop
+        id3 -->|No| id5
+        id2 -->|No| id5 --> stop
 </div>
+
 
 Finally, ask students to do one for travel from Roehampton to Oxford Circus by using conditionals to make choices on what transport to take.
 
