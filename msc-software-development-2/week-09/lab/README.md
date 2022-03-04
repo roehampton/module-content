@@ -2,6 +2,8 @@
 
 We are going to further improve our code by implementing a fairly rudimentary version of the 'MVC' - Model, View, Controller design pattern.
 
+
+
 We have already started by separating the frontend views from the main logic of express by using pug templates.
 
 Now we will look at how we can tidy up the 'business logic' and the database interactions.
@@ -35,6 +37,10 @@ Within this, create a new file called ```student.js```.
 Add the following code
 
 ```javascript
+
+// Get the functions in the db.js file to use
+const db = require('./../services/db');
+
 class Student {
     // Student ID
     id;
@@ -116,16 +122,17 @@ Complete your 'stub' function for getStudentName() as follows:
 
 Now amend in ```app.js```: 
 
+(note the addition of the async keyword in the anonymous function signature)
+
 ```javascript
 // Task 3 single student page
-app.get("/single-student/:id", function (req, res) {
+app.get("/single-student/:id", async function (req, res) {
     var stId = req.params.id;
     // Create a student class with the ID passed
     var student = new Student(stId);
-    student.getStudentName().then( 
-        Promise => {
-        res.send(student);
-    });
+    await student.getStudentName();
+    console.log(student);
+    res.send(student)
 
 });
 
@@ -153,16 +160,12 @@ block content
 2. Amend app.js to call the template as follows
 
 ```
-// Task 3 single student page
-app.get("/single-student/:id", function (req, res) {
+app.get("/single-student/:id", async function (req, res) {
     var stId = req.params.id;
     // Create a student class with the ID passed
     var student = new Student(stId);
-    student.getStudentName().then( 
-        Promise => {
-        res.render('student', {student:student});
-    });
-
+    await student.getStudentName();
+    res.render('student', {student:student});
 });
 ```
 
@@ -191,8 +194,15 @@ const { Programme } = require('./programme');
 const { Module } = require('./module');
 ```
 
+You will also have to require the db class in each of your models:
 
-)
+```javascript
+
+const db = require('./../services/db');
+
+```
+
+
 
 3. Completing the getStudentProgramme() function in the Student class
 4. Completing the getStudentModules() function in the Student class
@@ -200,4 +210,4 @@ const { Module } = require('./module');
 
 Remember to use the console as you develop your code to see if you are getting the results you need with each step.
 
-[Link](./solutions-lab09.md)
+[Solutions: Link](./solutions-lab09.md)
