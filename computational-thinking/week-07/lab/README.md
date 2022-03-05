@@ -1,135 +1,151 @@
-# Computational Thinking Lab 07 -- More Blockly 
+# Computational Thinking Lab 07 -- Flowcharts and Pseudocode
 
-## Nested Loops
+In this lab, you will be using [diagrams.net](https://app.diagrams.net/) to draw flowcharts from pseudocode. We will be using the examples you have seen before.
 
-A nested loop is a loop inside a loop. The “inner loop” will be executed one time for each iteration of the “outer loop”. 
+## Starting Example
 
-Loops are control structures used to repeat a given section of code a certain number of times or until a particular condition is met.
+For the starting example, the pseudocode is as follows:
 
-In essence, a nested loop is a loop within a loop, an inner loop within the body of an outer one. How this works is that the first pass of the outer loop triggers the inner loop, which executes to completion. Then the second pass of the outer loop triggers the inner loop again. The below flowchart shows a nested loop - 
-
-![img](clip_image002.jpg)
-
-Now we will learn how nested loops works in Google’s Blockly ( using the graphical interface) 
-
-![img](clip_image004.jpg)
-
-![img](clip_image006.jpg)
-
-![img](clip_image008.jpg)
-
- 
-
-![img](clip_image010.jpg)
-
-- Try yourself and run and analyse - how may this nested loop programme work?
-
-The below programme written in C language and using nested loop and to find the prime numbers from 2 to 20. Create a Google’s Blockly (using the graphical interface) nested loop programme to use Blockly.
-
-```c
-#include <stdio.h>
-
-int main () 
-{
-    /* local variable definition */
-    int i, j;
-    for(i = 2; i<20; i++) 
-    {
-        for(j = 2; j <= (i/j); j++) 
-            if(!(i%j)) break; // if factor found, not prime
-        if(j > (i/j)) printf(“%d is prime\n”, i);
-    }
-    return 0;
-}
+```pseudocode
+BEGIN
+    STAND UP
+    TURN 180
+    STEP FORWARD
+    TURN 180
+    STEP FORWARD
+    SIT DOWN
+END
 ```
 
-If you want to do these tasks you need to know the - **THE PROGRAMMING BLOCKS** below - 
+**Use diagrams.net to draw this flowchart. It looks as follows:**
 
-![img](clip_image012.jpg)
+<div class="mermaid">
+flowchart TD;
+    start([Start])
+    id1[Stand up]
+    id2[Turn 180]
+    id3[Step forward]
+    id4[Turn 180]
+    id5[Step forward]
+    id6[Sit down]
+    stop((Stop))
+    start --> id1 --> id2 --> id3 --> id4 --> id5 --> id6 --> stop
+</div>
 
-![img](clip_image014.jpg)
+## Egg Boiling
 
-![img](clip_image016.jpg)
+The pseudocode for egg boiling is as follows:
 
-## While Loop
-
-A while loop is the most straightforward looping structure. Syntax of while loop in programming is as follows:
-
-```c
-while (condition) {
-	statements;
-}
+```pseudocode
+BEGIN
+    FILL SAUCEPAN WITH WATER
+    SET HOB TO HIGH
+    PUT SAUCEPAN ON HOB
+    WAIT UNTIL WATER BOILING
+    ADD EGG TO WATER
+    WAIT ONE MINUTE
+    REMOVE SAUCEPAN FROM HOB
+    WAIT SIX MINUTES
+    REMOVE EGG FROM WATER
+END
 ```
 
-It is an entry-controlled loop. In while loop, a condition is evaluated before processing a body of the loop. If a condition is true, then and only then the body of a loop is executed. After the body of a loop is executed then control again goes back at the beginning, and the condition is checked if it is true, the same process is executed until the condition becomes false. Once the condition becomes false, the control goes out of the loop.
+**Use diagrams.net to draw the flowchart. Ask for feedback on your solution.**
 
-Following program illustrates while loop in C programming example - 
+## Conditionals
 
-```c
-#include<stdio.h>
-#include<conio.h>
-int main()
-{
-    int num=1; //initializing the variable
-    while(num<=10)     //while loop with condition
-    {
-        printf(“%d\n”, num);
-        num++;        //incrementing operation
-    }
-    return 0;
-}
+Conditionals (choice, if-statements), use a diamond to indicate the selection. We used the first example below:
+
+```pseudocode
+BEGIN
+    READ username
+    IF username = "Kevin" THEN
+        PRINT "ACCESS GRANTED"
+    ELSE
+        PRINT "ACCESS DENIED"
+    END IF
+END
 ```
 
-- Try yourself and develop a Google’s Blockly (using the graphical interface) and find out the output printed series of numbers from 1 to 10 using a while loop
+**Now create the flowchart using diagrams.net. It will look as follows.**
 
-Now we will learn about Even Number: 
+<div class="mermaid">
+    flowchart TD;
+    	start([Start])
+    	id1(Read in username)
+    	id2{username = Kevin?}
+    	id3(Display access granted)
+    	id4(Display access denied)
+    	stop((Stop))
+    	start --> id1 --> id2
+    	id2 -->|Yes| id3 --> stop
+    	id2 -->|No| id4 --> stop
+</div>
 
-![img](clip_image018.jpg)
+**Now draw the flowchart for the following pseudocode. Ask for feedback on your solution.**
 
-Any integer (never a fraction) that can be divided exactly by 2. The last digit is 0, 2, 4, 6 or 8 etc    
+```pseudocode
+BEGIN
+	LET requester = RECEIVE REQUEST
+	IF requester IS KNOWN THEN
+	    IF requester IS LIKED THEN
+	        ACCEPT REQUEST
+	    ELSE
+	        IGNORE REQUEST
+	    END IF
+	ELSE
+	    IGNORE REQUEST
+	END IF
+END
+```
 
-We will find out the sum of even number from 0 to 100 by using Google’s Blockly – 
+## Loops
 
-![img](clip_image020.jpg)
+Loops use conditionals to go back to a previous step in the flowchart. Below is our first example:
 
-- Try yourself and run and analyse – I hope the result of the sum of even number from 0 to 100 could be 2550 
+```pseudocode
+BEGIN
+    LET total = 0
+    LET count = 0
+    LOOP UNTIL ALL PEOPLE ASKED
+        READ age
+        total = total + age
+        count = count + 1
+    END LOOP
+    LET average = total / count
+    PRINT average
+END
+```
 
-Professional programmers create programs by writing lines of text for a computer to interpret. This is the most efficient process for creating large programs, but it can be hard for a beginner to learn programming concepts and programming syntax simultaneously. As a beginner, you can get started with a visual programming tool, which lets you create programs without getting stuck over syntax rules. Google Blockly is a good tool for this purpose since it runs online and can generate actual JavaScript or Python code.
+**Draw the flowchart in diagrams.net. It should look as follows:**
 
-This tutorial will go through a series of Google Blockly games so you can learn programming. In Blockly, you drag around blocks to create a program. To get used to the interface, try out this simple puzzle game:
+<div class="mermaid">
+  flowchart TD;
+    start([Start])
+    id1(Let total = 0, count = 0)
+    id2(Let age = Next person's age)
+    id3(total = total + age)
+    id4(count = count + 1)
+    id5{More people in the class?}
+    id6(Let average = total / count)
+    id7(Output average)
+    stop((Stop))
+    start --> id1 --> id2 --> id3 --> id4 --> id5
+    id5 --> |Yes| id2
+    id5 --> |No| id6 --> id7 --> stop
+</div>
 
- 
+**Now draw the flowchart for the following pseudocode. Ask for feedback on your solution.**
 
-![img](clip_image022.jpg)
+```pseudocode
+BEGIN
+    LET counter = 1
+    LOOP UNTIL counter > 100
+        IF counter divisible by 7 THEN
+            PRINT counter
+        END IF
+        counter = counter + 1
+    END LOOP
+END
+```
 
-Please go to the below link - [**https://www.learneroo.com/modules/139/nodes/727**](https://www.learneroo.com/modules/139/nodes/727) and you will find the Blockly Games: Puzzle . Check your answers
-
-Flowcharts can be used to plan out programs. Planning a program that ask students what the best subject you may take! Computer Science? Read form the students and develop a Flowchart whether students make decision yes means of course it is and no means try again. Now we will work with this flowchart and pseudocode below - 
-
- 
-
-![img](clip_image024.jpg)
-
-**Start**
-
-**REPEAT** 
-
-**OUTPUT ‘What is the best subject you take?’** 
-
-**INPUT user inputs the best subject they take** 
-
-**STORE the user’s input in the answer variable**
-
-**IF answer = ‘Computer Science’ THEN** 
-
-**OUTPUT ‘Of course it is!’** 
-
-**ELSE** 
-
-**OUTPUT ‘Try again!’**
-
-**UNTIL answer = ‘Computer Science’**
-
-**End.**  
-
-- Now your tasks - Create a Google’s Blockly(using the graphical interface)  programme and convert pseudocode to Blockly. 

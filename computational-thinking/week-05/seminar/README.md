@@ -85,7 +85,7 @@ Now ask the students to explore a travel example, e.g., Roehampton to Oxford Cir
 
 ## Conditionals
 
-Introduce the concept of conditional. We've already covered the concept of choice in a program -- either true/false or yes/no. Now introduce the how to represent this in a flowchart. Use the following example:
+Introduce the concept of conditional. We've already covered the concept of choice in a program -- either true/false or yes/no. Now introduce how to represent this in a flowchart. Use the following example:
 
 <div class="mermaid">
     flowchart TD;
