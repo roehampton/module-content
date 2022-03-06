@@ -266,14 +266,16 @@ cout << endl;
 One simple method we have to debug a program is to print a trace (messages on what is happening) and analyse the problem. Let us start with an example program to help you understand the idea.
 
 ```c
-#include <stdlib.h>
-#include <stdio.h>
+#include <iostream>
+
+using std::cout;
+using std::endl;
 
 int my_function(int x, int y)
 {
-    printf("my_function entered. x = %d, y = %d\n", x, y);
+    cout << "my_function entered. x = " << x << " y = " << y << endl;
     int temp = x / y;
-    printf("my_function exiting. Returning %d\n", temp);
+    cout << "my_function exiting. Returning " << temp << endl;
     return temp;
 }
 
@@ -281,24 +283,24 @@ int main(int argc, char **argv)
 {
     int x = 5;
     int y = 10;
-    printf("Calling my_function with %d, %d\n", x, y);
+    cout << "Calling my_function with " << x  << " " << y << endl;
     int result = my_function(x, y);
-    printf("my_function returned %d\n", result);
+    cout << "my_function returned " << result << endl;
     x = 20;
     y = 2;
-    printf("Calling my_function with %d, %d\n", x, y);
+    cout << "Calling my_function with " << x  << " " << y << endl;
     result = my_function(x, y);
     printf("my_function returned %d\n", result);
     x = 100;
     y = 0;
-    printf("Calling my_function with %d, %d\n", x, y);
+    cout << "Calling my_function with " << x  << " " << y << endl;
     result = my_function(x, y);
-    printf("my_function returned %d\n", result);
+    cout << "my_function returned " << result << endl;
     return 0;
 }
 ```
 
-**Create this program -- `trace.c` -- then compile and run it. What is the error?**
+**Create this program -- `trace.cpp` -- then compile and run it. What is the error?**
 
 As we are printing out trace messages, we are able to find the bug by examining the inputs and outputs of functions. We can discover quite quickly where our error is.
 
