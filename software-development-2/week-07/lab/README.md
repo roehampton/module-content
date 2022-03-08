@@ -63,11 +63,11 @@ Often you will want to update your code by changing variable names, type names, 
 
 You can find out more about refactoring here.
 
-[Rename | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/ide/refactoring/rename?view=msvc-170)
+[Rename](https://docs.microsoft.com/en-us/cpp/ide/refactoring/rename?view=msvc-170)
 
-[Change Signature | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/ide/refactoring/change-signature?view=msvc-170)
+[Change Signature](https://docs.microsoft.com/en-us/cpp/ide/refactoring/change-signature?view=msvc-170)
 
-[Extract Function | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/ide/refactoring/extract-function?view=msvc-170)
+[Extract Function](https://docs.microsoft.com/en-us/cpp/ide/refactoring/extract-function?view=msvc-170)
 
 ## Exercises
 
