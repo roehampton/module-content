@@ -87,7 +87,7 @@ Exercise 1 code is available [here](01.cpp){:target="_blank"}. You have seen thi
 
 ### Exercise 2
 
-Exercise 2 code is available [here](02.cpp){:target="_blank"}. You have this program before as well.
+Exercise 2 code is available [here](02.cpp){:target="_blank"}. You have seen this program before as well.
 
 ### Exercise 3
 
