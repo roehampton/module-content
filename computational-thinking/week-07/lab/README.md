@@ -1,5 +1,7 @@
 # Computational Thinking Lab 07 -- Flowcharts and Pseudocode
 
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
 In this lab, you will be using [diagrams.net](https://app.diagrams.net/) to draw flowcharts from pseudocode. We will be using the examples you have seen before.
 
 ## Starting Example
