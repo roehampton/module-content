@@ -171,6 +171,7 @@ BEGIN
             END IF
             index = index + 1
         END LOOP
+        index = 0
         stop = stop - 1
     END LOOP
     PRINT data
