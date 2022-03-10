@@ -1,4 +1,4 @@
-# Software Development 2 Code extras - Option list and date handling
+# Software Development 2 Code extras - Option list, bootstrap, css and images in static directory
 
 
 
