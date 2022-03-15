@@ -1,4 +1,4 @@
-# Software Development 2 Lab 06 -- Inline Assembly Programming
+# Software Development 2 Lab 08 -- Inline Assembly Programming
 
 <script src="https://cdn.jsdelivr.net/npm/code-line"></script>
 <script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
@@ -18,11 +18,59 @@ One thing to remember is that assembly code is architecture-specific.  That is, 
 
 ## Disassembly
 
+In Visual Studio we can view the disassembly of our programs. Let us see how to do this:
 
+1. **Create a new project in Visual Studio -- remember to set it as the startup project.**
+2. **Use the following code as the main program.**
+3. **Add a breakpoint (remember from debugging) on line 5.**
+
+```c++
+#include <cstdio>
+
+int main(int argc, char** argv) 
+{ 
+	int x = 10;
+	int y = 15;
+    int z = x + y;
+    printf("%d", z);
+    return 0;
+}
+```
+
+> **What is `printf`?**
+>
+> `printf` is a C level (lower than C++) print function -- it prints the contents to the console. We use placeholders (e.g., `%d` means a number) to state where we want variables to appear. Here we use `z`.
+
+**Now start debugging your program. Wait for the program to hit the breakpoint.**
+
+**Next, open the disassembly view. From the menu select:**
+
+- Debug
+  - Windows
+    - Dissassembly
+
+You should see the following view:
+
+![Screenshot 2022-03-15 at 08.35.08](Screenshot 2022-03-15 at 08.35.08.png)
+
+This is the disassembly of the program. It is the raw code the computer is running to execute your program - including the memory locations (yours might be different). Note that Visual Studio has helped you here:
+
+- Above line 01001865 it has `int x = 10`.This is represented by the assembly instruction `mov dword ptr[x], 0Ah`, or move into the memory pointed to by `x` (`dword ptr[x]`) the value `0Ah` (`0A` in hexadecimal, which is 10).
+- Line 01000186C is the same for setting `y`.
+- The operation to add `x` and `y` takes three instructions:
+  - Move `x` into the `eax` register -- to perform a calculation the data **MUST** be in a CPU register.
+  - Add `y` to the `eax` register.
+  - Move the value in `eax` into `z`.
+
+We can also see the registers at the bottom of the window. Only ECX, EBP, EDI, and ES have values right now.
 
 ## Stepping through Assembly
 
+We can also step through your assembly code using the standard debugging tools. **Step through the code three times to have the computer stop at the add operation:**
 
+![Screenshot 2022-03-15 at 08.46.53](Screenshot 2022-03-15 at 08.46.53.png) 
+
+Note that the registers at the bottom have changed. EAX now contains `0000000A` which is 10 in hexadecimal. You are now all set to undertake some inline assembly programming.
 
 ## First Inline Assembly Application
 
