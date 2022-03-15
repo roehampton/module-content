@@ -1,6 +1,6 @@
 # Software Development 2 Seminar 7 -- Code Understanding
 
-In this seminar, the plan is for students to work out what some obfuscated code does. Have the students split into groups and use the following code fragments **one at a time.** Put the code on the main screen and let the students spend at least 20 minutes discussing before bringing them back to report their findings.
+In this seminar, the plan is for students to work out what some obfuscated code does. Have the students split into groups and use the following code fragments **one at a time.** Put the code on the main screen and let the students spend at least 20 minutes discussing it before bringing them back to report their findings.
 
 ## Exercise One
 
