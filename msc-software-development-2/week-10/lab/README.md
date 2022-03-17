@@ -298,20 +298,17 @@ const programmes = require("./models/programmes");
 Then amend the single-student route code to simply add in the additional call that gets the list of available programmes
 
 ```javascript
-app.get("/single-student/:id", function (req, res) {
+
+app.get("/single-student/:id", async function (req, res) {
     var stId = req.params.id;
     // Create a student class with the ID passed
     var student = new Student(stId);
-    student.getStudentDetails().then(
-        Promise => {
-            student.getStudentProgramme().then(Promise => {
-                student.getStudentModules().then(Promise => {
-                    programmes.getAllProgrammes().then(resultProgs => {
-                        res.render('student', { 'student': student, 'programmes': resultProgs });
-                    });
-                });
-            });
-        });
+    await student.getStudentDetails();
+    await student.getStudentProgramme();
+    await student.getStudentModules();
+    resultProgs = await programmes.getAllProgrammes();
+    console.log(student);
+    res.render('student', {'student':student, 'programmes':resultProgs});
 });
 
 ```
