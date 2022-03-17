@@ -15,18 +15,15 @@ This lab takes up after labs 8 and 9.  In particular, you will need to ensure th
 
 ```javascript
 // Task 3 single student page
-app.get("/single-student/:id", function (req, res) {
+app.get("/single-student/:id", async function (req, res) {
     var stId = req.params.id;
     // Create a student class with the ID passed
     var student = new Student(stId);
-    student.getStudentName().then(
-        Promise => {
-            student.getStudentProgramme().then(Promise => {
-                student.getStudentModules().then(Promise => {
-                    res.render('student', { student: student });
-                });
-            });
-        });
+    await student.getStudentName();
+    await student.getStudentProgramme();
+    await student.getStudentModules();
+    console.log(student);
+    res.render('student', {student:student});
 });
 ```
 
