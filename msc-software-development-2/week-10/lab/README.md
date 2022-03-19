@@ -429,3 +429,10 @@ form(action='/allocate-programme', method='POST')
         input(type='submit' value='Submit')
 ```
 
+
+
+### EXTRAS
+
+Adding dates to the database and using a datepicker to get dates as user input: [Lab sheet - date storage and input](./calendar-input.html)
+
+Adding bootstrap, images, custom CSS: [Code Extras](./code-extras.html)
