@@ -359,7 +359,7 @@ For 2, create the following in students.js
         // Ensure the note property in the model is up to date
         this.programme = '';
         return result;
-    }javascript
+    }
 
 
 ```
