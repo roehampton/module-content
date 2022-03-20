@@ -1,542 +1,374 @@
-# Software Development 2 Lab 09 -- Input Validation and Handling Errors
+# Software Development 2 Lab 09 -- String Manipulation in Assembly
 
 <script src="https://cdn.jsdelivr.net/npm/code-line"></script>
 <script>CodeLine.initOnPageLoad({toggleBtn: {show: false}, copyBtn: {show: false}})</script>
 
 <link rel="stylesheet" href="/module-content/css/block.css">
 
-In this lab we will explore how we ensure that the input into our programs is correct. This is a very important concept. Invalid input is one of the main reasons your program can fail, and one of the main security risks for you programs.
+In this lab, we will extend our understanding of assembly by exploring string manipulation. String manipulation is a simple concept -- we iterate through a string and do something with each character.
 
-## Testing if a Value Input is a Number
+## Getting Started with String Manipulation
 
-At the moment, when you read in input from the user, we don't do any validation to ensure that the user input the expected data type. This is quite bad. It can lead to your program failing in a manner where you don't have any control to rectify. For example, **enter and run the following program.**
+A string is an array of characters. That is, a string is just a sequence of characters in memory. The first character has index zero, and the last character has an index of the length of the string minus one. For example, if we declare the string:
 
-```cpp
-#include <iostream>
+```c++
+string name = "kevin";
+```
 
-using std::cin;
-using std::cout;
-using std::endl;
+In memory, this is represented as follows:
 
-int main(int argc, char **argv)
+| **Index**     | 0    | 1    | 2    | 3    | 4    |
+| ------------- | ---- | ---- | ---- | ---- | ---- |
+| **Character** | k    | e    | v    | i    | n    |
+
+To manipulate a string, we can use a `for` loop. For example:
+
+```c++
+for (int i = 0; i < name.length(); ++i)
 {
-  // int we will read into
-  int x;
-  cout << "Enter a number: ";
-  cin >> x;
-  cout << "You entered " << x << endl;
-
-  return 0;
+    name[i] = 'X';
 }
 ```
 
-When you enter a number, this program will work as expected. However, what happens when we enter just the letter `a` as input:
+The above code will change all the characters into an `X`, so `name = "XXXXX"`. Although this is easy, it can be slightly faster to undertake such manipulation using assembly. For example, we can use the following code to convert our string to `YYYYY`.
 
-```shell
-Enter a number: a
-You entered 0
+```c++
+auto data = str.c_str();
+auto len = str.length();
+__asm
+{
+    // Load length into ecx register
+    // Used for loop counting
+    mov ecx, len
+    // Load the memory location into ebx register
+    // Used to access correct element in array
+    mov ebx, data
+start_loop:
+    // Set memory location ebx + ecx - 1 to 'Y'
+    mov byte ptr[ebx + ecx - 1], 'Y'
+    // If ecx > 1, decrement ecx and jump back to start_loop
+    loop start_loop
+}
 ```
 
-So, C++ interpreted this as 0. It takes more than incorrect input to fail a C++ program, but it doesn't help us ensure that our programs are correct. So how can we do better?
+> **What is `c_str()`?**
+>
+> At this point, you should be looking up documentation to determine what a function does. However, `c_str` gets the raw character array (the memory) used within the `string`.
 
-## Basic Input Checking -- Loop Until Correct
+> **What is `byte ptr[ebx + ecx - 1]`?**
+>
+> OK, this one is a bit trickier. Let us start with the value `ebx + ecx - 1`.
+>
+> - The `ebx` register contains the memory location in which the character array is stored. Let us say it is memory location 100, and `str = "kevin"`. Then:
+>   - Location 100 = 'k`
+>   - Location 101 = 'e'
+>   - Location 102 = 'v'
+>   - Location 103 = 'i'
+>   - Location 104 = 'n'
+> - The `ecx` register is our loop counter. It starts at the string length (for `str = "kevin"` this would mean `ecx` contains 5 initially). As the `loop` operation is executed, `ecx` is decremented.
+> - Therefore, `ebx + ecx - 1` changes every loop:
+>   - First pass = `ebx + ecx - 1 = 100 + 5 - 1 = 104`, which is the last memory location in the `string`.
+>   - Second pass = `ebx + ecx - 1 = 100 + 4 - 1 = 103`, which is the second last memory location in the `string`.
+>   - And so on.
+>
+> `byte ptr` means get the byte pointed to by the memory location. Remembering that `ebx + ecx - 1` will start at 104, and decrement each loop, we the first time we load the character `n` into the `al` register.
+>
+> **Read this again, and write out what is happening. It will help you.**
 
-One thing we can do is loop until we get the correct input. For example, **enter and run the below program that asks for a password.**
+To compare to our simple assembly example above, below is what the C++ compiler will produce for our `for` loop version above.
 
-```cpp
+```assembly
+001A5215  mov         dword ptr [ebp-8],0  
+001A521C  jmp         __$EncStackInitStart+2Bh (01A5227h)  
+001A521E  mov         eax,dword ptr [ebp-8]  
+001A5221  add         eax,1  
+001A5224  mov         dword ptr [ebp-8],eax  
+001A5227  mov         ecx,dword ptr [str]  
+001A522A  call        std::basic_string<char,std::char_traits<char>,std::allocator<char> >::length (01A1663h)  
+001A522F  cmp         dword ptr [ebp-8],eax  
+001A5232  jae         __$EncStackInitStart+49h (01A5245h)  
+001A5234  mov         eax,dword ptr [ebp-8]  
+001A5237  push        eax  
+001A5238  mov         ecx,dword ptr [str]  
+001A523B  call        std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator[] (01A10D7h)  
+001A5240  mov         byte ptr [eax],58h  
+001A5243  jmp         __$EncStackInitStart+22h (01A521Eh)  
+```
+
+### Your Task
+
+1. **Create a new project.**
+2. **Use the code below.**
+3. **Run the project, examining and stepping through the disassembly using the debugging tools.**
+
+```c++
 #include <iostream>
 #include <string>
 
+using std::cout;
+using std::endl;
 using std::string;
-using std::cin;
-using std::cout;
-using std::cerr;
-using std::endl;
 
-int main(int argc, char **argv)
+void change_assembly(string& str)
 {
-  // String to read into
-  string buffer;
-  // Ask for password
-  cout << "Enter password: ";
-  cin >> buffer;
-  // Loop until buffer is correct
-  while (buffer != "password")
-  {
-    cerr << "Password incorrect" << endl;
-    cout << "Enter password: ";
-    cin >> buffer;
-  }
-  // Print congratulations message
-  cout << "Password correct" << endl;
-  return 0;
-}
-```
-
-This is a very simple program, although we using the following new concept:
-
-- `cerr` -- this is the error output. It just goes to the command line, although you can for example set a different colour for your error output than normal output.
-
-We can expand this idea to except correct number input. Let us say we want to input a number between 1 and 5, for example in a menu application. This is a fairly easy concept to work to as shown below.
-
-```cpp
-#include <iostream>
-
-using std::cin;
-using std::cout;
-using std::cerr;
-using std::endl;
-
-int main(int argc, char **argv)
-{
-  int number;
-  // Get number input
-  cout << "Enter a number (1 to 5): ";
-  cin >> number;
-  // Loop until number is in range
-  while (number < 1 || number > 5)
-  {
-    cerr << "Error" << endl;
-    cout << "Enter a number (1 to 5): ";
-    cin >> number;
-  }
-  cout << "You entered " << number << endl;
-
-  return 0;
-}
-```
-
-As you can see, this application will:
-
-- Read in a number.
-- Loop while the number is not between 1 and 5.
-  - This will also catch any erroneous input, which will mean the number is 0.
-
-This is all well and good, but what if we want to allow 0 as an input? How do we ensure that our input is correct? This is where we can use `cin` to tell us the outcome.
-
-## `cin` Fail
-
-`cin` is an object in C++ that provides a lot of additional functionality, such as padding, setting number precision, etc. One of the things it can do is tell you if input has failed. Input fails when `cin` does not successfully read due to, for example, the type of data trying to be read. **Enter and run the below application.**
-
-```cpp
-#include <iostream>
-#include <limits>
-
-using std::cin;
-using std::cout;
-using std::cerr;
-using std::endl;
-using std::numeric_limits;
-using std::streamsize;
-
-int main(int argc, char **argv)
-{
-  int number;
-  // Ask for number
-  cout << "Enter a number: ";
-  cin >> number;
-  // Loop while cin fails to read a number
-  while (cin.fail())
-  {
-    // Need to clear the cin buffer
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cerr << "Error" << endl;
-    cout << "Enter a number: ";
-    cin >> number;
-  }
-
-  cout << "You entered " << number << endl;
-
-  return 0;
-}
-```
-
-We've added a few additional ideas here:
-
-- `cin.fail()` -- this tests if the last read was successful or not. It returns a boolean value -- `true` or `false`. If our input fails, we loop.
-- `cin.clear()` -- this clears any error flags on `cin`. This is necessary to ensure that the next read will possibly be successful.
-- `cin.ignore(numeric_limits<streamsize>::max(), '\n');` -- this tells `cin` to ignore everything else on the stream up to the next newline `\n`. The `numeric_limits<streamsize>::max()` returns the maximum size of the stream buffer, so we are saying *clear all the stream buffer (maximum size) up to the next newline character.*
-
-So we have finally created a working version of our first application. We don't even need to use `cin.fail()` as C++ supports operator overloading, allowing us to replace `cin.fail()` just with `!cin` as indicated below:
-
-```cpp
-#include <iostream>
-#include <limits>
-
-using std::cin;
-using std::cout;
-using std::cerr;
-using std::endl;
-using std::numeric_limits;
-using std::streamsize;
-
-int main(int argc, char **argv)
-{
-  int number;
-  // Ask for number
-  cout << "Enter a number: ";
-  cin >> number;
-  // Loop while cin fails to read a number
-  while (!cin)
-  {
-    // Need to clear the cin buffer
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cerr << "Error" << endl;
-    cout << "Enter a number: ";
-    cin >> number;
-  }
-
-  cout << "You entered " << number << endl;
-
-  return 0;
-}
-```
-
-This is just the same program as last time, but the check in the `while` loop has been changed. We can also go one step further, and test this during the inputting of data explicitly. See the program below.
-
-```cpp
-#include <iostream>
-#include <limits>
-
-using std::cin;
-using std::cout;
-using std::cerr;
-using std::endl;
-using std::numeric_limits;
-using std::streamsize;
-
-int main(int argc, char **argv)
-{
-  int number;
-  // Ask for number
-  cout << "Enter a number: ";
-  // Loop while cin fails to read a number
-  while (!(cin >> number))
-  {
-    // Need to clear the cin buffer
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cerr << "Error" << endl;
-    cout << "Enter a number: ";
-  }
-
-  cout << "You entered " << number << endl;
-
-  return 0;
-}
-```
-
-We've moved `cin >> number` into the `while` condition, and if it returns `false` (`!(cin >> number)`) we fail and try and read again. **This is the safest way to read in data using `cin` that you should be following.**
-
-## Reading Files and Testing for End of File
-
-Failing input also works for file input and output. Indeed, you can use any of the examples above for `cin` and replace them with a  `ifstream` object created by opening a file. Files also allow a further test -- `eof` (short for End of File). The following programme illustrates the basic concept.
-
-```cpp
-#include <iostream>
-#include <fstream>
-#include <string>
-
-using std::string;
-using std::cout;
-using std::endl;
-using std::ifstream;
-using std::getline;
-
-int main(int argc, char **argv)
-{
-  string buffer;
-  // Open file for reading
-  ifstream file("test.txt");
-  // Loop until end of file
-  while (!file.eof())
-  {
-    // Get next line of text from file
-    getline(file, buffer);
-    // Print the read line
-    cout << buffer << endl;
-  }
-  return 0;
-}
-```
-
-**Enter and run this program now.** You will need to create a file called `test.txt` to use it. However, as you can see, this program doesn't need to allocate memory to read into. We just use a `string` and work accordingly. **This is one of the main differences between C (not object orientated) and C++ (object orientated).** C++ has a more modern standard library, allowing us to write code in a simpler manner.
-
-## Exception Handling in C++
-
-C++ does support error handling using `try ... catch`, although it is sometimes frowned upon. Error handling in this manner is expensive, and is not used in any area where performance is important (for example, in games development). Indeed, there is very little in the C++ standard library that will throw an exception. This is in stark contrast to languages such as Python, Java, and C# where you will find exceptions thrown in many places. In Java especially, the compiler will raise an error if you are not properly managing your exceptions. C++ simply doesn't do that. The compiler will generate an executable and it will run, with undefined behaviour potentially occurring.
-
-As a first example, **enter and run the following application.**
-
-```cpp
-#include <iostream>
-#include <string>
-
-using std::string;
-using std::cin;
-using std::cout;
-using std::endl;
-using std::stoi;
-
-int main(int argc, char **argv)
-{
-  // Ask the user for input
-  string input;
-  cout << "Enter a number: ";
-  cin >> input;
-  // Try and convert the input string to a number
-  int n = stoi(input);
-  // Output number
-  cout << "You entered " << n << endl;
-  return 0;
-}
-```
-
-If you enter something that is not a number (e.g., `banana`) as input, the call to `stoi` will throw an exception. `stoi` is a function that tries to convert a `string` to an `int`. If the `string` does not represent a number, the application will fail. For example, on my MacBook, the following output will occur:
-
-```shell
-Enter a number: banana
-libc++abi.dylib: terminating with uncaught exception of type std::invalid_argument: stoi: no conversion
-[1]    86364 abort      ./a.out
-```
-
-The exception thrown is `std::invalid_argument`, and it provides a message -- `stoi: no conversion`. So, in other words, we know `stoi` was unable to convert our `string` as we gave it an invalid argument. `banana` is not a number essentially.
-
-Let us fix this code so that it correctly inputs our data. The below is essentially a different approach to our first application, but using `try` and `catch` rather than testing `cin`. **This method is generally discouraged in C++, but is the way most other programming languages approach the problem:**
-
-- Read input from the keyboard.
-- Try and convert the input to a number (or whatever you are trying to do).
-- If exception raised, print error and loop, asking for input again.
-
-```cpp
-#include <iostream>
-#include <string>
-#include <stdexcept>
-
-using std::string;
-using std::cin;
-using std::cout;
-using std::cerr;
-using std::endl;
-using std::stoi;
-using std::invalid_argument;
-
-int main(int argc, char **argv)
-{
-  // Ask the user for input
-  string input;
-  // Loop until break
-  while (true)
-  {
-    try
+    auto data = str.c_str();
+    auto len = str.length();
+    __asm
     {
-      cout << "Enter a number: ";
-      cin >> input;
-      // Try and convert the input string to a number
-      int n = stoi(input);
-      // Output number
-      cout << "You entered " << n << endl;
-      // If we get here, break out of loop
-      break;
+        // Load length into ecx register
+        // Used for loop counting
+        mov ecx, len
+        // Load the memory location into ebx register
+        // Used to access correct element in array
+        mov ebx, data
+    start_loop:
+        // Load 'Y' into memory location pointed to by ebx + ecx - 1
+        mov byte ptr[ebx + ecx - 1], 'Y'
+        // If ecx > 1, decrement ecx and jump back to start_loop
+        loop start_loop
     }
-    catch(const invalid_argument& e)
+}
+
+void change(string& str)
+{
+    for (int i = 0; i < str.length(); ++i)
     {
-      cerr << e.what() << endl;
+        str[i] = 'X';
     }
-  }
-  return 0;
 }
-```
 
-### Throwing Your Own Errors
-
-As you become a better programmer, and start writing your own libraries, you will have to write code that also raises exceptions. This is normally quite easy, and uses a keyword in most languages. For example, in C++ (and Java, C#, etc.) the keyword is `throw`. **Enter and run the code below.**
-
-```cpp
-#include <iostream>
-#include <stdexcept>
-
-using std::cout;
-using std::endl;
-using std::invalid_argument;
-
-int divide(int numerator, int denominator)
+int main(int argc, char** argv)
 {
-  if (denominator == 0)
-  {
-    throw invalid_argument("Divide by zero");
-  }
-  return numerator / denominator;
-}
-
-int main(int argc, char **argv)
-{
-  cout << divide(5, 0) << endl;
-  return 0;
+    string test = "kevin";
+    change(test);
+    cout << test << endl;
+    change_assembly(test);
+    cout << test << endl;
+    return 0;
 }
 ```
 
-The output from this program on my MacBook is as follows:
+## Converting a String to Lowercase
 
-```shell
-libc++abi.dylib: terminating with uncaught exception of type std::invalid_argument: Divide by zero
-[1]    86615 abort      ./a.out
-```
+For our next example, we will use inline assembly to convert a `string` into lowercase. A few things to remember:
 
-As you can see, we get the correct exception `std::invalid_argument` and the correct message `Divide by zero`. So we have the correct output occurring.
+- Characters are represented via [ASCII code](https://en.wikipedia.org/wiki/ASCII). Each character has a number representation.
+- In ASCII, characters `A` through `Z` are represented by the numbers 65 to 90, and `a` through `z` by the numbers 97 to 122. That means, `A - a = 32`.
 
-## Advanced -- Regular Expressions
+So, to convert a character to a lowercase one, we have to do the following:
 
-So far our input validation is based on checking is a value is an expected type. This is fine for many situations, but not really enough when we are dealing with complex data entry.
+1. Check if the character is between `A` and `Z`.
+   - We have to check if it is less than `A` first, then greater than `Z`. This is assembly remember.
+2. If it is, we add 32 to the value and store back into memory.
 
-For example, let us say we want to test that user input starts with a `K`. We can do this simply as follows:
+The following code provides an example.
 
-```cpp
+1. **Create a new project.**
+2. **Enter the code below.**
+3. **Run the program, examining what happens via the debugger.**
+
+```c++
 #include <iostream>
 #include <string>
 
-using std::string;
-using std::cin;
 using std::cout;
 using std::endl;
+using std::string;
 
-int main(int argc, char **argv)
+void lowercase(string& str) 
 {
-  // Ask for user input
-  cout << "Enter your name: ";
-  // Input a string
-  string name;
-  cin >> name;
+    auto data = str.c_str();
+    auto len = str.length();
+    __asm
+    {
+        // Load length into ecx register
+        // Used for loop counting
+        mov ecx, len
+        // Load the memory location into ebx register
+        // Used to access correct element in array
+        mov ebx, data
+    start_loop:
+        // Move byte in memory location ebx + exc -1 into al register
+        mov al, byte ptr [ebx + ecx - 1]
+        // Compare al register to A
+        cmp al, 'A'
+        // If al less than A jump to end_loop
+        jl end_loop
+        // Compare al register to Z
+        cmp al, 'Z'
+        // If al greater than Z jump to end_loop
+        jg end_loop
+        // If we are here, al contains letter between A and Z
+        // Add 32 to al register to convert to lowercase value
+        add al, 32
+        // Move contents of al register back into memory location
+        // pointed to by ebx + ecx - 1
+        mov byte ptr [ebx + ecx - 1], al
+     end_loop:
+       	// Will jump back to start_loop if ecx > 1
+        loop start_loop
+    }
+}
 
-  // Check if string starts with a K
-  if (name[0] == 'K')
-  {
-    cout << "Your name starts with K" << endl;
-  }
-  else
-  {
-    cout << "Your name doesn't start with K" << endl;
-  }
-  return 0;
+int main(int argc, char** argv)
+{
+    string test = "HelLO HOW are YOU?";
+    lowercase(test);
+    cout << test << endl;
+    return 0;
 }
 ```
 
-This is all well and good, but as you can imagine, this becomes problematic if you want to test for more complex data types. For example, how do we check if an input is a postcode, which can be:
+## Counting Letters
 
-- SW15 5PU
-- E1 4FG
-- G12 9RF
+We can also count the number of letters (`A` to `Z` and `a` to `z`) in a `string`. Our challenge here is that the characters 91 to 96 are not characters. Therefore we have to test if the value is between `A` and `Z` or between `a` and `z`. **Experiment with the code below.**
 
-How do we do that? This is where we look at regular expressions.
-
-### What is a Regular Expression?
-
-A regular expression is a description of a pattern that we can test if a string matches. It uses basic parameters to describe a pattern. The most basic pattern match is `.*`. The `.` means we any character, and `*` means accept any number. This is effectively a regular expression that does nothing.
-
-If we want to accept a string starting with `K`, we can expand our regular expression to do so. `^K.*` means accept a string with `K` at the start and then any number of characters. `K.*` would mean accepting any string which had a `K` then any character, `K` then any character, etc. So `KaKeKcKf` would be acceptable for `K.*` but `Kevin` would not be.
-
-C++ supports regular expressions using the `regex` library. Below is a sample application. **Enter the code and run it.**
-
-```cpp
+```c++
 #include <iostream>
 #include <string>
-#include <regex>
 
-using std::string;
-using std::cin;
 using std::cout;
 using std::endl;
-using std::regex;
-using std::regex_match;
+using std::string;
 
-int main(int argc, char **argv)
+int count_letters(string& str)
 {
-  // Define regular expression
-  regex reg("^K.*");
-  // Ask user for input
-  cout << "Enter your name: ";
-  // Get input from user
-  string input;
-  cin >> input;
-  // Test if string matches regular expression
-  if (regex_match(input, reg))
-  {
-    cout << "Input matches regular expression" << endl;
-  }
-  else
-  {
-    cout << "Input doesn't match regular expression" << endl;
-  }
+    auto data = str.c_str();
+    auto len = str.length();
+    int count = 0;
+    __asm
+    {
+        // Load length into ecx register
+        // Used for loop counting
+        mov ecx, len
+        // Load the memory location into ebx register
+        // Used to access correct element in array
+        mov ebx, data
+    start_loop:
+        // Move byte in memory location ebx + exc -1 into al register
+        mov al, byte ptr[ebx + ecx - 1]
+        // Compare value in al register to A
+        cmp al, 'A'
+        // If al is less than A then jump to end_loop
+        jl end_loop
+        // Compare value in al register to z
+        cmp al, 'z'
+        // If al is greater than Z then jump to end_loop
+        jg end_loop
+        // Now we need to check for values between Z and a
+        // Compare value in al register to Z
+        cmp al, 'Z'
+        // If less than Z jump to increment
+        jl increment
+        // Compare value in al register to a
+        cmp al, 'a'
+        // If greater than a jump to increment
+        jg increment
+        // If we are here then not a letter
+        // Jump to end_loop
+        jmp end_loop
+    increment:
+        // If we are here, value must be a letter
+       	// Move value of count into eax register
+        mov eax, count
+        // Increment eax register
+        inc eax
+        // Move value of eax register into count
+        mov count, eax
+    end_loop:
+        // If ecx > 1 then loop
+        loop start_loop
+    }
+    return count;
+}
 
-  return 0;
+int main(int argc, char** argv)
+{
+    string test = "how many letters?";
+    cout << count_letters(test) << endl;
+    return 0;
 }
 ```
 
-We are using two new objects here:
+## Converting String to Number
 
-- `regex` -- this is an object representing a regular expression.
-- `regex_match` -- undertakes a match of a `string` against a `regex`. It returns `true` or `false` based on the success of matching.
+We can also use assembly to convert a `string` to a number. The code for this is below.
 
-For example, running this application:
+**As an exercise, we will not explain this code directly. Spend the time walking through the program with the debugger, and reading the code. This is the skillset you are developing and you need to practice.**
 
-```shell
-Enter your name: Kevin
-Input matches regular expression
-...             
-Enter your name: Alex
-Input doesn't match regular expression
-```
-
-### More Regular Expressions
-
-What if we want to check to see if a name is entered correctly. We will be very bad programmers and assume that all names start with a capital letter, and then have a series of lowercase letters. To do this we will use two additional regular expression features:
-
-- `[A-Z]` -- this means accept a character from the set defined in the range `A` to `Z`.
-- `[a-z]` -- this means accept a character from the set defined in the range `a` to `z`.
-- `([a-z]*)` -- this parentheses `(...)` defines a group. This allows us to treat different parts of the 
-
-Let us define our regular expression. **Enter and run the following program.**
-
-```cpp
+```c++
 #include <iostream>
 #include <string>
-#include <regex>
 
-using std::string;
-using std::cin;
 using std::cout;
 using std::endl;
-using std::regex;
-using std::regex_match;
+using std::string;
 
-int main(int argc, char **argv)
+int to_num(string& str)
 {
-  // Create a regex that accepts uppercase characters, a space, then numbers
-  regex reg("^[A-Z]([a-z]*)");
-  // Ask user for an input
-  string input;
-  cout << "Enter a string: ";
-  cin >> input;
-  // Test regular expression
-  if (regex_match(input, reg))
-  {
-    cout << "String matches regular expression" << endl;
-  }
-  else
-  {
-    cout << "String does not match regular expression" << endl;
-  }
+    auto data = str.c_str();
+    auto len = str.length();
+    int num = 0;
+    int factor = 1;
+    __asm
+    {
+        // Load length into ecx register
+        // Used for loop counting
+        mov ecx, len
+        // Load the memory location into ebx register
+        // Used to access correct element in array
+        mov ebx, data
+        // Set edx to 0. This will be our sum
+        mov edx, 0
+    start_loop:
+        // This will zero the eax register. Think about why.
+        xor eax, eax
+        // Move byte in memory location ebx + exc -1 into al register
+        mov al, byte ptr[ebx + ecx - 1]
+        // Compare al register to 0 character  
+        cmp al, '0'
+        // If less than, not a number character. Fail.
+        jl fail
+        // Compare al register to 9 character
+        cmp al, '9'
+        // If greater than, not a number character. Fail.
+        jg fail
+        // Know it is a number character. Subtract 48 to convert to value
+        sub al, 48
+        // Multiply by factor
+        imul eax, factor
+        // Add to edx register (working sum)
+        add edx, eax
+        // Check if end of loop
+        cmp ecx, 1
+        // If end of loop, jump to end
+        je end_loop
+        // Load factor value into eax register
+        mov eax, factor
+        // Multiply eax by 10
+        imul eax, 10
+        // Store value in eax register into factor
+        mov factor, eax
+    end_loop:
+        // If ecx > 1 then decrement and jump to start_loop
+        loop start_loop
+        // Store working sum (edx register) into num
+        mov num, edx
+        // Jump to finish
+        jmp finish
+    fail:
+        // Failed, load 0 into num
+        mov num, 0
+    finish:
+    }
+    return num;
+}
 
-  return 0;
+int main(int argc, char** argv)
+{
+	string test = "123";
+	cout << to_num(test);
+	return 0;
 }
 ```
 
-We accept a single uppercase letter at the start of the regular expression, then accept any number of lowercase letters. When you run this application you will see that it accepts `Kevin` but not `KeVin`.
-
-## So You Want to Know More
-
-You can look up the following cheatsheet that explains how regular expressions in C++ can be defined. [c++11-regex-cheatsheet.pdf (cpprocks.com)](https://cpprocks.com/files/c++11-regex-cheatsheet.pdf){:target="_blank"}
-
-Slightly more advanced tutorial on the power of regular expressions -- [Introduction to Regular Expressions With Modern C++ - DZone IoT](https://dzone.com/articles/introduction-to-regular-expression-with-modern-c){:target="_blank"}.
