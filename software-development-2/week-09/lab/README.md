@@ -75,7 +75,7 @@ start_loop:
 >
 > **Read this again, and write out what is happening. It will help you.**
 
-To compare to our simple assembly example above, below is what the C++ compiler will produce for our `for` loop version above.
+To compare to our simple assembly example above, below is what the C++ compiler will produce for our `for` loop version above. Don't worry that you don't understand it -- the point is the difference in complexity of the compiled solution to a hand crafted assembly version.
 
 ```assembly
 001A5215  mov         dword ptr [ebp-8],0  
