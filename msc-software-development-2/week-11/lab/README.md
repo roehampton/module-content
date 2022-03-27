@@ -34,6 +34,8 @@ Stop your containers, run the following and then run docker-compose up --build
 npm install express-session
 npm install bcryptjs
 ```
+NOTE:  the bcryptjs library as opposed to the bcrypt library will work best with docker on different platforms.
+
 
 #### Create a table to hold user information with unique ids that can be be foreign keys to the Students table.
 
@@ -224,7 +226,7 @@ And then this method:
     }
 
 ```
-Reference: https://www.npmjs.com/package/bcrypt
+Reference: https://www.npmjs.com/package/bcryptjs
 
 ### Add a method to hash and store the password and submitted email address for a new user
 
@@ -251,27 +253,24 @@ Add the following to app.js.
 This provides a POST route which will first check for a valid user and then add the password to an existing record if there is one (This is needed at this point only because we have email addresses in the database with now password set yet).  If no existing user is found, a new record willb e created. 
 
 ```javascript
-app.post('/set-password', function (req, res) {
+app.post('/set-password', async function (req, res) {
     params = req.body;
     var user = new User(params.email);
     try {
-        user.getIdFromEmail().then( uId => {
-            if(uId) {
-                 // If a valid, existing user is found, set the password and redirect to the users single-student page
-                user.setUserPassword(params.password).then ( result => {
-                    res.redirect('/single-student/' + uId);
-                });
-            }
-            else {
-                // If no existing user is found, add a new one
-                user.addUser(params.email).then( Promise => {
-                    res.send('Perhaps a page where a new user sets a programme would be good here');
-                });
-            }
-        })
-     } catch (err) {
-         console.error(`Error while adding password `, err.message);
-     }
+        uId = await user.getIdFromEmail();
+        if (uId) {
+            // If a valid, existing user is found, set the password and redirect to the users single-student page
+            await user.setUserPassword(params.password);
+            res.redirect('/single-student/' + uId);
+        }
+        else {
+            // If no existing user is found, add a new one
+            newId = await user.addUser(params.email);
+            res.send('Perhaps a page where a new user sets a programme would be good here');
+        }
+    } catch (err) {
+        console.error(`Error while adding password `, err.message);
+    }
 });
 ```
 
@@ -299,26 +298,25 @@ async authenticate(submitted) {
 in app.js, ass a post route which takes the form input, compares the password and redirects or shows an error message accordingly.
 
 ```javascript
-app.post('/authenticate', function (req, res) {
+// Check submitted email and password pair
+app.post('/authenticate', async function (req, res) {
     params = req.body;
     var user = new User(params.email);
     try {
-        user.getIdFromEmail().then(uId => {
-            if (uId) {
-                user.authenticate(params.password).then(match => {
-                    if (match) {
-                        res.redirect('/single-student/' + uId);
-                    }
-                    else {
-                        // TODO improve the user journey here
-                        res.send('invalid password');
-                    }
-                });
+        uId = await user.getIdFromEmail();
+        if (uId) {
+            match = await user.authenticate(params.password);
+            if (match) {
+                res.redirect('/single-student/' + uId);
             }
             else {
-                res.send('invalid email');
+                // TODO improve the user journey here
+                res.send('invalid password');
             }
-        })
+        }
+        else {
+            res.send('invalid email');
+        }
     } catch (err) {
         console.error(`Error while comparing `, err.message);
     }
@@ -348,37 +346,36 @@ in the authenticate route, set the session
 
 ```javascript
 // Check submitted email and password pair
-app.post('/authenticate', function (req, res) {
+app.post('/authenticate', async function (req, res) {
     params = req.body;
     var user = new User(params.email);
     try {
-        user.getIdFromEmail().then(uId => {
-            if (uId) {
-                user.authenticate(params.password).then(match => {
-                    if (match) {
-                        // Set the session for this user
-                        req.session.uid = uId;
-                        req.session.loggedIn = true;
-                        res.redirect('/single-student/' + uId);
-                    }
-                    else {
-                        // TODO improve the user journey here
-                        res.send('invalid password');
-                    }
-                });
+        uId = await user.getIdFromEmail();
+        if (uId) {
+            match = await user.authenticate(params.password);
+            if (match) {
+                req.session.uid = uId;
+                req.session.loggedIn = true;
+                console.log(req.session);
+                res.redirect('/single-student/' + uId);
             }
             else {
-                res.send('invalid email');
+                // TODO improve the user journey here
+                res.send('invalid password');
             }
-        })
+        }
+        else {
+            res.send('invalid email');
+        }
     } catch (err) {
         console.error(`Error while comparing `, err.message);
     }
 });
 
+
 ```
 
-Write some code in app.js to test if the session is set as expected:
+Write some code in app.js root route to test if the session is set as expected:
 
 
 ```javascript
