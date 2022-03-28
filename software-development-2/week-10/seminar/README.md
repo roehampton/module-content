@@ -20,8 +20,13 @@ stateDiagram-v2
 
 
 <div class=mermaid>
-    stateDiagram
+stateDiagram-v2
 	direction LR
-	[*] --> X
+	[*] --> s0
+	s0 --> s0 : 0
+	s0 --> s1 : 1
+	s1 --> s1 : 1
+	s1 --> s0 : 0
+	s1 --> [*]
 </div>
 
