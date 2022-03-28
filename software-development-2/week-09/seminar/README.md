@@ -17,13 +17,14 @@ In this seminar, the idea is to have students work through string manipulation e
 flowchart TD;
     id1(READ string)
     id2(LET index = LENGTH OF string - 1)
-    id3(SET string[index] = 'Y')
+    id3("SET string[index]" = 'Y')
     id4{index > 1}
     id5(SET index = index - 1)
     id6((Stop))
     id1 --> id2 --> id3 --> id4 --> |Yes| id5 --> id3
     id4 --> |No| id6
 </div>
+
 
 The relevant assembly code is as follows:
 
