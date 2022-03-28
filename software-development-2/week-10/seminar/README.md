@@ -14,3 +14,9 @@ stateDiagram
 
 
 
+<div class=mermaid>
+    stateDiagram
+	direction LR
+	[*] --> X
+</div>
+
