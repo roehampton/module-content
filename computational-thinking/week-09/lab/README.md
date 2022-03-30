@@ -1,109 +1,174 @@
-# Computational Thinking Lab 09 -- Lists    
+# Computational Thinking Lab 09 -- More Scratch
 
-Block-based programming has become popular to teach programming to young students like you in introductory programming environments. Blockly is actually a programming language made out of several pre - existing programming languages. We expect great development will come in the future by Google’s Blockly.
+In this lab, we will continue to work in [Scratch - Imagine, Program, Share (mit.edu)](https://scratch.mit.edu/) looking at more advanced examples.
 
-## Lists
+## Working with Variables
 
-Programming languages provide the List item for storing lists of items together.
+**A variable is just a value we want to store and possibly change during the execution of a program.** For example, if you want to hold a value read from the user, we need to store it in a variable.
 
-A Blockly list is an ordered collection of items, such as a “to do” list or a shopping list. Items in a list may be of any type, and the same value may appear more than once in a list. If you want to work with the Lists in **Google’s Blockly** you need to know the - **THE PROGRAMMING BLOCKS** below -  
+### Creating Variables in Scratch
 
-**![img](clip_image001.png)**
+Creating a new variable in Scratch is relatively easy. In the toolbox on the left-hand side, scroll down until you find the **Make a variable** button:
 
-**![img](clip_image002.png)**
+![image-20220330084102794](image-20220330084102794.png)
 
-An array is a variable that can store multiple values. For example, if you want to store 100 integers, you can create an array for it. Arrays can have multiple axes (more than one axis). Each axis is a dimension. Thus, a single - dimension array is also known as a list.
+**Click on this button to open the new variable prompt:**
 
-### How to declare an array?
+![image-20220330084238867](image-20220330084238867.png)
 
-The Syntax of an array declaration below - 
+**Call the variable `N` for the moment, and click OK.** You will now see the variable available in the toolbox, and also monitored above the sprite on the right-hand side:
 
-**dataType arrayName[arraySize];** Here, we declared an array - **int data [100] ;** 
+![image-20220330084422838](image-20220330084422838.png)
 
-![img](clip_image003.png)
+### Reading Input and Setting Variables
 
-### How to initialize an array?
+In Scratch, we read input from the user using the **Ask and wait block:**
 
-To initialize an array during declaration. For example, int mark [5] = {19, 10, 8, 17, 9};
+![image-20220330084606469](image-20220330084606469.png)
 
-### Implementation 
+Using this block and running the application will prompt the user (via the Sprite) and put a textbox under the sprite on the right-hand side for the user to enter a number:
 
-If you want to work with Lists further, you need to know the - **THE PROGRAMMING BLOCKS** below - 
+![image-20220330084825478](image-20220330084825478.png)
 
-![img](clip_image004.png)
+To store this value, we use the **Set variable block:**
 
-![img](clip_image005.png)
+![image-20220330085107695](image-20220330085107695.png)
 
-![img](clip_image006.png)
+We basically say the following:
 
-The print block in the Text or String category can print lists. The result of the above program is the shown message box on top. 
+- Ask the user to enter a number.
+- Set N to user input.
 
-However, a variable lets you store one value, such as a string, but what if you want to store a collection of strings together? List is a just a variable that stores more than one variable. Each element in a list can be access based on its index (position of the element in a list).
+This is the standard method of getting user input -- prompt and store. Running the application to the end will show you that N does indeed change:
 
-- Try yourself and make familiar with Lists concepts, blocks how to create/build a Lists with the below explanations -  
+![image-20220330085248923](image-20220330085248923.png)
 
-![img](clip_image007.png)
+Notice N is now 5 above the sprite.
 
-![img](clip_image008.png)
+### Extended Example
 
-## Blocks for Loop Creation with Lists
+Let us look at an extended example using three variables:
 
-The for each block (see https://en.wikipedia.org/wiki/Foreach) is similar, except instead of giving the loop variable values in a numeric sequence, it uses the values from a list in turn. The following program prints each element of the list: “Apple”, “Barriers” and “Orange”. 
+```pseudocode
+BEGIN
+    READ N
+    READ M
+    LET sum = N + M
+    PRINT sum
+END
+```
 
-![img](clip_image009.png)
+For this example we need the following variables:
 
-![img](clip_image010.png)
+- N
+- M
+- sum
 
-- Now your tasks - Build and analysis the visual development representations and explain how it works!
+**Create the variables M and sum now.** The Scratch equivalent of this pseudocode is:
 
-## Break out of loop with Lists 
+![image-20220330085736332](image-20220330085736332.png)
 
-The breakout of loop block provides an early exit from a loop. The following program prints “apple” on the first iteration and on the second iteration prints “Barriers” when the loop variable is equal to “Orange”. The third item in the list is never reached. It “breaks out” of the loop. In below example, we created and developed Break out of loop with Lists
+**Create this in Scratch now and run the program by clicking the green flag. Does it work?**
 
-![img](clip_image011.png)
+## Getting Remainders
 
-![img](clip_image012.png)
+We can ask Scratch to calculate a remainder using the **Mod block**. Below is an example program that requires us to calculate a remainder:
 
-- Now your tasks – Go to this link below https://www.learneroo.com/modules/139/nodes/741 and complete the steps 1 to 3. Finally do the fourth steps by yourself 
+```pseudocode
+BEGIN
+    READ N
+    LET remainder = N % 2
+    IF remainder = 0 THEN
+        PRINT "N is even"
+    ELSE
+        PRINT "N is odd"
+    END IF
+END
+```
 
-![img](clip_image013.png)
+**Create a new Scratch application and add a new variable N and another called remainder. Now add the following blocks:**
 
-## Adjusting text case
+![image-20220330090730147](image-20220330090730147.png)
 
- 
+**Can you work out what the join block does?**
 
-![img](clip_image014.png)
+## Exercise
 
-- Now your tasks - Build and analysis the visual development representations and explain how it works! Use upper case and display your name  
+You now have enough knowledge to complete the following application:
 
-## Repeat
+```pseudocode
+BEGIN
+    READ x
+    READ y
+    READ z
+    IF x > y THEN
+        IF x > z THEN
+            PRINT x
+            IF y > z THEN
+                PRINT y
+                PRINT z
+            ELSE
+                PRINT z
+                PRINT y
+            END IF
+        ELSE
+            PRINT z
+            PRINT x
+            PRINT y
+        END IF
+    ELSE
+        IF y > z THEN
+            PRINT y
+            IF x > z THEN
+                PRINT x
+                PRINT z
+            ELSE
+                PRINT z
+                PRINT x
+            END IF
+        ELSE
+            PRINT z
+            PRINT y
+            PRINT x
+        END IF
+    END IF
+END
+```
 
-The simplest “repeat” block runs the code in its body the specified number of times. For example, the following block will print “Hello!” “ Amitave” three times.
+## Loops
 
-**![img](clip_image015.png)**
+A loop repeats the instructions inside it until a condition is met. For example, we can use a loop to get the average age of the class.
 
- 
+```pseudocode
+BEGIN
+    LET total = 0
+    LET count = 0
+    LOOP UNTIL ALL PEOPLE ASKED
+        READ age
+        total = total + age
+        count = count + 1
+    END LOOP
+    LET average = total / count
+    PRINT average
+END
+```
 
-- Now your tasks - Build and analysis the visual development representations and explain how it works! 
+The problem here is the `LOOP UNTIL ALL PEOPLE ASKED`. We can do this by asking the user is all people are asked. The following is a Scratch implementation that does this:
 
-## repeat while
+![image-20220330091627828](image-20220330091627828.png)
 
-Imagine a game in which a player rolls a die and adds up all of the values rolled as long as the total is less than 30. The following blocks implement that game: 
+### Exercise
 
-1. A variable named total gets an initial value of 0.
-2. The loop begins with a check that total is less than 30. If so, the blocks in the body are run.
-3. A random number in the range 1 to 6 is generated (simulating a die roll) and stored in a variable named roll.
-4. The number rolled is printed.
-5. The variable total gets increased by roll.
-6. The end of the loop having been reached; control goes back to step 2. 
+You now know enough to complete the following program:
 
-In below example, we will create and develop - 
-
-**![img](clip_image016.png)**
-
-When the loop completes, any subsequent blocks (not shown) would be run. In our example, the loop would end after some number of random numbers in the range 1 to 6 had been printed, and the variable total would hold the sum of these numbers, which would be guaranteed to be at least 30.
-
-## Conclusions
-
-Google’s Blockly very simple to operate. Users take the blocks out of the toolbox (one at a time) and arrange them in sequences until they solve their problem. Once they finish, the program runs a check up, looks at what has been done, and if the solution is not correct – it goes back and analyzes the code again until it finds an error. 
-
+```pseudocode
+BEGIN
+    LET counter = 1
+    LOOP UNTIL counter > 100
+        IF counter divisible by 7 THEN
+            PRINT counter
+        END IF
+        counter = counter + 1
+    END LOOP
+END
+```
