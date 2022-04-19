@@ -1,6 +1,6 @@
 ## Exception Handling in C++
 
-C++ does support error handling using `try ... catch`, although it is sometimes frowned upon. Error handling in this manner is expensive, and is not used in any area where performance is important (for example, in games development). Indeed, there is very little in the C++ standard library that will throw an exception. This is in stark contrast to languages such as Python, Java, and C# where you will find exceptions thrown in many places. In Java especially, the compiler will raise an error if you are not properly managing your exceptions. C++ simply doesn't do that. The compiler will generate an executable and it will run, with undefined behaviour potentially occurring.
+C++ does support error handling using `try ... catch`, although it is sometimes frowned upon. Error handling in this manner is expensive and is not used in any area where performance is important (for example, in games development). Indeed, there is very little in the C++ standard library that will throw an exception. This is in stark contrast to languages such as Python, Java, and C# where you will find exceptions thrown in many places. In Java especially, the compiler will raise an error if you are not properly managing your exceptions. C++ simply doesn't do that. The compiler will generate an executable and it will run, with undefined behaviour potentially occurring.
 
 As a first example, **enter and run the following application.**
 
@@ -42,7 +42,7 @@ Let us fix this code so that it correctly inputs our data. The below is essentia
 
 - Read input from the keyboard.
 - Try and convert the input to a number (or whatever you are trying to do).
-- If exception raised, print error and loop, asking for input again.
+- If an exception is raised, print error and loop, asking for input again.
 
 ```cpp
 #include <iostream>
@@ -86,7 +86,7 @@ int main(int argc, char **argv)
 
 ### Throwing Your Own Errors
 
-As you become a better programmer, and start writing your own libraries, you will have to write code that also raises exceptions. This is normally quite easy, and uses a keyword in most languages. For example, in C++ (and Java, C#, etc.) the keyword is `throw`. **Enter and run the code below.**
+As you become a better programmer and start writing your own libraries, you will have to write code that also raises exceptions. This is normally quite easy and uses a keyword in most languages. For example, in C++ (and Java, C#, etc.) the keyword is `throw`. **Enter and run the code below.**
 
 ```cpp
 #include <iostream>
