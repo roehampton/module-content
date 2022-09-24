@@ -103,7 +103,7 @@ Try and run the code. What happens? Why? How can you tell what the error is? Wha
 Hints:
 Declare an array as variable b as follows: 
 
-```
+```c#
         int[] b = { 1, 4, 6, 7 };
 ```
 
@@ -132,7 +132,7 @@ You will create the student class as represented by this class diagram. You will
 
 Hint: you can use 'string interpolation' to embed variables into strings for example:
 
-```
+```c#
 string teacher = "LisaH";
 string hello = $"Hello {teacher} !";
 Console.WriteLine(hello);
