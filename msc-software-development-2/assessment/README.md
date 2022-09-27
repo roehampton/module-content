@@ -8,15 +8,15 @@ The coursework is worth 100% of the total module mark. Delivery of the coursewor
 
 | **Title**             | **Deadline**      | **Marks** |
 | --------------------- | ----------------- | --------- |
-| Sprint 1              | 4 Feb          | 15%       |
-| Sprint 2              | 4 March           | 15%       |
+| Sprint 1              | tbc         | 15%       |
+| Sprint 2              | tbc           | 15%       |
 | Sprint 3              | tbc           | 25%       |
 | Sprint 4              | tbc | 25%       |
 | Individual Reflection | tbc | 20%       |
 
 In this coursework you are tasked with creating a dynamic web application for the smooth and efficient operation of a business of your team's choosing. Hence you are required to specify what type of business you will be building your application for. 
 
-**Your application must be built using the tools and techniques taught in the module, although there is some flexibility.**
+**Your application must be built using the tools and techniques taught in the module.**
 
 - Your web front-end should use PUG. If your team wants to use a different front-end web framework then you must seek permission from the teaching team first.
 - Your web back-end must run via Node.js. This is not negotiable.
@@ -66,9 +66,9 @@ Each Sprint features a submission (via Moodle) and a review at the next class se
 
 ### Sprint 1
 
-#### Submission: 4 Feb
+#### Submission: tbc
 
-#### Review Meeting: 7 Feb
+#### Review Meeting: tbc
 
 The aim of this Sprint is to check that the project workflow is set up for the team, that you are ready to work together and have an outline of your project objectives.
 
@@ -85,9 +85,9 @@ Links to your github repo and taskboard should be in your documentation submitte
 
 ### Sprint 2
 
-#### Submission: 4 March
+#### Submission: tbc
 
-#### Review Meeting: 7 March
+#### Review Meeting: tbc
 
 The aim of this Sprint is to check that you have a set of user requirements defined as user stories and that you have designed initial elements of your application.
 

@@ -140,7 +140,7 @@ Most elements are defined using an opening tag, e.g., `<p>`, and a closing tab, 
 
 HTML tags can also have *attributes*. For example, try changing one of the opening `<p>` tags to the following:
 
-`<p color="red">`
+`<p style="color:red">`
 
 A tag's attribute is set using its *name* (here we set `color`) and use `=` and a value in quotes. We will come across various tags as we continue to develop our skills, and also learn more about how colours are represented in HTML.
 
@@ -199,6 +199,22 @@ Second page.
 
  **NOTE**: Make sure you have a very good understanding of 'absolute' and 'relative' paths for images (and other files.)  A common form of errors and other headaches are incorrectly referenced links.  If you are not already familiar with absolute and relative paths, study this page: https://www.w3schools.com/html/html_filepaths.asp.  You should almost always use relative paths as this makes your web pages portable across different servers and domains.
 <hr>
+
+### Developer tools
+
+Using the browser developer tools (found in all browsers, but chrome is most commonly used) to debug and refine your front-end code is an essential skill.
+
+__Try it now:__
+
+In your browser window, right click in the page and choose 'inspect'.  A set of windows will appear, probably at the bottom or perhaps to the right of your screen.  Here you will be able to examine the source code of your own page and ensure that it is as you expect. You can even find you can edit the markup, content and styles.
+
+Note that you can do this for any web page!!.  Your changes will only be visible on your own browser and will disappear after you refresh the page.
+
+![devtools.png](devtools.png)
+
+Reference:
+https://developer.chrome.com/docs/devtools/overview/
+
 
 ### Extension task
 
