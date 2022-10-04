@@ -49,7 +49,9 @@ class Program
 
 6. Add a new class, Penguin, that implements IZooAnimal and has the required methods.
 
-7. Finally, write client code that creates a list of IZooAnimal objects which you can call 'zoo', and then loops through them calling the methods required by the interfaces.
+7. Write client code that creates a list of IZooAnimal objects which you can call 'zoo', and then loops through them calling the methods required by the interfaces.
+
+8. _Extension task_ Practice object 'composition'  ie. when an object HAS another object. Create a class for Zoo which has, as one of its private properties a list of IAnimals.  Build the zoo animal list from within the zoo class, and consider what other properties and methods the zoo should implement.
 
 
 
