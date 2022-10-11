@@ -14,8 +14,8 @@
     *  Attending lab sessions
 5. __Decide on a technology that will support your Kanban system__. Use the [Kanban reading](./kanban.html "Kanban reading for reference")
 
-Finally - discuss your idea!!
-q::q
+Finally - discuss your idea and make a plan for getting to Sprint 1!
+
 
 
 ## Some help:
@@ -30,7 +30,7 @@ To illustrate how Scrum ideals (and agile principles in general) can work, watch
 
 1. **Do we really need to meet once a day?**
 
-It would be good if you could, but in reality three times a week will probably be enough.  Also, use technology to get around the problem.  Skype or similar can allow you to communicate.  The point is to meet at the same time each day for no more than 10-15 minutes. Use the defined Scrum questions.
+It would be good if you could, but in reality three times a week will probably be enough.  Also, use technology to get around the problem.  MS teams, or similar can allow you to communicate.  The point is to meet at the same time each day for no more than 10-15 minutes. Use the defined Scrum questions.
 
 2. **We cannot find a time to all meet.  What do we do?**
 
@@ -40,7 +40,7 @@ You need to commit to your team and your learning.  You need to see it as a prio
 
 In two ways:
 
-- The assessment is designed with 3-week Sprints.  Each Sprint end will involve a review with a member of the teaching team that will be assessed.
+- The assessment is designed with 4 timeboxed sprints.  Each Sprint end will involve a review with a member of the teaching team that will be assessed.
 - In every seminar your team will have a 10-minute standup with a member of the teaching team to check how everything is progressing and help you review and reset tasks for the following week.
 
 4. **If we are having a standup does that mean I have to attend every lab?**

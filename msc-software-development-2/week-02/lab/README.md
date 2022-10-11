@@ -1,6 +1,6 @@
 # Software Development 2 Lab 2 -- Version Control, HTML forms, CSS and Developer Tools
 
->## Pre-class task: Creating a GitHub Account
+>## Pre-class task: Creating a GitHub Account and a new repository
 
 > Version control software (CVS, Mercurial and SVN are other examples) maintain your code somewhere backed-up and shareable with your team.  Crucially, they give you ways to work independently on code and then 'merge' and 'resolve conflicts' with other team members' code.  Nothing is ever forgotten by the repository!
 
@@ -29,9 +29,21 @@
 > 4.  All other settings can remain as default.**
 > 5.  Once installed continue with the rest of the lab.**
 
-## Lab: Git Configuration
+>## Set up git with your identity
 
-## Main concepts of version control
+
+> Git commits have a collection of information attached to them, including who > created the commit -- their name and email address. We must set this information up when we start using Git. Enter the two following lines into your terminal:
+
+```shell
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
+
+> Replacing `you@example.com` with the email you used for your GitHub account, and `Your Name` with your name.
+
+
+
+## Revise the main concepts of version control
 
 1. **Origin**  : The centralised repository holding everything, probably 'remote' ie. on a server or service somewhere eg. github
 1. **Clone**  : PUll down an entire copy of the repository
@@ -49,29 +61,20 @@
 1. **Fork** : a copy of the master branch that has divergent, unmerged code.
 1. **Hooks** : we won't be using hooks for a while but its good to know they exist. These are actions such as triggering a build on your server that you can program in response to an action in git for example a push to the master branch.  This is the core of 'continuous integration'.
 
-### Distributed version control schematic
-
-![Distributed version control](version-control-fig3.png)
-
-### How branches are organised and merged - example
-
-![Gitflow workflow](gitflow-hotfix-branch-diagram.jpg)
 
 
+## Lab
 
+## Introduction and getting ready
 
-Git commits have a collection of information attached to them, including who created the commit -- their name and email address. We must set this information up when we start using Git. Enter the two following lines into your terminal:
+1. You will do the lab today in PAIRS.  Please swap frequently between the 'driver' and 'navigator'. (see https://en.wikipedia.org/wiki/Pair_programming)
+1. __You need ONE repository for this lab Choose the repo of ONE of the members of your pair to to on today__. Follow the instructions at the start of this lab to create a repository if you have not already done so. 
 
-```shell
-git config --global user.email "you@example.com"
-git config --global user.name "Your Name"
-```
+## Cloning a Project in Visual Studio Code
 
-Replacing `you@example.com` with the email you used for your GitHub account, and `Your Name` with your name.
+_All members of your group should clone the same project._
 
-## Cloning Your Project in Visual Studio Code
-
-Now we need to clone the GitHub project in Visual Studio Code. 
+Now we need to clone the chosen GitHub project in Visual Studio Code. 
 
 1. **Open Visual Studio Code.**
 2. **Make sure no folder is currently open. We can do this by using File then Close Folder from the main menu.**
@@ -88,13 +91,13 @@ We need the the location of our repository.  Find it by going the the github pag
 
 ![image-20201227134725482](image-20201227134725482.png)
 
-1. **Press return, and Visual Studio Code will ask you where you want to save the repository. Pick somewhere sensible.**
+1. **Press return, and Visual Studio Code will ask you where you want to save the repository. A new directory within your documents directory is a good idea.  Make sure NOT to save onto a ounted onedrive directory.
 
 2. **Visual Studio Code will ask you if you want to open the repository. Choose to do so.**
 
 You now have your GitHub repository cloned to the local machine and opened in Visual Studio Code. Let us add some files to the repository.
 
-1. **Copy the code files you created in Lab 01 to the repository folder.**
+1. **Create a new file called <yourname>.txt**  (where yourname is your own name. Put any content in that you want to)
 
 2. **Open the Source Control panel in Visual Studio Code using the button on the left-hand side.**
 3. **You will now see a list of changes. We will just add all of them just now. Click the three dots at the top of the Source Control panel and select Changes then Stage All Changes as shown below.**
@@ -146,36 +149,17 @@ We have now defined our core workflow with Git using Visual Studio Code:
 1. Add the files to the commit -- **Changes then Stage All Changes.**
 2. Commit the changes -- **Commit then Commit.**
 3. Push the changes -- **Push**.
+4. When everyone has pushed, each team member should be able to copy all the new files to their own machine with:
 
-**Get used to this process - it will save your code from disaster!**.  We have created a checkpoint where we know our code is working and doing what we expect.  Whenever you do a change -- and make your changes small -- and tested the build works, commit and push.  
-
-
-
-## Lab
-
-## Introduction and getting ready
-
-1. You will do the lab today in PAIRS.  Please swap frequently between the 'driver' and 'navigator'. (see https://en.wikipedia.org/wiki/Pair_programming)
-1. You need ONE repository for this lab Choose the repo of ONE of the members of your pair to to on today. Follow the instructions at the start of this lab to create the repository if you have not already done so.  __Once created, make sure the repository is cloned to BOTH machines you are working on today__.
-
-## Get started with GIT - your first commits
-
-2. Each person in your pair should now add some files to your repository. __Working for now on your individual computers__, each person should add a file called `<name>.txt` where `<name>` is their name. Add some text to the file. Then commit and push the changes, with the following commands:
-
-(NB: the <> indicates you should have your own text within)
-
-```bash
-git add <name>.txt
-git commit -m '<a helpful message>'
-git push
 ```
-
-You should see your new files and your commit messages appear in github.  Take time to have a look round github to see how it all fits together.
+git pull
+```
 
 . **HINT** -- if someone has already committed a change before you, you will need to pull the changes first before you can push yours.
 3. Once everyone on the team has created their files, make sure everyone pulls the current version of the repository so they are up to date.
 
-Later, we will learn how to resolve merge conflicts and more advanced operations with Git.  But now you know the basics!
+**Get used to this process - it will save your code from disaster!**.  We have created a checkpoint where we know our code is working and doing what we expect.  Whenever you do a change -- and make your changes small -- and tested the build works, commit and push.  
+
 
 Now you should continue with the lab, in pairs, commiting each time you complete a task.  Remember to swap driver and navigator frequently.
 
