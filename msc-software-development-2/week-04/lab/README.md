@@ -35,20 +35,25 @@ You may also have a terminal window open where you can use git and other command
    2. Add a new paragraph in p tags somewhere in the page, like this ```<p> some content </p>```.
    3. Refresh the page so you can see your update, without having to re-open any browser window.
    4. Add some styling to the page by adding the following in the 'head' section of the document 
- ```html
-     <style>
-       h1 {
-        color: blue;
-        background-color: yellow;
-       }
-       p {
-        color:brown;
-        font-size: 4em;
-       }
 
-    </style>
- 
- ```
+</span><br></p>
+<p><span style="font-size: 0.9375rem;"><br></span></p>
+<p><span style="font-size: 0.9375rem;"></span></p>
+<p>&lt;style&gt;</p>
+<p> h1 {</p>
+<p>    color: blue;</p>
+<p>    background-color: yellow;</p>
+<p> }</p>
+<p> p {</p>
+<p> color:brown;</p>
+<p> font-size: 4em;</p>
+<p> }</p>
+<p><br></p>
+<p> &lt;/style&gt;</p><br>
+<p></p>
+<p></p>
+
+
 5. Refresh the browser.  Your page should not be very pretty, but have some new colours!  
 6. Now find the inspector button of your developer tools: its the square with the arrow pointing into it
 
