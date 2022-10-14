@@ -1,14 +1,14 @@
 # Development Environment, HTML forms and OOP in Javascript
 
-In this lab we will look at how you can design and organise your code by using Object Orientated principles.
+In this lab we will look at how you can design and organise your code by using Object Orientated principles.  Before that, we will ensure that our development environment is familiar to you, and we will extend our HTML knowledge with HTML forms.
 
-We will use javascript in the backend (using node.js/ express.js) as this will help you to build a good structure for your server-side code which organises the data which will be pulled from the database (we will connect to a database in next weeks lab).
-
-The emphasis in this lab is on learning the basics of OOP that apply to all languages that support OOP, and in getting more practice in using our develoment environment:
+The emphasis in this lab on getting more practice in using our develoment environment:
 
   * VS code
   * Browser
   * Chrome developer tools
+  
+We will also learn the basics of of OOP in ways you can apply to all languages that support OOP.
 
 ## Preparation
 
@@ -329,7 +329,6 @@ In your html file, write some code that will
 2. populate the students attribute of the Lesson object with student objects
 3. Finally, create a register by printing out the lesson teacher, room number and all students
 
-[Solution here](./solution.md)
 
 
 ### Public and private modifiers
