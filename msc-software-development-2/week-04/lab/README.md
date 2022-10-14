@@ -1,383 +1,478 @@
+# Development Environment, HTML forms and OOP in Javascript
 
-#  Backend programming with Node.js
-## Serving web pages with Node.js
+In this lab we will look at how you can design and organise your code by using Object Orientated principles.
 
-### Pre-lab work: Installing and Testing Node
+We will use javascript in the backend (using node.js/ express.js) as this will help you to build a good structure for your server-side code which organises the data which will be pulled from the database (we will connect to a database in next weeks lab).
 
-> Node.js is a popular server-side runtime that can run JavaScript code outside a browser. Node.js is available from https://nodejs.org/en/.
+The emphasis in this lab is on learning the basics of OOP that apply to all languages that support OOP, and in getting more practice in using our develoment environment:
 
-> 1. **Download Node.js for your operating system.**
-> 2. **Install Node.js onto your system. Make sure you have Node.js added to the PATH in Windows.** 
-> 3. **Follow the rest of this lab.**
+  * VS code
+  * Browser
+  * Chrome developer tools
 
-> Once Node.js is installed, you can open the command prompt and type 
-> ```
-> node
-> ```
+## Preparation
 
-> to test it. You will be presented with the following:
+### Setting out your development environment
 
-> ```shell
-> ~ node
-> Welcome to Node.js v14.7.0.
-> Type ".help" for more information.
->```
+Your enjoyment writing code, and your productivity will be enhanced by gaining fluency in the fundamental tools of web development and its processes.
 
-> This is a command prompt, much like Python's interactive console, so you can enter JavaScript commands dirctly here:
 
-> ```shell
-> console.log("Hello, world!");
-> Hello, world!
-> undefined
-> ```
+![Developers Desktop](./developers-desktop.png)
 
-> Type `.exit` into the command prompt to exit Node.js.  (don't forget the dot - its not a typo!)
+Your desktop should look like the image above where:
 
-### Lab: Your First Node.js Application
+   * Your code is visible in Visual Studio Code and you can edit it
+   * You also have a browser window open.  You can see your changes by refreshing the browser without having to reopen the browser window
+   * You can use developer tools to check what the browser is rendering.  You can also use the tools there to check CSS and Javascript as well as other information related to the browser.
+   * You can use the VS code file explorer to check your file structure
+   
+You may also have a terminal window open where you can use git and other command line tools.
 
-Let us recreate the *Hello World* JavaScript example in a file and ask Node to run it for us. 
+## Exercise
 
-**Create a new file called `hello.js` and use the following code:**
+   1. Find the code you wrote in week 1 for your first HTML page.   In case you lost it, it is here: [Lab sheet 1](https://roehampton.github.io/module-content/msc-software-development-2/week-01/lab/#introduction-to-html-and-web-pages)
+   2. Set up your desktop as per the image above, including opening developer tools.
+   2. Add a new paragraph in p tags somewhere in the page, like this ```<p> some content </p>```.
+   3. Refresh the page so you can see your update, without having to re-open any browser window.
+   4. Add some styling to the page by adding the following in the 'head' section of the document 
+ ```html
+     <style>
+       h1 {
+        color: blue;
+        background-color: yellow;
+       }
+       p {
+        color:brown;
+        font-size: 4em;
+       }
 
-```javascript
-console.log("Hello, world!");
-```
-
-**In Visual Studio Code, select View then Terminal from the main menu. This will open a terminal at the bottom of the Visual Studio window.**
-
-![image-20201226183646432](image-20201226183646432.png)
-
-This is just a normal command-line terminal. It is just embedded into Visual Studio Code to make our life easier.
-
-**To run your program, enter the command `node hello.js` in the terminal. `Hello, world!` will be printed to the terminal.**
-
-TROUBLESHOOT: If you get an error, read it carefully! Got a 'cannot find module' error? Perhaps your hello.js file isn't in the same directory as the terminals current working directory?  Use cd to get into the correct directory then try again.  Remember - error messages are ther to help you!
-
-
-**Exercise**
-
-Update the application to print `Hello, <name>` where `<name>` is your name.
-
-### A Node.js Server on your local computer
-
-JavaScript is a language aimed at how the web and Internet work and is used to create server-side applications. 
-
-In order to respond to web 'requests', a specialised software application is required to receive those requests, forward them to the correct part of the backend code, and then send out the 'response' to the client.  This application is a webserver. Well known webserver applications used in production sites include Nginx and Apache. 
-
-For small-scale and local development, we can use the inbuilt simple webserver provided by node.js.   
-
-Think back to this diagram from our first session - we are now going to run every part of the system - backend and frontend - on just one computer (we will be adding the database in a bit later on).
-
-> ![Local develoment](Slide5.jpg)
-
-#### Running the node.js simple server
-
-Copy this code to a file called server.js:
-
-```javascript
-// Load the http module from Node's standard library
-const http = require("http");
-
-// The hostname we will run the server on.
-// 127.0.0.1 is the localhost
-const hostname = "127.0.0.1";
-// The port the server will listen on.
-const port = 3000;
-
-// Create the server.
-// The server requires a function with parameters req, res
-// that will run when requests are received from a web browser.
-// req - the incoming request from the web browser.
-// res - the outgoing response we will send from the browser.
-const server = http.createServer(function(req, res) {
-    // Respond with OK message.
-    res.statusCode = 200;
-    // The type of content we are returning. Just plain text.
-    res.setHeader("Content-Type", "text/plain");
-    // The plain text we are returning.
-    res.end("Hello, world!");
-});
-
-// Start the server listening on the port of the hostname.
-// A function is required to execute on successful server start.
-// Notice these are backticks ` and not single quotes '.
-server.listen(port, hostname, function() {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
-```
-
-**Run this file in the Visual Studio Code terminal by executing `node server.js`.** This will set your webserver running ready to catch and process your requests. To try it out **go to `http://127.0.0.1:3000` using your web browser.** You should see `Hello, world!` in the browser.
-
-
-**To stop the HTTP server, use `CTRL-C` in the terminal.**
-
-#### Now you try
-
-1. First simply change the server to respond with `Hello, <name>` where `<name>` is your name.  Note you will need to start and stop the server for your change to run in the browser.
-2. Now Modify the line `res.end("Hello, world!");` to `res.end("Hello, " + req.url);` and then go to the URL `127.0.0.1:3000/<name>` where `<name>` is your name. Try a different name.  Can you read the server code to explain what has happened?
-
-### Troubleshoot
-If your connection to localhost:3000 times out, you may have a firewall issue. Check any windows firewall or other antivirus you might be running.
-
-### Serving Static Web Pages
-
-This server isn't very useful as we need to reload it with each amendment. But it did get us started.  Lets move on by creating a more useful webserver that can keep running and 'serve' any file in a specified directory.  Again we'll use a library or 'package' that is part of node.js to do this.
-
-
- **First, run the following in the Visual Studio Code terminal.**
-
-```shell
-npm install node-static
-```
-
-`npm` is the *Node Package Manager*. We are asking it to install the `node-static` library. 
-
- __Then, create a directory called 'static' at the same level as this file__ This directory is where you can put your statically 'served' files.
-
-Now, enter the following program, `static.js` (below). 
-
-```javascript
-// Import the node-static library
-const static = require("node-static");
-// Import the http server library
-const http = require("http");
-
-// This creates a static file server for on the directory __dirname
-// __dirname is the directory the Node application is working in.
-// Similar to cwd (Current Working Directory)
-var file = new(static.Server)(__dirname + '/static');
-
-// The hostname and port the server will listen on.
-var hostname = "127.0.0.1";
-var port = 3000;
-
-// Create the HTTP server with the function used to service requests.
-const server = http.createServer(function(req, res) {
-    // Delegate request to the static file server.
-    file.serve(req, res);
-});
-
-// Start the server.
-server.listen(port, hostname, function() {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
-```
-
-**Run the `static.js` file from the Visual Studio Code terminal:**
-
-```shell
-node static.js
-```
-
-Now you access any static HTML files that you place in the static directory. You can move over examples from previos labs.  For example, if you create an HTML file ```static/first.html``` , you will able to access it via the following URL `127.0.0.1:3000/first.html`.
-
-
-#### Exercise
-
-Without restarting the Node.js server we just started, create a new file -- `test.html` -- and add some HTML content to it. You should be able to immediately access this file in your web browser using `127.0.0.1:3000/test.html`.
-
-
-
-## More Exercises
-
-Going back to your ```server.js``` file:
-
-1. Update the Node.js server so it prints to the console the URL requested. **HINT**: the ```req``` parameter has a property called 'url' which will contain the path after the `/`.  Examine it by adding a line:
-
-```
-console.log(req.url)
-```
-
-2. Update the Node.js server so that if the URL `/roehampton` is requested, the server returns `Hello from Roehampton!`. **HINT** -- use an `if` statement to test the value of URL. Remember to add `res.end();` to complete the response.
-3. Update the Node.js server so that if the URL `/roehampton` is requested, the server will redirect the browser to Roehampton's website. **HINT** -- the status code for a redirect is 302, and you will need to set the `Location` using `res.setHeader`.  
-
-References:
-Node.js. http library: https://nodejs.org/api/http.html
-https://ckmobile.medium.com/how-to-redirect-users-browser-url-to-a-different-page-in-nodejs-2d812aa7f7b4
-
-### Improving your development environment
-
-Reloading the node server each time you change your file isn't going to be a good development experience.  There are npm packages that can automatically watch for changed files and reload for you in the background.  The 'supervisor' package seems to work on our our platforms. A well-known alternative is 'nodemon'
-
-Install the package:
-
-```bash
-npm install supervisor -g
-```
-
-Now start your script with
-
-```bash
-supervisor server.js
-```
-
-OR try:
-
-install the package:
-
-```bash
-npm install nodemon -g
-```
-
-Now start your script with
-
-```bash
-nodemon express-server.js
-```
-
-### Troubleshoot:
-
-In case you receive messages telling you you cannot install packages globally (the -g flag), try 
-
-```
-sudo npm install supervisor -g
-```
-
-or
-
-```
-npm install nodemon --save-dev
-```
-
-without this - you will then have to install supervisor for each project you start.
-
+    </style>
  
-# Dynamic routes: Express.js
+ ```
+5. Refresh the browser.  Your page should not be very pretty, but have some new colours!  
+6. Now find the inspector button of your developer tools: its the square with the arrow pointing into it
 
-We now know how to create web pages and make them interactive with javascript and HTML forms. We can also run a webserver to receive requests, route them to the correct file and return an appropriate response.
 
-To take this to the next stage, we will use another Node.js library -- Express.js. This will enable use to create more sophisticated 'routes' ie. paths to files or functions, with more sophisticated functionality that can process dynamic input and produce output accordingly.
 
-You can install it by running the following in the terminal in the root folder of your repository:
+![Inspector button](inspector.png)
 
-```shell
-npm install express
+7. Click on the inspector tool, and then onto the heading of your page. You will see the relevant part of the code highlighted in the main 'elements' part of developer tools, and below in the 'styles' window, you will see the CSS rules that have been applied.
+8. Play with your page some more, so you are full familiar with the relationship between the code editor, browser and developer tools.
+
+
+NOTE: that the 'em' measurement is a relative measurement that can be used for font size, for more info see: [Mozilla html reference: measurement units](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocksValues_and_units)
+
+
+## HTML forms
+
+When we start to work with a more sophisticated backend, we will need to know how to create forms that eventually we will use to send information into the backend server for storage or to make a customised request.  Lets see how to make input forms in HTML. This example shows the three main types of form element for different types of input.
+
+Example:
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+  <h1>HTML Forms example</h1>
+
+  <form action="" method="GET">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+    </div>
+    <div>
+      <label for="mail">E-mail:</label>
+      <input type="email" id="mail" name="email">
+    </div>
+    <div>
+      <label for="msg">Message:</label>
+      <textarea id="msg" name="message"></textarea>
+    </div>
+    <button type="submit">Submit!!</button>
+  </form>
+
+  <p>If you click the "Submit" button, the form-data will be sent back to this page.
+    Usually, the action sends data to a different file with scripts that can process it.</p>
+
+</body>
+
+</html>
 ```
 
-So what is Express.js? It is an industry standard framework for building web applications.  It can receive requests, forward it to the correct logic and send back a response.  It can be used with a templating engine to provide a full stack web application, or can be used to build REST APIs.
+1. Create a new file called form.html with this code. 
+2. Load the new file in your browser and open developer tools
+3. Fill out the form and click 'submit'
+4. What happens? Where can you find the data you just submitted? (hint: look right up at the top of the page in the address bar)
 
-## RESTful Interfaces
+## Sending parameters: GET vs POST
 
-REST stands for [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer). This is a software architecture for web services that is driven by structured  URLs. 
-We interact with our web service by accessing a URL with a particular HTTP message type:
+1. Clear the URL so that it only shows 'form.html'
+2. Change the 'method' attribute from GET to POST. 
 
-- `GET` will return data from the web service. This is the standard HTTP message used when we get a webpage.
-- `POST` sends data to the web service. This is the HTTP message used when you send data from a webpage, such as in a form.
-- `DELETE` allows deletion of data in the web service.
+Can you spot the difference?  It is very important to understand the differences: see https://www.w3schools.com/tags/ref_httpmethods.asp.
 
-The approach Express takes is to provide a framework in which we define URLs or 'routes'.  These call a function when our server receives a request.  Most importantly, parts of the URL can by dynamic ie. can send a variable in to the function.
+## Examining and receiving parameters
 
- Let us build a first Express.js application. 
+When you use the POST method, you will need to find another way to examine your parameters.
+
+In Chrome, open developer tools, choose the network tab, uncheck 'preserve log' and check 'disable cache'.  Now open te 'Headers' section. Submit the form by GET or POST, you should see the values you send (you may need to open the 'payload' tab.
+
+.  Note that the values you send are labelled using the value of the "name" attribute in the HTML form, in this case name, email and message.  See image below...
+
+
+>![Form parameters](form-data-dev-tools.png)
+
+
+In your dynamic web application, sending these kinds of variable values to your application either to SELECT or UPDATE data will be a crucial part of your work and you will mostly use HTML forms to pass in this dynamic data.
+
+
+## Object-orientation in JavaScript
+
+JavaScript is an object-oriented language. 
+
+In OOP, your objects are designed to model entities or objects in the real world.
+
+Remember the following:
+
+ * Classes are the code that define objects​: objects are specific **instances of** classes
+
+ * Classes contain both Data (properties) and behaviour (functions/methods) ​
+
+ * Classes should be modelled on real-world entities or concepts​
+
+ * The 'black box' principle – the implementation within a class can be changed so long as the inputs and outputs remain the same.  This supports maintainability​
+
+ * Re-usability – classes can be re-used throughout your programme and exported into others.  Inheritance and abstraction can be used to make the code even more re-usable
+
+You've already been using objects in JavaScript -- `document.write()` means call (invoke, use) the `write` method on the `document` object. The `document` object is the web page your JavaScript program was executing on.
+
+> ### JavaScript's History of OOP
+>
+> JavaScript is actually an implementation of something called [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript). Until 2015, objects where possible in JavaScript, but not in a manner most programmers would recognise. For example, there was no `class` keyword. ECMAScript 2015 (or ES6) introduced classes and a variety of other language features, making it more similar to Python and Java, for example.
+>
+> This means there are many JavaScript tutorials online that ignore classes, and write object-oriented code in a strange and hard to maintain manner. We will be using the language features of ES6 which provides a better OOP experience.
+
+### Classes in JavaScript
+
+To declare a class in JavaScript we use the `class` keyword. For example:
+
+```js
+class Student {
+  // ... contents of the class.
+}
+```
+Note: that class names usually start with a capital letter. This is a style convention, preferred, but not imposed by the language.  Languages and indeed individual companies set style guides for example: https://google.github.io/styleguide/jsguide.html.
+
+
+You will usually put the class definition in a file with the same name as the class, but in lower case.  You can also tidy your codebase by putting your class definition in a directory called 'models'.  We are calling it models because we are loosly using the MVC (Model View Controller) design pattern in which the 'models' contain code related to data, the 'views' handle presentation and the 'controller' mediates between the two.  Currently, the app.js file is your controller, and we will add views later on.
+
+### Getting started...
+
+1. create a new file called student.js
+
+Now you can begin writing your Student class.
+
+A class needs a `constructor` which is used to create instances of the class. For example:
+
+```js
+class Student {
+  constructor() {
+    // ... define initial variables
+  }
+}
+```
+
+
+
+We define the attributes (properties) (data) of the class by listing them in the class definition.  Depending on the languge, we may or may not set a data type and we may be able to set default values that will be present in every object (instance of the class, remember)
+
+```js
+class Student {
+  // Attributes
+  firstName;
+  lastName;
+  courseId;
+  
+  constructor() {
+  }
+}
+```
+
+Add this code to your student.js file
+
+### Using your class definition
+
+Your class doesn't do much right now, but we can make use of it from our index.html file.
+
+
+1. Add the following somewhere in your ```index.html``` file.  
+
+```js
+<script src="student.js"></script>
+
+        <script>
+            var s1 = new Student();
+            s1.firstName = "Lisa";
+            s1.lastName = "Haskel";
+            s1.courseId = 1;
+
+            console.log(s1);
+        </script>
+```
+
+2. Save the index.html file and the student.js file.
+3. Refresh the HTML page in the browser.
+4. You won't see any output in your page right now, but if you click the 'console' tab in your developer tools, you will see the class student data structure shown there.
+
+
+**Well done** You have created your first class, made it available to your application, instantiated an object using your class definition and examined it in the console.
+
+
+## Building your Student class
+
+
+
+Our class becomes a lot more useful if we add parameters to the constructor that will set the initial values of our attributes.  This will also help us understand the relationship between a class (a template or blueprint for our object) and our object (a specific instance of a given class )
+
+```js
+class Student {
+  // Attributes
+  firstName;
+  lastName;
+  courseId;
+  
+  constructor(firstName, lastName, courseId) {
+  
+	  this.firstName = firstName;
+	  this.lastName = lastName;
+	  this.courseId = courseId;
+  }
+}
+```
+
+The `this` keyword is used to refer to the local object, ie. the very object we are defining, So writing `this.firstName(firstName)` means...
+Assign the value of the argument supplied to the function firstName, and assign it to the object property called firstName.  
+
+*Note that in this case the name of the parameter and the class property match, but they don't have to, as this.firstName and firstName are completely different variables.
+
+
+#### Your task
+Go back to your index.html file and amend as follows:
+
+1. Create an object called Student1 with firstName Lisa and lastName Haskel and courseId 1.  You will be creating the object like this:
+
+```html
+
+var s1 = new Student("Lisa", "Haskel", 1);
+```
+2. Create a second object called Student2 with firstName Kevin and lastName Chalmers and courseId 2 in the same way.
+
+3. Use console.log() to examine both of your objects.
+
+
+### Methods
+
+So far we have looked at the following ideas with objects:
+
+- Defined classes using the `class` keyword.
+- Defined a `constructor` for a class.
+- Created objects (class instances) using the `new` keyword.
+- Added attributes to a class.
+- Set attributes of an object in the `constructor` using the `this` keyword.
+
+So far, we have covered the data aspect of an object. Classes become much more interesting when we add behaviour that uses that data. Remember that we use our classes to model real-world things and their behaviour to make our code more understandable.
+
+Methods are very much like functions ie. re-usable sections of code that can be passed parameters.  
+
+Lets add a method to our student class to return a formatted version of a student's name.
+
+Add the method inside the body of the class, underneath the constructor:
+
+```js
+ getFormattedName() {
+        return this.firstName + ' ' + this.lastName;
+    }
+```
+
+Now go back to your html file and use this method to output some student names to the browser.
+
+**Exercise:** Add an additional attribute to your Student class called Year of Birth.  Write a method to return the current age of the student.
+
+
+### Referencing classes within other classes
+
+You start to see the power of OOP when you see how an object can be an attribute of another object.
+
+Imagine a student records system that wants to print a register which consists of a list of expected students plus a teachers name and room number. We could implement this by having a class called Lesson, where one of its attributes is an array of Students.  OOP encourages us to take a design led approach, so lets do a diagram before we try any implementation.  See the below:
+
+![Image](./class-lesson.png)
+
+
+**Your task**
+Implement the Lesson class as shown here.
+In the addStudents method, you should push a student object onto the students array in the lesson class.
+
+In your html file, write some code that will
+
+1. create a lesson object with a teachers name and room number
+2. populate the students attribute of the Lesson object with student objects
+3. Finally, create a register by printing out the lesson teacher, room number and all students
+
+[Solution here](./solution.md)
+
+
+### Public and private modifiers
+
+Serverside JavaScript supports private attributes and methods. These are attributes and methods only accessible from within the object itself. We denote a private member with a `#`.
+
+The reason for this is the OOP principles of 'ecapsulation' and the 'black box'.  We want to control how other parts of your program access the attributes and methods so we can continually improve their internal implementation if we want to.
+
+
+```js
+class Example {
+  // A private attribute
+  #value1;
+  
+  // A private method
+  #method1() {
+  
+	}
+}
+```
+
+Let us look at an example by extending our student class. Update your `student.js` file to the following:
+
+```js
+
+class Student {
+    // Attributes
+    #firstName;
+    #lastName;
+    #courseId;
+    
+    constructor(firstName, lastName, courseId) {
+    
+        this.#firstName = firstName;
+        this.#lastName = lastName;
+        this.#courseId = courseId;
+    }
+
+    getFormattedName() {
+        return this.#firstName + ' ' + this.#lastName;
+    }
+  }
+
+  module.exports = {
+      Student
+  }
+```
+
+In this way, we have ensured that the only way other parts of our program can access the names of our students is via the getFormattedName() method.  This helps us enforce consistency and quality.
+
+## Getters and Setters
+
+JavaScript classes support special methods known as getters and setters. These allow getting and setting attributes of an object while keeping them private within the class.  This is part of the principle of encapsulation.
+
+We use the keywords `get` and `set` to do so.
+
+```js 
+class Example {
+  #value;
+  
+  constructor(value) {
+    this.#value = value;
+  }
+  
+  // Get value
+  get value() {
+    return this.#value;
+  }
+
+	// Set value
+	set value(value) {
+    this.#value = value;
+  }
+}
+
+// Create Example object.
+var example = new Example(5);
+// Get value
+var val = example.value;
+// Set value
+example.value = 10;
+```
+
+We can update our `student.js` file to have getters and setters:
+
+```js
+
+class Student {
+    // Attributes
+    #firstName;
+    #lastName;
+    #courseId;
+    
+    constructor(firstName, lastName, courseId) {
+    
+        this.#firstName = firstName;
+        this.#lastName = lastName;
+        this.#courseId = courseId;
+    }
+
+    getFormattedName() {
+        return this.#firstName + ' ' + this.#lastName;
+    }
+
+    get firstName() {
+        return this.#firstName;
+    }
+
+    get lastName() {
+        return this.#lastName
+    }
+
+    set firstName(firstName) {
+        this.#firstName = firstName;
+    }
+
+    set lastName(lastName) {
+        this.#lastName = lastName;
+    }
+  }
+
+
+
+  module.exports = {
+      Student
+  }
+```
+
+Now in our code that uses the class we can do the following
+
+```js
+// use the getter
+ output += '<p>' + student.firstName + '</p>';
  
- **Enter this code as `express_server.js`:**
-
-```javascript
-// Import express.js
-const express = require("express");
-
-// Create express app
-var app = express();
-
-// Create a get for root - /
-app.get("/", function(req, res) {
-    res.send("Hello world!");
-});
-
-// Start server on port 3000
-app.listen(3000,function(){
-    console.log(`Server running at http://127.0.0.1:3000/`);
-});
-```
-
-Here we have defined the `/` (root folder) to respond with `Hello world!`. **Now run this programme with the following:**
-
-```shell
-supervisor express_server.js
-```
-OR
-
-```shell
-nodemon express_server.js
-```
-
-OR
-
-```shell
-node express_server.js
+// use the setter: make the firstname john
+student.firstName = 'john';
+ 
 ```
 
 
+> ### Why Have Getters and Setters?
+>
+> OK, why did we do through this process when we could have just left our attributes public. Getters and setters have a number of benefits, but in particular they allow:
+>
+> - Public getters allow access to an attribute while stopping it being updated outside the object.
+> - Getters and setters can have additional code, which can, for example, check that the correct value is being set.
 
-**Open your browser, and go to `127.0.0.1:3000`**. You should see `Hello world!` displayed.
+### Do more...
 
-To build up an application we will get Express to listen on some other URLS, in other words, we will create 'routes' for our requests and give back different responses according to the requested route.
+Make the attributes private and write getters and setters for the `Lesson` class. 
 
-Add the additional functions below to create the 'goodbye' route and the dynamic route. Here is the whole file:
-
-```javascript
-// Import express.js
-const express = require("express");
-
-// Create express app
-var app = express();
-
-// Create a get for root - /
-app.get("/", function(req, res) {
-    res.send("Hello world!");
-});
-
-// Create a route for /goodbye
-// Responds to a 'GET' request
-app.get("/goodbye", function(req, res) {
-    res.send("Goodbye world!");
-});
-
-// Create a dynamic route for /hello/<name>, where name is any value provided by user
-// At the end of the URL
-// Responds to a 'GET' request
-app.get("/hello/:name", function(req, res) {
-    // req.params contains any parameters in the request
-    // We can examine it in the console for debugging purposes
-    console.log(req.params);
-    //  Retrieve the 'name' parameter and use it in a dynamically generated page
-    res.send("Hello " + req.params.name);
-});
-
-// Start server on port 3000
-app.listen(3000,function(){
-    console.log(`Server running at http://127.0.0.1:3000/`);
-});
-```
-
-__If you are running supervisor or nodemon, you will see these programs automatically stop and restart your webserver so that you code will be updated dynamically.__
-
-
-There are now three URLs you can visit:
-
-- `127.0.0.1:3000` will display `Hello world!`.
-- `127.0.0.1:3000/goodbye` will display `Goodbye world!`.
-- `127.0.0.1:3000/hello/<name>` will display `Hello <name>` for any value of `<name>`. Try your own name.
-
-### Dynamic values in routes
-
-Note that the parts of the URL prefaced with a ':' are dynamic, ie. the name you provide is just a label - think of it as a variable name - for a dynamic value.  These parameters are the available via the req.params variable.
-
-Try running the above code but put a colon before the 'hello' in the route.  Examine the console output and explain what has now happened.
-
-
-### Now you try
-
-Add the following end point URLs to the application:
-
-- `/test` will display `Welcome to the test page!`
-- `/student/:id/:name` should display a table with the submitted student ID and name. **HINT** -- you will have to construct the string in the response to be HTML.
-
-## Coming next...
-
-Later, we will connect a database to our express application and use the dynamic routes to create, retrieve, update and delete information in the database.  We will also look at how the presentation (ie. HTML generation) can be improved but kept seperate from business logic by using a templating system and MVC (Model View Controller) architecture.
-
-ie. we will have everything we need to create a simple 'CRUD' web application using some best pratices in software design.
-
-#### So you want to know more
-
-The main Node.js documentation is available at https://nodejs.org/en/docs/. TutorialsPoint also provides a [Node.js tutorial](https://www.tutorialspoint.com/nodejs/index.htm). We will cover many of these ideas in the module, but additional resources are always useful.
