@@ -1,4 +1,4 @@
-# Computer Systems Seminar 4 - State Machines
+# Computer Systems Seminar 3 - State Machines
 
 1. Design a digital watch where a sequence of button pushes sets an alarm. Hint - the three states include alarm beeping, displaying, and setting.
 2. Can you draw a state machine that can accept an input string starting with 11?
