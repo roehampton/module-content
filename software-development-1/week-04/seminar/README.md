@@ -24,3 +24,5 @@ For example, if the user entered 10 the output should be 55 from the calculation
 error message if the first value entered by the user is 0.
 
 5. Write a flochart for a program that displays a temperature conversion  for degrees Celsius and degrees Fahrenheit. The ouput should include rows for all temperatures between 0 and 100 degrees Celsius that are multiples of 10 degrees Celsius.The formula for converting between degrees Celsius and degrees Fahrenheit can be found on the Internet.
+
+
