@@ -1,4 +1,4 @@
-# Computer Systems Lab 6 - Simple Assembly Programs
+# Computer Systems Lab 5 - Simple Assembly Programs
 
 The aim of this lab is to write some simple assembly programs and compile them to run on the computer. For this lab session we will use the Linux Azure Labs machine.
 
