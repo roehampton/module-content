@@ -1,4 +1,4 @@
-# Computer Systems Lab 7 - Further Assembly Code
+# Computer Systems Lab 6 - Further Assembly Code
 
 In this lab we will extend our work on assembly programming by examining assembly operations, how we address memory locations, making subroutines, and working with memory. The aim of this lab is for you to develop more complex assembly code programs so you have a better understanding of how the computer operates at a low level.
 
