@@ -1,4 +1,4 @@
-# Computer Systems Seminar 6 - Introduction to Assembly
+# Computer Systems Seminar 5 - Introduction to Assembly
 
 1. Below is the code to execute a division operation.
    - Correctly comment on each line with details of the instruction.
