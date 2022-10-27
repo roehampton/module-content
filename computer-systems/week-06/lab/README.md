@@ -1,4 +1,4 @@
-# Computer Systems Lab 6 - Simple Assembly Programs
+# Computer Systems Lab 5 - Simple Assembly Programs
 
 The aim of this lab is to write some simple assembly programs and compile them to run on the computer. For this lab session we will use the Linux Azure Labs machine.
 
@@ -30,9 +30,9 @@ main:                                   ; tells compiler where the program start
 4. **To build and run the program perform the following on the commands**:
 
 ```bash
-student@pc:~/computer-systems/lab06$ nasm -f elf32 hello.asm
-student@pc:~/computer-systems/lab06$ gcc -m32 hello.o
-student@pc:~/computer-systems/lab06$ ./a.out
+student@pc:~/computer-systems/lab05$ nasm -f elf32 hello.asm
+student@pc:~/computer-systems/lab05$ gcc -m32 hello.o
+student@pc:~/computer-systems/lab05$ ./a.out
 Hello, world!
 ```
 
@@ -106,9 +106,9 @@ We are doing a few new things in this example:
 Compile and run this program as shown above:
 
 ```bash
-student@pc:~/computer-systems/lab06$ nasm -f elf32 name.asm
-student@pc:~/computer-systems/lab06$ gcc -m32 name.o
-student@pc:~/computer-systems/lab06$ ./a.out
+student@pc:~/computer-systems/lab05$ nasm -f elf32 name.asm
+student@pc:~/computer-systems/lab05$ gcc -m32 name.o
+student@pc:~/computer-systems/lab05$ ./a.out
 Hello, <name>
 ```
 
