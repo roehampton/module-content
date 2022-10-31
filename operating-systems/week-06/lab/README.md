@@ -171,7 +171,7 @@ Let us now build our first kernel module:
 4. **Build the kernel module using `make` on the terminal.**
 5. **Install the kernel module using `sudo insmod ex6_1.ko`.**
 6. **Uninstall the kernel module using `sudo rmmod ex6_1`**.
-7. **Get the kernel log messages using `dmesg`**.
+7. **Get the kernel log messages using `sudo dmesg`**.
 
 The kernel log should look similar to the following (the timestamps on the left will be different):
 
@@ -229,7 +229,7 @@ module_exit(exit_function);
 4. **Build the kernel module using `make` on the terminal.**
 5. **Install the kernel module using `sudo insmod ex6_2.ko`.**
 6. **Uninstall the kernel module using `sudo rmmod ex6_2`**.
-7. **Get the kernel log messages using `dmesg`**.
+7. **Get the kernel log messages using `sudo dmesg`**.
 
 The end of the kernel log should be as follows:
 
@@ -337,7 +337,7 @@ sudo insmod ex6_4.ko str="Hello"
 4. **Build the kernel module using `make` on the terminal.**
 5. **Install the kernel module using `sudo insmod ex6_4.ko int_param=10 string_param="Woohoo"`.**
 6. **Uninstall the kernel module using `sudo rmmod ex6_4`**.
-7. **Get the kernel log messages using `dmesg`**.
+7. **Get the kernel log messages using `sudo dmesg`**.
 
 The output from `dmesg` will be as follows:
 
