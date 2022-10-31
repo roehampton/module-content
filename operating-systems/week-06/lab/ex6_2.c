@@ -19,6 +19,8 @@ static void __exit hello_exit(void)
     // *** COMPLETE ME ***
 }
 
+MODULE_LICENSE("GPL");
+
 // Set hello_init as module initialisation
 // *** COMPLETE ME ***
 // Set hello_exit as module exit
