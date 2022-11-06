@@ -1,12 +1,12 @@
 # Software Development 2: Using MySQL with node.js
 
-(Note this is a repleat of week 6 lab)
+
 
 ## Prerequisites
 
-Follow this screencast to get your development environment up and running:
+Last week, you set up node.js, express.js and mysql using docker.  Today you will use the same set-up to practice retrieving data from a database and using the express framework to surface that data to the browser.
 
-https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=6f290a6b-ba94-4729-9632-adcf00ac336e
+Next week, we will look at the PUG templating system that allows you to properly separate data from presentation, but this lab is crucial to enable you to fully understand the process and debugging techniques.
 
 ## Understanding asynchronous javascript
 
@@ -55,23 +55,33 @@ In the second version, a Promise is returned (in this case it is immediately ful
 
 Within an async function, the 'await' keyword will be found: 'await' can ONLY be used within functions with the async keyword, and can be called on any function that returns a promise.
 
-Using _await_ tells your program to only continue once the Promise has been resolved.
-
-__.then()__ 
-
-If you need to make sure that your code calling an async function only executes when the fully 'resolved' value of the promise is returned, you can use a .then() block.
-
-See the following example:
+Using _await_ tells your program to only continue once the Promise has been resolved.  See the following example:
 
 ```html
 
 <html>
 <script>
 
+// Using the async function type and await keyword
 async function hello(mystring) {
     var ret = await Promise.resolve('hello');
     return mystring;
 }
+
+
+</script>
+</html
+```
+
+
+__.then()__ 
+
+If you are outside an async function, and you need to make sure that your code calling an async function only executes when the fully 'resolved' value of the promise is returned, you can use a .then() block.
+
+See the following example:
+
+```html
+
 
 // The hello function is called, 
 // when its return value is ready, ie. the promise is resolved,
@@ -92,9 +102,12 @@ Examples taken from :
 
 ## Your first database driven application
 
-By following the steps in the [screencast](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=6f290a6b-ba94-4729-9632-adcf00ac336e), you will have built your environment from my Docker starter recipe which makes a lot of things simple for you!  You will also have the necessary libraries installed and some code that manages the connection to your database.
+By following the steps in our previous lab, you will have built your environment from my Docker starter recipe which makes a lot of things simple for you!  You will also have the necessary libraries installed and some code that manages the connection to your database.
 
-### Checklist 1:  Getting your environment running
+Setup screencast: [Screencast Link](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c98901e7-f193-4b9b-b071-af3e018163fb)
+Scaffolding files: [Files link](https://moodle.roehampton.ac.uk/mod/url/view.php?id=1269475)
+
+### Checklist 1:  Getting your environment running again
 
 * Can you run ```docker-compose up``` without error
 Can you access http://127.0.0.1:3000 without error and see the words 'hello world'?
@@ -129,79 +142,19 @@ async function query(sql, params) {
   
    1. Note that we require the db.js file to set up the database connection
    2. Check that each of the routes already defined work as expected. Make sure you understand every line of code.
-   3. Does the route http://127.0.0.1 work?  If not, can you work out why?  ( we will fix it in the next section )
-  
 
-### Checklist 3: Saving your code
-
-You should ensure that you have a git repository to save the code you develop today.
-
-1. When you open a terminal and type ```git status``` you should receive a message saying 'not a git repository'. If your directory is still connected to the docker-recipes directory, remove the .git directory.
-2. You should now follow the instructions in the page linked below to start a new respository and upload it to github
-
-[Github documentation - a new repository from existing files](https://docs.github.com/en/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line#adding-a-project-to-github-without-github-cli)
-
-3. Regularly commit and push your work during this lab
-
-
-### Getting started: Creating a database and testing your connection from your node.js app
-
-We won't be able to start writing code that uses the database until we have some data to work with.  
-
-
-1. Go to PhpMyadmin. Make sure there is a database created called 'test_database'. If there is not, create one, and add this to the .env file which should look something like this...
-
-```
-MYSQL_HOST=localhost
-MYSQL_USER=admin
-MYSQL_PASS=password
-MYSQL_ROOT_PASSWORD=pass1234
-MYSQL_DATABASE=test_database
-MYSQL_ROOT_USER=root
-DB_CONTAINER=db
-DB_PORT=3306
-```
-
-2. In phpmyadmin, create a table called test_table
-Populate it with some values by creating some columns (the structure tab)
-And adding some values (the insert tab)
-
-2. Now visit http://127.0.0.1:3000/db_test
-Do you see the values you inserted?
-
-3. Make sure you understand every line of code in the relevant part of app.js. Here is the code with a few extra annotations.
-
-```js
-// Create a route for testing the db
-app.get("/db_test", function(req, res) {
-
-    // Prepare an SQL query that will return all rows from the test_table
-    var sql = 'select * from test_table';
-    
-    // Use the db.query() function from services/db.js to send our query
-    // We need the result to proceed, but
-    // we are not inside an async function we cannot use await keyword here.
-    // So we use a .then() block to ensure that we wait until the 
-    // promise returned by the async function is resolved before we proceed
-    db.query(sql).then(results => {
-    
-        // Take a peek in the console
-        console.log(results);
-        
-        // Send to the web pate
-        res.send(results)
-    });
-});
-```
 
 ### Adding some more data to the database
 
 Populate your database by adding the following data via SQL queries. You can do this in bulk straight into phpmyadmin. 
 
-  * Click onto test_database in the left sidebar
+  * Click onto the sd2-db database in the left sidebar
   * Click SQL in the tabs along the top
-  * Paste the following into the SQL window and click 'go'
+  * Paste the sql code below into the SQL window and click 'go'
   * You will see the tables and data being created
+
+NB: A screencast of this step is here:  which also includes some troubleshooting advice in case you get the error when your containers start of 'port already allocated'.[Import database screencast](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1134b8ab-dc72-4ce3-bda7-af45010735f1)
+
 
 ```sql
 CREATE TABLE Modules (
@@ -281,6 +234,8 @@ You will now work through the following tasks.  The first set are worked through
 
 See the screencast for the worked example:
 [Worked tasks screencast](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d52ae6e3-d16f-43d8-83bc-add100d52764)
+
+CONCENTRATE ON THE FIRST TWO TASKS
 
 #### Independent tasks
 
