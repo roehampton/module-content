@@ -4,7 +4,7 @@ The aim of this lab is to write some simple assembly programs and compile them t
 
 ## Your First Assembly Program
 
-1. **Create a new subdirectory in the computer-systems folder for lab06 and change into the directory.**
+1. **Create a new subdirectory in the computer-systems folder for lab05 and change into the directory.**
 2. **Use nano to enter the following file `hello.asm`**.
 
 ```assembly
