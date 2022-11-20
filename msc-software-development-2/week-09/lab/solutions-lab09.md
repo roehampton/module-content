@@ -1,4 +1,4 @@
-
+## Solution for single-student page
 
 models/module.js
 
@@ -127,17 +127,14 @@ module.exports = {
 }
 ```
 
-
-
 student.pug
 
-
-```
+```javascript
 extends layout
 block content
     h1 Student page for: #{student.name}
     p The ID for the student is: #{student.id}
-    h2 Programme: #{student.programme.name} 
+    h2 Programme: #{student.programme.pName} 
     h2 Modules 
     table(border=1)
         for module in student.modules 
@@ -145,57 +142,18 @@ block content
                 td #{module.code}
                 td 
                     a(href='/single-module/' + module.code) #{module.mName}
+
+
 ```
 
 
-app.js
+app.js (single student route)
 
 ```javascript
-// Import express.js
-const express = require("express");
-
-// Create express app
-var app = express();
-
-// Add static files location
-app.use(express.static("static"));
-
-// Use the Pug templating engine
-app.set('view engine', 'pug');
-app.set('views', './app/views');
 
 
-// Get the functions in the db.js file to use
-const db = require('./services/db');
-
-// Get the models
-const { Student } = require("./models/student");
-
-// Create a route for root - /
-app.get("/", function(req, res) {
-     // Set up an array of data
-     var test_data = ['one', 'two', 'three', 'four'];
-     // Send the array through to the template as a variable called data
-     res.render("index", {'title':'My index page', 
-           'heading':'My heading', 'data':test_data});
-});
-
-// Task 1 JSON formatted listing of students
-app.get("/all-students", function(req, res) {
-    var sql = 'select * from Students';
-    // As we are not inside an async function we cannot use await
-    // So we use .then syntax to ensure that we wait until the 
-    // promise returned by the async function is resolved before we proceed
-    db.query(sql).then(results => {
-        console.log(results);
-        res.json(results);
-    });
-
-});
-
-
-// Task 3 single student page, using MVC pattern
-app.get("/single-student/:id", async function (req, res) {
+// Single student page, using MVC pattern
+app.get("/student-single/:id", async function (req, res) {
     var stId = req.params.id;
     // Create a student class with the ID passed
     var student = new Student(stId);
@@ -206,30 +164,6 @@ app.get("/single-student/:id", async function (req, res) {
     res.render('student', {student:student});
 });
 
-
-//JSON output of all programmes
-app.get("/all-programmes", function(req, res) {
-    var sql = 'select * from Programmes';
-    // As we are not inside an async function we cannot use await
-    // So we use .then syntax to ensure that we wait until the 
-    // promise returned by the async function is resolved before we proceed
-    db.query(sql).then(results => {
-        console.log(results);
-        res.json(results);
-    });
-
-});
-
-
-// Create a route for /goodbye
-// Responds to a 'GET' request
-app.get("/goodbye", function(req, res) {
-    res.send("Goodbye world!");
-});
-
-
-// Start server on port 3000
-app.listen(3000,function(){
-    console.log(`Server running at http://127.0.0.1:3000/`);
-});
 ```
+
+
