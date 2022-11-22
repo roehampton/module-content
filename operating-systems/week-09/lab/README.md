@@ -96,7 +96,7 @@ Let us write our first `ioctl` driver and program.
 6. **Complete the program by replacing the lines `// *** COMPLETE ME ***` as appropriate.**
 7. **Build the kernel module using `make` on the terminal.**
 8. **Install the kernel module using `sudo insmod ex9_1.ko`.**
-9. **Run the user program by using the command `./user_program.c`**.
+9. **Run the user program by using the command `./user_program`**.
 10. **Uninstall the kernel module using `sudo rmmod ex9_1`**.
 11. **Get the kernel log messages using `dmesg`**.
 
@@ -145,7 +145,7 @@ switch (cmd)
 3. **Update `Makefile` so the first line is `obj-m += ex9_2.o`.**
 4. **Build the kernel module using `make` on the terminal.**
 5. **Install the kernel module using `sudo insmod ex9_2.ko`.**
-6. **Run the user program by using the command `./user_program.c`**.
+6. **Run the user program by using the command `./user_program`**.
 7. **Uninstall the kernel module using `sudo rmmod ex9_2`**.
 8. **Get the kernel log messages using `dmesg`**.
 
@@ -196,7 +196,7 @@ ioctl(fd, MY_WRITE, 54u);
 5. **Install the kernel module using `sudo insmod ex9_3.ko`.**
 6. **Update `user_program.c` to define `MY_WRITE` and to send the appropriate `ioctl` message.**
 7. **Compile the user program using `gcc user_program.c -o user_program`.**
-8. **Run the user program by using the command `./user_program.c`**.
+8. **Run the user program by using the command `./user_program`**.
 9. **Uninstall the kernel module using `sudo rmmod ex9_3`**.
 10. **Get the kernel log messages using `dmesg`**.
 
@@ -252,7 +252,7 @@ ioctl(fd, MY_READ, str);
 5. **Install the kernel module using `sudo insmod ex9_4.ko`.**
 6. **Update `user_program.c` to define `MY_WRITE`, send the appropriate `ioctl` message, and then print the received message.**
 7. **Compile the user program using `gcc user_program.c -o user_program`.**
-8. **Run the user program by using the command `./user_program.c`. Your user program should output `Received Hello, world! from driver`**.
+8. **Run the user program by using the command `./user_program`. Your user program should output `Received Hello, world! from driver`**.
 9. **Uninstall the kernel module using `sudo rmmod ex9_4`**.
 10. **Get the kernel log messages using `dmesg`**.
 
