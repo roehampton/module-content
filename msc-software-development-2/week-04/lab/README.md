@@ -37,8 +37,6 @@ You may also have a terminal window open where you can use git and other command
    4. Add some styling to the page by adding the following in the 'head' section of the document 
 
 </span><br></p>
-<p><span style="font-size: 0.9375rem;"><br></span></p>
-<p><span style="font-size: 0.9375rem;"></span></p>
 <p>&lt;style&gt;</p>
 <p> h1 {</p>
 <p>    color: blue;</p>

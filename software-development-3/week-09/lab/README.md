@@ -90,7 +90,7 @@ This is an exercise in which you will be linking your GUI to code you already cr
             {
 
                 //  Add the name of the animal to the list of items in the zooAnimals ListBox element
-		zooComboBox.Items.Add(new ComboBoxItem(animal.getId(), animal.getName()));
+		zooAnimals.Items.Add(animal.getName());
             }
         }
 	       
