@@ -72,6 +72,8 @@ static int device_release(struct inode *inode, struct file *file)
 
 static long device_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 {
+    char *msg = "Hello, world!";
+    int len = strlen(msg);
     switch (cmd)
     {
         // Respond to MY_CALL message
