@@ -69,7 +69,7 @@ Write and experiment with the addOne function
 ```f#
 let addOne n = n + 1 
 let result = addOne 2  // parenthesis are not necessary 
-printfn "%i" result  //output should be 3 
+printfn "%i" result  //output should be 4
 ```
 
 In visual studio, roll over the function name to see its 'signature'
@@ -112,7 +112,7 @@ let nResult = addOne "lisa"  // Can't do this, as addOne implicitly knows its in
 ```f#
 //Try to reassign a variable 
 let result = addOne 1 // Cant reassign using let, duplicate definition error 
-result = addOne 1 //Also an error, can’t change the value 
+result <- addOne 1 //Also an error, can’t change the value 
 ```
 
 ## Mutable variables
@@ -121,7 +121,7 @@ Create a mutable variable to fix the above
 
 ```f#
 let mutable r = addOne 2 
-r = addOne 1  
+r <- addOne 1  
 printfn "%i" r 
 ```
 
