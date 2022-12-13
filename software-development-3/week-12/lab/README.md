@@ -5,6 +5,8 @@ To demonstrate how you may use a boolean property to add some functionality to y
 
 Please follow and understand this lab and you should then be able to use a boolean property within the base class of your bookable items (accomodation, vehicle, item or whatever you have chosen) to create the ability to 'book' or 'unbook' any of your items.
 
+__You can follow this lab with the video: https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=248b714f-1ea3-4fce-b841-af6a01304932__
+
 ## Get started
 
 This is the lab solution from week 3.
@@ -15,7 +17,7 @@ Please ensure that you have created the four files: Person.cs, staff.cs, Student
 ###  Lab week 3 solution:  Student/Staff inheritance
 
 
-Person.cs
+FILE: Person.cs
 
 ```c#
 using System;
@@ -46,7 +48,7 @@ abstract class Person
 }
 ```
 
-Student.cs
+FILE: Student.cs
 
 ```c#
 using System;
@@ -71,7 +73,7 @@ class Student : Person
 }
 ```
 
-Staff.cs
+FILE: Staff.cs
 
 ```c#
 using System;
@@ -97,7 +99,7 @@ class Staff : Person
 ```
 
 
-Program.cs
+FILE: Program.cs
 
 ```c#
 using System;
@@ -131,8 +133,7 @@ class Program
 }
 ```
 
-
-expected output
+#### expected output
 
 ```
 Using the PrintName method on the Base class -------
@@ -158,7 +159,8 @@ Add a new property called isPresent to the Person class. The properties should n
  protected string lastName;
  protected bool isPresent = false;
  ```
- ## Add get and set methods for your new property
+ 
+## Add get and set methods for your new property
  
  ```c#
  
@@ -213,7 +215,7 @@ Add the following lines to your main method in teh Program.cs file (make sure th
 
 ```
 
-Expected output
+#### Expected output
 
 ```
 
