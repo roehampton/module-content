@@ -8,6 +8,8 @@ We use the industry  standard tool, Docker, to build a consistent cross-platform
 
 ## Docker development environment quickstart
 
+__The video for the quickstart set up described below is here: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c98901e7-f193-4b9b-b071-af3e018163fb](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c98901e7-f193-4b9b-b071-af3e018163fb)__
+
 1. Ensure Docker is installed on your computer OR use the azure virtual machine installation.
 2. Download the zip file of the startup files you'be been given and extract it.
 3. Move the extracted folder into your documents (win) or home (mac) directory.
@@ -185,8 +187,6 @@ async function query(sql, params) {
    
    
    
- ## Further tasks
+## Further tasks
  
-Develop your knowlege and skills with connecting to a database from Express with the following lab sheet:
- 
- [Asynchronous Javascript introduction](./session-6-db-and-async.md)
+Lab 7 will develop your knowlege and skills with connecting to a database.

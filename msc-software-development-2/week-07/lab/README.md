@@ -233,7 +233,7 @@ You will now work through the following tasks.  The first set are worked through
 3. Create a single-student page which lists a student name, their programme and their modules
 
 See the screencast for the worked example:
-[Worked tasks screencast](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d52ae6e3-d16f-43d8-83bc-add100d52764)
+[https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d52ae6e3-d16f-43d8-83bc-add100d52764](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d52ae6e3-d16f-43d8-83bc-add100d52764)
 
 CONCENTRATE ON THE FIRST TWO TASKS
 
@@ -251,7 +251,7 @@ CONCENTRATE ON THE FIRST TWO TASKS
 
 The worked example here is messy but it is useful as it provides a simple solution that introduces the most important principles all in one place, but this is not professional standard code.
 
-Next week we will 'refactor' this code to provide a cleaner solution.  Can you think of ways we can use the following to improve our code:
+Next week we will 'refactor' this code to provide a cleaner solution.  We will be usingthe following programming techniques to improve our code:
 
  * Custom classes
  * Async functions and the await keyword

@@ -58,7 +58,7 @@ This will give you a button and a text area that can be populated with your list
 
 Hover over 'AddItems_Click, right click and choose 'go to definition'.  This will take you to the MainWindow.xaml.cs file
 
-In lab 9, we added items to the text box from the GUI, but this time, we will use our existing code.  YOu can use similar code here as you used in your Main method.  This version uses a singleton to keep all the animals available.
+In lab 9, we added items to the text box from the GUI, but this time, we will use our existing code.  YOu can use similar code here as you used in your Main method.  _This is the simplist possible solution. If you have implemented the singleton design pattern you can use it here instead._
 
 ```c#
    private void AddItems_Click(object sender, RoutedEventArgs e)
@@ -129,8 +129,6 @@ private void zoo_SelectionChanged(object sender, SelectionChangedEventArgs e)
 
         }
 ```
-
-
 
 
 
