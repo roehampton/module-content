@@ -1,4 +1,4 @@
-# Computer Systems Seminar 5 - von Neumann Machines
+# Computer Systems Seminar 4 - von Neumann Machines
 
 1. What are the characteristics of a von Neumann processor?
 2. State three busses of the CPU and their purpose.

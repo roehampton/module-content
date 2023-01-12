@@ -13,3 +13,5 @@ void cleanup_module()
     // Print Goodbye, World! as KERN_INFO message
     // *** COMPLETE ME ***
 }
+
+MODULE_LICENSE("GPL");

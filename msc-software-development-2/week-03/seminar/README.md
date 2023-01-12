@@ -60,7 +60,7 @@ https://docs.idew.org/principles-and-practices/practices/design-practices/person
 
 (See the example tab)
 
-Once you have done this, you will be better able to formulate a short statement of the purpose and business questions.
+Once you have done this, you will be better able to formulate a short statement of the purpose.
 
 Template: https://roehamptonprod-my.sharepoint.com/:w:/g/personal/lisa_haskel_roehampton_ac_uk/ESw85m_8bm5Nm3bfx-Xd6xgBCYcYd_fADxilgo5RW4Sgyw?e=6r4ZgU
 

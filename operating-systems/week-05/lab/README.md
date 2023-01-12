@@ -161,7 +161,7 @@ sched_setscheduler(pid, SCHED_FIFO, &param);
 1. **Download the code [`ex5_3.c`](ex5_3.c){:target="_blank"}**.
 2. **Complete the program by replacing the lines `// *** COMPLETE ME ***` as appropriate.**
 3. **Build the application using `gcc ex5_3.c -o ex5_3 -pthread -lm` on the terminal.**
-4. **Run the application  using `./ex5_3` on the terminal.**
+4. **Run the application  using `sudo ./ex5_3` on the terminal.** YES - we need to run as the root user.
 
 Your output will look as follows:
 
@@ -201,7 +201,7 @@ Now we have created a mechanism for controlling the order in which threads are s
 1. **Download the code [`ex5_4.c`](ex5_4.c){:target="_blank"}**.
 2. **Complete the program by replacing the lines `// *** COMPLETE ME ***` as appropriate.**
 3. **Build the application using `gcc ex5_4.c -o ex5_4 -pthread -lm` on the terminal.**
-4. **Run the application  using `./ex5_4` on the terminal.**
+4. **Run the application  using `sudo ./ex5_4` on the terminal.**
 
 Your output will be as follows:
 
@@ -254,7 +254,7 @@ pthread_setschedprio(thread, priority);
 1. **Download the code [`ex5_5.c`](ex5_5.c){:target="_blank"}**.
 2. **Complete the program by replacing the lines `// *** COMPLETE ME ***` as appropriate.**
 3. **Build the application using `gcc ex5_5.c -o ex5_5 -pthread -lm` on the terminal.**
-4. **Run the application  using `./ex5_5` on the terminal.**
+4. **Run the application  using `sudo ./ex5_5` on the terminal.**
 
 Your output will be as below. **Note** -- the order of running has reversed as the priorities match the threads.
 
@@ -312,7 +312,7 @@ pthread_create(&threads[i], &attr, do_work, (void*)i);
 1. **Download the code [`ex5_6.c`](ex5_6.c){:target="_blank"}**.
 2. **Complete the program by replacing the lines `// *** COMPLETE ME ***` as appropriate.**
 3. **Build the application using `gcc ex5_6.c -o ex5_6 -pthread -lm` on the terminal.**
-4. **Run the application  using `./ex5_6` on the terminal.**
+4. **Run the application  using `sudo ./ex5_6` on the terminal.**
 
 As we are using a round robin scheduler we will get an output similar to that of the first program.
 
@@ -367,7 +367,7 @@ pthread_create(&threads[i], &attr, do_work, (void*)i);
 1. **Download the code [`ex5_7.c`](ex5_7.c){:target="_blank"}**.
 2. **Complete the program by replacing the lines `// *** COMPLETE ME ***` as appropriate.**
 3. **Build the application using `gcc ex5_7.c -o ex5_7 -pthread -lm` on the terminal.**
-4. **Run the application  using `./ex5_7` on the terminal.**
+4. **Run the application  using `sudo ./ex5_7` on the terminal.**
 
 Your output will be similar to the following. **Note** -- threads start and complete in batches based on priorities.
 
@@ -413,7 +413,7 @@ As we are using `cpu_set_t` we can again use `CPU_ZERO` and `CPU_SET` to control
 1. **Download the code [`ex5_8.c`](ex5_8.c){:target="_blank"}**.
 2. **Complete the program by replacing the lines `// *** COMPLETE ME ***` as appropriate.**
 3. **Build the application using `gcc ex5_8.c -o ex5_8 -pthread -lm` on the terminal.**
-4. **Run the application  using `./ex5_8` on the terminal.**
+4. **Run the application  using `sudo ./ex5_8` on the terminal.**
 
 Your output will look similar to the following. **Note** -- thread ordering is determined by how quickly individual cores complete work.
 

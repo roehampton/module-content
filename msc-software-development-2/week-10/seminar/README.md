@@ -1,10 +1,11 @@
 # Software Development 2 Seminar 10 – Team session
 
-Getting ready for sprint 3 - pair programming and troubleshooting.
+Getting ready for sprint 3 - pair programming 
 
-Please bring some tasks for us to troubleshoot and solve together.
+Today you should start on the programming tasks for sprint 3. You may wish to try 'pair programming' for this, see resources on Moodle.
 
-We can take the opportunity to do some properly organised 'pair programming' - please read the attached resources on how this should be approached.
+If you have not already created a new project using the scaffolding files and ensured that all members of the team can pull and push, make sure that is in place.
+
 
 Note the following references for pug templates:
 

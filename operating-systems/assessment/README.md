@@ -83,7 +83,7 @@ This part of the coursework is divided into two parts - Part A and Part B.
 
 ### Part A -- Kernel Module Development (45% of coursework total)
 
-**Deadline -- end of Week 10 of Teaching 02/12/2022.**
+**Deadline -- end of Week 10 of Teaching 09/12/2022.**
 
 #### Specification
 

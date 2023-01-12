@@ -4,7 +4,7 @@ When Albert Einstein was asked, how would allocate time for problem solving, he 
 In this seminar we&#39;ll go through some exercises to reinforce what we learned about common code patterns
 
 1. Draw a flowchart/write a pseudocode for the program which can accept a number from a user and calculate the sum of all numbers from 1 to a given number
-For example, if the user entered 10 the output should be 55 (1+2+3+4+5+6+7+8+9+10)。
+For example, if the user entered 10 the output should be 55 from the calculation (1+2+3+4+5+6+7+8+9+10)。
 
 2. How do you make the following program reach the end? Hint: writing down a flowchart might help!
 ```
@@ -19,3 +19,12 @@ For example, if the user entered 10 the output should be 55 (1+2+3+4+5+6+7+8+9+1
 - The number must be divisible by five
 - If the number is greater than 150, then skip it and move to the next number
 - If the number is greater than 500, then stop the loop
+
+
+4. Create a flowchart for a program that computes the average of a collection of values entered by the user. The user will enter 0 as a sentinel value to indicate that no further values will be provided. Your program should display an appropriate
+error message if the first value entered by the user is 0.
+
+
+5. Write a flochart for a program that displays a temperature conversion  for degrees Celsius and degrees Fahrenheit. The ouput should include rows for all temperatures between 0 and 100 degrees Celsius that are multiples of 10 degrees Celsius.The formula for converting between degrees Celsius and degrees Fahrenheit can be found on the Internet.
+
+

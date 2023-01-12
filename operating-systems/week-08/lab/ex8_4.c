@@ -69,6 +69,7 @@ static ssize_t device_read(struct file *file, char __user *buf, size_t len, loff
 {
     size_t msg_len;
     int result = 0;
+    char kernel_buffer[255];
     strcpy(kernel_buffer, "Hello, world!\n");
     msg_len = strlen(kernel_buffer);
     // Copy data to user memory, storing result

@@ -236,7 +236,7 @@ The kernel log messages should be similar to:
 Much like sending data to user memory, we can copy data from user memory using `copy_to_user`:
 
 ```c
-result = copy_to_user(buf, kernel_buffer, msg_len);
+result = copy_from_user(kernel_buffer, buf, msg_len);
 ```
 
 This is the same idea as sending to user memory.

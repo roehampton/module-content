@@ -1,4 +1,4 @@
-# Computer Systems Lab 7 - Little Man Computer
+# Computer Systems Lab 4 - Little Man Computer
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 

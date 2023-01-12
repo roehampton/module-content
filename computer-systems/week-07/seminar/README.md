@@ -1,4 +1,4 @@
-# Computer Systems Seminar 7 - Further Assembly
+# Computer Systems Seminar 6 - Further Assembly
 
 1. What are the two ways we can implement loops in assembly?
 2. What is the register used to control the number of iterations in a loop?

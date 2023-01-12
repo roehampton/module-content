@@ -6,9 +6,9 @@ To remind you of the specification for sprint 2:
 
 ### Sprint 2
 
-#### Submission: 3 November
+#### Submission: 9 November
 
-#### Review Meeting: 8 November
+#### Review Meeting: 14 November
 
 The aim of this Sprint is to check that you have a set of user requirements defined as user stories and that you have designed initial elements of your application.
 
@@ -16,13 +16,13 @@ Submission requirements for this Sprint:
 
 - Full set of user stories defined for your application idea.
 - User stories tracked appropriately using a tool.
-- Suitable diagrams and documentation used to design software, which may include:
+- Suitable diagrams and documentation used to design software, which __may__ include:
   - Use case diagrams
   - Activity diagrams
   - State diagrams
   - Class diagrams
   - Sequence diagrams
-  - Personas
+  - Personas (include the personas developed for sprint 1)
   - User flow diagrams
 - Rough designs of the screens (pages) that your application will have and how these flow together. We are looking for wireframes and a high-level overview of how the application flows together. For example, see the following resources:
   - [How to create a user experience flow chart (UX Flow Chart) (startuprocket.com)](https://www.startuprocket.com/articles/how-to-create-a-user-experience-flow-chart-ux-flow-chart)
@@ -33,7 +33,6 @@ Submission requirements for this Sprint:
 Hints:
 
 1. User stories are mandatory - make sure these are clear and simple.
-2. Personas are desirable - they help you understand your application from a users point of view.
 3. A user experience flow chart (user flow diagram) will help you break your user stories into tasks.  Create these for each user story.  Note that a user story may require more than one user flow diagram
 4. A use case diagram is mandatory.  This is an industry standard so give it a try.
 5. Lo-fi prototypes/ wireframes are mandatory. Without these you won't get a shared understanding of what you will build.

@@ -15,7 +15,7 @@ This lab takes up after labs 8 and 9.  In particular, you will need to ensure th
 
 ```javascript
 // Task 3 single student page
-app.get("/single-student/:id", async function (req, res) {
+app.get("/student-single/:id", async function (req, res) {
     var stId = req.params.id;
     // Create a student class with the ID passed
     var student = new Student(stId);
@@ -147,20 +147,20 @@ async addStudentNote(note) {
 To call this from app.js, amend the post route you just created as follows
 
 ```javascript
-app.post('/add-note', function (req, res) {
-    // Get the submitted values
+app.post('/add-note', async function (req, res) {
     params = req.body;
-    // Note that we need the id to get update the correct student
-    var student = new Student(params.id)
     // Adding a try/catch block which will be useful later when we add to the database
+    var student = new Student(params.id);
     try {
-        student.addStudentNote(params.note).then(result => {
-            // Just a little output for now
-            res.send('form submitted');
-        })
-     } catch (err) {
+         await student.addStudentNote(params.note);
+         res.send('form submitted');
+        }
+     catch (err) {
          console.error(`Error while adding note `, err.message);
      }
+     // Just a little output for now
+     res.send('form submitted');
+
 });
 
 
@@ -195,14 +195,14 @@ All you need to do is change...
 
 ```
 
-    student.getStudentName().then( 
+    await student.getStudentName();
 ```
 
 to
 
 ```
 
-    student.getStudentDetails().then( 
+    await student.getStudentDetails();
 ```
 
 Now we add a new line to the pug template to pull through the student note
@@ -225,7 +225,7 @@ You can do this by amending the ```app.post('add-note)``` route code:
 Instead of ```res.send('form submitted)```, redirect back to the single-student page the user was viewing with the following:
 
 ```
-            res.redirect('/single-student/' + params.id);
+            res.redirect('/student-single/' + params.id);
 
 ```
 
