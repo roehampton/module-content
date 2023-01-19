@@ -16,13 +16,13 @@ The coursework is worth 100% of the total module mark. Delivery of the coursewor
 
 In this coursework you are tasked with creating a dynamic web application for the smooth and efficient operation of a business of your team's choosing. Hence you are required to specify what type of business you will be building your application for. 
 
-**Your application must be built using the tools and techniques taught in the module.**
+**Your application must be built using the tools and techniques taught in the module.  This ensures that all team members can contribute equally**
 
-- Your web front-end should use PUG. If your team wants to use a different front-end web framework then you must seek permission from the teaching team first.
-- Your web back-end must run via Node.js. This is not negotiable.
+- Your web front-end should use PUG. 
+- Your web back-end must run via Node.js. 
 - Your front-end and back-end must communicate via Express.js. 
 - Your application must use a MYSQL database for storage. 
-- Your application must be version controlled using Git. This is not negotiable.
+- Your application must be version controlled using Git. 
 - Your application must be deployable using Docker. 
 
 ### Advice on Application Choice
