@@ -133,6 +133,25 @@ You can find the web page generated from this code [here](first.html).
  **NOTE**: You will need to open the file directly in your web browser, which is different from how you usually access a web page which is via its 'url'.  To open a file try going to your browser and pressing crtl o .  You should see something in your address bar like this: file:///home/lisah/lessons/github/module-content/msc-software-development-2/week-01/seminar/Slide6.jpg.  ie, file:/// then the full path to your file.  Use the refresh button to show new changes you save to your html file.
 <hr>
 
+## Setting out your development environment
+
+Your enjoyment writing code, and your productivity will be enhanced by gaining fluency in the fundamental tools of web development and its processes.
+
+
+![Developers Desktop](./developers-desktop.png)
+
+Your desktop should look like the image above where:
+
+   * Your code is visible in Visual Studio Code and you can edit it
+   * You also have a browser window open.  __You can see your changes by refreshing the browser without having to reopen the browser window__
+   * You can use developer tools to check what the browser is rendering.  You can also use the tools there to check CSS and Javascript as well as other information related to the browser.  You will find out more about this further in this lab sheet.
+   * You can use the VS code file explorer to check your file structure
+
+You may also have a terminal window open where you can use git and other command line tools which you will learn next week.
+
+
+## The structure of an HTML page
+
 
 HTML files use *tags* to specify elements. A tag defines an *element* in our web page. For example, `<p>` is used for a paragraph or text element.
 
@@ -208,6 +227,8 @@ __Try it now:__
 
 In your browser window, right click in the page and choose 'inspect'.  A set of windows will appear, probably at the bottom or perhaps to the right of your screen.  Here you will be able to examine the source code of your own page and ensure that it is as you expect. You can even find you can edit the markup, content and styles.
 
+
+
 Note that you can do this for any web page!!.  Your changes will only be visible on your own browser and will disappear after you refresh the page.
 
 ![devtools.png](devtools.png)
@@ -215,14 +236,17 @@ Note that you can do this for any web page!!.  Your changes will only be visible
 Reference:
 https://developer.chrome.com/docs/devtools/overview/
 
+__practice__
 
-### Extension task
+![Inspector button](inspector.png)
 
-Find out about the HTML standard and the additional tags that have been introduced. Answer the following questions:
+Click on the inspector tool which you will find in the toolbar as shown above - its the square with the arrow pointing into it - and then onto the heading of your page. You will see the relevant part of the code highlighted in the main 'elements' part of developer tools, and below in the 'styles' window, you will see the CSS rules that have been applied.
 
-1. Why were these new tags introduced?
-2. Is HTML5 a semantic or syntactic innovation?
-3. What is microdata and how is this used by search engines?
+
+See if you can visit this newspaper site which is famous for mis-spellings and change the menu item 'sport' to 'sporty' https://www.theguardian.com/uk
+
+Play with your own pages, so you are full familiar with the relationship between the code editor, browser and developer tools.
+
 
 ### So you want to know more
 
