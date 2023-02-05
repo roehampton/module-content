@@ -1,0 +1,9 @@
+[2023-02-02T16:03:42.121+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: CSV_DAG.starting scheduled__2023-02-02T14:40:00+00:00 [queued]>
+[2023-02-02T16:03:42.330+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: CSV_DAG.starting scheduled__2023-02-02T14:40:00+00:00 [queued]>
+[2023-02-02T16:03:42.342+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-02T16:03:42.351+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 2
+[2023-02-02T16:03:42.362+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-02T16:03:42.568+0000] {taskinstance.py:1300} INFO - Executing <Task(BashOperator): starting> on 2023-02-02 14:40:00+00:00
+[2023-02-02T16:03:42.729+0000] {standard_task_runner.py:55} INFO - Started process 11436 to run task

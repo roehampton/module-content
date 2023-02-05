@@ -1,0 +1,28 @@
+[2023-02-01T19:11:05.430+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: CSV_DAG.starting scheduled__2023-02-01T16:25:00+00:00 [queued]>
+[2023-02-01T19:11:05.466+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: CSV_DAG.starting scheduled__2023-02-01T16:25:00+00:00 [queued]>
+[2023-02-01T19:11:05.467+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-01T19:11:05.473+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 2
+[2023-02-01T19:11:05.480+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-01T19:11:05.572+0000] {taskinstance.py:1300} INFO - Executing <Task(BashOperator): starting> on 2023-02-01 16:25:00+00:00
+[2023-02-01T19:11:05.593+0000] {standard_task_runner.py:55} INFO - Started process 1652 to run task
+[2023-02-01T19:11:05.631+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'CSV_DAG', 'starting', 'scheduled__2023-02-01T16:25:00+00:00', '--job-id', '420', '--raw', '--subdir', 'DAGS_FOLDER/csv.py', '--cfg-path', '/tmp/tmp3bwh0lno']
+[2023-02-01T19:11:05.633+0000] {standard_task_runner.py:83} INFO - Job 420: Subtask starting
+[2023-02-01T19:11:05.901+0000] {task_command.py:388} INFO - Running <TaskInstance: CSV_DAG.starting scheduled__2023-02-01T16:25:00+00:00 [running]> on host 06d8060e8530
+[2023-02-01T19:11:06.178+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Kevin Chalmers
+AIRFLOW_CTX_DAG_ID=CSV_DAG
+AIRFLOW_CTX_TASK_ID=starting
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-01T16:25:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-02-01T16:25:00+00:00
+[2023-02-01T19:11:06.189+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-02-01T19:11:06.191+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'echo "Reading data"']
+[2023-02-01T19:11:06.244+0000] {subprocess.py:86} INFO - Output:
+[2023-02-01T19:11:06.248+0000] {subprocess.py:93} INFO - Reading data
+[2023-02-01T19:11:06.250+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-02-01T19:11:06.384+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=CSV_DAG, task_id=starting, execution_date=20230201T162500, start_date=20230201T191105, end_date=20230201T191106
+[2023-02-01T19:11:06.554+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-02-01T19:11:06.651+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,11 @@
+[2023-02-02T16:03:32.340+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: CSV_DAG.starting scheduled__2023-02-02T14:20:00+00:00 [queued]>
+[2023-02-02T16:03:32.506+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: CSV_DAG.starting scheduled__2023-02-02T14:20:00+00:00 [queued]>
+[2023-02-02T16:03:32.518+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-02T16:03:32.526+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 2
+[2023-02-02T16:03:32.534+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-02T16:03:41.357+0000] {taskinstance.py:1300} INFO - Executing <Task(BashOperator): starting> on 2023-02-02 14:20:00+00:00
+[2023-02-02T16:03:41.478+0000] {standard_task_runner.py:55} INFO - Started process 11434 to run task
+[2023-02-02T16:03:41.671+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'CSV_DAG', 'starting', 'scheduled__2023-02-02T14:20:00+00:00', '--job-id', '945', '--raw', '--subdir', 'DAGS_FOLDER/csv.py', '--cfg-path', '/tmp/tmpcymwygob']
+[2023-02-02T16:03:41.681+0000] {standard_task_runner.py:83} INFO - Job 945: Subtask starting
