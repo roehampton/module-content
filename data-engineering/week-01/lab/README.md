@@ -91,5 +91,3 @@ You can now experiment with nifi. Some tutorials to explore:
 - [Apache NiFi Tutorial - javatpoint](https://www.javatpoint.com/apache-nifi#buildflow)
 
 - [An Introduction to Apache NiFi, Use Cases and Best Practices](https://capgemini.github.io/development/introduction-nifi-best-practices/)
-
-
