@@ -45,7 +45,8 @@ def FillDB():
         """
         df=pd.read_csv('/home/airflow/data/data.csv')
         for i,r in df.iterrows():
-            cur.execute(insert_command, (r['name'], r['age'], r['street'], r['city'], r['state'], r['zip']))
+            id = cur.execute(insert_command, (r['name'], r['age'], r['street'], r['city'], r['state'], r['zip']))
+            print("Inserted person id " + id)
         print("Database insert complete")
     except(Exception):
         print("Failed to insert data")
