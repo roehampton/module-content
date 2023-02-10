@@ -46,7 +46,7 @@ def FillDB():
         df=pd.read_csv('/home/airflow/data/data.csv')
         for i,r in df.iterrows():
             cur.execute(insert_command, (r['name'], r['age'], r['street'], r['city'], r['state'], r['zip']))
-        print("WootWoot")
+        print("Database insert complete")
     except(Exception):
         print("Failed to insert data")
     conn.commit()
