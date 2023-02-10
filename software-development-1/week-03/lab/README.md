@@ -36,9 +36,9 @@ Lesson 3 Recap: When the user input is a number, we need a slightly more complic
 Here, we have used casting from an integer number into a string. That way, we ensure that whatever we are given by the user can be stored in our variable as a string type. We can then write a program that takes the first, middle and last names and displays the initials. By adding the extra casting into string, we ensure that any name, even the controversial X Æ A-12 (the name of Grimes's kid), can be read.
 
     # Read the user’s name 
-    first = str(input("Enter your first name: "))
-    middle = str(input("Enter your middle name: "))
-    last = str(input("Enter your last name: "))
+    first = input("Enter your first name: ")
+    middle = input("Enter your middle name: ")
+    last = input("Enter your last name: ")
 
     # Extract the first character from each string and concatenate them 
     initials = first[0] + middle[0] + last[0] 
@@ -47,8 +47,7 @@ Here, we have used casting from an integer number into a string. That way, we en
     print("Your initials are", initials)
 
 Example: Let’s create and analyse a program and identify keywords, conditionals and structure (colons)
-We will work through a program that reads a letter of the alphabet from the user. If the user enters a, e, i, o or u then the program should display a message indicating that the entered letter is a vowel. If the user enters y then the program should display a message indicating that sometimes y is a vowel, and sometimes y is a consonant. Otherwise it should display a message indicating that the 
-letter is a consonant. 
+We will work through a program that reads a letter of the alphabet from the user. If the user enters a, e, i, o or u then the program should display a message indicating that the entered letter is a vowel. If the user enters y then the program should display a message indicating that sometimes y is a vowel, and sometimes y is a consonant. Otherwise it should display a message indicating that the letter is a consonant. 
 
 Determine if a letter is a vowel or a consonant. 
 
