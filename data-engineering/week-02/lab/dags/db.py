@@ -1,8 +1,3 @@
-# Data Engineering Lab 03 -- Sending Data to Airflow's Postgres Database
-
-This is the solution to the task set in the lab -- adding data to the Postgres Database. We will review this solution next week.
-
-```python
 import datetime as dt
 from datetime import timedelta
 
@@ -74,4 +69,3 @@ with DAG(
         python_callable=FillDB
     )
     print_starting >> DBtask
-```
