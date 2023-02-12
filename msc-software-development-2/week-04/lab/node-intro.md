@@ -176,9 +176,9 @@ The main Node.js documentation is available at https://nodejs.org/en/docs/. Tuto
 
 ## More Exercises
 
-1. Update the Node.js server so it prints to the console the URL requested.
+1. Update the Node.js server so it prints to the console the URL requested. HINT: use console.log() to print useful messages to the server.
 2. Update the Node.js server so that if the URL `/roehampton` is requested, the server returns `Hello from Roehampton!`. **HINT** -- use an `if` statement to test the value of URL. Remember to add `res.end();` to complete the response.
-3. Update the Node.js server so that if the URL `/roehampton` is requested, the server will redirect the browser to Roehampton's website. **HINT** -- the status code for a redirect is 302, and you will need to set the `Location` using `res.setHeader`.
+
 
 # Dynamic routes: Express.js
 
@@ -237,7 +237,7 @@ node express_server.js
 
 **Open your browser, and go to `127.0.0.1:3000`**. You should see `Hello world!` displayed.
 
-To build up an application we will get Express to listen on some other URLS, in other words, we will create 'routes' for our requests and give back different responses according to the requested route.
+To build up an application we will get Express to listen on some other URLS, in other words, we will create 'routes' for our requests and give back different responses according to the URL typed by the user.
 
 **Shutdown the server with CTRL-C and update `express-server.js` to the following:**
 
@@ -288,9 +288,19 @@ Note that the parts of the URL prefaced with a ':' are dynamic, ie. the name you
 
 Try running the above code but put a colon before the 'hello' in the route.  Examine the console output and explain what has now happened.
 
+Use of dynamic routes and the passing of parameters from the URL into your server-side code is fundamental to server-side programming.  It is this that enablesa website to have dynamic pages ie. a single template page with different content according to the parameters passed in.
+
+__Practice with these problems:__
+
+1. Create a route which would be suitable for a user profile.  If the user types ```/user/1```, your code should be able to retrieve the user id and display 'Hello user 1'. The same code should work as expected for all user ids.
+2. Create a route for products in an online store.  If the user types ```/product/1```, your code should be able to retrieve the user id and display 'This is product 1'. The same code should work as expected for all product ids.
+
+
 ### Improving your development environment
 
-Reloading the node server each time you change your file isn't going to be a good development experience.  There are npm packages that can automatically watch for changed files and reload for you in the background.  The 'nodemon' package seems to work well for Linux and mac. Try 'supervisor' windows 10.
+Reloading the node server each time you change your file isn't going to be a good development experience.  
+
+Luckily, there are npm packages that can automatically watch for changed files and reload for you in the background.  The 'nodemon' package seems to work well for Linux and mac. Try 'supervisor' windows 10.
 
 For windows, install the package:
 
@@ -320,7 +330,7 @@ nodemon express-server.js
 
 
 
-### Now you try
+__Practice with these problems__
 
 Add the following end point URLs to the application:
 
