@@ -5,7 +5,7 @@
 ## Exercise set 1: While Loop and For loop
 
 
-1. Transform the following program from an if conditional to a while loop and write a flowchart for each.
+1. Transform the following program from a for loop to a while loop and write a flowchart for each.
 ```
 spam = 0
 for spam in range(5):
