@@ -6,9 +6,57 @@ You will need to add to your development environment to enable you to work acros
 
 We use the industry  standard tool, Docker, to build a consistent cross-platform development environment.
 
+## Installing Docker (if you are using your own computer)
+
+#### On Windows
+
+You need to ensure the wsl (Windows subsystem for Linux) is enabled and that you have installed the 'kernal update package'. 
+
+Docker documentation is here  [installing Docker on Windows] (https://docs.docker.com/desktop/windows/wsl/)
+
+In summary the steps are:
+
+   * Enable WSL 2 on Windows: You should be able to do this via powershell with the command
+   
+```
+wsl --install
+```
+
+   * Check that wsl is installed and the version is 2
+```
+  wsl --list –verbose
+```
+
+if you get an error then wsl 1 is installed and you should switch to wsl 2 iwth the command
+
+```
+wsl --set-default-version 2
+```
+
+
+  * Downloaded and installed the [Linux kernel update package] (https://docs.microsoft.com/windows/wsl/wsl2-kernel).
+
+__Restart your computer when you have followed these steps__
+
+When you install Docker Desktop, ensure that 'Use WSL 2 based engine' is selected.
+
+
+#### On Mac
+
+You should simply be able to install docker from the Docker.dmg file in the normal way: https://docs.docker.com/desktop/install/mac-install/
+
+
+#### On Linux
+
+https://docs.docker.com/desktop/install/linux-install/
+
+
+
 ## Docker development environment quickstart
 
 __The video for the quickstart set up described below is here: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c98901e7-f193-4b9b-b071-af3e018163fb](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c98901e7-f193-4b9b-b071-af3e018163fb)__
+
+The video takes you through from step 2.
 
 1. Ensure Docker is installed on your computer OR use the azure virtual machine installation.
 2. Download the zip file of the startup files you'be been given and extract it.
@@ -37,83 +85,12 @@ At the first address you are accessing the node.js server and at the second one,
 
 ## Express.js
 
-Before diving into database driven development, lets look at the node.js framework Express.js, which is providing us with a 'middleware' framework, receiving requests, giving us a framework for processing them which may include accessing a database, and sending back a response.
-
-### RESTful Interfaces
-
-REST stands for [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer). This is a software architecture for web services that is driven by structured  URLs. 
-We interact with our web service by accessing a URL with a particular HTTP message type:
-
-- `GET` will return data from the web service. This is the standard HTTP message used when we get a webpage.
-- `POST` sends data to the web service. This is the HTTP message used when you send data from a webpage, such as in a form.
-- `DELETE` allows deletion of data in the web service.
-
-The approach Express takes is to provide a framework in which we define URLs or 'routes'.  These call a function when our server receives a request.  Most importantly, parts of the URL can by dynamic ie. can send a variable in to the function.
+Before diving into database driven development, lets remember the node.js framework Express.js, which is providing us with a 'middleware' framework, receiving requests, giving us a framework for processing them which may include accessing a database, and sending back a response.  You looked at this last week.
 
 
-## Dynamic routes
+## Checking your dynamic routes in Express.js
 
-We now know how to create web pages and make them interactive with javascript and HTML forms. We can also run a webserver to receive requests, route them to the correct file and return an appropriate response.
-
-To take this to the next stage, we will use another Node.js library -- Express.js. This will enable use to create more sophisticated 'routes' ie. paths to files or functions, with more sophisticated functionality that can process dynamic input and produce output accordingly.
-
-You can install it by running the following in the terminal in the root folder of your repository - but it should be present in your scaffolding files.
-
-```shell
-npm install express
-```
-
-
-
-## Simple Express.js application
-
-Look at your scaffolding files, at the app.js file.  This file has code which processes all web requests that are received.
-
-Find the following lines of code in app.js.
-
-```javascript
-// Import express.js
-const express = require("express");
-
-// Create express app
-var app = express();
-
-// Create a get for root - /
-app.get("/", function(req, res) {
-    res.send("Hello world!");
-});
-
-```
-
-And make sure you understand them.  Visit http://127.0.0.1:3000.  Do you see what you expect?
-
-Alter this code so that it says 'Hello everybody'.  If the scaffolding files are working correctly, you will NOT have to restart your node.js webserver manually to see you changes.
-
-Now find the following lines of code.  This creates a route for /goodbye and we can put any logic we need to run when a GET request is received.
-
-```
-
-// Create a route for /goodbye
-// Responds to a 'GET' request
-app.get("/goodbye", function(req, res) {
-    res.send("Goodbye world!");
-});
-```
-
-Visit http://127.0.0.1:3000/goodbye
-
-do you get the result you expect?
-
-Visit http://127.0.0.1:3000/goodbye-student
-
-do you get the result you expect?  (HINT: you have not defined any functionality for this route yet, so it will probably be an error of some kind)
-
-__Add a route for goodbye-student which sends some output to the screen when this route is accessed.__
-
-
-## Dynamic routes in Express.js
-
-Find the following code in the app.js file:
+Find the following code in the app.js file. Use this to test that your scaffolding files are working as expected.
 
 ```
 // Create a dynamic route for /hello/<name>, where name is any value provided by user
@@ -140,20 +117,10 @@ http://127.0.0.1/hello/Lisa
 
 Look in the console (terminal window of VS code) as you run this and see the console.log message.  You will see the name parameter and its value appended to the req.params object.
 
-### Build your understanding
-
-_1. _What happens if you append a different name to the url in the browser?__
-
-_2.  _Try running the above code but put a colon before the 'hello' in the route.  Examine the console output and explain what has now happened.__
-
-### Further tasks
-
-Add the following end point URLs to the application:
-
-- `/test` will display `Welcome to the test page!`
-- `/student/:id/:name` should display a table with the submitted student ID and name. **HINT** -- you will have to construct the string in the response to be HTML.
 
 ## Checking database connectivity
+
+A number of files are provided for you which will help you connect your express app to the database.
 
 ### Check your understanding
 
@@ -184,9 +151,27 @@ async function query(sql, params) {
    2. Access Phpmyadmin by going to http://127.0.0.1:8081.
    3. Click onto the sd2-test database in the left side, and, using the SQL    window, paste the contents of the SQL file there.  Click run. You will now have some content for the test table
    4. Access http://127.0.0.1/db_test to see the contents of the table
+   5. Add two more rows to the test table via phpmyadmin
+   6. Now amend the code in db_test so that it loops through each of the rows of the table, giving the following output:
    
+Person with id 1 is Lisa
+
+Person with id 2 is Kimia
+etc
+
+HINT:  You can use a 'for' loop to loop through each row in the results object:
+
+```
+for (var row of results) {
+   // Do something with the row
+   // You can access the properties of each row using the dot syntax
+   // eg. row.id
+
+}
+```
+  
    
    
 ## Further tasks
  
-Lab 7 will develop your knowlege and skills with connecting to a database.
+The next lab will develop your knowlege and skills with connecting to a database.
