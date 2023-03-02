@@ -52,8 +52,7 @@ flowchart TD;
 </div>
 Reflect on how start and stop can be represented in different ways, but normally quite obvious.
 
-
-## <div class="mermaid">
+<div class="mermaid">
 flowchart TD;
     id1(READ string)
     id2(LET index = LENGTH OF string - 1)
