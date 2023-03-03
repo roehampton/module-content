@@ -56,12 +56,12 @@ Reflect on how start and stop can be represented in different ways, but normally
 flowchart TD;
     id1(READ string)
     id2(LET index = LENGTH OF string - 1)
-    id3(SET string[index] = 'Y')
+    id3("SET string[index] = 'Y'")
     id4{index > 1}
     id5(SET index = index - 1)
     id6((Stop))
-    id1 --> id2 --> id3 --> id4 --> id5 --> id3
-    id
+    id1 --> id2 --> id3 --> id4 -->|True| id5 --> id3
+    id4 -->|False| id6
 </div>
 
 Now work through two more examples.
