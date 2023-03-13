@@ -9,10 +9,10 @@
 | **Assignment Title** | Coursework                 |
 | -------------------- | -------------------------- |
 | **Weighting**        | 75%                        |
-| **Deadline Part 1**  | 14:00 30th March 2022      |
-| **Feedback Part 1**  | 20th April 2022 (in class) |
-| **Deadline Part 2**  | 14:00 4th May 2022         |
-| **Feedback Part 2**  | 25th May 2022              |
+| **Deadline Part 1**  | 14:00 31st March 2023      |
+| **Feedback Part 1**  | 20th April 2023 (in class) |
+| **Deadline Part 2**  | 14:00 4th May 2023         |
+| **Feedback Part 2**  | 25th May 2023              |
 | **Resit Date**       | TBC                        |
 
 ## Assessment Task
@@ -39,8 +39,8 @@ The coursework consists of two elements:
 | **Assignment Title** | Coursework                 |
 | -------------------- | -------------------------- |
 | **Weighting**        | 33.33% of coursework total |
-| **Deadline**         | 14:00 30th March 2022      |
-| **Feedback**         | 20th April 2022 (in class) |
+| **Deadline**         | 14:00 31st March 2023      |
+| **Feedback**         | 20th April 2023 (in class) |
 | **Resit Date**       | TBC                        |
 
 ### Learning Outcomes Addressed by the Assignment
@@ -77,7 +77,7 @@ You are to submit the following for each of the three problems:
 1. Flowchart
 2. Pseudocode
 
-These will be uploaded as a single PDF to Moodle by **2 pm on the 30th of March.**
+These will be uploaded as a single PDF to Moodle by **2 pm on the 31st of March.**
 
 ### Marking Scheme
 
@@ -96,8 +96,8 @@ The following rubric will be used to assess your submission.
 | **Assignment Title** | Coursework                 |
 | -------------------- | -------------------------- |
 | **Weighting**        | 66.66% of coursework total |
-| **Deadline**         | 14:00 4th May 2022         |
-| **Feedback**         | 25th May 2022              |
+| **Deadline**         | 14:00 4th May 2023         |
+| **Feedback**         | 25th May 2023              |
 | **Resit Date**       | TBC                        |
 
 ### Learning Outcome Addressed by this Assignment
