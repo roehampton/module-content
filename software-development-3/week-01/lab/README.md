@@ -145,7 +145,21 @@ Hello LisaH !
 ```
 
 
-#### Do you want to do more?
+#### Extension tasks
 
-1. Create a course class with some suitable properties and a print method.  Use this in the student class instead of the simple courseId.  Consider how you might create courses and add them to students in the Main() function.
-2. Implement the remaining methods of the Dog class used in the slides and improve the logic of the bark() function.
+1. __Course class__
+
+* Create a 'course' class to represent a university course with some suitable    properties and a print method. 
+*   In the student class, substitute the courseId for a property of type course, ie. so that your student HAS A course.
+*   Draw a class diagram showing the student and course classes and their relationship (https://www.ibm.com/docs/en/rsm/7.5.0?topic=diagrams-composition-association-relationships)
+*   Add a 'set' method so that after a student is created, you can set the course property.
+*   Alter your class so your print method also prints the students' course
+*  In your main method, 
+    * create a course object, then a student object.
+    * now use your 'set' method to set the students's course
+    * repeat this to create another two students with different courses
+    * use your print method to output information about each of the students and their courses
+
+2. __Dog class__
+
+Implement the remaining methods of the Dog class used in the week 1 slides and improve the logic of the bark() function in any way that you can think of.
