@@ -133,6 +133,35 @@ You can find the web page generated from this code [here](first.html).
  **NOTE**: You will need to open the file directly in your web browser, which is different from how you usually access a web page which is via its 'url'.  To open a file try going to your browser and pressing crtl o .  You should see something in your address bar like this: file:///home/lisah/lessons/github/module-content/msc-software-development-2/week-01/seminar/Slide6.jpg.  ie, file:/// then the full path to your file.  Use the refresh button to show new changes you save to your html file.
 <hr>
 
+
+## Developer tools
+
+Using the browser developer tools (found in all browsers, but chrome is most commonly used) to debug and refine your front-end code is an essential skill.
+
+__Try it now:__
+
+In your browser window, right click in the page and choose 'inspect'.  A set of windows will appear, probably at the bottom or perhaps to the right of your screen.  Here you will be able to examine the source code of your own page and ensure that it is as you expect. You can even find you can edit the markup, content and styles.
+
+
+
+Note that you can do this for any web page!!.  Your changes will only be visible on your own browser and will disappear after you refresh the page.
+
+![devtools.png](devtools.png)
+
+Reference:
+https://developer.chrome.com/docs/devtools/overview/
+
+__practice__
+
+![Inspector button](inspector.png)
+
+Click on the inspector tool which you will find in the toolbar as shown above - its the square with the arrow pointing into it - and then onto the heading of your page. You will see the relevant part of the code highlighted in the main 'elements' part of developer tools, and below in the 'styles' window, you will see the CSS rules that have been applied.
+
+
+See if you can visit this newspaper site which is famous for mis-spellings and change the menu item 'sport' to 'sporty' https://www.theguardian.com/uk
+
+Play with your own pages, so you are full familiar with the relationship between the code editor, browser and developer tools.
+
 ## Setting out your development environment
 
 Your enjoyment writing code, and your productivity will be enhanced by gaining fluency in the fundamental tools of web development and its processes.
@@ -218,34 +247,6 @@ Second page.
 
  **NOTE**: Make sure you have a very good understanding of 'absolute' and 'relative' paths for images (and other files.)  A common form of errors and other headaches are incorrectly referenced links.  If you are not already familiar with absolute and relative paths, study this page: https://www.w3schools.com/html/html_filepaths.asp.  You should almost always use relative paths as this makes your web pages portable across different servers and domains.
 <hr>
-
-### Developer tools
-
-Using the browser developer tools (found in all browsers, but chrome is most commonly used) to debug and refine your front-end code is an essential skill.
-
-__Try it now:__
-
-In your browser window, right click in the page and choose 'inspect'.  A set of windows will appear, probably at the bottom or perhaps to the right of your screen.  Here you will be able to examine the source code of your own page and ensure that it is as you expect. You can even find you can edit the markup, content and styles.
-
-
-
-Note that you can do this for any web page!!.  Your changes will only be visible on your own browser and will disappear after you refresh the page.
-
-![devtools.png](devtools.png)
-
-Reference:
-https://developer.chrome.com/docs/devtools/overview/
-
-__practice__
-
-![Inspector button](inspector.png)
-
-Click on the inspector tool which you will find in the toolbar as shown above - its the square with the arrow pointing into it - and then onto the heading of your page. You will see the relevant part of the code highlighted in the main 'elements' part of developer tools, and below in the 'styles' window, you will see the CSS rules that have been applied.
-
-
-See if you can visit this newspaper site which is famous for mis-spellings and change the menu item 'sport' to 'sporty' https://www.theguardian.com/uk
-
-Play with your own pages, so you are full familiar with the relationship between the code editor, browser and developer tools.
 
 
 ### So you want to know more
