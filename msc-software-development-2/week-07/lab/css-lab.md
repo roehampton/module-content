@@ -1,8 +1,8 @@
-# Software Development 2 Seminar 07 -- UI Design and CSS
+# Software Development 2 CSS
 
-**Please note that this is an optional addition to your work and has been put in as part of a seminar session rather than a lab because of that. Feel free to use basic style HTML for your assessment.**
 
-In this seminar, we will look at how we can define the style of our HTML documents using *Cascading Style Sheets (CSS)*. CSS allows us to define how certain elements in our web page look. Let us try a demo. First, create the following HTML document.
+
+In this lab, we will look at how we can define the style of our HTML documents using *Cascading Style Sheets (CSS)*. CSS allows us to define how certain elements in our web page look. Let us try a demo. First, create the following HTML document.
 
 ```html
 <!DOCTYPE html>
