@@ -42,7 +42,7 @@ class Program
 
    * Demonstrate the use of your class in your Main method.
 
-4. Create an interface called IZooAnimal and define at least two methods that MUST be present for all ZooAnimal classes.  For example,  makeSound() and eatFood().  
+4. Create an interface called IAnimal and define at least two methods that you think MUST be present for all your animal classes.  For example,  makeSound() and eatFood().  
 
 5. Amend your Elephant and Lion classes such that they must implement the IZooAnimal interface,  ie. indicate in the class definition that the Interface should be implemented. You will notice that if the necessary methods are not yet implemented in your classes, your code will not compile until you add them.
 
