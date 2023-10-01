@@ -7,12 +7,12 @@ We will practice planning and creating classes, adding methods, modifiying them 
 
 We will then create an interface to see how 'polymorphism' can occur in our code.
 
-Today - we are going to model a zoo and its animals.
+__Today - we are going to model a zoo and its animals.__
 
 
-1. Consider classes for Lion and Elephant with some relevant properties that you can think of.  Sketch a class diagram showing the basic properties and behaviours you are going to implement.
+1. Consider classes for Lion and Elephant with some relevant properties that you can think of.  Sketch a class diagram showing the basic properties and behaviours you are going to implement. Give your two classes at least one method, makeSound() which returns approriate animal sounds. 
 
-2. Implement your Lion and Elephant classes in c#. You may use the default constructor for now, ie. an object will be created with no properties set.  Give your two classes at least one method, makeSound() which returns approriate animal sounds. 
+2. Implement your Lion and Elephant classes in c#. You may use the default constructor for now, ie. an object will be created with no properties set.  
 
 3. Write a main method in your Program.cs file that will create at least one Lion and one Elephant, and call the methods you have chosen to create, something like the below (yours may differ):
 
@@ -35,23 +35,21 @@ class Program
 
 3. Now lets improve the properties of your animals, set some in the constructor, ensure they are private and create getters and setters for client code to interact with them.
 
-
-   * Create an age property for each of your animals that is private
+   * Create an age property for each of your animals __that is private__
    * Set the age of the animal in its constructor
    * Provide getters and setters to retrieve or replace the age value (you may use the c# or generic OOP way of writing these)
-   *  Create at least one additional property in your class with getters and setters.
+   * Create at least one additional property in your class with getters and setters.
 
-   * Demonstrate the use of your 'public' methods in your client code.
+   * Demonstrate the use of your class in your Main method.
 
-4. Create an interface called IZooAnimal and define at least two methods that MUST be present for all ZooAnimal classes.  For example, they could be makeSound() and eatFood().  
+4. Create an interface called IZooAnimal and define at least two methods that MUST be present for all ZooAnimal classes.  For example,  makeSound() and eatFood().  
 
-5. Add to your Elephant and Lion classes such that they must implement the IZooAnimal interface,  ie. indicate in the class definition that the Interface should be implemented and add the necessary methods.  
+5. Amend your Elephant and Lion classes such that they must implement the IZooAnimal interface,  ie. indicate in the class definition that the Interface should be implemented. You will notice that if the necessary methods are not yet implemented in your classes, your code will not compile until you add them.
 
-6. Add a new class, Penguin, that implements IZooAnimal and has the required methods.
+6. Once the Elephant and Lion are working, add a new class, Penguin, that implements IZooAnimal and has the required methods.
 
 7. Write client code that creates a list of IZooAnimal objects which you can call 'zoo', and then loops through them calling the methods required by the interfaces.
 
-8. _Extension task_ Practice object 'composition'  ie. when an object HAS another object. Create a class for Zoo which has, as one of its private properties a list of IAnimals.  Build the zoo animal list from within the zoo class, and consider what other properties and methods the zoo should implement.
 
 
 
