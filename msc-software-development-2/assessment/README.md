@@ -74,14 +74,15 @@ The aim of this Sprint is to check that the project workflow is set up for the t
 
 Submission requirements for this Sprint:
 
-- An overview of your application idea your team want to design and develop.
-- The purpose of the application.
-- The intended users of the application identified and explored via at least 2 'personas'.
-- The technical foundations for teamwork established ie:
-  - [ ] GitHub project for coursework created.
-  - [ ] Task board created.
-  - [ ] Code of Conduct defined.
-Links to your github repo and taskboard should be in your documentation submitted.
+
+ - An one sentance overview of your application idea your team want to design and develop.
+ - A problem statement that expresses the purpose of the application
+ - The technical foundations for teamwork established ie:
+    - GitHub project for coursework created.
+    - Task board created.
+    - Code of Conduct defined. Links to your github repo and taskboard should be in your documentation submitted.
+    - 
+You may also supply one or two 'personas'.
 
 ### Sprint 2
 
