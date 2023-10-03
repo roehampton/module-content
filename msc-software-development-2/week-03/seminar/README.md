@@ -8,17 +8,21 @@ The aim of this Sprint is to check that the project workflow is set up for the t
 
 Submission requirements for this Sprint:
 
-- An overview of your application idea your team want to design and develop.
-- The purpose of the application 
-- The intended users of the application identified and explored via at least 2 'personas'.
+- An one sentance overview of your application idea your team want to design and develop.
+- A problem statement that expresses the purpose of the application 
 - The technical foundations for teamwork established ie:
   - [ ] GitHub project for coursework created.
   - [ ] Task board created.
   - [ ] Code of Conduct defined.
 Links to your github repo and taskboard should be in your documentation submitted.
 
+You may supply one or two 'personas'.
 
-__Remember... 'Less is more' !!  If you can describe your project succinctly, you will better be able to build it!__
+
+__Remember...__
+
+- __'Less is more' !!  If you can describe your project succinctly, you will better be able to build it!__
+- __Make sure to focus on the problem at this stage rather than the solution__
 
 
 
@@ -26,22 +30,30 @@ __Remember... 'Less is more' !!  If you can describe your project succinctly, yo
 
 Firstly, in your groups decide who is facilitating the  meeting today.
 
-#### 1. Purpose
+#### 1. Problem statement
 
-You should aim for a single sentance for the purpose of the format...
+A problem statement answers the following questions - the 5w's:
 
-'The purpose of this application is to provide a platform where...'
+ - What is the problem?
+ - Who is affected by the problem?
+ - Where does the problem occur?
+ - When does the problem occur?
+ - Why does the problem occur and why is it important to solve?
 
-You can then add detail with some 'how can we...' questions. Use the wishes that you have identified in your personas to formulate these questions.
+Remember that...
+
+ - A problem statement should identify and explain a problem​
+ - It should not identify a solution, but should suggest many possible solutions
+
+See if you can formulate the problem statement in your group.
+
 
 __How can we... questions__
 
-Three or four 'how can we...' questions should cover the purposes of your project. Questions in this format are often used by designers. _They are useful becuase they focus on the problem that needs solving rather than jump into a solution too early on._
+Attempt to write three or four 'how can we...' questions should cover the purposes of your project. Questions in this format are often used by designers. _They are useful becuase they focus on the problem that needs solving rather than jump into a solution too early on._
 
 Example:
-
-(For my case study - coffee shop rating site)
-
+(for coffee shop review site)
 1. How can we help people find good coffee shops in a particular town?
 2. How can we enable keen coffee drinkers to rate coffee shops?
 3. How can we enable coffee drinkers keep track of coffee shops they have visited before?
@@ -67,11 +79,12 @@ Template: https://roehamptonprod-my.sharepoint.com/:w:/g/personal/lisa_haskel_ro
 
 #### 3. Outline tasks
 
-These should be generic at this point. Look ahead in the programme schedule and get a sense of the shape of the project.  Use your task board.
+Start populating your task board with the upcoming tasks for the next sprint
 
+ * Complete personas
  * Write user stories
  * Create wireframes
- * Testing/evaluation plan 
+ 
 ... etc
 
 
