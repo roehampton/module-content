@@ -19,7 +19,7 @@ __Today - we are going to model a zoo and its animals.__
 ```c#
 class Program
 {
-	public void main() 
+	public static void Main() 
 	{
 
 		Elephant e1 = new Elephant();
@@ -44,11 +44,11 @@ class Program
 
 4. Create an interface called IAnimal and define at least two methods that you think MUST be present for all your animal classes.  For example,  makeSound() and eatFood().  
 
-5. Amend your Elephant and Lion classes such that they must implement the IZooAnimal interface,  ie. indicate in the class definition that the Interface should be implemented. You will notice that if the necessary methods are not yet implemented in your classes, your code will not compile until you add them.
+5. Amend your Elephant and Lion classes such that they must implement the IAnimal interface,  ie. indicate in the class definition that the Interface should be implemented. You will notice that if the necessary methods are not yet implemented in your classes, your code will not compile until you add them.
 
-6. Once the Elephant and Lion are working, add a new class, Penguin, that implements IZooAnimal and has the required methods.
+6. Once the Elephant and Lion are working, add a new class, Penguin, that implements IAnimal and has the required methods.
 
-7. Write client code that creates a list of IZooAnimal objects which you can call 'zoo', and then loops through them calling the methods required by the interfaces.
+7. Write client code that creates a list of IAnimal objects which you can call 'zoo', and then loops through them calling the methods required by the interfaces.
 
 
 
@@ -146,7 +146,7 @@ using System;
 class Program
 {
 
-    static void Main()
+    public static void Main()
     {
         // Create a list of different shapes (they must all implement IShape)
         List<IShape> shapes = new List<IShape>();
