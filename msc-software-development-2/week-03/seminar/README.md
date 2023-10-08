@@ -77,7 +77,7 @@ Once you have done this, you will be better able to formulate a short statement 
 Template: https://roehamptonprod-my.sharepoint.com/:w:/g/personal/lisa_haskel_roehampton_ac_uk/ESw85m_8bm5Nm3bfx-Xd6xgBCYcYd_fADxilgo5RW4Sgyw?e=6r4ZgU
 
 
-#### 3. Outline tasks
+#### 3. Populuate your task board
 
 Start populating your task board with the upcoming tasks for the next sprint
 
@@ -86,6 +86,12 @@ Start populating your task board with the upcoming tasks for the next sprint
  * Create wireframes
  
 ... etc
+
+#### 4. Refine and test your code of conduct
+
+Look at the group dynamics presentation on Moodle (week 2): https://moodle.roehampton.ac.uk/mod/url/view.php?id=1640620. 
+Test your code of conduct against ONE of the scenarios on slide 16.  Can you code of conduct help you solve these problems?
+
 
 
 
