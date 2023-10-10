@@ -1,5 +1,9 @@
 # Lab 2 solutions
 
+## Animal classes with interface
+
+![Animals with interface](./animals-with-interface.png)
+
 ## IAnimal.cs
 
 ```c#
@@ -26,24 +30,29 @@ class Elephant : IAnimal
     private string sound = "TRUMPETTTT";
     private string eats = "Twigs and leaves";
 
-    public Elephant(string name) {
+    public Elephant(string name)
+    {
         this.name = name;
     }
-    public string makeSound() {
-        return this.sound;
 
+    public string makeSound()
+    {
+        return this.sound;
     }
-    public string getFood() {
+
+    public string getFood()
+    {
         return $"give me {this.eats}";
     }
-    public string getName() {
+
+    public string getName()
+    {
         return $"{this.name}, the {this.GetType()}";
     }
     
-    public void setName(string name) {
-
+    public void setName(string name)
+    {
         this.name = name;
-
     }
 
 
@@ -60,26 +69,30 @@ class Lion : IAnimal
     private string sound = "ROAAAR";
     private string eats = "Lots of meat";
 
-    public Lion(string name) {
+    public Lion(string name)
+    {
         this.name = name;
     }
-    public string makeSound() {
-        return this.sound;
 
+    public string makeSound()
+    {
+        return this.sound;
     }
-    public string getFood() {
+
+    public string getFood()
+    {
         return $"give me {this.eats}";
     }
-    public string getName() {
+
+    public string getName()
+    {
         return $"{this.name}, the {this.GetType()}";
     }
     
-    public void setName(string name) {
-
+    public void setName(string name)
+    {
         this.name = name;
-
     }
-
 
 }
 
@@ -96,28 +109,30 @@ using System;
 class Program
 {
 
-    static void Main()
+    public static void Main()
     {
-    
+        List<IAnimal> animals = new List<IAnimal>();
 
-        // Create a zoo
-        Zoo zoo = new Zoo();
+        // Add some animals
+        animals.Add(new Lion("Elsa"));
+        animals.Add(new Elephant("Elmer"));
+        animals.Add(new Elephant("George"));
+        animals.Add(new Lion("Walter"));
 
-        // Add a lion
-        zoo.addAnimal(new Lion("Elsa"));
-        zoo.addAnimal(new Elephant("Elmer"));
-        zoo.addAnimal(new Elephant("George"));
-        zoo.addAnimal(new Lion("Walter"));
+        //List the animals
+        foreach (IAnimal animal in animals)
+        {
+            Console.WriteLine(animal.getName());
+        }
 
-        zoo.listAnimals();
-
-        zoo.feedAnimals();
-        
+        //Feed the animals
+        foreach (IAnimal animal in animals)
+        {
+            Console.WriteLine(animal.getFood());
+        }
     }
 }
 
 ```
 
-## Animal classes with interface
 
-![Animals with interface](./animals-with-interface.png)
