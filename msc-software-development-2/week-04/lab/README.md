@@ -1,18 +1,10 @@
-# Development Environment, HTML forms and OOP in Javascript
+# OOP in Javascript, HTML forms
 
-In this lab we will look at how you can design and organise your code by using Object Orientated principles.  Before that, we will ensure that our development environment is familiar to you, and we will extend our HTML knowledge with HTML forms.
-
-The emphasis in this lab on getting more practice in using our develoment environment:
-
-  * VS code
-  * Browser
-  * Chrome developer tools
-  
-We will also learn the basics of of OOP in ways you can apply to all languages that support OOP.
+In this lab we will look at how you can design and organise your code by using Object Orientated principles.  Before that, we will ensure that our development environment is properly set up, and we will extend our HTML knowledge with HTML forms.
 
 ## Preparation
 
-### Setting out your development environment
+### Check your development environment
 
 Your enjoyment writing code, and your productivity will be enhanced by gaining fluency in the fundamental tools of web development and its processes.
 
@@ -28,111 +20,8 @@ Your desktop should look like the image above where:
    
 You may also have a terminal window open where you can use git and other command line tools.
 
-## Exercise
-
-   1. Find the code you wrote in week 1 for your first HTML page.   In case you lost it, it is here: [Lab sheet 1](https://roehampton.github.io/module-content/msc-software-development-2/week-01/lab/#introduction-to-html-and-web-pages)
-   2. Set up your desktop as per the image above, including opening developer tools.
-   2. Add a new paragraph in p tags somewhere in the page, like this ```<p> some content </p>```.
-   3. Refresh the page so you can see your update, without having to re-open any browser window.
-   4. Add some styling to the page by adding the following in the 'head' section of the document 
-
-</span><br></p>
-<p>&lt;style&gt;</p>
-<p> h1 {</p>
-<p>    color: blue;</p>
-<p>    background-color: yellow;</p>
-<p> }</p>
-<p> p {</p>
-<p> color:brown;</p>
-<p> font-size: 4em;</p>
-<p> }</p>
-<p><br></p>
-<p> &lt;/style&gt;</p><br>
-<p></p>
-<p></p>
 
 
-5. Refresh the browser.  Your page should not be very pretty, but have some new colours!  
-6. Now find the inspector button of your developer tools: its the square with the arrow pointing into it
-
-
-
-![Inspector button](inspector.png)
-
-7. Click on the inspector tool, and then onto the heading of your page. You will see the relevant part of the code highlighted in the main 'elements' part of developer tools, and below in the 'styles' window, you will see the CSS rules that have been applied.
-8. Play with your page some more, so you are full familiar with the relationship between the code editor, browser and developer tools.
-
-
-NOTE: that the 'em' measurement is a relative measurement that can be used for font size, for more info see: [Mozilla html reference: measurement units](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocksValues_and_units)
-
-
-## HTML forms
-
-When we start to work with a more sophisticated backend, we will need to know how to create forms that eventually we will use to send information into the backend server for storage or to make a customised request.  Lets see how to make input forms in HTML. This example shows the three main types of form element for different types of input.
-
-Example:
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-
-</head>
-
-<body>
-
-  <h1>HTML Forms example</h1>
-
-  <form action="" method="GET">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name">
-    </div>
-    <div>
-      <label for="mail">E-mail:</label>
-      <input type="email" id="mail" name="email">
-    </div>
-    <div>
-      <label for="msg">Message:</label>
-      <textarea id="msg" name="message"></textarea>
-    </div>
-    <button type="submit">Submit!!</button>
-  </form>
-
-  <p>If you click the "Submit" button, the form-data will be sent back to this page.
-    Usually, the action sends data to a different file with scripts that can process it.</p>
-
-</body>
-
-</html>
-```
-
-1. Create a new file called form.html with this code. 
-2. Load the new file in your browser and open developer tools
-3. Fill out the form and click 'submit'
-4. What happens? Where can you find the data you just submitted? (hint: look right up at the top of the page in the address bar)
-
-## Sending parameters: GET vs POST
-
-1. Clear the URL so that it only shows 'form.html'
-2. Change the 'method' attribute from GET to POST. 
-
-Can you spot the difference?  It is very important to understand the differences: see https://www.w3schools.com/tags/ref_httpmethods.asp.
-
-## Examining and receiving parameters
-
-When you use the POST method, you will need to find another way to examine your parameters.
-
-In Chrome, open developer tools, choose the network tab, uncheck 'preserve log' and check 'disable cache'.  Now open te 'Headers' section. Submit the form by GET or POST, you should see the values you send (you may need to open the 'payload' tab.
-
-.  Note that the values you send are labelled using the value of the "name" attribute in the HTML form, in this case name, email and message.  See image below...
-
-
->![Form parameters](form-data-dev-tools.png)
-
-
-In your dynamic web application, sending these kinds of variable values to your application either to SELECT or UPDATE data will be a crucial part of your work and you will mostly use HTML forms to pass in this dynamic data.
 
 
 ## Object-orientation in JavaScript
@@ -161,7 +50,13 @@ You've already been using objects in JavaScript -- `document.write()` means call
 >
 > This means there are many JavaScript tutorials online that ignore classes, and write object-oriented code in a strange and hard to maintain manner. We will be using the language features of ES6 which provides a better OOP experience.
 
-### Classes in JavaScript
+
+
+### Getting started...
+
+1. create a new file called student.js
+
+Now you can begin writing your Student class.
 
 To declare a class in JavaScript we use the `class` keyword. For example:
 
@@ -172,15 +67,6 @@ class Student {
 ```
 Note: that class names usually start with a capital letter. This is a style convention, preferred, but not imposed by the language.  Languages and indeed individual companies set style guides for example: https://google.github.io/styleguide/jsguide.html.
 
-
-You will usually put the class definition in a file with the same name as the class, but in lower case.  You can also tidy your codebase by putting your class definition in a directory called 'models'.  We are calling it models because we are loosly using the MVC (Model View Controller) design pattern in which the 'models' contain code related to data, the 'views' handle presentation and the 'controller' mediates between the two.  Currently, the app.js file is your controller, and we will add views later on.
-
-### Getting started...
-
-1. create a new file called student.js
-
-Now you can begin writing your Student class.
-
 A class needs a `constructor` which is used to create instances of the class. For example:
 
 ```js
@@ -190,8 +76,6 @@ class Student {
   }
 }
 ```
-
-
 
 We define the attributes (properties) (data) of the class by listing them in the class definition.  Depending on the languge, we may or may not set a data type and we may be able to set default values that will be present in every object (instance of the class, remember)
 
@@ -207,7 +91,7 @@ class Student {
 }
 ```
 
-Add this code to your student.js file
+Add the  code above to your student.js file as it represents a complete 'student' class.
 
 ### Using your class definition
 
@@ -237,9 +121,7 @@ Your class doesn't do much right now, but we can make use of it from our index.h
 **Well done** You have created your first class, made it available to your application, instantiated an object using your class definition and examined it in the console.
 
 
-## Building your Student class
-
-
+## Improving your Student class
 
 Our class becomes a lot more useful if we add parameters to the constructor that will set the initial values of our attributes.  This will also help us understand the relationship between a class (a template or blueprint for our object) and our object (a specific instance of a given class )
 
@@ -266,6 +148,7 @@ Assign the value of the argument supplied to the function firstName, and assign 
 
 
 #### Your task
+
 Go back to your index.html file and amend as follows:
 
 1. Create an object called Student1 with firstName Lisa and lastName Haskel and courseId 1.  You will be creating the object like this:
@@ -477,4 +360,76 @@ student.firstName = 'john';
 ### Do more...
 
 Make the attributes private and write getters and setters for the `Lesson` class. 
+
+### Build your knowlege of OOP
+
+There is a lot more to learn about OOP in general and how it is implemented in JavaScipt.  Please use the resources on Moodle to enhance your knowledge and in Week 8 you will see how this helps us implement the well-known design pattern 'Model-View-Controller'.
+
+## HTML forms
+
+When we start to work with a more sophisticated backend, we will need to know how to create forms that eventually we will use to send information into the backend server for storage or to make a customised request.  Lets see how to make input forms in HTML. This example shows the three main types of form element for different types of input.
+
+Example:
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+  <h1>HTML Forms example</h1>
+
+  <form action="" method="GET">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+    </div>
+    <div>
+      <label for="mail">E-mail:</label>
+      <input type="email" id="mail" name="email">
+    </div>
+    <div>
+      <label for="msg">Message:</label>
+      <textarea id="msg" name="message"></textarea>
+    </div>
+    <button type="submit">Submit!!</button>
+  </form>
+
+  <p>If you click the "Submit" button, the form-data will be sent back to this page.
+    Usually, the action sends data to a different file with scripts that can process it.</p>
+
+</body>
+
+</html>
+```
+
+1. Create a new file called form.html with this code. 
+2. Load the new file in your browser and open developer tools
+3. Fill out the form and click 'submit'
+4. What happens? Where can you find the data you just submitted? (hint: look right up at the top of the page in the address bar)
+
+## Sending parameters: GET vs POST
+
+1. Clear the URL so that it only shows 'form.html'
+2. Change the 'method' attribute from GET to POST. 
+
+Can you spot the difference?  It is very important to understand the differences: see https://www.w3schools.com/tags/ref_httpmethods.asp.
+
+## Examining and receiving parameters
+
+When you use the POST method, you will need to find another way to examine your parameters.
+
+In Chrome, open developer tools, choose the network tab, uncheck 'preserve log' and check 'disable cache'.  Now open te 'Headers' section. Submit the form by GET or POST, you should see the values you send (you may need to open the 'payload' tab.
+
+.  Note that the values you send are labelled using the value of the "name" attribute in the HTML form, in this case name, email and message.  See image below...
+
+
+>![Form parameters](form-data-dev-tools.png)
+
+
+In your dynamic web application, sending these kinds of variable values to your application either to SELECT or UPDATE data will be a crucial part of your work and you will mostly use HTML forms to pass in this dynamic data.
 
