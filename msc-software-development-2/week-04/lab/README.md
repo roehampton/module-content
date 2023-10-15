@@ -188,28 +188,6 @@ Add the method inside the body of the class, underneath the constructor:
 
 Now go back to your html file and use this method to output some student names to the browser.
 
-**Exercise:** Add an additional attribute to your Student class called Year of Birth.  Write a method to return the current age of the student.
-
-
-### Referencing classes within other classes
-
-You start to see the power of OOP when you see how an object can be an attribute of another object.
-
-Imagine a student records system that wants to print a register which consists of a list of expected students plus a teachers name and room number. We could implement this by having a class called Lesson, where one of its attributes is an array of Students.  OOP encourages us to take a design led approach, so lets do a diagram before we try any implementation.  See the below:
-
-![Image](./class-lesson.png)
-
-
-**Your task**
-Implement the Lesson class as shown here.
-In the addStudents method, you should push a student object onto the students array in the lesson class.
-
-In your html file, write some code that will
-
-1. create a lesson object with a teachers name and room number
-2. populate the students attribute of the Lesson object with student objects
-3. Finally, create a register by printing out the lesson teacher, room number and all students
-
 
 
 ### Public and private modifiers
@@ -433,3 +411,24 @@ In Chrome, open developer tools, choose the network tab, uncheck 'preserve log' 
 
 In your dynamic web application, sending these kinds of variable values to your application either to SELECT or UPDATE data will be a crucial part of your work and you will mostly use HTML forms to pass in this dynamic data.
 
+## Extension task
+
+### Referencing classes within other classes
+
+You start to see the power of OOP when you see how an object can be an attribute of another object.
+
+Imagine a student records system that wants to print a register which consists of a list of expected students plus a teachers name and room number. We could implement this by having a class called Lesson, where one of its attributes is an array of Students.  OOP encourages us to take a design led approach, so lets do a diagram before we try any implementation.  See the below:
+
+![Image](./class-lesson.png)
+
+
+**Your task**
+Implement the Lesson class as shown here.
+
+In the addStudents method, you should push a student object onto the students array in the lesson class.
+
+In your html file, write some code that will
+
+1. create a lesson object with a teachers name and room number
+2. populate the students attribute of the Lesson object with student objects
+3. Finally, create a register by printing out the lesson teacher, room number and all students
