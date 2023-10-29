@@ -5,6 +5,7 @@
 ### Student example
 
 Implement inheritance using the student example from week 1 as your starting point.  
+Start by drawing a class diagram showing the Person, Student and Staff classes.  
   
 * Create a 'Person' abstract base class and derived classes Student and Staff.  
 * Person should have a firstname and lastname
@@ -18,13 +19,12 @@ Implement inheritance using the student example from week 1 as your starting poi
    * The Student Print() method returns firstname, lastname and course name
    
 * Write a Main program that creates some students and staff objects, and uses both the Print() and the PrintName() methods to show some output.
-* Represent this new design in a class diagram
    
 
 
 ### Zoo animals example
 
-Refactor the zoo animals example from week 2 so that there is a base class: AnimalBase from which the Elephant, Lion etc. inherit.
+Refactor the zoo animals example from week 2 such that there is a base class: AnimalBase from which the Elephant, Lion etc. inherit.
 
 
 ### Coursework

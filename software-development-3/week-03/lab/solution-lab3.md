@@ -98,6 +98,16 @@ class Circle : ShapeBase, IShape
 
 }
 ```
+## IShape interface
+
+```c#
+interface IShape
+{
+    public double getArea();
+    public double getPerimeter();
+
+}
+```
 
 ## Program.cs
 
