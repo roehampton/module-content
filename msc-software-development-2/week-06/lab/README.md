@@ -151,7 +151,7 @@ async function query(sql, params) {
    1. Find the sb2-test.sql file in the scaffolding files.
    2. Access Phpmyadmin by going to http://127.0.0.1:8081.
    3. Click onto the sd2-test database in the left side, and, using the SQL    window, paste the contents of the SQL file there.  Click run. You will now have some content for the test table
-   4. Access http://127.0.0.1/db_test to see the contents of the table
+   4. Access http://127.0.0.1:3000/db_test to see the contents of the table
    5. Add two more rows to the test table via phpmyadmin
    6. Now amend the code in db_test so that it loops through each of the rows of the table, giving the following output:
    
