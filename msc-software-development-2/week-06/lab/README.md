@@ -44,6 +44,7 @@ When you install Docker Desktop, ensure that 'Use WSL 2 based engine' is selecte
 #### On Mac
 
 You should simply be able to install docker from the Docker.dmg file in the normal way: https://docs.docker.com/desktop/install/mac-install/
+Make sure you also have node.js installed
 
 
 #### On Linux
@@ -112,7 +113,7 @@ The ```:name``` part, indentified by the colon prefix, is not a fixed value but 
 Run this code by visting the following in your browser:
 
 ```
-http://127.0.0.1/hello/Lisa
+http://127.0.0.1:3000/hello/Lisa
 ```
 
 Look in the console (terminal window of VS code) as you run this and see the console.log message.  You will see the name parameter and its value appended to the req.params object.
