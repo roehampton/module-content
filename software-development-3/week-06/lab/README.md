@@ -11,6 +11,10 @@
 
 __I suggest you use the debugger in visual studio to track the zoo singleton and ensure that its behaviour is exactly as you expect__
 
+## Random number generator
+
+Create a singleton that can generate unique, random ID numbers for your animals.
+
 ## Factory Method pattern
 
 
@@ -20,6 +24,3 @@ __I suggest you use the debugger in visual studio to track the zoo singleton and
 ## Builder pattern
 
 Implement the Builder pattern to create enclosures for different animals with appropriate land, water and boundary features (you will find example code and explanation in the slides)
-
-
-
