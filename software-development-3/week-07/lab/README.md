@@ -8,6 +8,20 @@
 
 Tasks
 
+### State pattern
+
+Our zoo would like to find out which animals are fed and which are hungry.  
+
+1. Implement this, using the lecture slides to help you.
+
+HINT: Implement a base class for animals if you have not done so already and alter all the animal classes so they inherit from this base class. This will make additional functionality much easier to implement.
+
+HINT contd: Create an additional property in the AnimalBase class for the Animal state and a setState() method.
+
+NOTICE: The state pattern can implement different behaviours according to state.  Initially, set the initial state of an Animal object when it is instantiated to AnimalHungry.  When feedAnimal() is called, the caller will be told to bring food, and the Animal's state can then be set to AnimalNotHungry.
+
+ADDITIONAL TASK: Create an additional state for the animals, for example, animal at the vet which will affect if it will need to be fed.  See if you can create a new state for this.
+
 
 ### Observer pattern
 
