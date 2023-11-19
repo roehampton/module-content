@@ -7,9 +7,12 @@ Your goal is to have a consistent but independent development environment for ev
 
 ## CHECKLIST
 
-1. __Git repo__ - new project created, pushed and pulled by a designated person, and then shared by all of the team
-2. __Database__ - created by one person, then dumped to a text file, shared on oneDrive and then imported locally by all of the team
-3. __User stories for Sprint 3__ - agreed, specified and work allocated
+1. __Git repo setup__ - new project created from scaffolsing files and pushed by a designated person to your shared repo
+2. __Get repo shared__ - above repo can be cloned and new work can be pushed by all members of the team
+3. __Database__ - created by one person, then dumped to a text file and shared on onedrive.
+4. __Databaes shared__ database is accessed and imported locally by all of the team (see https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=76bcef0a-f7b4-45f3-8dbf-aded010e8ea3)
+5. __Wireframes for Sprint 3__ - agreed
+6. __Allocation of user stories for Sprint 3__ - work allocated to the team members and task board updated
 
 
 ## Details
