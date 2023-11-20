@@ -50,7 +50,7 @@ html
 
 ```javascript
 // Create a route for root
-app.get("/", function(req, res)
+app.get("/", function(req, res) {
     res.render("index");
 });
 ```
