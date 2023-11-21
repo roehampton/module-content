@@ -35,14 +35,20 @@ The item must be 'children' of the ComboBox element ie. must be nested inside it
 SelectionChanged="simple_SelectionChanged"
 ```
 
+5. Add the following additional attribute to your ComboBox which will tell your code to use the item content as the chosen value for the select box
+
+```xml
+SelectedValuePath="Content"
+```
+
 Your full ComboBox code now looks like this:
 
 ```xml
-        <ComboBox x:Name="SimpleComboBox" SelectionChanged="simple_SelectionChanged" Grid.Column="0" Grid.Row="2">
-            <ComboBoxItem>one</ComboBoxItem>
-            <ComboBoxItem>two</ComboBoxItem>
-            <ComboBoxItem>three</ComboBoxItem>
-        </ComboBox>
+<ComboBox x:Name="SimpleComboBox" SelectedValuePath="Content" SelectionChanged="simple_SelectionChanged">
+	<ComboBoxItem>one</ComboBoxItem>
+	<ComboBoxItem>two</ComboBoxItem>
+	<ComboBoxItem>three</ComboBoxItem>
+</ComboBox>
 
 ```
 
@@ -103,18 +109,18 @@ This is an exercise in which you will be linking your GUI to code you already cr
 
 Often when we have a list of options, we need to show the user a meaningful text, while being able to capture a unique ID as that is going to be a lot more robust. HTML options lists work like this.  To make a robust option list in WPF we will need a little utility class which is capable of storing an id and value pair.  As this is part of the GUI essentially, lets keep it outside the zoo and in the same directory as MainWindow.xaml.
 
-1. Create a new file called ComboBoxItem.cs and add the following to it:
+1. Create a new file called CustomComboBoxItem.cs and add the following to it:
 
 ```c#
 using System;
 using System.Collections.Generic;
 
-public class ComboBoxItem
+public class CustomComboBoxItem
 {
     public int value { get; set; }
     public string displayValue { get; set; }
 
-    public ComboBoxItem(int value, string displayValue)
+    public CustomComboBoxItem(int value, string displayValue)
     {
         this.value = value;
         this.displayValue = displayValue;
@@ -129,7 +135,7 @@ public class ComboBoxItem
 
 ```xml
 
-<ComboBox x:Name="zooComboBox" SelectionChanged="zoo_SelectionChanged" Grid.Row="5" Grid.Column="1"/>
+<ComboBox x:Name="zooComboBox" SelectionChanged="zoo_SelectionChanged" />
 ```
 
 3. We want this option list to be populated with the zoo animals, so for convenience, lets populate it at the same time as we populated the ListBox. So go back to the BuildZoo_Click event handler and add extra code.  In the loop, populate and add new ComboBoxItem objects to the zooComboBox element, and outside of the loop, we tell the option list where to find the Id (value) which we will probably want to capture in our code, and the human readable name (displayValue), that will be user-friendly.
@@ -146,7 +152,8 @@ private void BuildZoo_Click(object sender, RoutedEventArgs e)
             {
                 zooAnimals.Items.Add(animal.getName());
 
-                zooComboBox.Items.Add(new ComboBoxItem(animal.getId(), animal.getName()));
+		// Add the name of the animal to the drop-down animals list as well
+                zooComboBox.Items.Add(new CustomComboBoxItem(animal.getId(), animal.getName()));
             }
             zooComboBox.SelectedValuePath = "value";
             zooComboBox.DisplayMemberPath = "displayValue";
@@ -161,7 +168,7 @@ Once you have added this, you should find that your option list is populated at 
 ```c#
 private void zoo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem selection = (ComboBoxItem) zooComboBox.SelectedItem;
+            CustomComboBoxItem selection = (CustomComboBoxItem) zooComboBox.SelectedItem;
             MessageBox.Show(selection.displayValue + " " +  selection.value);
         }
 ```
@@ -183,7 +190,7 @@ Use what you know to add zoo keepers via the user interface.
 You know everything required to do this.  
 
 HINTS:
-   * re-use the ComboBoxItem class for the keepers option list
+   * re-use the CustomComboBoxItem class for the keepers option list
    * you will find that you can select items from both list, and retrieve the selected values in the event handler of the button just as you did in the event handlers of the option lists themselves.
 
 
