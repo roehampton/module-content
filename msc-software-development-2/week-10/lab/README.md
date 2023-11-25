@@ -9,6 +9,9 @@ In order to get data from the user and send it into our applications, we need to
 
 In this lab we will start by building forms to obtain user data using pug, then we will build more routes in our express applications and in our models to alter the data in the database accordingly.
 
+The video for the lab is here:
+https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=2d01ec4d-9012-486a-9393-adec0139fd1d&start=0
+
 ### Pre-requisites
 
 This lab takes up after labs 8 and 9.  In particular, you will need to ensure that the /single-student/:id route is working as per lab 9, and the code looks like this and you have all the Modules and Programmes models completed.
