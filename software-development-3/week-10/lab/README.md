@@ -14,9 +14,13 @@ You will see a new project is created.
 
 You will work in the Program.fs file which has been created for you.
 
+## Another option is to create a REPL on fabel:
+
+[https://fable.io/repl/](https://fable.io/repl/)
+
 ## Printing to the console
 
-You will see this which you can immediately run 
+You will see this in Visual studio, or can type in Fabel, which you can immediately run 
 
  
 ```f#
@@ -59,6 +63,10 @@ printfn "Hello from %s" name
 let age = 21 
 // Integer substution see: https://fsharpforfunandprofit.com/posts/printf/ 
 printfn "I am %i years old" age
+
+let integerList = [ 1; 2; 3; 4; 5 ]
+// lists, dicts and tuples substution see: https://fsharpforfunandprofit.com/posts/printf/ 
+printfn("List is: %A") integerList
 ```
 
 
@@ -72,7 +80,7 @@ let result = addOne 2  // parenthesis are not necessary
 printfn "%i" result  //output should be 4
 ```
 
-In visual studio, roll over the function name to see its 'signature'
+Roll your mouse over the function name to see its 'signature'
 
 Try it with strings:
 
@@ -144,8 +152,17 @@ let rec fib n =        // use rec keyword to create recursion function   ​
 
 Exercise: get this working and then use it to output the the sum of the fibonnaci sequence when n = 5 and when n = 10.
 
+## Look at the tutorials and examples on Fable.io
 
-## Pattern matching
+Go to 
+[https://fable.io/repl/](https://fable.io/repl/)
+
+Click on the document icon on the left sidebar (the one under the arrow pointing right).  Click on 'Tour of F#' and work through the examples there.
+
+Also explore the samples.
+
+
+## Explore pattern matching
 
 Pattern matching is a powerful feature of f# and is widely used.  See: [https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/pattern-matching](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/pattern-matching)
 
@@ -181,3 +198,4 @@ let sign x =
     | x when x < 0 -> -1
     | x when x > 0 -> 1
  ```
+
