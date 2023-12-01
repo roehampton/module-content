@@ -2,6 +2,7 @@
 
 
 In this lab we will look at how users can log in to your site and how, via 'sessions', you can securely personalise data users see and update.
+There is a screencast for this lab: [https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=33ea7950-de72-4a46-8b27-adf301306b1c](https://roehampton.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=33ea7950-de72-4a46-8b27-adf301306b1c)
 
 ## User stories
 
