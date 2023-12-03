@@ -85,28 +85,26 @@ block content
     h1 Register here
     form(action='/set-password' method='POST')
         label(for='email') Enter your email: 
-        input('name'='email') 
+        input(name='email') 
         label(for='email') Enter your password: 
-        input('name'='password')
+        input(name='password' type = 'password')
         input(type='submit' value='Submit')
-
-
 
 ```
 
 Create a new file ```login.pug```
 
 ```
-
 extends layout
 block content
     h1 Login here
     form(action='/authenticate' method='POST')
         label(for='email') Enter your email: 
-        input('name'='email') 
+        input(name='email') 
         label(for='email') Enter your password: 
-        input('name'='password')
+        input(name='password' type = 'password')
         input(type='submit' value='Submit')
+
 ```
 
 
@@ -261,7 +259,8 @@ app.post('/set-password', async function (req, res) {
         if (uId) {
             // If a valid, existing user is found, set the password and redirect to the users single-student page
             await user.setUserPassword(params.password);
-            res.redirect('/single-student/' + uId);
+            console.log(req.session.id);
+            res.send('Password set successfully');
         }
         else {
             // If no existing user is found, add a new one
@@ -348,7 +347,7 @@ Go back to the authenticate route, and add the following two lines in the code b
 req.session.uid = uId;
 req.session.loggedIn = true;
 // OPTIONAL: examine the session in the console
-console.log(req.session);
+console.log(req.session.id);
 
 ```
 The entire authenticate route code should look like this:
@@ -366,7 +365,7 @@ app.post('/authenticate', async function (req, res) {
             if (match) {
                 req.session.uid = uId;
                 req.session.loggedIn = true;
-                console.log(req.session);
+                console.log(req.session.id);
                 res.redirect('/single-student/' + uId);
             }
             else {
