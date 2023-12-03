@@ -10,7 +10,7 @@ As always, we need at least some specification before we start to code.
 
 As a user I need to set a password matched with my email address so I can log in and see private and/or personalised information
 
-Tasks
+__Tasks__
 
  * Install session and encryption libraries
  * Create a table to hold user information with unique ids that can be be foreign keys to the Students table. 
@@ -20,7 +20,6 @@ Tasks
  * Create backend code to check a users' login credentials entered in the login form
  * Implement sessions so that successfully logged in users can have private and personalised information displayed to them
  * Implement a logout link
-
 
 
 
@@ -184,7 +183,7 @@ const { User } = require("./models/user");
 
 ### Add a method to test the email submitted to see if it has a valid ID
 
-In your ```users.js``` file:
+In your ```user.js``` file:
 
 ```javascript
 
@@ -343,7 +342,17 @@ app.use(session({
 
 ```
 
-in the authenticate route, set the session 
+Go back to the authenticate route, and add the following two lines in the code block that executes if a match is found.  This is how you set the session.
+
+```javascript
+req.session.uid = uId;
+req.session.loggedIn = true;
+// OPTIONAL: examine the session in the console
+console.log(req.session);
+
+```
+The entire authenticate route code should look like this:
+
 
 ```javascript
 // Check submitted email and password pair
@@ -376,7 +385,7 @@ app.post('/authenticate', async function (req, res) {
 
 ```
 
-Write some code in app.js root route to test if the session is set as expected:
+Write some code in app.js root route to test if the user is logged in, but seeing if the session is set as expected:
 
 
 ```javascript
