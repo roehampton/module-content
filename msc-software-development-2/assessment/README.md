@@ -147,7 +147,7 @@ Your individual reflection should contain the following sections:
 1. Introduction
    * Short description of the project
 2. Design process
-   * What design techniques did you use? 
+   * What design techniques did you use? (for example user stories, wireframes, flow charts, use case diagram)
    * Which ones did you find the most useful for yourself (a) as an individual and (b) for the group
 3. Development
    * What did you personally contribute to the project?  
