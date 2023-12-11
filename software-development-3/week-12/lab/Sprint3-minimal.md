@@ -11,7 +11,7 @@
 
    2. Import your classes from previous sprints. Suggested way: 
         * Create a new directory, give it an appropriate name.  For ease for now I will call mine sprint2
-        * Use the 'Add' menu (right click on the folder name) to bring in your files
+        * Use the 'Add' menu (right click on the folder name), choose 'add existing', now find your files and add them.
 
 Now all your sprint code is available.
 
