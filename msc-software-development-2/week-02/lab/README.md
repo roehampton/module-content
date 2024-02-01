@@ -57,7 +57,7 @@ git config --global user.name "Your Name"
 ## Other useful terms
 
 1. **Working copy**: The files you are working on right now, probably your branch
-1. **Master branch**: Usually the name of the branch everything merges into in the end
+1. **Master branch**: (or Main branch) Usually the name of the branch everything merges into in the end
 1. **Fork** : a copy of the master branch that has divergent, unmerged code.
 1. **Hooks** : we won't be using hooks for a while but its good to know they exist. These are actions such as triggering a build on your server that you can program in response to an action in git for example a push to the master branch.  This is the core of 'continuous integration'.
 
@@ -68,7 +68,15 @@ git config --global user.name "Your Name"
 ## Introduction and getting ready
 
 1. You will do the lab today in PAIRS.  Please swap frequently between the 'driver' and 'navigator'. (see https://en.wikipedia.org/wiki/Pair_programming)
-1. __You need ONE repository for this lab Choose the repo of ONE of the members of your pair to to on today__. Follow the instructions at the start of this lab to create a repository if you have not already done so. 
+1. __You need ONE repository for this lab Choose the repo of ONE of the members of your pair to to on today__. Follow the instructions at the start of this lab to create a repository if you have not already done so.
+
+You will also have to add your partner/group as collaborators to allow them to push. For this
+
+  * Go to your repository in github
+  * Click 'settings' in the top menu
+  * Click 'collaborators' in the left menu
+  * Add the usernames of your collaborators.
+  * Your collaborators will have to 'accept' the invitation via email or through github
 
 ## Cloning a Project in Visual Studio Code
 
@@ -118,7 +126,7 @@ You should at this point see the new 'unstaged' files, or be told if there are '
 To add the files...
 
 ```bash
-git add
+git add <name of file>
 ```
 
 ![image-20201227141135038](image-20201227141135038.png)
@@ -126,6 +134,11 @@ git add
 You have now added your existing files to the *Staging Area* of the local Git repository. Next we need to create a commit from these changes. **Click the three dots again and select Commit then Commit. Visual Studio will ask you for a commit message. Enter `First commit, adding initial files.`**
 
 To do the same thing via the terminal:
+
+Check that your file has been staged
+```bash
+git status
+```
 
 ```bash
 git commit -m 'My meaningful message as this will persist forever!'
@@ -140,11 +153,20 @@ We have now created a checkpoint in our code that we can **always** return to.  
 
 Now we need to push these changes to GitHub. **Click the three dots again, and select Push**. You will be asked to log into GitHub. Do so and follow the instructions given. This will keep you authenticated with Github when you use visual studio code.
 
+To do the same thing via the terminal:
+
+Check that your file has been staged
+```bash
+git push
+```
+
+NOTE: if you do this via VS code terminal or UI, VS code will helpfully authenticate you.  Make sure to find any pop-up windows that open to help you athenticate and follow the instructions.
+
 Refresh the GitHub page.  You should see your files there:
 
 ![image-20201227143113032](image-20201227143113032.png)
 
-We have now defined our core workflow with Git using Visual Studio Code:
+We have now defined our core workflow with Git using Visual Studio Code. To summarise the command you have learned:
 
 1. Add the files to the commit -- **Changes then Stage All Changes.**
 2. Commit the changes -- **Commit then Commit.**
