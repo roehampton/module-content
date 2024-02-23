@@ -10,35 +10,11 @@ We use the industry  standard tool, Docker, to build a consistent cross-platform
 
 #### On Windows
 
-You need to ensure the wsl (Windows subsystem for Linux) is enabled and that you have installed the 'kernal update package'. 
-
-Docker documentation is here  [installing Docker on Windows] (https://docs.docker.com/desktop/windows/wsl/)
-
-In summary the steps are:
-
-   * Enable WSL 2 on Windows: You should be able to do this via powershell with the command
-   
-```
-wsl --install
-```
-
-   * Check that wsl is installed and the version is 2
-```
-  wsl --list –verbose
-```
-
-if you get an error then wsl 1 is installed and you should switch to wsl 2 iwth the command
-
-```
-wsl --set-default-version 2
-```
-
-
-  * Downloaded and installed the [Linux kernel update package] (https://docs.microsoft.com/windows/wsl/wsl2-kernel).
-
-__Restart your computer when you have followed these steps__
+https://docs.docker.com/desktop/install/windows-install/
 
 When you install Docker Desktop, ensure that 'Use WSL 2 based engine' is selected.
+
+In case WSL is missing (it should be installed with Docker Desktop), go to the instructions at the bottom of this sheet
 
 
 #### On Mac
@@ -51,6 +27,17 @@ Make sure you also have node.js installed
 
 https://docs.docker.com/desktop/install/linux-install/
 
+## Testing Docker
+
+To test if Docker is correctly installed
+
+1. Open VS code
+2. Open a terminal window in VS code
+3. Type
+   ```
+   docker run hello-world
+   ```
+You should see a Docker image being pulled and a message displayed informing you that Docker is running correctly.
 
 
 ## Docker development environment quickstart
@@ -60,7 +47,7 @@ __The video for the quickstart set up described below is here: [https://roehampt
 The video takes you through from step 2.
 
 1. Ensure Docker is installed on your computer OR use the azure virtual machine installation.
-2. Download the zip file of the startup files you'be been given and extract it.
+2. Download the zip file of the startup files (labelled Scaffolding files in Moodle), and extract it.
 3. Move the extracted folder into your documents (win) or home (mac) directory.
 2. Open a new window in VS code, choose 'open folder' and open the folder you just created. Choose, yes I trust the authors.  You should now see the startup files in your file explorer.
 3. Open a new terminal in VS code
@@ -176,3 +163,35 @@ for (var row of results) {
 ## Further tasks
  
 The next lab will develop your knowlege and skills with connecting to a database.
+
+
+
+## If Docker desktop doesn't start/ WSL is missing try these steps:
+
+You need to ensure the wsl (Windows subsystem for Linux) is enabled and that you have installed the 'kernal update package'. 
+
+Docker documentation is here  [installing Docker on Windows] (https://docs.docker.com/desktop/windows/wsl/)
+
+In summary the steps are:
+
+   * Enable WSL 2 on Windows: You should be able to do this via powershell with the command
+   
+```
+wsl --install
+```
+
+   * Check that wsl is installed and the version is 2
+```
+  wsl --list –verbose
+```
+
+if you get an error then wsl 1 is installed and you should switch to wsl 2 iwth the command
+
+```
+wsl --set-default-version 2
+```
+
+
+  * Downloaded and installed the [Linux kernel update package] (https://docs.microsoft.com/windows/wsl/wsl2-kernel).
+
+__Restart your computer when you have followed these steps__
