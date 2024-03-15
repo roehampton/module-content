@@ -219,7 +219,7 @@ html
 ## Images in your express app
 
 
-Check that you have this line already and a static directory in the top level of your app
+Check that you have this line already in your app.js file AND a directory called ```static```  in the top level of your app ie. in the same directory level as your docker-compose.yml and index.js file.
 
 ```javascript
 // Add static files location
