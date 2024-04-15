@@ -40,3 +40,4 @@ Start to plan out a class diagram for the coursework,  making use of what you kn
   * Worked example of inheritance (shapes) [Shapes worked example](./solution-lab3.html)
   * Use the lecture notes to help you as most of the student example is there.
   * Zoo animals solution (no inheritance) [Zoo animals example with IAnimal interface](https://roehampton.github.io/module-content/software-development-3/week-02/lab/lab2solutions.html)
+  * Solution: [lab 3 solution] (https://github.com/roehampton/module-content/blob/master/software-development-3/week-03/lab/solution-student-lab3.md)
