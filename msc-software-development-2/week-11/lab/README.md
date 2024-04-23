@@ -366,7 +366,7 @@ app.post('/authenticate', async function (req, res) {
                 req.session.uid = uId;
                 req.session.loggedIn = true;
                 console.log(req.session.id);
-                res.redirect('/single-student/' + uId);
+                res.redirect('/student-single/' + uId);
             }
             else {
                 // TODO improve the user journey here
