@@ -1,53 +1,48 @@
 # Software Development 3
 # Lab 1
 
-## Intro to C# and OOP
+## Intro to Java, Intellij and OOP
 
 
-### Visual studio
+### Intellij
 
 NB: these instructions are for Visual Studio NOT Visual Studio Code.
 
-Install Visual Studio if you are using your own computer. It is available for Windows of Mac. If you are using Linux, its fine.. just ask.
+Intellij can be found on the University computers. On your own computers you may download from : 
 
-Add the following options when you  install:
+[https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/)
 
-  * add f# language support
-   * windows app SDK C# templates
+The Community edition is free.
 
+Launch intelliJ from the start menu of your computer.
 
+## Hello world in Java with IntelliJ
 
-Launch Visual Studio from the start menu of your computer.
+Follow this tutorial to create your first java application:
+[https://www.jetbrains.com/help/idea/creating-and-running-your-first-java-application.html](https://www.jetbrains.com/help/idea/creating-and-running-your-first-java-application.html)
 
-
-The Visual Studio integrated development environment is a creative launching pad that you
-can use to edit, debug, and build code, and then publish an app. Its very easy to get started with c# in Visual Studio.
-
-
-The screenshot below will introduce you to its main features.
-
-![image](./VS-ide.png "VS code IDE")
+Stop at the heading 'Package the application in a JAR'. We will cover this later.
 
 
-### Getting started
+### Starting Java
 
-To start, we need to create a C# application project. The project type comes with all the
-template files you'll need before you've even added anything!
-1. Open Visual Studio
-2. On the start window, choose Create a new project
-3. In the Create a new project window, choose Console App with c# and click next
-4. In the Configure your new project window, type or enter SD3-lab in the Projectname box. Click 'place solution and project in same directory box'. Then, choose Next.
-5. Framework .Net 6 should be already selected.  choose Create.
+If you have followed the above tutorial you will have a single Java class with the following code:
 
-Visual studio will now build your project and open a VS window with the 'Program.cs' file open.
+```java
+package org.roehampton.sd3.examples;
 
-6. Run the programe using the green arrow at the top of the screen.  A black console window will open and output 'hello world'.  
-7. You will need to press any key to terminate the programme and close the console window.
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("hello world");
+    }
+}
+```
+Which you should be able to run by clicking the green arrow in the line numbering section next to your code.
 
+_NOTE THAT: In Java, a 'main' method which conforms to the signature ```public static void main(String[] args)``` will be the 'entrypoint' to your program, ie. it is the code that will run when your program is launched.
 
-### Getting to know C# Fundamentals
+Here are the fundamental features of any programming language. You know them from your previous modules.  When you learn a new language you should always look up these topics and learn how the language implements them.
 
-Here are some fundamental features of any programming language.  Use the following exercises to familiarise yourself with how you should use these in c#.
 
    * Types and variable declarations
    * Basic syntax: expressions and code blocks
@@ -59,55 +54,78 @@ Here are some fundamental features of any programming language.  Use the followi
    * Modules and namespaces
    * Classes and objects <----- The main part of this module!
 
+## Getting to know Java Fundamentals
 
-Familiarise yourself with the language fundamentals above by completing the following tasks:
+Familiarise yourself with the language fundamentals above by completing the following tasks.
 
-1. In the code editor, delete the default "Hello World" code in the Program.cs file and replace it by the
-following code.  _This code template is a standard way to provide an entrypoint to a c# console application though shortened syntaxes do exist, its good to get familiar with this._
+### Types and variable declaration
 
-The code block with the function signature 'static void Main()' will always be called as the entrypoint to your code. Normally, this will be in a file called Program.cs.
+In your public static void main method, delete the line which prints 'HelloWorld'. Replace it with the follwoing
 
-```c#
-using System;
-
-class Program
-{
-
-    // Performs a calculation
-    static void Main()
-    {
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
         int a = 42;
         int b = 119;
         int c = a + b;
-        Console.WriteLine(c);
+        System.out.println(c);
     }
 }
-
 ```
 
-Run the code without debugging with the pale green arrow or pressing ctrl F5.
+Run the code with green arrow.  Notice that the code compiles before it is run.
 
-Now you know how to print information back to the user.
+Now change the variable declaration of b to the following
 
-2. Change the variable declaration of b to the following
-
-```c#
-string b = "119";
-
+```java
+ String b = "119";
 ```
+What happens? Why? 
 
-Try and run the code. What happens? Why? How can you tell what the error is? What possible solutions are there? (hint - there is more than one solution - it depends what result you want).
+Finally change the variable declaration of c to the following
 
-3. Now initialise variable b as an array of ints and loop through it.
-
-Hints:
-Declare an array as variable b as follows: 
-
-```c#
-        int[] b = { 1, 4, 6, 7 };
+```java
+ String c = a + b;
 ```
+What happens?  Do you get the same answer as when b and c are ints?
 
-Loop through b using a foreach loop reference: https://www.w3schools.com/cs/cs_foreach_loop.php
+#### Now you know...
+
+   * how to print information back to the user
+   * that you must declare each variable before you use it with the correct type
+   * Java is a strongly typed language: you cannot mix types without errors occuring
+   * that java is a compiled langauge so that errors may be 'compile time' or 'run time'. 
+
+
+## Arrays and loops
+
+```java
+package org.roehampton.sd3.examples;
+import java.util.ArrayList;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        int a = 42;
+        String b = "119";
+        String c = a + b;
+        System.out.println(c);
+
+        // ArrayLists are collection objects that can be dynamic in size.
+        ArrayList<String> d = new ArrayList<String>();
+        d.add("one");
+        d.add("two");
+        d.add("three");
+
+        // A simple 'for' loop can iterate over d, creating a new variable s with every iteration of the loop
+        for  (String s : d) {
+            System.out.println(d.indexOf(s) + ":" + s);
+
+        }
+
+
+    }
+}
+```
 
 4. Add some code to the above exercise such that there is only output if the number is 6.  Comment your code with at least one single line and at least one multiline comment.
 
