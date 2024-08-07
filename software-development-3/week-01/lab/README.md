@@ -26,11 +26,11 @@ Stop at the heading 'Package the application in a JAR'. We will cover this later
 If you have followed the above tutorial you will have a single Java class with the following code.
 
 ```java
-package org.roehampton.sd3.examples;
+package com.example.helloworld;
 
 public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("hello world");
+        System.out.println("HelloWord");
     }
 }
 ```
@@ -106,7 +106,7 @@ Create an ArrayList as follows (there are various collection types in java) by a
 
 
 ```java
-package org.roehampton.sd3.examples;
+package com.example.helloworld;
 // You need to import the ArrayList library
 import java.util.ArrayList;
 
@@ -132,15 +132,25 @@ public class HelloWorld {
 }
 ```
 
-__Task 1:__ Amend the code so that you also print the array index for each of the array elements.  HINT: In a Java for loop you cannot access the index directly.  Instead you can use the indexOf() method of the ArrayList, so for our example try:
+__Task 1:__ 
+
+Amend the code so that you also print the array index for each of the array elements.  HINT: In a Java for loop you cannot access the index directly.  Instead you can use the indexOf() method of the ArrayList, so for our example try:
 
 ```myList.indexOf(listElement)```
 
 Why do the index numbers not correspond to the strings?
 
-__Task 2:__ Now amend the contents of the list so that it contains animal names instead of strings of number names, for example, cat, dog, rabbit
+__Task 2:__ 
 
-__Task 3:__ Consider how you might check that the contents of myList is what you expect it to be, before the loop starts.  You might need to check this, for example, if you are not seeing the expected output.  HINT: See what happens if you send an object into ```System.out.println()``` for example:
+Now amend the contents of the list so that it contains animal names instead of strings of number names, for example, cat, dog, rabbit
+
+__Task 3: Basic debugging__ 
+
+Lets pretend you are not seeing the output you expect in your loop.
+You will need to find out if there is an error in the contents of the list OR if your looping code is incorrect.
+The first thing to check is that the contents of the myList are as expected before entering the loop so you will want to examine it.
+The most basic way to do this is to use System.out.println on the entire object ie: add this code before the loop starts and look at the results in the console.
+
 
 ```java
 System.out.println(myList);
@@ -212,9 +222,9 @@ Hello LisaH !
 ```
 
 ```java
-String teacher = "LisaH";
-String hello = string.format("Hello %s", teacher);
-Console.WriteLine(hello);
+        String teacher = "LisaH";
+        String hello = String.format("Hello %s", teacher);
+        System.out.println(hello);
 ```
 
 
