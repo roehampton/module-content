@@ -7,37 +7,74 @@ We will practice planning and creating classes, adding methods, modifiying them 
 
 We will then create an interface to see how 'polymorphism' can occur in our code.
 
-__Today - we are going to model a zoo and its animals.__
+__Today we are going to start to model a zoo and its animals.__
+
+Follow the steps below
 
 
-1. Consider classes for Lion and Elephant with some relevant properties that you can think of.  Sketch a class diagram showing the basic properties and behaviours you are going to implement. Give your two classes at least one method, makeSound() which returns approriate animal sounds. 
+__1. Design and planning__ 
 
-2. Implement your Lion and Elephant classes in c#. You may use the default constructor for now, ie. an object will be created with no properties set.  
+Consider classes for Lion and Elephant with some relevant properties that you can think of.  Sketch a class diagram showing the basic properties and behaviours you are going to implement. Give your two classes at least one method, makeSound() which returns the approriate sound for each animal class. 
 
-3. Write a main method in your Program.cs file that will create at least one Lion and one Elephant, and call the methods you have chosen to create, something like the below (yours may differ):
+__2. Setting up your development environment and packages__
 
-```c#
-class Program
-{
-	public static void Main() 
-	{
+in Java, code is separated in the filesystem into 'packages'.  This helps avoid clashes in class names and neatens up the overall architecture of our code.
 
-		Elephant e1 = new Elephant();
-		Lion l1 = new Lion();
+Because we will work with the zoo example throughout the module, lets set up a tidy and extensible structure for our code.  
 
-		Console.WriteLine(l1.makeSound());
-		Console.WriteLine(e1.makeSound());
+Our aim is to set up an indentifiable overall package for our zoo project.  Within this, we will create a sub-package for our animal classes.
 
-	}
-}
+Our main method will be in its own class OUTSIDE of the animals sub-package as over time our program will be expanded to include more functionality.
+
+  * In Intellij, create a new Java project (File -> new -> project).  Call it sd3zoo
+  * Right-click on the ```src``` directory, choose new -> package
+  * call the new package org.roehampton.sd3.zoo.animals
+
+__3. Implement your Lion and Elephant classes__
+
+Write the code in separate Java files inside the animals package (right click->new->class). 
+
+__4. Write a main method that will run your code__
+
+Ideally, your Main method will be in its own class file, above the animals directory, in the org.roehampton.sd3.zoo package.
+
+Create this by right-clicking on the org.roehampton.sd3.zoo package and adding your new class called Main.
+
+Inside your class Main, create a method called main with the required signature to be an entry point to your programme.  Inside the main method, create a new Lion and Elephant, and return the correct animal sounds to the user.  Your code should be something like this.
+
+```java
+
+package org.roehampton.sd3.zoo;
+
+// This 'import' statement gives your Main code access to all the animal classes
+import org.roehampton.sd3.zoo.animals.*;
+
+public class Main {
+
+    // The entrypoint to your programme will always have this signature.
+    public static void main(String[] args) {
+
+                Lion l = new Lion();
+                System.out.println(l.makeSound());
+        }
+
+    }
+
+
 
 ```
 
-3. Now lets improve the properties of your animals, set some in the constructor, ensure they are private and create getters and setters for client code to interact with them.
+Study the screenshot below to understand how the files should be arranged and what the code should look like.
+
+![Intellij screenshot](./animal-sounds-code.png)
+
+### Improving your animal classes
+
+Add more properties for your animals, set some of them in the constructor, ensure they are private and create getters and setters for client code to interact with them.
 
    * Create an age property for each of your animals __that is private__
    * Set the age of the animal in its constructor
-   * Provide getters and setters to retrieve or replace the age value (you may use the c# or generic OOP way of writing these)
+   * Provide getters and setters to retrieve or replace the age value 
    * Create at least one additional property in your class with getters and setters.
 
    * Demonstrate the use of your class in your Main method.
@@ -48,7 +85,7 @@ class Program
 
 6. Once the Elephant and Lion are working, add a new class, Penguin, that implements IAnimal and has the required methods.
 
-7. Write client code that creates a list of IAnimal objects which you can call 'zoo', and then loops through them calling the methods required by the interfaces.
+7. Write a main method that creates a list of IAnimal objects which you can call 'zoo', and then loops through them calling the methods required by the interfaces.
 
 
 
@@ -138,7 +175,7 @@ interface IShape
 }
 ```
 
-Client
+Main
 
 ```
 using System;
