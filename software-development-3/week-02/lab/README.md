@@ -95,43 +95,78 @@ Add more properties for your animals, set some of them in the constructor, ensur
 Everything you need for the lab can be adapted from the example code from the lecture.  Here it is again:
 
 
-#### Class with private property and getters and setters 
+#### Shapes example code
 
-Square class
+IShape interface
 
-```c#
-// Square implements the IShape interface
-class Square : IShape
-{
-    // Property is private and has a default value
-    private int height = 200;
+```Java
 
-    // Returns the area of the shape
-    public double getArea()
-    {
-        return this.height * this.height;
+ackage org.roehampton.sd3.examples;
+
+public interface IShape {
+
+    double getArea();
+    double getPerimeter();
+}
+
+```
+Circle class
+
+
+```Java
+
+package org.roehampton.sd3.examples;
+
+public class Circle implements IShape {
+
+    // Default value for radius
+    private int radius= 4;
+
+    // Get area method, required by the interface
+    @Override
+    public double getArea() {
+        // Area of a circle πr-squared
+        return Math.PI * (this.radius * this.radius);
     }
 
-    // Returns the perimeter of the shape
-    public double getPerimeter()
-    {
-        return 4 * this.height;
-    }
-    // Set the otherwise private property from outside the program
-    public void setHeight(int h)
-    {
-        this.height = h;
-    }
-
-    // Return the otherwise private property from outside the prgram
-
-    public int getHeight()
-    {
-        return this.height;
+    // Get perimeter method, required by the interface
+    @Override
+    public double getPerimeter() {
+        // Circumference of a circle 2πr
+        return 2 * Math.PI * this.radius;
     }
 
 }
 
+```
+
+
+Square class
+
+```Java
+
+package org.roehampton.sd3.examples;
+
+public class Circle implements IShape {
+
+    // Default value for radius
+    private int radius= 4;
+
+    // Get area method, required by the interface
+    @Override
+    public double getArea() {
+        // Area of a circle πr-squared
+        return Math.PI * (this.radius * this.radius);
+    }
+
+    // Get perimeter method, required by the interface
+    @Override
+    public double getPerimeter() {
+        // Circumference of a circle 2πr
+        return 2 * Math.PI * this.radius;
+    }
+
+}
 
 
 
@@ -139,7 +174,7 @@ class Square : IShape
  
  Circle class
  
- ```c#
+ ```Java
  // Circle class implements the IShape interface
 class Circle : IShape
 {
@@ -163,51 +198,22 @@ class Circle : IShape
 }
 ```
 
-
-IShape interface
-
-```c#
-interface IShape
-{
-    public double getArea();
-    public double getPerimeter();
-
-}
-```
-
 Main
 
-```
-using System;
+```Java
+public class HelloWorld {
+    public static void main(String[] args) {
 
-class Program
-{
-
-    public static void Main()
-    {
-        // Create a list of different shapes (they must all implement IShape)
-        List<IShape> shapes = new List<IShape>();
-
-        // New square
-        Square s1 = new Square();
-        // Use the setter we created
-        s1.setHeight(30);
-        shapes.Add(s1);
-
-        // New circle
-        Circle c1 = new Circle();
-        // Use the c# style shorthand setter
-        c1.radius = 20;
-        shapes.Add(c1);
-
-        // Another new circle
+        // Note that class can be instantiated as EITHER an IShape or specfic shape class
+        IShape c1 = new Circle();
         Circle c2 = new Circle();
-        shapes.Add(c2);
+        IShape sq1 = new Square();
+        Square sq2 = new Square();
 
-        // Loop through the shapes getting their perimeter and radius - code works regardless if its a circle or a square
-        foreach (IShape s in shapes) {
-            Console.WriteLine($"{s.GetType()} has perimeter {s.getPerimeter()} and area {s.getArea()}");
-        }
+        System.out.println(c1.getArea());
+        System.out.println((sq2.getPerimeter()));
+
+
     }
 }
 ```

@@ -140,9 +140,11 @@ Amend the code so that you also print the array index for each of the array elem
 
 Why do the index numbers not correspond to the strings?
 
+
 __Task 2:__ 
 
 Now amend the contents of the list so that it contains animal names instead of strings of number names, for example, cat, dog, rabbit
+
 
 __Task 3: Basic debugging__ 
 
