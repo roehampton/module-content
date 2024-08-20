@@ -241,8 +241,4 @@ See: [https://www.geeksforgeeks.org/java-program-to-illustrate-string-interpolat
 
 Implement the remaining methods of the Dog class used in the week 1 slides and improve the logic of the bark() function in any way that you can think of.
 
-2. __Course class__
 
-Design a 'course' class to complement the 'student' class.  Consider its properties and methods, and draw a class diagram to represent it.  Create a constructor.  Now see if you can re-factor your Student class to have a course class property instead of a simple ID.  
-
-HINT: When you create a new class it is like adding a new custom type to your application.  You will need to use the class name to declare the type of the course.

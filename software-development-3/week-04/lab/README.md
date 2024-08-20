@@ -22,18 +22,16 @@ __HINT__: in your Main method you will need to create a course object before you
 
 Find your animals code where you should have your AnimalBase, Lion and Elephant classes ready.
 
-   * Create a new class called 'zoo'.  Give your class properties you think will be relevant which should include (at least) a name and a C# list of your zoo animals.
+   * Create a new class called 'zoo'.  Give your class properties you think will be relevant which should include (at least) a name and a Java list of your zoo animals.
      
-__HINT__: C# lists must specify the type of object that will be in that list.  To enable your list of animals to contain any animal, you can declare it as being a List populated by types of AnimalBase as follows:
+__HINT__: Java lists must specify the type of object that will be in that list.  To enable your list of animals to contain any animal, you can declare it as being a List populated by types of AnimalBase as follows:
 
 ```
    List<AnimalBase> animals = new List<AnimalBase>();
 
 ```
 
-References: 
-https://www.c-sharpcorner.com/article/c-sharp-list/
-https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-7.0
+
 
   * Create a method in your Zoo class which will add a new animal object to the animals list.
   * Create a method in your Zoo class which will print out a list of all the animals in the zoo
