@@ -141,33 +141,37 @@ public class Circle implements IShape {
 ```
 
 
-Square class
+Square class (NB shows getters and setters)
 
 ```Java
+ckage org.roehampton.sd3.examples;
 
-package org.roehampton.sd3.examples;
+public class Square implements IShape {
+    // Property is private and has a default value
+    private int height = 200;
 
-public class Circle implements IShape {
-
-    // Default value for radius
-    private int radius= 4;
-
-    // Get area method, required by the interface
+    // Returns the area of the shape
     @Override
     public double getArea() {
-        // Area of a circle πr-squared
-        return Math.PI * (this.radius * this.radius);
+        return this.height * this.height;
     }
 
-    // Get perimeter method, required by the interface
+    // Returns the perimeter of the shape
     @Override
     public double getPerimeter() {
-        // Circumference of a circle 2πr
-        return 2 * Math.PI * this.radius;
+        return 4 * this.height;
     }
 
-}
+    // Set the otherwise private property from outside the program
+    public void setHeight(int h) {
+        this.height = h;
+    }
 
+    // Return the otherwise private property from outside the program
+    public int getHeight() {
+        return this.height;
+    }
+}
 
 
  ```
