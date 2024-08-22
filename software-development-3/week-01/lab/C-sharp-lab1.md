@@ -167,7 +167,7 @@ class Program
 
         // We can declare EITHER Person or Student/Staff.
         Student st1 = new Student("lisa", "haskel");
-        Student st2 = new Staff("arturo", "araujo");
+        Student st2 = new Student("arturo", "araujo");
 
         Console.WriteLine(st1.Print());
         Console.WriteLine(st2.Print());
