@@ -119,37 +119,62 @@ You will create the student class as represented by this class diagram. You will
 ![image](./student-class.png "Student class diagram")
 
 1. Create a new file called Student.cs. It should be in the same directory as your Program.cs file.  _(HINT: you can right click on your project in the solution explorer, got to 'add', 'new item' and then c# code file or class. You will then need to rename the file, again with a right click.).  It is conventional that you have just one class per file, and that the file name is the same as your class name.
-2. Add the following code to Student.cs (you will not be able to cut and paste!!)
-
-
-![image](./student-class-code.png "Student class code")
-
-3. To create objects of class Student, go back to Program.cs and write the following:
-
-![image](./Main-code.png "Student class code")
-
-4. This code should run but its not giving you useful results. Go back into Student.cs and amend the getFormattedName() method so that the name and course of each student is printed correctly.
-
-Hint: you can use 'string interpolation' to embed variables into strings.  This example should help you: 
+2. Add the following code to Student.cs
 
 ```c#
-string teacher = "LisaH";
-string hello = $"Hello {teacher} !";
-Console.WriteLine(hello);
+using System;
+
+class Student
+{
+
+  string firstName;
+   string lastName;
+	int courseId = 1;
+    
+    public Student(string firstName, string lastName)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+	
+	
+	// Return a formatted string with students firstname, last name and course: we are overriding the virtual method
+
+    public string Print()
+    {
+        // code that returns the first name, last name and course id for the student.
+        return $"{this.GetType()}: {this.firstName} {this.lastName}";
+    }
+}
+
+
 ```
 
-The outupt of this snippet would be
+
+
+
+3. To create objects of class Student, go back to Program.cs file and write the following:
+
+ ```
+using System;
+class Program
+{
+
+    // static void main is the entrypoint to your program
+    static void Main()
+    {
+        
+
+        // We can declare EITHER Person or Student/Staff.
+        Student st1 = new Student("lisa", "haskel");
+        Student st2 = new Staff("arturo", "araujo");
+
+        Console.WriteLine(st1.Print());
+        Console.WriteLine(st2.Print());
+    }
+}
+
 
 ```
-Hello LisaH !
-```
 
-
-#### Extension task
-
-
-
-1. __Dog class__
-
-Implement the remaining methods of the Dog class used in the week 1 slides and improve the logic of the bark() function in any way that you can think of.
 
