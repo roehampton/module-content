@@ -53,5 +53,52 @@ public class HelloWorld {
 ```
 
 
+#### Student class
+
+##### Student.java
+
+```java
+
+public class Student {
+
+    //Properties
+    String firstName;
+    String lastName;
+    int courseId;
+
+    //Constructor
+    public Student(String firstName, String lastName, int courseId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.courseId = courseId;
+    }
+
+    //Method to return an info string about the student
+    public String getFormattedName() {
+        return String.format("Student %s %s is in course %s", this.firstName, this.lastName, this.courseId);
+    }
+}
 
 
+
+```
+
+
+
+
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        
+        // Create instances of student
+        Student s1 = new Student("Lisa", "Haskel", 1);
+        Student s2 = new Student("Touseef", "Tahir", 2);
+
+        // Print the students info
+        System.out.println(s1.getFormattedName());
+        System.out.println(s2.getFormattedName());
+
+    }
+}
+```

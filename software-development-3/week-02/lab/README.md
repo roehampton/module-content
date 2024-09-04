@@ -99,7 +99,7 @@ Everything you need for the lab can be adapted from the example code from the le
 
 IShape interface
 
-```Java
+```java
 
 ackage org.roehampton.sd3.examples;
 
@@ -113,7 +113,7 @@ public interface IShape {
 Circle class
 
 
-```Java
+```java
 
 package org.roehampton.sd3.examples;
 
@@ -143,7 +143,7 @@ public class Circle implements IShape {
 
 Square class (NB shows getters and setters)
 
-```Java
+```java
 ckage org.roehampton.sd3.examples;
 
 public class Square implements IShape {
@@ -178,33 +178,39 @@ public class Square implements IShape {
  
  Circle class
  
- ```Java
- // Circle class implements the IShape interface
-class Circle : IShape
-{
-    // c# style creation of radius property with getters and setters
-    public int radius { get; set; } = 50;
+ ```java
+package org.roehampton.sd3.examples;
 
-    public double getArea()
-    {
+public class Circle implements IShape {
 
-        // Area of a circle πr-squared 
+    // Default value for radius
+    private int radius= 4;
+
+    // Get area method, required by the interface
+    @Override
+    public double getArea() {
+        // Area of a circle πr-squared
         return Math.PI * (this.radius * this.radius);
     }
 
-    public double getPerimeter()
-    {
-
+    // Get perimeter method, required by the interface
+    @Override
+    public double getPerimeter() {
         // Circumference of a circle 2πr
         return 2 * Math.PI * this.radius;
-
     }
+
 }
+
+
 ```
 
 Main
 
-```Java
+```java
+package org.roehampton.sd3.examples;
+import java.util.*;
+
 public class HelloWorld {
     public static void main(String[] args) {
 
@@ -216,7 +222,19 @@ public class HelloWorld {
 
         System.out.println(c1.getArea());
         System.out.println((sq2.getPerimeter()));
+        
+        // Show that we can create a list of any shape, 
+        // so long as it implements IShape
+        List<IShape> shapes = new ArrayList<>();
+        
+        shapes.add(c1);
+        shapes.add(c2);
+        shapes.add(sq1);
+        shapes.add(sq2);
 
+        for(IShape s : shapes) {
+            System.out.println(s.getClass() + " has perimeter " + s.getPerimeter() + " and area " + s.getArea());
+        }
 
     }
 }

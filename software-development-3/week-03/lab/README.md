@@ -24,7 +24,7 @@ Start by drawing a class diagram showing the Person, Student and Staff classes.
 
 ### Zoo animals example
 
-Refactor the zoo animals example from week 2 such that there is a base class: AnimalBase from which the Elephant, Lion etc. inherit.
+Refactor the zoo animals example from week 2 such that there is a base class: AnimalBase from which the Elephant, Lion etc. inherit.  You may keep or remove the IAnimal interface, as you prefer.
 
 
 ### Coursework
@@ -37,7 +37,6 @@ Start to plan out a class diagram for the coursework,  making use of what you kn
 ### Helpful Resources
 
   * Lab 1 solution (student class is at the end) [Lab1 solution](https://roehampton.github.io/module-content/software-development-3/week-01/lab/lab-1-solutions.html)
-  * Worked example of inheritance (shapes) [Shapes worked example](./solution-lab3.html)
   * Use the lecture notes to help you as most of the student example is there.
-  * Zoo animals solution (no inheritance) [Zoo animals example with IAnimal interface](https://roehampton.github.io/module-content/software-development-3/week-02/lab/lab2solutions.html)
-  * Solution: [lab 3 solution] (https://github.com/roehampton/module-content/blob/master/software-development-3/week-03/lab/solution-student-lab3.md)
+  * Zoo animals solution (no inheritance) [Zoo animals example with IAnimal interface](https://moodle.roehampton.ac.uk/mod/resource/view.php?id=2029894)
+

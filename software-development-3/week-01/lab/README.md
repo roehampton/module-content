@@ -136,7 +136,11 @@ __Task 1:__
 
 Amend the code so that you also print the array index for each of the array elements.  HINT: In a Java for loop you cannot access the index directly.  Instead you can use the indexOf() method of the ArrayList, so for our example try:
 
-```myList.indexOf(listElement)```
+```java
+
+myList.indexOf(listElement)
+
+```
 
 Why do the index numbers not correspond to the strings?
 
