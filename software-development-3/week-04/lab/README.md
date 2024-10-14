@@ -27,7 +27,7 @@ Find your animals code where you should have your AnimalBase, Lion and Elephant 
 __HINT__: Java lists must specify the type of object that will be in that list.  To enable your list of animals to contain any animal, you can declare it as being a List populated by types of AnimalBase as follows:
 
 ```
-   List<AnimalBase> animals = new List<AnimalBase>();
+       private ArrayList<AnimalBase> animals = new ArrayList<>();
 
 ```
 
