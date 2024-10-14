@@ -12,8 +12,8 @@ Start by drawing a class diagram showing the Person, Student and Staff classes.
 * Person should have a printName() method that returns the firstname and last name in a single string.
 * Students only should have a course and staff only should have a salary.
 * The Person constructor should take the firstname and lastname as parameters.
-* The staff and student classes should have the relevant 'getters' and 'setters' so that course and salary can be set and retrieved.
-* Create a virtual method in the base class "Print()" and override it in the Student and Staff derived classes so that:
+* The staff and student classes should have the relevant 'getters' and 'setters' so that course and salary can be set and retrieved (HINT: In intellij, use right click -> generate inside your class to help you create getters and setters)
+* Create a method in the base class called "print()".  Then, Override it in the Student and Staff derived classes so that:
 
    * The Staff print() method returns firstname, lastname and salary
    * The Student print() method returns firstname, lastname and course name
@@ -25,6 +25,8 @@ Start by drawing a class diagram showing the Person, Student and Staff classes.
 ### Zoo animals example
 
 Refactor the zoo animals example from week 2 such that there is a base class: AnimalBase from which the Elephant, Lion etc. inherit.  You may keep or remove the IAnimal interface, as you prefer.
+
+Write a main method in which you use the makeSound() and eatFood() methods in your AnimalBase class, but which gives the expected different results for the animals.
 
 
 ### Coursework
