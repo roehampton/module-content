@@ -42,9 +42,9 @@ __HINT 2__
 To loop through your list of animals try this:
 
 ```
-        foreach (AnimalBase animal in animals)
-        {
-            Console.WriteLine(animal.getName());
+        for (AnimalBase animal :  zoo) {
+            //  Do necessary operations inside the loop here
+            System.out.print(animal.getName());
         }
 
 ```
