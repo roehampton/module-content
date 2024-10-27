@@ -5,7 +5,7 @@
 1. In week 2 and 3 you implemented zoo animals with that implement an IAnimal interface and/or have an AnimalBase base class.
    Use these to implement a zoo as a singleton pattern ie. ensure that there is always and can always only be one zoo. The Zoo should have a name and a list of animals.
 
-A zip file of animals with IAnimal interface is here: (https://moodle.roehampton.ac.uk/pluginfile.php/4782498/mod_resource/content/1/org.roehampton.sd3.zoo.zip)[https://moodle.roehampton.ac.uk/pluginfile.php/4782498/mod_resource/content/1/org.roehampton.sd3.zoo.zip]
+A zip file of animals with IAnimal interface is here: [Zoo animals example with IAnimal interface](https://moodle.roehampton.ac.uk/mod/resource/view.php?id=2029894)
 
 ### Too do this you will need to
 1. Create a singleton class, Zoo with a private constructor and a static getInstance() method that returns the static zoo property  (the code is in the lecture slides)
