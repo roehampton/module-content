@@ -5,7 +5,7 @@
 
 Go back to your person/student/staff example code.
 
-See also [Lab 3 Person/Student/Staff solution](solution-lab3-student-java.html)
+See also [Lab 3 Person/Student/Staff solution](../../week-03/lab/solution-lab3-student-java.html)
 
 In your previous student class, you had an int for the Course id as a property of the student
 

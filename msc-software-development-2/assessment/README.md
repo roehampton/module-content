@@ -92,16 +92,17 @@ The aim of this Sprint is to check that you have a set of user requirements defi
 Submission requirements for this Sprint:
 
 - Full set of user stories defined for your application idea.
-- User stories tracked appropriately using a tool.
-- Suitable diagrams and documentation used to design software, which may include:
+- User stories tracked appropriately using your task board
+- Suitable diagrams and documentation used to design software, which MUST include:
+  - Personas and scenarios
   - Use case diagrams
-  - Activity diagrams
-  - State diagrams
-  - Class diagrams
-  - Sequence diagrams
-  - Personas
+  - Wireframes
   - User flow diagrams
-- Rough designs of the screens (pages) that your application will have and how these flow together. We are looking for wireframes and a high-level overview of how the application flows together. For example, see the following resources:
+- And MAY include
+  - Activity diagrams
+  - Sequence diagrams
+
+ see the following resources:
   - [How to create a user experience flow chart (UX Flow Chart) (startuprocket.com)](https://www.startuprocket.com/articles/how-to-create-a-user-experience-flow-chart-ux-flow-chart)
   - [Mobile Application Design : Paper Prototype Video - YouTube](https://www.youtube.com/watch?v=y20E3qBmHpg)
 

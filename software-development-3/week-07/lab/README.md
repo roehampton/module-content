@@ -20,7 +20,15 @@ HINT contd: Create an additional property in the AnimalBase class for the Animal
 
 NOTICE: The state pattern can implement different behaviours according to state.  Initially, set the initial state of an Animal object when it is instantiated to AnimalHungry.  When feedAnimal() is called, the caller will be told to bring food, and the Animal's state can then be set to AnimalNotHungry.
 
-ADDITIONAL TASK: Create an additional state for the animals, for example, animal at the vet which will affect if it will need to be fed.  See if you can create a new state for this.
+ADDITIONAL TASKS: 
+   * Create an additional state for the animals, for example, animal only a bit hungry.  See if you can create a new state for this.
+   * Consider how you might handle a situation where animals can only change state from not hungry, to quite hungry to hungry to fed, without missing any steps.  This is similar to a 'workflow' model that is found in many content management systems.
+
+### Decorator pattern
+
+Implement different kinds of tickets for the zoo, using the slides to help you.
+
+Start with adult and child tickets, but then add a ticket that has unusual functionality, such as an Christmas ticket or a VIP ticket.
 
 
 ### Observer pattern
@@ -31,21 +39,8 @@ Our zoo would like to have a system whereby users can 'subscribe' to special off
 
 2. Implement an additional offer, for students.  Add some student 'observers' and print out a list of students who have subscribed to the offer when the offer is made available.
 
-Independent task:  Use the observer pattern to create a notifier for a cohort of students which will inform them of timetable changes or assessment date changes.
+Independent task:  Go back to our student/ person/ staff example, and use the observer pattern to create a notifier for a cohort of students which will inform them of timetable changes or assessment date changes.
 
-### State pattern
-
-Our zoo would like to inform visitors if they should take food for the animals when they go to see them.  
-
-1. Implement this, using the lecture slides to help you.
-
-HINT: Implement a base class for animals if you have not done so already and alter all the animal classes so they inherit from this base class. This will make additional functionality much easier to implement.
-
-HINT contd: Create an additional property in the AnimalBase class for the Animal state and a setState() method.
-
-NOTICE: The state pattern can implement different behaviours according to state.  Initially, set the initial state of an Animal object when it is instantiated to AnimalHungry.  When viewAnimal() is called, the caller will be told to bring food, and the Animal's state can then be set to AnimalNotHungry.
-
-ADDITIONAL TASK: Once you have the code from the lecture slides working, experiment with different ways of changing the hungry or not hungry state of the animals ie. either from the client code, or from other state objects.
 
 
 ### Visitor pattern
@@ -57,53 +52,4 @@ In our zoo, we want to be able animals to receive a visit from either the vet or
 1. Implement this using the lecture slides to help you.
 2. Add an additional visitor, for example a photographer, who will also visit all the animals.
 
-
-HINT:  here is some revised code for the zoo singleton which will make it easy for you to interate over the animals and send in the visitors:
-
-```c#
-// Make the zoo into a singleton as it is the single point of reference for the zoo.
-class Zoo
-{
-    // The Zoo holds an instance of itself.
-    private static Zoo zooInstance = null;
-    private List<IAnimal> animals = new List<IAnimal>();
-
-    private Zoo()
-    {
-
-        IAnimal m1 = new Elephant("elmer");
-        animals.Add(m1);
-
-        IAnimal m2 = new Lion("elsa");
-        animals.Add(m2);
-
-        IAnimal f1 = new Shark("Sharky");
-        animals.Add(f1);
-
-        IAnimal r1 = new Snake("Snakey");
-        animals.Add(r1);
-    }
-
-    public static Zoo getInstance()
-    {
-
-        // Make sure zoo is instantiated only once
-        if (zooInstance == null)
-        {
-            zooInstance = new Zoo();
-        }
-        return zooInstance;
-
-    }
-
-    public void visitAnimals(IVisitor visitor)
-    {
-        foreach (IAnimal animal in animals)
-        {
-            animal.acceptVisitor(visitor);
-        }
-
-    }
-
-}
-```
+Implementing the zoo as a singleton will help you with this task.
