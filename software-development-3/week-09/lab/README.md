@@ -76,7 +76,7 @@ Note the matching of the ComboBox Id with the variable name AND the matching of 
 
    * Finally create an event handler in the controller file:
    
-```
+```java
     @FXML
     protected void onBoxSelect() {
         welcomeText.setText(cb.getValue());
@@ -127,7 +127,7 @@ import org.roehampton.sd3.jfxanimals.animals.*;
 ```
 3.  Add an event handler for the combobox.  This will print a message to the console, and also overwrite the original welcometext with the sound of the selected animal
 
-```
+```java
   @FXML
     protected void onChooseAnimal(Event event) {
         System.out.print(animalList.getValue().getName());
@@ -138,13 +138,13 @@ import org.roehampton.sd3.jfxanimals.animals.*;
 
 4. Make your Controller class initializable - meaning that it will be abel to run an initialize method on startup so you can populate your drop-down list with some values.  Add a new import to the top of the file:
 
-```
+```java
 import javafx.fxml.Initializable;
 ```
 
 Amend the class definitition as follows:
 
-```
+```java
 public class HelloController implements Initializable {
 ```
 
@@ -169,6 +169,8 @@ At this point, you should be able to run your code and see the following:
 ![Image](animals-fx.png "Animals code behind")
 
 You will notice that the drop-down box has correctly referenced your classes, but the text shown is the object reference.
+
+__You should still be able to choose an animal and see the correct sound outputted in the welcome text area.__ 
 
 In order to show a nicely formatted string, we will add a helper 'string converter' class.
 
@@ -213,11 +215,97 @@ Note the additional line which sets the string converter for the animalList.
 
 ```
 
+You will notice that the animals drop-down box now appears neatly showing the animals name as the displayed value.
+
+
+## Lab exercise 5: Add a second option list for keepers, create a button which will capture BOTH the selected keeper and the selected animal, and output both selections to the welcome text area.
 
 
 
-## Lab exercise 5: Add a second option list for keepers, create a button which will capture BOTH the selected keeper and the selected animal, and output both selections to a message box.
-
----- TODO
+__HINT__: This exercise is here to help you with your coursework.  In your coursework you are likely to want to capture the users choice of a bookable item (eg. flat, hotel, bike etc), and the users choice of a client who wishes to booke the item.  This part of the lab sheet is equivalent to that task.
 
 
+1. We will add an additional combobox to the fxml file for the zoo keepers. It has an event handler called onChooseKeeper (_For this exercise we will represent our keepers as simple strings, but you know from the above how to  create classes with string coverters so that you can represent clients as objects should you wish to_.)
+
+```xml
+
+  <ComboBox fx:id="keeperList" layoutX="15.0" layoutY="33.0" prefWidth="150.0"
+              promptText="choose" onAction="#onChooseKeeper" >
+
+    </ComboBox>
+
+```
+2. Create a button in your interface. When this is clicked, the choosen value in both comboboxes will be captured
+
+```xml
+
+    <Button text="Assign keeper to Animal" onAction="#onClickAssign"/>
+
+```
+
+
+
+3. Create a reference to the KeeperList in your controller file - add this to the properties at the top
+
+```java
+    @FXML
+    public ComboBox<String> keeperList;
+
+```
+
+4. Add an event handler in your controller file for the keepers dropdown list.  For now, lets just print the selected name to the console so we can check our work.
+
+```java
+    @FXML
+    protected void onChooseKeeper (Event event) {
+        System.out.println(keeperList.getValue());
+    }
+
+```
+
+5. Add some values to the keepers dropdown in your initialize method.  Your entire initialize method should now look something like this:
+
+```java
+
+    @Override
+    public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+        Lion l1 = new Lion("Elsa", 12);
+        Elephant e1 = new Elephant("Elmer", 13);
+        // We require an extra class to determine how to represent our animal classes as strings
+        // This avoids overriding the toString() methods in the animal base class
+        animalList.setConverter(new AnimalConverter());
+        animalList.getItems().add(l1);
+        animalList.getItems().add(e1);
+        // Adding some strings to the second (keeper) combobox
+        keeperList.getItems().add("Lisa");
+        keeperList.getItems().add("Touseef");
+
+    }
+
+
+```
+
+
+
+6. Add an event handler to the controller file for the button which will capture the chosen values from  both comboboxes and print some output to the welcometext text area:
+
+
+```java
+ @FXML
+    protected void onClickAssign(Event event) {
+        // Get the selected animal name
+       String selectedAnimal = animalList.getValue().getName();
+       // Get the selected keeper
+       String selectedKeeper = keeperList.getValue();
+       // Assemble a string for the output
+       String output = String.format("Keeper %s is assigned to Animal %s",
+               selectedKeeper, selectedAnimal);
+       // Set the welcome text to your string
+       welcomeText.setText(output);
+    }
+
+```
+
+The result should be something like the below:
+
+![Image](animals-keeper.png "Animals and keeper selection")
