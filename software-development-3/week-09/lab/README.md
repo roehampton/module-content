@@ -105,7 +105,10 @@ Create a package for the classes you have already created for your Animal base c
    * Inside this directory, add your AnimalBase and derived Animal classes.  If you need the classes you can download the zip from Moodle and extract [https://moodle.roehampton.ac.uk/mod/resource/view.php?id=2065527](https://moodle.roehampton.ac.uk/mod/resource/view.php?id=2065527)
    
 NOTE: You may need to alter or delete the package name from line 1 of these files.
-   * In your hello-fxml file add the following inside the vbox:
+
+ In your hello-fxml file add the following inside the vbox:
+ 
+ 
 ```xml
     <ComboBox fx:id="animalList" layoutX="15.0" layoutY="33.0" prefWidth="150.0" promptText="choose" onAction="#onChooseAnimal" >
 
@@ -113,12 +116,16 @@ NOTE: You may need to alter or delete the package name from line 1 of these file
 
 ```
 
+
    * Now go to your HelloController file.  You will need to make a number of amendments:
    1. Add an import statement to the package where your animal classes can be found. Depending on your path it will look something like this:
-```
+   
+
+```java
 import org.roehampton.sd3.jfxanimals.animals.*;
 
 ```
+   
    2. Declare your Combobox, matching the id in the fxml file to the variable name:
 
 ```
