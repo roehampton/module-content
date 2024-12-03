@@ -427,9 +427,9 @@ form(action='/allocate-programme', method='POST')
         select(name='programme')
             for programme in programmes
                 if programme.id == student.programme.id
-                    option(value=programme.id selected='selected') #{programme.name}
+                    option(value=programme.id selected='selected') #{programme.pName}
                 else
-                    option(value=programme.id) #{programme.name}
+                    option(value=programme.id) #{programme.pName}
         <div>
         input(type='submit' value='Submit')
 ```
