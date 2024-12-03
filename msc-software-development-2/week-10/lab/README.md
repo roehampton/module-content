@@ -279,8 +279,10 @@ async function getAllProgrammes() {
     const results = await db.query(sql);
     var rows = [];
     for (var row of results) {
-    	    // Use our Programme class to neatly format the object going to the template
-        rows.push(new Programme(row.id, row.name));
+        // Use our Programme class to neatly format the object going to the template
+        var prog = new Programme(row.id);
+        await prog.getProgrammeName();
+        rows.push(prog);
     }
     return rows;
 }
@@ -323,7 +325,7 @@ form(action='/allocate-programme', method='POST')
         input(type='hidden' name='id' value=student.id)
         select(name='programme')
             for programme in programmes
-                option(value=programme.id) #{programme.name}
+                option(value=programme.id) #{programme.pName}
         <div>
         input(type='submit' value='Submit')
 ```
@@ -334,7 +336,7 @@ use developer tools to check that that value part of each element in the select 
 
 
 Add a post route to app.js to catch this form submission.  In app.js, write the following to create and test the new route
-        input(type='hidden' name='id' value=student.id)
+    
 ```
 // A post route to recieve new data for a students' programme
 app.post('/allocate-programme', function (req, res) {
