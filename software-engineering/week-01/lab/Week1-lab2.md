@@ -339,9 +339,9 @@ See if you can visit this newspaper site which is famous for mis-spellings and c
 
 Play with your own pages, so you are full familiar with the relationship between the code editor, browser and developer tools.
 
-## Note on desktop setup
+## Setting out your development environment
 
-Your enjoyment writing code, and your productivity will be enhanced by an effective environment.
+Your enjoyment writing code, and your productivity will be enhanced by gaining fluency in the fundamental tools of web development and its processes.
 
 
 ![Developers Desktop](./developers-desktop.png)
