@@ -50,3 +50,6 @@
    - Largest positive number with 8 bits in unsigned binary: $11111111_2 = 255_{10}$
    - Largest positive number with 8 bits in signed binary (two's complement): $01111111_2 = 127_{10}$
    - Smallest negative number with 8 bits in signed binary (two's complement): $10000000_2 = -128_{10}$
+
+
+Please, click [here](number_systems_solutions.md) to see the solutions.
