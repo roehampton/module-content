@@ -52,4 +52,4 @@
    - Smallest negative number with 8 bits in signed binary (two's complement): $10000000_2 = -128_{10}$
 
 
-Please, click [here](number_systems_solutions.md) to see the solutions.
+Please, click [here](https://github.com/roehampton/module-content/blob/master/computer-systems/week-01/seminar/number_systems_activities/number_systems_solutions.md) to see the solutions.
