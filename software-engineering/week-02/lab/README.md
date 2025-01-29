@@ -107,5 +107,13 @@ async function query(sql, params) {
    2. Access Phpmyadmin by going to http://127.0.0.1:8081. (use the credentials in the .env file)
    3. Click onto the sd2-test database in the left side, and, using the SQL    window, paste the contents of the SQL file there.  Click run. You will now have some content for the test table
    4. Access http://127.0.0.1:3000/db_test to see the contents of the table
+
+## Known Gotchas with Docker
+
+1. Do not try to run Docker from any onedrive mounted location
+2. __Do not try to install any additional software on uni computers__ - everything is there already and trying to install Docker again breaks everything
+3. On any mac, docker-compose may fail.  Remove the sqlite3 package with ```npm remove sqlite3``` and all should be well
+4. On students' own laptops, they may be prompted to re-install or update wsl.  Follow the instruction given and restart. This usually works.
+5. On windows, restart after installation of Node and docker desktop to ensure changes are picked up.
   
 
