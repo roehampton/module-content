@@ -1,4 +1,4 @@
-:w
+
 #  Backend programming with Node.js and Express.js
 
 ## Whats in this lab?
@@ -14,7 +14,7 @@ In the scaffolding files, we have a file ```index.js``` which forwards requests 
 
 ### Running the scaffolding files
 
-Make sure you can run docker-compose up and reach display the text "hello world" at http://localhost:300
+Make sure you can run docker-compose up and reach display the text "hello world" at http://localhost:3000
 
 ### Express
 
@@ -42,13 +42,11 @@ app.get("/", function(req, res) {
 
 Here we intercept requests to '/' and send a response back with the text 'hello world'
 
-__EXERCISE 1__: Change this route to say hello + your name.  Watch the server reload in the terminal and reload your browser to see the result of your changed code.
+__EXERCISE 1__: Change this route to so that the browser shows: hello + your name.  Watch the server reload in the terminal and reload your browser to see the result of your changed code.
 
-__EXERCISE 2__: Create a new route with path '/roehampton which should send the text 'hello roehampton' to the user when they request the url: ```http://localhost/roehampton```
+__EXERCISE 2__: Create a new route with path '/roehampton which should send the text 'hello roehampton' to the user when they request the url: ```http://localhost:3000/roehampton```
 
-__EXERCISE 3__: Create a new route with path '/roehampton which should send the text 'hello roehampton' to the user when they request the url: ```http://localhost/roehampton```
-
-__EXERCISE 4__: practice debugging to the console: In the route you have just created, add the following line to the body of your function:
+__EXERCISE 3__: practice debugging to the console: In the route you have just created, add the following line to the body of your function:
 
 ```
 console.log(req.url)
@@ -56,7 +54,7 @@ console.log(req.url)
 
 Notice when you load your page, the path is displayed in the terminal window
 
-__EXERCISE 5__: Add some programming logic in your route function
+__EXERCISE 4__: Add some programming logic in your route function
 
    * create a variable in which you capture the request path
    * send only the first 3 letters out to the browser
@@ -129,6 +127,15 @@ __EXERCISE 4 :__
 
 Using the above route: output the name and ID in an HTML table
 
+__EXERCISE 5 :__
+
+Find the 'db_test' route in the app.js file.  See if you can...
+
+1. Create a new route based on this function for ```/db_test/:id```
+2. In your function, capture the 'id' paramter
+3. Edit the database query so that only the row for the passed id is retrieved (HINT: add a 'where' clause)
+4. Output to the browser only the name for the requested id
+5. Add some HTML formatting to make it look more interesting in the browser.
 
 
 ### Serving static files
@@ -150,17 +157,18 @@ You should be able to immediately access this file in your web browser using `12
 
 __Additional task 1__: More javascript practice.  
 
+Going back to your ```/roehampton``` route:
+
    * capture the request in a variable
    * create an array of all the characters in the request
    * remove the leading '/'
    * print roehampton backwards in the browser
 
-(just to show how you can use any programming logic inside a routing function and start to use javascript documention to help you write code.  HINTS:  try split, splice, reverse and join)
+(just to show how you can use any programming logic inside a routing function and start to use javascript documention to help you write code.  HINTS:  try the javascript functions: split, splice, reverse and join)
 
 __Additional task 2__: 
 
-Create a dynamic route where the user may request /number/:n where n is any number.  Output all the numbers from 0 to the number entered, formatted in an HTML table.
-
+Create a dynamic route where the user may request /number/:n where n is any number.  Output all the numbers from 0 to the number entered, formatted in an HTML table. NOTE :use a loop.
 
 
 ## Coming next...
