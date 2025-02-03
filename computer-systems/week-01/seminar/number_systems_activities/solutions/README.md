@@ -35,9 +35,9 @@
 
 ### Two's Complement
 1. **Find the two's complement of the binary number:**
-   - 101010 -- 010110 + 1 = 1010111
-   - 110011 -- 001101 + 1 = 1001110
-   - 1001 -- 0110 + 1 = 10111
+   - 101010 -- 010110 + 1 = 010111 -- 1010111
+   - 110011 -- 001101 + 1 = 001110 -- 1010111
+   - 1001 -- 0110 + 1 = 0111 -- 1010111
 
 ### Fixed Point Representation
 1. **Represent the decimal number in fixed-point binary:**
