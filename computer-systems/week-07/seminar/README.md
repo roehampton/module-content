@@ -23,6 +23,7 @@ The following code is used in the next few questions.
     sub eax, '0'
     mov ecx, '4'
     sub ecx, '0'
+    
 label1:
     call procedure_test
     loop label1
