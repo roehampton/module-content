@@ -1,4 +1,4 @@
-# Computer Systems Lab 4 - State Machines
+# Computer Systems Lab 3 - State Machines
 
 In this lab, we will use JFLAP to model state machines. JFLAP will be available on the desktop of the Azure Labs Windows desktop. You can also download and install JFLAP for your own machine, although you will first need to install Java.
 
