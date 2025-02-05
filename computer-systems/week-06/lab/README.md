@@ -8,7 +8,7 @@ Open JDoodle by clicking on https://www.jdoodle.com/. Click on Let’s code and 
 
 ### Programme 1: Hello World
 
-```
+```assembly
 ; hello world in nasm
 
 ; this section holds the declared variables, we can use 'segment' instead of 'section'
