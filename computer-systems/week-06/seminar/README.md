@@ -1,14 +1,14 @@
-# Computer Systems Seminar 5 - Introduction to Assembly
+# Computer Systems Seminar 4 - Introduction to Assembly
 
 1. Below is the code to execute a division operation.
    - Correctly comment on each line with details of the instruction.
    - What is the output for this code?
 
 ```assembly
-global main
+global _start
 
 SECTION .data
-    msg db "The result is ",0xa,0xd
+    msg db "The result is ", 0xa, 0xd
     len equ $ - msg
     
 SECTION .bss
@@ -16,7 +16,7 @@ SECTION .bss
     
 SECTION .text
 
-main:
+_start:
     mov ax, '8'
     sub ax, '0'
     mov bl, '2'
@@ -46,15 +46,15 @@ main:
    - What is the output of this code?
 
 ```assembly
-global main
+global _start
 
 SECTION .data
-    grt db Interesting Seminar',0xa
+    grt db Interesting Seminar', 0xa
     len equ $ - grt
     
 SECTION .text
 
-main:
+_start:
     mov edx, 1
     mov ecx, grt
     mov eax, 4
