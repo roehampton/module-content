@@ -57,42 +57,12 @@ Within an async function, the 'await' keyword will be found: 'await' can ONLY be
 
 Using _await_ tells your program to only continue once the Promise has been resolved.  See the following example:
 
-```html
-
-<html>
-<script>
-
-// Using the async function type and await keyword
-async function hello(mystring) {
-    var ret = await Promise.resolve('hello');
-    return mystring;
-}
-
-
-</script>
-</html
-```
 
 
 __.then()__ 
 
 If you are outside an async function, and you need to make sure that your code calling an async function only executes when the fully 'resolved' value of the promise is returned, you can use a .then() block.
 
-See the following example:
-
-```html
-
-
-// The hello function is called, 
-// when its return value is ready, ie. the promise is resolved,
-// the function in the 'then' block is called
-// note that the return value can be used in the .then blocks
-
-hello('lisa').then(mystring => {alert(mystring)});
-
-</script>
-</html>
-```
 
 Because getting data from a database is one of the more time consuming operations, we will use async functions and promises in our code to ensure that we have the values we need for certain code blocks, while still being able to execute non-dependent blocks of code.
 
